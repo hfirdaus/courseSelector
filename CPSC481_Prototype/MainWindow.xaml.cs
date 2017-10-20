@@ -37,5 +37,22 @@ namespace CPSC481_Prototype
                 Show_Cart_Label.Content = "Show Cart";
             }
         }
+
+        private void Requirement_Popup_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Requirement_Popup.Visibility == Visibility.Visible)
+            {
+                Requirement_Popup.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void Requirement_Popup_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Requirement_Popup.Visibility == Visibility.Visible)
+            {
+                Requirement_Popup.Visibility = Visibility.Hidden;
+            }
+        }
+
     }
 }
