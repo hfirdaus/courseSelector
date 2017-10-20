@@ -13,39 +13,53 @@
             <ColumnDefinition Width="6*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0">
-            <Border BorderBrush="Black"
-                    BorderThickness="0 0 0 1">
-                <!-- Border thickness order: "left top right bottom"-->
-                <StackPanel>
-                    <Label HorizontalAlignment="Left" DockPanel.Dock="Left" Content="Degree Navigator"/>
-                    <StackPanel Orientation="Horizontal"
-                            Margin="2">
-                        <Border CornerRadius="100" BorderBrush="Black" BorderThickness="1"
-                            MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
-                            MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}">
-                            <Label Content="1" HorizontalAlignment="Center"/>
-                        </Border>
-                        <Label HorizontalAlignment="Left" Content="Business..."/>
+        <DockPanel LastChildFill="True" Grid.Column="0">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Top" DockPanel.Dock="Top">
+                <Border BorderBrush="Black"
+                        BorderThickness="0 0 0 1">
+                    <!-- Border thickness order: "left top right bottom"-->
+                    <StackPanel>
+                        <Label HorizontalAlignment="Left" DockPanel.Dock="Left" Content="Degree Navigator"/>
+                        <StackPanel Orientation="Horizontal"
+                                Margin="2">
+                            <Border CornerRadius="100" BorderBrush="Black" BorderThickness="1"
+                                MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                                MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}">
+                                <Label Content="1" HorizontalAlignment="Center"/>
+                            </Border>
+                            <Label HorizontalAlignment="Left" Content="Business..."/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                Margin="2">
+                            <Border CornerRadius="100" BorderBrush="Black" BorderThickness="1"
+                                MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                                MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}">
+                                <Label Content="+" HorizontalAlignment="Center"/>
+                            </Border>
+                            <Label HorizontalAlignment="Left" Content="Add a degree"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <CheckBox VerticalAlignment="Center"/>
+                            <Label Content="Show Completed"/>
+                        </StackPanel>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal"
-                            Margin="2">
-                        <Border CornerRadius="100" BorderBrush="Black" BorderThickness="1"
-                            MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
-                            MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}">
-                            <Label Content="+" HorizontalAlignment="Center"/>
-                        </Border>
-                        <Label HorizontalAlignment="Left" Content="Add a degree"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <CheckBox VerticalAlignment="Center"/>
-                        <Label Content="Show Completed"/>
-                    </StackPanel>
-                </StackPanel>
-            </Border>
-        </StackPanel>
-        <Rectangle Grid.Column="1" Width="1" Height="Auto" Fill="Black"/>
-        <DockPanel LastChildFill="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="0">
+                </Border>
+
+            </StackPanel>
+            <DockPanel LastChildFill="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DockPanel.Dock="Top">
+                <ScrollViewer>
+
+                </ScrollViewer>
+
+            </DockPanel>
+        </DockPanel>
+        
+        
+
+
+        <Rectangle Grid.Column="1" Height="Auto" Fill="Black" Grid.RowSpan="2"/>
+        
+        <DockPanel LastChildFill="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2">
             <StackPanel DockPanel.Dock="Top">
                 <Border BorderBrush="Black"
                     BorderThickness="0 0 0 1">
@@ -105,9 +119,11 @@
                     <Border BorderBrush="Black" BorderThickness="0 1 1 1" Canvas.Bottom="0" CornerRadius="0 10 0 0" MouseDown="Show_Cart_Border_MouseDown">
                         <Label x:Name="Show_Cart_Label"  Content="Show Cart"/>
                     </Border>
+
                 </Canvas>
             </Grid>
         </DockPanel>
+
     </Grid>
 </Window>
 
