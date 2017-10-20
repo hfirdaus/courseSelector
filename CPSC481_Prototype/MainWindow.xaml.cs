@@ -46,13 +46,6 @@ namespace CPSC481_Prototype
             }
         }
 
-        private void Requirement_Popup_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (Requirement_Popup.Visibility == Visibility.Visible)
-            {
-                Requirement_Popup.Visibility = Visibility.Hidden;
-            }
-        }
 
     }
 }
