@@ -43,13 +43,27 @@
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                 <CheckBox Checked="Show_Complete_CheckBox_Checked" Unchecked="Show_Complete_CheckBox_Unchecked" VerticalAlignment="Center"/>
-                                <Label Content="Show Completed Requirement Course(s)"/>
+                                <Label Content="Show Completed Required Course(s)"/>
                             </StackPanel>
                         </StackPanel>
                     </Border>
 
                 </StackPanel>
                 <DockPanel LastChildFill="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DockPanel.Dock="Top">
+                    
+                    <ScrollViewer x:Name="Show_Completed_Stack_Panel" DockPanel.Dock="Bottom" Visibility="Collapsed" MinHeight="150" Background="LightYellow">
+                        <StackPanel>
+                            <TextBlock Text="Completed Required Courses" FontSize="15" FontWeight="Bold" TextAlignment="Center"/>
+                            <Border Margin="0,3" BorderThickness="1" BorderBrush="Black" Background="White">
+                                <StackPanel>
+                                    <TextBlock Text="ENGL 201 - Approaches to Literature" TextDecorations="Underline" FontWeight="Medium" Margin="3, 0"/>
+                                    <TextBlock TextWrapping="Wrap" Text="Requirement 2: Non-Commerce Courses (Junior English 3 units or 0.5 full course equivalent)" Margin="3, 0"/>
+                                    <TextBlock Margin="3, 0" Text="Completed date: Spring 2017"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </ScrollViewer>
+                    
                     <ScrollViewer>
                         <StackPanel>
 
@@ -121,7 +135,7 @@
                                 </StackPanel>
                             </Expander>
 
-                            <Expander>
+                            <Expander DockPanel.Dock="Top">
                                 <Expander.Header>
                                     <TextBlock Text="Requirement 3: Option Courses" FontWeight="Bold"/>
                                 </Expander.Header>
@@ -147,21 +161,19 @@
                                             <TextBlock Margin="3, 0" Text="(6 units or 1.0 full-course equivalent)"/>
                                         </StackPanel>
                                     </Border>
-
                                 </StackPanel>
                             </Expander>
                         </StackPanel>
 
                     </ScrollViewer>
-
                 </DockPanel>
-                <StackPanel x:Name="Show_Completed_Stack_Panel" DockPanel.Dock="Bottom" Visibility="Collapsed" Background="Orange">
-                    <TextBlock Text="This is where the schedule will be placed when it's done" MinHeight="150"/>
-                </StackPanel>
                 
+                
+                 
             </DockPanel>
-
             
+            
+
 
 
             <Rectangle Grid.Column="1" Height="Auto" Fill="Black" Grid.RowSpan="2"/>
