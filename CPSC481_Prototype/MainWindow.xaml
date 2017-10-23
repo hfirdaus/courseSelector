@@ -82,7 +82,7 @@
                                             <TextBlock Margin="3, 0" TextWrapping="Wrap" Text="Antirequisite: credit for SGMA217 and BSEN291 will not be allowed."/>
                                         </StackPanel>
                                     </Border>
-                                    
+
                                 </StackPanel>
                             </Expander>
 
@@ -98,7 +98,7 @@
                                                 <RadioButton GroupName ="r2" Margin="3, 3"/>
                                                 <TextBlock Margin="3, 0" FontWeight="Medium" Text="ECON 201 - Principles of Microeconomic" TextDecorations="Underline"/>
                                             </StackPanel>
-                                            
+
                                             <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018"/>
                                             <TextBlock Margin="3, 0" Text="Prerequisite: None"/>
                                             <TextBlock Margin="3, 0" Text="Corequisite: None"/>
@@ -110,14 +110,14 @@
                                             <StackPanel Orientation="Horizontal">
                                                 <RadioButton GroupName ="r2" Margin="3, 3"/>
                                                 <TextBlock Margin="3, 0" FontWeight="Medium" Text="ECON 203 - Principles of Marcoeconomic" TextDecorations="Underline"/>
-                                                
+
                                             </StackPanel>
                                             <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018"/>
                                             <TextBlock Margin="3, 0" Text="Prerequisite: ECON 201"/>
                                             <TextBlock Margin="3, 0" Text="Corequisite: ECON 201"/>
                                         </StackPanel>
                                     </Border>
-                                    
+
                                 </StackPanel>
                             </Expander>
 
@@ -127,7 +127,7 @@
                                 </Expander.Header>
                             </Expander>
                         </StackPanel>
-                        
+
                     </ScrollViewer>
 
                 </DockPanel>
@@ -190,10 +190,46 @@
                     <TextBlock Text="This is where the schedule will be placed when it's done" MinHeight="150"/>
                 </StackPanel>
                 <Grid>
+                    <Label Content="Select a requirement on the left, or start a search to get started" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     <ScrollViewer>
                         <!-- This is the Course Selector content area -->
-                        <Label Content="Select a requirement on the left, or start a search to get started" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <StackPanel Visibility="Visible">
+                            <DockPanel Width="440" Margin="10">
+                                <Border BorderBrush="Black" BorderThickness="1">
+                                    <StackPanel>
+                                        <DockPanel>
+                                            <Border BorderBrush="Black" BorderThickness="0 0 0 1">
+                                                <Label HorizontalAlignment="Left" DockPanel.Dock="Left" Content="MGST 217 - Introduction to Business Analytics"/>
+                                            </Border>
+                                        </DockPanel>
+                                        <Expander>
+                                            <Expander.Header>
+                                                <TextBlock Text="Fall 2017"/>
+                                            </Expander.Header>
+                                            <StackPanel>
+                                                <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="[Course Description]"/>
+                                                <Expander Header= "Lecture">
+                                                    <StackPanel Margin="20 0 0 0">
+                                                        <RadioButton GroupName="lecture">L01 - Prof - MWF - [time]</RadioButton>
+                                                        <RadioButton GroupName="lecture">L02 - Prof - MWF - [time]</RadioButton>
+                                                    </StackPanel>
+                                                </Expander>
+                                                <Expander Header="Tutorial">
+                                                    <StackPanel Margin="20 0 0 0">
+                                                        <RadioButton GroupName="tutorial">T01 - TBA - MW - [time]</RadioButton>
+                                                        <RadioButton GroupName="tutorial">T02 - TBA - MW - [time]</RadioButton>
+                                                        <RadioButton GroupName="tutorial">T03 - TBA - TR - [time]</RadioButton>
+                                                        <RadioButton GroupName="tutorial">T04 - TBA - TR - [time]</RadioButton>
+                                                    </StackPanel>
+                                                </Expander>
+                                            </StackPanel>
+                                        </Expander>
 
+
+                                    </StackPanel>
+                                </Border>
+                            </DockPanel>
+                        </StackPanel>
                     </ScrollViewer>
                     <Canvas>
                         <Border BorderBrush="Black" BorderThickness="0 1 1 1" Canvas.Bottom="0" CornerRadius="0 10 0 0" MouseDown="Show_Cart_Border_MouseDown">
