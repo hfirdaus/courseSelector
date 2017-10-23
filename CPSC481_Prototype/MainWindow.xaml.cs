@@ -46,6 +46,16 @@ namespace CPSC481_Prototype
             }
         }
 
+        private void Show_Complete_CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            Show_Completed_Stack_Panel.Visibility = Visibility.Visible;
+        }
+
+        private void Show_Complete_CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Show_Completed_Stack_Panel.Visibility = Visibility.Collapsed;
+        }
+
 
     }
 }
