@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CPSC481_Prototype"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="830">
+        Title="Improved Course Registration" Height="600" Width="830">
     <Grid>
 
 
@@ -218,8 +218,19 @@
                     <TextBlock Text="This is where the schedule will be placed when it's done" MinHeight="150"/>
                 </StackPanel>
                 <Grid>
-                    <Label Content="Select a requirement on the left, or start a search to get started" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    <ScrollViewer>
+                    <Label Content="Select a requirement on the left, or start a search to get started" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Label.Resources>
+                            <Style TargetType="Label">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Content, ElementName=course_selector_scrollviewer}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Label.Resources>
+                    </Label>
+                    <ScrollViewer Name="course_selector_scrollviewer">
                         <!-- This is the Course Selector content area -->
                         <StackPanel Visibility="Visible">
                             <DockPanel Width="440" Margin="10">
