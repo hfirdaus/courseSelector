@@ -273,13 +273,50 @@
                                                         <RadioButton GroupName="tutorial">T04 - TBA - TR - [time]</RadioButton>
                                                     </StackPanel>
                                                 </Expander>
+                                                <Button HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="4" Content="Add to Cart"/>
                                             </StackPanel>
                                         </Expander>
-
-
                                     </StackPanel>
                                 </Border>
                             </DockPanel>
+
+                            <DockPanel Width="440">
+                                <Border BorderBrush="Black" BorderThickness="1">
+                                    <StackPanel>
+                                        <DockPanel>
+                                            <Border BorderBrush="Black" BorderThickness="0 0 0 1">
+                                                <Label HorizontalAlignment="Left" DockPanel.Dock="Left" Content="MGST 217 - Introduction to Business Analytics"/>
+                                            </Border>
+                                        </DockPanel>
+                                        <Expander>
+                                            <Expander.Header>
+                                                <TextBlock Text="Winter 2018"/>
+                                            </Expander.Header>
+                                            <StackPanel>
+                                                <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="[Course Description]"/>
+                                                <Expander Header= "Lecture">
+                                                    <StackPanel Margin="20 0 0 0">
+                                                        <RadioButton GroupName="lecture">L01 - Prof - MWF - [time]</RadioButton>
+                                                        <RadioButton GroupName="lecture">L02 - Prof - MWF - [time]</RadioButton>
+                                                    </StackPanel>
+                                                </Expander>
+                                                <Expander Header="Tutorial">
+                                                    <StackPanel Margin="20 0 0 0">
+                                                        <RadioButton GroupName="tutorial">T01 - TBA - MW - [time]</RadioButton>
+                                                        <RadioButton GroupName="tutorial">T02 - TBA - MW - [time]</RadioButton>
+                                                        <RadioButton GroupName="tutorial">T03 - TBA - TR - [time]</RadioButton>
+                                                        <RadioButton GroupName="tutorial">T04 - TBA - TR - [time]</RadioButton>
+                                                    </StackPanel>
+                                                </Expander>
+                                                <Button HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="4" Content="Add to Cart"/>
+                                            </StackPanel>
+                                        </Expander>
+                                    </StackPanel>
+                                </Border>
+                            </DockPanel>
+
+
+
                         </StackPanel>
                     </ScrollViewer>
                     
