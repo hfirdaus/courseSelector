@@ -245,18 +245,6 @@
                     </StackPanel>
                 </StackPanel>
                 <Grid>
-                    <Label Content="Select a requirement on the left, or start a search to get started" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <Label.Resources>
-                            <Style TargetType="Label">
-                                <Setter Property="Visibility" Value="Hidden"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ElementName=course_selector_stackpanel, Path=Children.count}" Value="0">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Label.Resources>
-                    </Label>
                     <ScrollViewer>
                         <!-- This is the Course Selector content area -->
                         <StackPanel Visibility="Visible">
@@ -270,6 +258,18 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="{Binding ElementName=Show_Cart_Border, Path=ActualHeight}"/>
                                 </Grid.RowDefinitions>
+                                <Label Content="Select a requirement on the left, or start a search to get started" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <Label.Resources>
+                                        <Style TargetType="Label">
+                                            <Setter Property="Visibility" Value="Hidden"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ElementName=course_selector_stackpanel, Path=Children.count}" Value="0">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Label.Resources>
+                                </Label>
                                 <StackPanel Name="course_selector_stackpanel" Orientation="Vertical" Grid.Column="1">
                                     <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
                                         <StackPanel>
