@@ -262,7 +262,7 @@
                                        HorizontalAlignment="Center"
                                        Grid.Column="1">
                                 <Label.Resources>
-                                    <Style TargetType="{x:Type Label}">
+                                    <Style TargetType="Label">
                                         <Setter Property="Visibility" Value="Collapsed"/>
                                         <Style.Triggers>
                                             <DataTrigger Binding="{Binding ElementName=course_selector_stackpanel, Path=Children.Count}" Value="0">
