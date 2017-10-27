@@ -61,6 +61,15 @@ namespace CPSC481_Prototype
             Degree_Search_Panel.Visibility = Visibility.Visible;
         }
 
+        private void Remove_From_Cart(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void Enroll(object sender, RoutedEventArgs e)
+        {
+        }
+        
+
 
     }
 }
