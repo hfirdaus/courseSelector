@@ -39,7 +39,7 @@
                                 MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}">
                                     <Label Content="+" HorizontalAlignment="Center"/>
                                 </Border>
-                                <Label HorizontalAlignment="Left" Content="Add a degree"/>
+                                <Label HorizontalAlignment="Left" Content="View additional degree"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                 <CheckBox Checked="Show_Complete_CheckBox_Checked" Unchecked="Show_Complete_CheckBox_Unchecked" VerticalAlignment="Center"/>
