@@ -298,7 +298,7 @@
                                                             <RadioButton GroupName="tutorial">T04 - TBA - TR - [time]</RadioButton>
                                                         </StackPanel>
                                                     </Expander>
-                                                    <Button HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="4" Content="Add to Cart"/>
+                                                    <Button Click="Add_to_Cart_Click" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="4" Content="Add to Cart"/>
                                                 </StackPanel>
                                             </Expander>
                                         </StackPanel>
@@ -331,7 +331,7 @@
                                                             <RadioButton GroupName="tutorial">T04 - TBA - TR - [time]</RadioButton>
                                                         </StackPanel>
                                                     </Expander>
-                                                    <Button HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="4" Content="Add to Cart"/>
+                                                    <Button Click="Add_to_Cart_Click" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="4" Content="Add to Cart"/>
                                                 </StackPanel>
                                             </Expander>
                                         </StackPanel>

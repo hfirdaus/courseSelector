@@ -41,5 +41,10 @@ namespace CPSC481_Prototype
         {
             Show_Completed_Stack_Panel.Visibility = Visibility.Collapsed;
         }
+
+        private void Add_to_Cart_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Added to Cart"); 
+        }
     }
 }
