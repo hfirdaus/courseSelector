@@ -185,7 +185,7 @@
                         <!-- Border thickness order: "left top right bottom"-->
                         <DockPanel>
                             <Label HorizontalAlignment="Left" DockPanel.Dock="Left" Content="Course Selector" FontWeight="Bold" FontSize="14"/>
-                            <Button HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="4" Content="Search Courses" FontWeight="Bold"/>
+                            <Button Click="Search_Button_Click" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="4" Content="Search Courses" FontWeight="Bold"/>
 
                         </DockPanel>
                     </Border>

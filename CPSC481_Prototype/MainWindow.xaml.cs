@@ -46,5 +46,11 @@ namespace CPSC481_Prototype
         {
             MessageBox.Show("Added to Cart"); 
         }
+
+        private void Search_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Requirement_Popup.Visibility = Visibility.Visible;
+        }
+        
     }
 }
