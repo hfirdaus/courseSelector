@@ -51,6 +51,15 @@ namespace CPSC481_Prototype
         {
             Requirement_Popup.Visibility = Visibility.Visible;
         }
-        
+
+        private void Remove_From_Cart(object sender, RoutedEventArgs e)
+        {
+            Requirement_Popup.Visibility = Visibility.Visible;
+        }
+
+        private void Enroll(object sender, RoutedEventArgs e)
+        {
+            Requirement_Popup.Visibility = Visibility.Visible;
+        }
     }
 }
