@@ -40,7 +40,7 @@
                                         MouseDown="Add_Degree_MouseDown">
                                     <Label Content="+" HorizontalAlignment="Center"/>
                                 </Border>
-                                <Label HorizontalAlignment="Left" Content="Add a degree"/>
+                                <Label HorizontalAlignment="Left" Content="View additional degree"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                 <CheckBox Checked="Show_Complete_CheckBox_Checked" Unchecked="Show_Complete_CheckBox_Unchecked" VerticalAlignment="Center"/>
@@ -246,33 +246,36 @@
                     </StackPanel>
                 </StackPanel>
                 <Grid>
-                    <Label Content="Select a requirement on the left, or start a search to get started" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <Label.Resources>
-                            <Style TargetType="Label">
-                                <Setter Property="Visibility" Value="Hidden"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ElementName=course_selector_stackpanel, Path=Children.count}" Value="0">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Label.Resources>
-                    </Label>
                     <ScrollViewer>
                         <!-- This is the Course Selector content area -->
-                        <StackPanel Visibility="Visible">
-                            <Grid Margin="2">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="20*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="{Binding ElementName=Show_Cart_Border, Path=ActualHeight}"/>
-                                </Grid.RowDefinitions>
-                                <StackPanel Name="course_selector_stackpanel" Orientation="Vertical" Grid.Column="1">
-                                    <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
+                        <Grid Margin="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="20*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="{Binding ElementName=Show_Cart_Border, Path=ActualHeight}"/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Select a requirement on the left, or start a search to get started"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Grid.Column="1">
+                                <Label.Resources>
+                                    <Style TargetType="Label">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=course_selector_stackpanel, Path=Children.Count}" Value="0">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Label.Resources>
+                            </Label>
+                            <StackPanel Name="course_selector_stackpanel" Orientation="Vertical" Grid.Column="1">
+                                
+                                <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
                                         <StackPanel>
                                             <DockPanel>
                                                 <Border BorderBrush="Black" BorderThickness="0 0 0 1">
@@ -305,44 +308,40 @@
                                         </StackPanel>
                                     </Border>
 
-                                    <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
-                                        <StackPanel>
-                                            <DockPanel>
-                                                <Border BorderBrush="Black" BorderThickness="0 0 0 1">
-                                                    <Label HorizontalAlignment="Left" DockPanel.Dock="Left" Content="MGST 217 - Introduction to Business Analytics"/>
-                                                </Border>
-                                            </DockPanel>
-                                            <Expander IsExpanded="True">
-                                                <Expander.Header>
-                                                    <TextBlock Text="Winter 2018"/>
-                                                </Expander.Header>
-                                                <StackPanel>
-                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="[Course Description]"/>
-                                                    <Expander Header= "Lecture" IsExpanded="True">
-                                                        <StackPanel Margin="20 0 0 0">
-                                                            <RadioButton GroupName="lecture">L01 - Prof - MWF - [time]</RadioButton>
-                                                            <RadioButton GroupName="lecture">L02 - Prof - MWF - [time]</RadioButton>
-                                                        </StackPanel>
-                                                    </Expander>
-                                                    <Expander Header="Tutorial" IsExpanded="True">
-                                                        <StackPanel Margin="20 0 0 0">
-                                                            <RadioButton GroupName="tutorial">T01 - TBA - MW - [time]</RadioButton>
-                                                            <RadioButton GroupName="tutorial">T02 - TBA - MW - [time]</RadioButton>
-                                                            <RadioButton GroupName="tutorial">T03 - TBA - TR - [time]</RadioButton>
-                                                            <RadioButton GroupName="tutorial">T04 - TBA - TR - [time]</RadioButton>
-                                                        </StackPanel>
-                                                    </Expander>
-                                                    <Button Click="Add_to_Cart_Click" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="4" Content="Add to Cart"/>
-                                                </StackPanel>
-                                            </Expander>
-                                        </StackPanel>
-                                    </Border>
-                                </StackPanel>
-                            </Grid>
-
-
-
-                        </StackPanel>
+                                <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
+                                    <StackPanel>
+                                        <DockPanel>
+                                            <Border BorderBrush="Black" BorderThickness="0 0 0 1">
+                                                <Label HorizontalAlignment="Left" DockPanel.Dock="Left" Content="MGST 217 - Introduction to Business Analytics"/>
+                                            </Border>
+                                        </DockPanel>
+                                        <Expander IsExpanded="True">
+                                            <Expander.Header>
+                                                <TextBlock Text="Winter 2018"/>
+                                            </Expander.Header>
+                                            <StackPanel>
+                                                <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="[Course Description]"/>
+                                                <Expander Header= "Lecture" IsExpanded="True">
+                                                    <StackPanel Margin="20 0 0 0">
+                                                        <RadioButton GroupName="lecture">L01 - Prof - MWF - [time]</RadioButton>
+                                                        <RadioButton GroupName="lecture">L02 - Prof - MWF - [time]</RadioButton>
+                                                    </StackPanel>
+                                                </Expander>
+                                                <Expander Header="Tutorial" IsExpanded="True">
+                                                    <StackPanel Margin="20 0 0 0">
+                                                        <RadioButton GroupName="tutorial">T01 - TBA - MW - [time]</RadioButton>
+                                                        <RadioButton GroupName="tutorial">T02 - TBA - MW - [time]</RadioButton>
+                                                        <RadioButton GroupName="tutorial">T03 - TBA - TR - [time]</RadioButton>
+                                                        <RadioButton GroupName="tutorial">T04 - TBA - TR - [time]</RadioButton>
+                                                    </StackPanel>
+                                                </Expander>
+                                                <Button Click="Add_to_Cart_Click" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="4" Content="Add to Cart"/>
+                                            </StackPanel>
+                                        </Expander>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </Grid>
                     </ScrollViewer>
 
                     <Canvas>
