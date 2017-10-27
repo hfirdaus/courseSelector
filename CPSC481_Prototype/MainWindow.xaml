@@ -236,13 +236,55 @@
                         </Grid>
                     </Border>
                 </StackPanel>
-                <StackPanel Name="Cart_Sched_Stack_Panel" DockPanel.Dock="Bottom" Visibility="Collapsed">
-                    <StackPanel Name="Cart_Stack_Panel" MinHeight="150" Visibility="Collapsed" Background="Orange">
-                        <TextBlock Text="This is where the shopping cart will be placed when it's done"/>
-                    </StackPanel>
-                    <StackPanel Name="Sched_Stack_Panel" MinHeight="150" Visibility="Collapsed" Background="Green">
-                        <TextBlock Text="This is where the schedule will be placed when it's done"/>
-                    </StackPanel>
+                <StackPanel Name="Cart_Sched_Stack_Panel" DockPanel.Dock="Bottom" Visibility="Visible">
+                    <Border BorderThickness="1" BorderBrush="Black" >
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="All"/>
+                                <Rectangle Width="1" Height="Auto" Fill="Black" />
+                                <Label Content="Fall"/>
+                                <Rectangle Width="1" Height="Auto" Fill="Black"/>
+                                <Label Content="Winter"/>
+                                <Rectangle Width="1" Height="Auto" Fill="Black"/>
+                                <Label Content="Spring"/>
+                                <Rectangle Width="1" Height="Auto" Fill="Black"/>
+                                <Label Content="Summer"/>
+                                <Rectangle Width="1" Height="Auto" Fill="Black"/>
+                            </StackPanel>
+                            <StackPanel Name="Cart_Stack_Panel" MinHeight="150" Visibility="Collapsed" Background="LightBlue">
+                                <StackPanel>
+                                    <Border Margin="0" BorderThickness="0 1 0 1" BorderBrush="Black" Background="AliceBlue">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" VerticalAlignment="Center" Text="ECON 201 - Principles of Microeconomics"/>
+                                            <Button Click="Remove_From_Cart" Margin="4" Content="Remove" FontWeight="Bold"/>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Margin="0,3" BorderThickness="0 1 0 1" BorderBrush="Black" Background="AliceBlue">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" VerticalAlignment="Center" Text="ECON 301 - More Principles of Microeconomics"/>
+                                            <Button Click="Remove_From_Cart" Margin="4" Content="Remove" FontWeight="Bold"/>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                                <Button Click="Enroll" Margin="4" Content="Enroll" FontWeight="Bold" MaxWidth="100" />
+
+                            </StackPanel>
+                            <StackPanel Name="Sched_Stack_Panel" MinHeight="150" Visibility="Visible" Background="PaleGreen">
+                                <StackPanel>
+                                    <Border Margin="0" BorderThickness="0 1 0 1" BorderBrush="Black" Background="AliceBlue">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" VerticalAlignment="Center" Text="ECON 201 - Principles of Microeconomics"/>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Margin="0,3" BorderThickness="0 1 0 1" BorderBrush="Black" Background="AliceBlue">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" VerticalAlignment="Center" Text="ECON 301 - More Principles of Microeconomics"/>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
                 </StackPanel>
                 <Grid>
                     <Label Content="Select a requirement on the left, or start a search to get started" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -345,10 +387,10 @@
                     </ScrollViewer>
                     
                     <Canvas>
-                        <Border Name="Show_Cart_Border" BorderBrush="Black" BorderThickness="0 1 1 1" Canvas.Bottom="0" CornerRadius="0 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+                        <Border Name="Show_Cart_Border" BorderBrush="Black" BorderThickness="1 1 1 0" Canvas.Bottom="0" CornerRadius="0 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
                             <Label Name="Show_Cart_Label"  Content="Show Cart"/>
                         </Border>
-                        <Border Name="Show_Schedule_Border" BorderBrush="Black" BorderThickness="1 1 1 1" Canvas.Bottom="0" Canvas.Left="{Binding ElementName=Show_Cart_Label, Path=ActualWidth}" CornerRadius="10 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+                        <Border Name="Show_Schedule_Border" BorderBrush="Black" BorderThickness="1 1 1 0" Canvas.Bottom="0" Canvas.Left="{Binding ElementName=Show_Cart_Label, Path=ActualWidth}" CornerRadius="10 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
                             <Label Name="Show_Schedule_Label"  Content="Show Schedule"/>
                         </Border>
 
