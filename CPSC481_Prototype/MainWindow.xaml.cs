@@ -50,7 +50,17 @@ namespace CPSC481_Prototype
         private void Search_Button_Click(object sender, RoutedEventArgs e)
         {
             Requirement_Popup.Visibility = Visibility.Visible;
+            Course_Search_Panel.Visibility = Visibility.Visible;
+            Degree_Search_Panel.Visibility = Visibility.Hidden;
         }
-        
+
+        private void Add_Degree_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Requirement_Popup.Visibility = Visibility.Visible;
+            Course_Search_Panel.Visibility = Visibility.Hidden;
+            Degree_Search_Panel.Visibility = Visibility.Visible;
+        }
+
+
     }
 }

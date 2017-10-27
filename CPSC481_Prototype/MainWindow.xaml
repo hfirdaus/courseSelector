@@ -36,7 +36,8 @@
                                 Margin="2">
                                 <Border CornerRadius="100" BorderBrush="Black" BorderThickness="1"
                                 MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
-                                MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}">
+                                MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}"
+                                        MouseDown="Add_Degree_MouseDown">
                                     <Label Content="+" HorizontalAlignment="Center"/>
                                 </Border>
                                 <Label HorizontalAlignment="Left" Content="Add a degree"/>
@@ -50,7 +51,7 @@
 
                 </StackPanel>
                 <DockPanel LastChildFill="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DockPanel.Dock="Top">
-                    
+
                     <ScrollViewer x:Name="Show_Completed_Stack_Panel" DockPanel.Dock="Bottom" Visibility="Collapsed" MinHeight="150" Background="LightYellow">
                         <StackPanel>
                             <TextBlock Text="Completed Required Courses" FontSize="15" FontWeight="Bold" TextAlignment="Center"/>
@@ -63,7 +64,7 @@
                             </Border>
                         </StackPanel>
                     </ScrollViewer>
-                    
+
                     <ScrollViewer>
                         <StackPanel>
 
@@ -167,12 +168,12 @@
 
                     </ScrollViewer>
                 </DockPanel>
-                
-                
-                 
+
+
+
             </DockPanel>
-            
-            
+
+
 
 
 
@@ -343,7 +344,7 @@
 
                         </StackPanel>
                     </ScrollViewer>
-                    
+
                     <Canvas>
                         <Border Name="Show_Cart_Border" BorderBrush="Black" BorderThickness="0 1 1 1" Canvas.Bottom="0" CornerRadius="0 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
                             <Label Name="Show_Cart_Label"  Content="Show Cart"/>
@@ -358,9 +359,19 @@
             </DockPanel>
 
         </Grid>
-        <DockPanel Name="Requirement_Popup" LastChildFill="True" Visibility="Hidden">
-            <Rectangle Fill="Black" Opacity="0.5" MouseDown="Requirement_Popup_MouseDown"/>
-        </DockPanel>
+        <Grid Name="Requirement_Popup"  Visibility="Hidden">
+
+            <Border Background="Black" Opacity="0.5" MouseDown="Requirement_Popup_MouseDown">
+
+            </Border>
+            <StackPanel Name="Course_Search_Panel" Height="315" VerticalAlignment="Top" Width="456" Margin="183,73,183,0" Background="White">
+                <TextBox Text="Search Courses"/>
+            </StackPanel>
+            <StackPanel Name="Degree_Search_Panel" Height="315" VerticalAlignment="Top" Width="456" Margin="183,73,183,0" Background="White">
+                <TextBox Text="Search Degrees"/>
+            </StackPanel>
+
+        </Grid>
 
     </Grid>
 </Window>
