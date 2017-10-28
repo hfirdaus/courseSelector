@@ -61,6 +61,11 @@ namespace CPSC481_Prototype
             Degree_Search_Panel.Visibility = Visibility.Visible;
         }
 
+        //private void Course_ACCT_Click(object sender, MouseButtonEventArgs e)
+        //{
+        //    Main_Faculty_Menu.Header = "ACCT - Accounting";
+        //}
+
         private void Remove_From_Cart(object sender, RoutedEventArgs e)
         {
         }

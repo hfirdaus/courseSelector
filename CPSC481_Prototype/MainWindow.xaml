@@ -406,10 +406,87 @@
 
             </Border>
             <StackPanel Name="Course_Search_Panel" Height="315" VerticalAlignment="Top" Width="456" Margin="183,73,183,0" Background="White">
-                <TextBox Text="Search Courses"/>
+                <Label Content="Search for Course" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                
+                <Label Content="Course Faculty" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" /> 
+                <ComboBox Width="150" HorizontalAlignment="Center">
+                    <ComboBoxItem>ACCT - Accounting</ComboBoxItem>
+                    <ComboBoxItem>BSEN - Business</ComboBoxItem>
+                    <ComboBoxItem>ECON - Economics</ComboBoxItem>
+                </ComboBox>
+                <Label Content="Course Level" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
+                <ComboBox Width="150" HorizontalAlignment="Center">
+                    <ComboBoxItem>100</ComboBoxItem>
+                    <ComboBoxItem>200</ComboBoxItem>
+                    <ComboBoxItem>300</ComboBoxItem>
+                    <ComboBoxItem>400</ComboBoxItem>
+                    <ComboBoxItem>500</ComboBoxItem>
+                </ComboBox>
+                <Label Content="Enter a Keyword" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
+                
+                <TextBox HorizontalAlignment="Center" Width="100" />
+                <Grid Margin="2" HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <WrapPanel Grid.Column="0" HorizontalAlignment="Center">
+                        <CheckBox VerticalAlignment="Center" Margin="2"/>
+                        <Label Content="Mon"/>
+                    </WrapPanel>
+                    <WrapPanel Grid.Column="1" HorizontalAlignment="Center">
+                        <CheckBox VerticalAlignment="Center" Margin="2"/>
+                        <Label Content="Tues"/>
+                    </WrapPanel>
+                    <WrapPanel Grid.Column="2" HorizontalAlignment="Center">
+                        <CheckBox VerticalAlignment="Center" Margin="2"/>
+                        <Label Content="Wed"/>
+                    </WrapPanel>
+                    <WrapPanel Grid.Column="3" HorizontalAlignment="Center">
+                        <CheckBox VerticalAlignment="Center" Margin="2"/>
+                        <Label Content="Thurs"/>
+                    </WrapPanel>
+                    <WrapPanel Grid.Column="4" HorizontalAlignment="Center">
+                        <CheckBox VerticalAlignment="Center" Margin="2"/>
+                        <Label Content="Fri"/>
+                    </WrapPanel>
+                </Grid>
+                <Button Content="Search" Width="50" Margin="203,10"/>
+                
             </StackPanel>
             <StackPanel Name="Degree_Search_Panel" Height="315" VerticalAlignment="Top" Width="456" Margin="183,73,183,0" Background="White">
-                <TextBox Text="Search Degrees"/>
+                <Label Content="Add Degree" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <Label Content="Stream" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
+                <ComboBox Width="150" HorizontalAlignment="Center">
+                    <ComboBoxItem>Bachelor of Arts</ComboBoxItem>
+                    <ComboBoxItem>Bachelor of Commerce</ComboBoxItem>
+                    <ComboBoxItem>Bachelor of Science</ComboBoxItem>
+                </ComboBox>
+                <Label Content="Major" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
+                <ComboBox Width="150" HorizontalAlignment="Center">
+                    <ComboBoxItem>ACCT - Accounting</ComboBoxItem>
+                    <ComboBoxItem>BSEN - Business</ComboBoxItem>
+                    <ComboBoxItem>ECON - Economics</ComboBoxItem>
+                </ComboBox>
+                <Label Content="Concentration" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
+                <ComboBox Width="150" HorizontalAlignment="Center">
+                    <ComboBoxItem>Accounting</ComboBoxItem>
+                    <ComboBoxItem>Finance</ComboBoxItem>
+                    <ComboBoxItem>General</ComboBoxItem>
+                    <ComboBoxItem>Real Estate Studies</ComboBoxItem>
+                    <ComboBoxItem>Supply Chain Management</ComboBoxItem>
+                </ComboBox>
+                <Label Content="Minor" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
+                <ComboBox Width="150" HorizontalAlignment="Center">
+                    <ComboBoxItem>ACCT - Accounting</ComboBoxItem>
+                    <ComboBoxItem>BSEN - Business</ComboBoxItem>
+                    <ComboBoxItem>ECON - Economics</ComboBoxItem>
+                </ComboBox>
+                <Button Content="Add" Width="50" Margin="203,10"/>
             </StackPanel>
 
         </Grid>
