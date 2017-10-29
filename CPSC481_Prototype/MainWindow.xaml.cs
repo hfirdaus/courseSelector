@@ -73,7 +73,10 @@ namespace CPSC481_Prototype
         private void Enroll(object sender, RoutedEventArgs e)
         {
         }
-        
+
+        private void DeleteCourse(object sender, RoutedEventArgs e)
+        {
+        }
 
 
     }
