@@ -1,22 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace CPSC481_Prototype
 {
-    class CourseSelectorCourses
+    class CourseSelectorCourses : INotifyCollectionChanged
     {
-        public static CourseSelectorCourses instance = new CourseSelectorCourses();
+        /*
+         * TODO:
+         *  1) Add ability to add courses
+         *  2) Add ability to remove courses
+         *  3) Add logic to tie to the Fall/Winter/Spring/Summer boxes
+         */
 
-        public List<Course> visable;
 
+        public static CourseSelectorCourses instance;
+
+        public ObservableCollection<Course> visable;
+
+        public event NotifyCollectionChangedEventHandler CollectionChanged;
+
+        public static void Initialize(ItemsControl item)
+        {
+            instance = new CourseSelectorCourses();
+            item.ItemsSource = instance.visable;
+        }
 
         private CourseSelectorCourses()
         {
+            visable = new ObservableCollection<Course>();
             
+        }
 
+        // TODO this needs to be made to add an actual course
+        public void addCourse(int num)
+        {
+            Course newCourse = new Course("Course Title " + num, "Course Description " + num, "Course Semester " + num);
+            visable.Add(newCourse);
+            if(CollectionChanged != null)
+                CollectionChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, null));
+            Console.WriteLine("Added course " + num);
+        }
+
+        // TODO implement remove course
+        public void removeCourse(Course course)
+        {
+            
         }
 
     }
@@ -35,6 +71,10 @@ namespace CPSC481_Prototype
         // Course Description
         public string Description { get; }
 
+        public ICommand Button_Click { get { return Click_Command; } }
+
+        private ICommand Click_Command;
+
         // A list of lecture sections
         public List<Section> Lectures;
 
@@ -49,9 +89,34 @@ namespace CPSC481_Prototype
 
         public Course(string Title, string Description, string Semester)
         {
-
+            this.Title = Title;
+            this.Description = Description;
+            Click_Command = new CourseCommand(this);
         }
 
+    }
+
+    public class CourseCommand : ICommand
+    {
+
+        public event EventHandler CanExecuteChanged;
+
+        private Course course;
+
+        public CourseCommand(Course course)
+        {
+            this.course = course;
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public void Execute(object parameter)
+        {
+            MessageBox.Show("Button was clicked for course " + course.Title + "!");
+        }
     }
 
     public class Offering

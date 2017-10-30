@@ -300,6 +300,20 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="{Binding ElementName=Show_Cart_Border, Path=ActualHeight}"/>
                             </Grid.RowDefinitions>
+                            <ItemsControl Name="Course_Selector_Items" Grid.Column="1">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate DataType="x:Type local:Course">
+                                        <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
+                                            <StackPanel Orientation="Vertical">
+                                                <Label Content="{Binding Title}"/>
+                                                <Label Content="{Binding Description}"/>
+                                                <Button Content="I am button!" Command="{Binding Button_Click}"/>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                            <Button Content="Add course" Grid.Column="1" Grid.Row="1" Click="Button_Click"/>
                             <Label Content="Select a requirement on the left, or start a search to get started"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
@@ -308,7 +322,7 @@
                                     <Style TargetType="Label">
                                         <Setter Property="Visibility" Value="Collapsed"/>
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding ElementName=course_selector_stackpanel, Path=Children.Count}" Value="0">
+                                            <DataTrigger Binding="{Binding ElementName=Course_Selector_Items, Path=Items.Count}" Value="0">
                                                 <Setter Property="Visibility" Value="Visible"/>
                                             </DataTrigger>
                                         </Style.Triggers>
@@ -316,7 +330,7 @@
                                 </Label.Resources>
                             </Label>
                             <StackPanel Name="course_selector_stackpanel" Orientation="Vertical" Grid.Column="1">
-                                
+                                <!-- 
                                 <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
                                         <StackPanel>
                                             <DockPanel>
@@ -382,6 +396,7 @@
                                         </Expander>
                                     </StackPanel>
                                 </Border>
+                                -->
                             </StackPanel>
                         </Grid>
                     </ScrollViewer>

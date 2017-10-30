@@ -20,9 +20,12 @@ namespace CPSC481_Prototype
     /// </summary>
     public partial class MainWindow : Window
     {
+        int courseNum = 0;
         public MainWindow()
         {
             InitializeComponent();
+
+            CourseSelectorCourses.Initialize(Course_Selector_Items);
         }
 
         private void Requirement_Popup_MouseDown(object sender, MouseButtonEventArgs e)
@@ -68,8 +71,11 @@ namespace CPSC481_Prototype
         private void Enroll(object sender, RoutedEventArgs e)
         {
         }
-        
 
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Trying to add course...");
+            CourseSelectorCourses.instance.addCourse(courseNum++);
+        }
     }
 }
