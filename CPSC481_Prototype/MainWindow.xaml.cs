@@ -25,7 +25,7 @@ namespace CPSC481_Prototype
         {
             InitializeComponent();
 
-            CourseSelectorCourses.Initialize(Course_Selector_Items);
+            Course_Selector_Items.ItemsSource = CourseSelectorCourses.instance.visable;
         }
 
         private void Requirement_Popup_MouseDown(object sender, MouseButtonEventArgs e)
@@ -75,7 +75,7 @@ namespace CPSC481_Prototype
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("Trying to add course...");
-            CourseSelectorCourses.instance.addCourse(courseNum++);
+            CourseSelectorCourses.addCourse(courseNum++);
         }
     }
 }

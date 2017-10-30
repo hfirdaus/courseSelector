@@ -21,31 +21,37 @@ namespace CPSC481_Prototype
          */
 
 
-        public static CourseSelectorCourses instance;
+        public static CourseSelectorCourses instance = new CourseSelectorCourses();
 
+        // Instance list of visable courses. Will be filtered if necessary
         public ObservableCollection<Course> visable;
 
-        public event NotifyCollectionChangedEventHandler CollectionChanged;
+        // Instance list of all courses
+        public ObservableCollection<Course> courses;
 
-        public static void Initialize(ItemsControl item)
-        {
-            instance = new CourseSelectorCourses();
-            item.ItemsSource = instance.visable;
-        }
+        // Event for when the visable list is changed
+        public event NotifyCollectionChangedEventHandler CollectionChanged;
 
         private CourseSelectorCourses()
         {
             visable = new ObservableCollection<Course>();
-            
+            courses = new ObservableCollection<Course>();
         }
 
-        // TODO this needs to be made to add an actual course
-        public void addCourse(int num)
+        // TODO this needs to be made to add an actual course. It is just making a new dummy course using the number given.
+        public static void addCourse(int num)
         {
+            // Make a course
             Course newCourse = new Course("Course Title " + num, "Course Description " + num, "Course Semester " + num);
-            visable.Add(newCourse);
-            if(CollectionChanged != null)
-                CollectionChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, null));
+
+            // Add the course to the visible list
+            instance.visable.Add(newCourse);
+
+            // Notify listeners of the addition
+            if(instance.CollectionChanged != null)
+                instance.CollectionChanged(instance, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, null));
+
+            // Debug log
             Console.WriteLine("Added course " + num);
         }
 
