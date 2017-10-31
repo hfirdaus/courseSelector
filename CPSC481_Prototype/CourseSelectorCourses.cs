@@ -50,7 +50,21 @@ namespace CPSC481_Prototype
         public static void addCourse(int num)
         {
             // Make a course
-            Course newCourse = new Course("Course Title " + num, "Course Description " + num, "Course Semester " + num);
+            Course newCourse = new Course("Course Title " + num, "Course Description " + num, "Course Semester " + num, 2017);
+
+            Section s = new Section()
+            {
+                Name = "Lecture 1"
+            };
+            s.Select_Command = new LectureCommand(newCourse, s);
+            newCourse._Lectures.Add(s);
+
+            s = new Section()
+            {
+                Name = "Lecture 2"
+            };
+            s.Select_Command = new LectureCommand(newCourse, s);
+            newCourse._Lectures.Add(s);
 
             // Add the course to the visible list
             instance.visable.Add(newCourse);
@@ -93,23 +107,29 @@ namespace CPSC481_Prototype
 
         private ICommand Click_Command;
 
+        public List<Section> Lectures { get { return _Lectures; } }
         // A list of lecture sections
-        public List<Section> Lectures;
+        public List<Section> _Lectures = new List<Section>();
 
         // A list of tutorial sections
-        public List<Section> Tutorials;
+        public List<Section> Tutorials = new List<Section>();
 
         // A list of lab sections
-        public List<Section> Labs;
+        public List<Section> Labs = new List<Section>();
 
         // A course can have 1 or more offerings.
-        private List<Offering> offerings;
+        private List<Offering> offerings = new List<Offering>();
 
         public Course(string Title, string Description, string Semester, int year)
         {
             this._Title = Title;
             this._Description = Description;
             Click_Command = new CourseCommand(this);
+        }
+
+        public void LectureSelected(Section section)
+        {
+
         }
 
     }
@@ -157,5 +177,36 @@ namespace CPSC481_Prototype
 
         // Whether or not the section is selectable
         public bool Selectable { get; set; }
+
+        public ICommand Lecture_Selected { get { return Select_Command; } }
+
+        public ICommand Select_Command;
+
+    }
+
+    public class LectureCommand : ICommand
+    {
+
+        public event EventHandler CanExecuteChanged;
+
+        private Section section;
+        private Course course;
+
+        public LectureCommand(Course course, Section section)
+        {
+            this.course = course;
+            this.section = section;
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public void Execute(object parameter)
+        {
+            MessageBox.Show("Lecture section '" + section.Name + "' of course '" + course.Title + "' was selected!");
+            course.LectureSelected(section);
+        }
     }
 }

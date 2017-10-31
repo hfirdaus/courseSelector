@@ -308,6 +308,15 @@
                                                 <Label Content="{Binding Title}"/>
                                                 <Label Content="{Binding Description}"/>
                                                 <Button Content="I am button!" Command="{Binding Button_Click}"/>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <ItemsControl ItemsSource="{Binding Lectures}">
+                                                        <ItemsControl.ItemTemplate>
+                                                            <DataTemplate DataType="x:Type local:Section">
+                                                                <RadioButton Content="{Binding Name}" Command="{Binding Section_Selected}"/>
+                                                            </DataTemplate>
+                                                        </ItemsControl.ItemTemplate>
+                                                    </ItemsControl>
+                                                </StackPanel>
                                             </StackPanel>
                                         </Border>
                                     </DataTemplate>
@@ -330,7 +339,7 @@
                                 </Label.Resources>
                             </Label>
                             <StackPanel Name="course_selector_stackpanel" Orientation="Vertical" Grid.Column="1">
-                                <!-- 
+                                <!--
                                 <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
                                         <StackPanel>
                                             <DockPanel>
