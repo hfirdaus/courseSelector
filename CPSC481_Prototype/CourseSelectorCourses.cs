@@ -11,6 +11,14 @@ using System.Windows.Input;
 
 namespace CPSC481_Prototype
 {
+    abstract class Semester
+    {
+        public static string FALL = "Fall";
+        public static string WINTER = "Winter";
+        public static string SPRING = "Spring";
+        public static string SUMMER = "Summer";
+    }
+
     class CourseSelectorCourses : INotifyCollectionChanged
     {
         /*
@@ -69,13 +77,17 @@ namespace CPSC481_Prototype
     public class Course
     {
         // Department offering the course (e.g. CPSC)
-        public string Department { get; }
+        public string Department { get { return _Department; } }
+        private string _Department = "";
 
         // Course Name (e.g. "Calculus I")
-        public string Title { get; }
+        public string Title { get { return _Title; } }
+        private string _Title = "";
 
         // Course Description
-        public string Description { get; }
+        public string Description { get { return _Description; } }
+        private string _Description = "";
+        
 
         public ICommand Button_Click { get { return Click_Command; } }
 
@@ -93,10 +105,10 @@ namespace CPSC481_Prototype
         // A course can have 1 or more offerings.
         private List<Offering> offerings;
 
-        public Course(string Title, string Description, string Semester)
+        public Course(string Title, string Description, string Semester, int year)
         {
-            this.Title = Title;
-            this.Description = Description;
+            this._Title = Title;
+            this._Description = Description;
             Click_Command = new CourseCommand(this);
         }
 
