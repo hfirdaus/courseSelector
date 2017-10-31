@@ -177,6 +177,7 @@ namespace CPSC481_Prototype
 
     public class Section
     {
+
         // The name of the section (E.g. "Lec 01")
         public string Name { get; set; }
 
@@ -184,7 +185,7 @@ namespace CPSC481_Prototype
         public string Time { get; set; }
 
         // Whether or not the section is selectable
-        public bool Selectable { get; set; }
+        public bool Selectable { get; set; } = true;
 
         public ICommand Section_Selected { get { return Select_Command; } }
 
