@@ -82,7 +82,6 @@ namespace CPSC481_Prototype
         {
             
         }
-
     }
 
     /// <summary>
@@ -94,6 +93,9 @@ namespace CPSC481_Prototype
         public string Department { get { return _Department; } }
         private string _Department = "";
 
+        public string Number { get { return _Number; } }
+        private string _Number = "";
+
         // Course Name (e.g. "Calculus I")
         public string Title { get { return _Title; } }
         private string _Title = "";
@@ -101,14 +103,17 @@ namespace CPSC481_Prototype
         // Course Description
         public string Description { get { return _Description; } }
         private string _Description = "";
+
+        public string Semester { get { return _Semester; } }
+        private string _Semester = "";
         
 
         public ICommand Button_Click { get { return Click_Command; } }
 
         private ICommand Click_Command;
 
-        public List<Section> Lectures { get { return _Lectures; } }
         // A list of lecture sections
+        public List<Section> Lectures { get { return _Lectures; } }
         public List<Section> _Lectures = new List<Section>();
 
         // A list of tutorial sections
@@ -120,10 +125,13 @@ namespace CPSC481_Prototype
         // A course can have 1 or more offerings.
         private List<Offering> offerings = new List<Offering>();
 
-        public Course(string Title, string Description, string Semester, int year)
+        public Course(string Department, string Number, string Title, string Description, string Semester, int year)
         {
+            this._Department = Department;
+            this._Number = Number;
             this._Title = Title;
             this._Description = Description;
+            this._Semester = Semester + " " + year;
             Click_Command = new CourseCommand(this);
         }
 
@@ -178,7 +186,7 @@ namespace CPSC481_Prototype
         // Whether or not the section is selectable
         public bool Selectable { get; set; }
 
-        public ICommand Lecture_Selected { get { return Select_Command; } }
+        public ICommand Section_Selected { get { return Select_Command; } }
 
         public ICommand Select_Command;
 
