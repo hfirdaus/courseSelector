@@ -50,7 +50,7 @@ namespace CPSC481_Prototype
         public static void addCourse(int num)
         {
             // Make a course
-            Course newCourse = new Course("Course Title " + num, "Course Description " + num, "Course Semester " + num, 2017);
+            Course newCourse = new Course("CPSC", "217", "Course Title " + num, "Course Description " + num, "Course Semester " + num, 2017);
 
             Section s = new Section()
             {
