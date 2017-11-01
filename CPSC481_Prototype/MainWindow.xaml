@@ -307,12 +307,16 @@
                                             <StackPanel Orientation="Vertical">
                                                 <Label Content="{Binding Title}"/>
                                                 <Label Content="{Binding Description}"/>
-                                                <Button Content="I am button!" Command="{Binding Button_Click}"/>
+                                                <Button Content="Grey out the lecture sections" Command="{Binding Button_Click}"/>
                                                 <StackPanel Orientation="Horizontal">
                                                     <ItemsControl ItemsSource="{Binding Lectures}">
                                                         <ItemsControl.ItemTemplate>
                                                             <DataTemplate DataType="x:Type local:Section">
-                                                                <RadioButton Content="{Binding Name}" Command="{Binding Section_Selected}" IsEnabled="{Binding Selectable}" GroupName="LEC"/> <!-- TODO - GroupName needs to be changed -->
+                                                                <RadioButton Content="{Binding Name}"
+                                                                             Command="{Binding Section_Selected}"
+                                                                             IsEnabled="{Binding Selectable}"
+                                                                             GroupName="LEC">
+                                                                </RadioButton>
                                                             </DataTemplate>
                                                         </ItemsControl.ItemTemplate>
                                                     </ItemsControl>
