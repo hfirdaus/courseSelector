@@ -53,21 +53,36 @@ namespace CPSC481_Prototype
             // Make a course
             Course newCourse = new Course("CPSC", "217", "Course Title " + num, "Course Description " + num, "Course Semester " + num, 2017);
 
-            Section s = new Section()
+            for (int lec = 1; lec <= 2; lec++)
             {
-                Name = "Lecture 1"
-            };
-            s.Select_Command = new LectureCommand(newCourse, s);
-            newCourse._Lectures.Add(s);
+                Offering offering = new Offering();
+                Section s = new Section()
+                {
+                    Name = "Lecture " + lec
+                };
+                s.Select_Command = new LectureCommand(newCourse, s);
+                offering.Lecture = s;
+                for (int i = 0; i < 2; i++)
+                {
+                    s = new Section()
+                    {
+                        Name = "Tutorial " + i
+                    };
+                    offering.Tutorials.Add(s);
+                }
+                for (int i = 0; i < 2; i++)
+                {
+                    s = new Section()
+                    {
+                        Name = "Lab " + i
+                    };
+                    offering.Labs.Add(s);
+                }
 
-            s = new Section()
-            {
-                Name = "Lecture 2"
-            };
-            s.Select_Command = new LectureCommand(newCourse, s);
-            newCourse._Lectures.Add(s);
+                newCourse.AddOffering(offering);
+                //newCourse._Lectures.Add(s);
+            }
 
-            // Add the course to the visible list
             instance.visable.Add(newCourse);
 
             // Notify listeners of the addition
@@ -90,6 +105,9 @@ namespace CPSC481_Prototype
     /// </summary>
     public class Course
     {
+
+        private static int _id = 0;
+        public int ID { get; }
         // Department offering the course (e.g. CPSC)
         public string Department { get { return _Department; } }
         private string _Department = "";
@@ -115,19 +133,22 @@ namespace CPSC481_Prototype
 
         // A list of lecture sections
         public ObservableCollection<Section> Lectures { get { return _Lectures; } }
-        public ObservableCollection<Section> _Lectures = new ObservableCollection<Section>();
+        private ObservableCollection<Section> _Lectures = new ObservableCollection<Section>();
 
         // A list of tutorial sections
-        public List<Section> Tutorials = new List<Section>();
+        public ObservableCollection<Section> Tutorials { get { return _Tutorials; } }
+        private ObservableCollection<Section> _Tutorials = new ObservableCollection<Section>();
 
         // A list of lab sections
-        public List<Section> Labs = new List<Section>();
+        public ObservableCollection<Section> Labs { get { return _Labs; } }
+        private ObservableCollection<Section> _Labs = new ObservableCollection<Section>();
 
         // A course can have 1 or more offerings.
         private List<Offering> offerings = new List<Offering>();
 
         public Course(string Department, string Number, string Title, string Description, string Semester, int year)
         {
+            this.ID = _id++;
             this._Department = Department;
             this._Number = Number;
             this._Title = Title;
@@ -136,9 +157,44 @@ namespace CPSC481_Prototype
             Click_Command = new CourseCommand(this);
         }
 
+        public void AddOffering(Offering offering)
+        {
+            offerings.Add(offering);
+            _Lectures.Add(offering.Lecture);
+            foreach( Section tutorial in offering.Tutorials ) {
+                _Tutorials.Add(tutorial);
+            }
+            foreach (Section lab in offering.Labs)
+            {
+                _Labs.Add(lab);
+            }
+        }
+
         public void LectureSelected(Section section)
         {
-
+            foreach(Offering offering in offerings)
+            {
+                if (offering.Lecture == section)
+                {
+                    foreach(Section tutorial in offering.Tutorials)
+                    {
+                        tutorial.Selectable = true;
+                    }
+                    foreach(Section lab in offering.Labs)
+                    {
+                        lab.Selectable = true;
+                    }
+                    continue;
+                }
+                foreach(Section tutorial in offering.Tutorials)
+                {
+                    tutorial.Selectable = false;
+                }
+                foreach (Section lab in offering.Labs)
+                {
+                    lab.Selectable = false;
+                }
+            }
         }
 
     }
@@ -173,9 +229,9 @@ namespace CPSC481_Prototype
     {
         public Section Lecture { get; set; }
 
-        public List<Section> Tutorials;
+        public List<Section> Tutorials = new List<Section>();
 
-        public List<Section> Labs;
+        public List<Section> Labs = new List<Section>();
 
     }
 

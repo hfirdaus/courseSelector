@@ -315,7 +315,51 @@
                                                                 <RadioButton Content="{Binding Name}"
                                                                              Command="{Binding Section_Selected}"
                                                                              IsEnabled="{Binding Selectable}"
-                                                                             GroupName="LEC">
+                                                                             GroupName="{Binding DataContext.ID, RelativeSource={RelativeSource AncestorType=ItemsControl}, StringFormat='LEC{0}'}">
+                                                                </RadioButton>
+                                                            </DataTemplate>
+                                                        </ItemsControl.ItemTemplate>
+                                                    </ItemsControl>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <ItemsControl ItemsSource="{Binding Tutorials}">
+                                                        <ItemsControl.ItemTemplate>
+                                                            <DataTemplate DataType="x:Type local:Section">
+                                                                <RadioButton Content="{Binding Name}"
+                                                                             Command="{Binding Section_Selected}"
+                                                                             IsEnabled="{Binding Selectable}"
+                                                                             GroupName="{Binding DataContext.ID, RelativeSource={RelativeSource AncestorType=ItemsControl}, StringFormat='TUT{0}'}">
+                                                                    <RadioButton.Resources>
+                                                                        <Style TargetType="RadioButton">
+                                                                            <Style.Triggers>
+                                                                                <Trigger Property="IsEnabled" Value="False">
+                                                                                    <Setter Property="IsChecked" Value="False"/>
+                                                                                </Trigger>
+                                                                            </Style.Triggers>
+                                                                        </Style>
+                                                                    </RadioButton.Resources>
+                                                                </RadioButton>
+                                                            </DataTemplate>
+                                                        </ItemsControl.ItemTemplate>
+                                                    </ItemsControl>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <ItemsControl ItemsSource="{Binding Labs}">
+                                                        <ItemsControl.ItemTemplate>
+                                                            <DataTemplate DataType="x:Type local:Section">
+                                                                <RadioButton Content="{Binding Name}"
+                                                                             Command="{Binding Section_Selected}"
+                                                                             IsEnabled="{Binding Selectable}"
+                                                                             GroupName="{Binding DataContext.ID, RelativeSource={RelativeSource AncestorType=ItemsControl}, StringFormat='LAB{0}'}">
+                                                                    <RadioButton.Resources>
+                                                                        <Style TargetType="RadioButton">
+                                                                            <Style.Triggers>
+                                                                                <Trigger Property="IsEnabled" Value="False">
+                                                                                    <Setter Property="IsChecked" Value="False"/>
+                                                                                </Trigger>
+                                                                            </Style.Triggers>
+                                                                        </Style>
+                                                                    </RadioButton.Resources>
                                                                 </RadioButton>
                                                             </DataTemplate>
                                                         </ItemsControl.ItemTemplate>
