@@ -76,7 +76,10 @@ namespace CPSC481_Prototype
                     {
                         Name = "Lab " + i
                     };
-                    offering.Labs.Add(s);
+                    if (num % 2 == 0)
+                    {
+                        offering.Labs.Add(s);
+                    }
                 }
 
                 newCourse.AddOffering(offering);
@@ -93,10 +96,21 @@ namespace CPSC481_Prototype
             Console.WriteLine("Added course " + num);
         }
 
-        // TODO implement remove course
-        public void removeCourse(Course course)
+        public static void addCourse(Course course)
         {
-            
+            instance.visable.Add(course);
+        }
+
+        // TODO implement remove course
+        public static void removeCourse(Course course)
+        {
+            if (instance.visable.Contains(course))
+            {
+                instance.visable.Remove(course);
+                if (instance.CollectionChanged != null)
+                    instance.CollectionChanged(instance, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, course));
+
+            }
         }
     }
 
@@ -218,10 +232,7 @@ namespace CPSC481_Prototype
 
         public void Execute(object parameter)
         {
-            foreach(Section lecture in course.Lectures)
-            {
-                lecture.Selectable = false;
-            }
+            CourseSelectorCourses.removeCourse(course);
         }
     }
 
