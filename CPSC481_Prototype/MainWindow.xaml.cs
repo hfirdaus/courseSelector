@@ -82,5 +82,11 @@ namespace CPSC481_Prototype
             Console.WriteLine("Trying to add course...");
             CourseSelectorCourses.addCourse(courseNum++);
         }
+
+        private void DeleteCourse(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
+}
 }
