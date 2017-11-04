@@ -48,12 +48,12 @@ namespace CPSC481_Prototype
         }
 
         // TODO this needs to be made to add an actual course. It is just making a new dummy course using the number given.
-        public static void addCourse(int num)
+        public static void addCourse(string dept, string numb, string title, string desc, string sem, int year, int numofLec, int numofTut, int numofLab)
         {
             // Make a course
-            Course newCourse = new Course("CPSC", "217", "Course Title " + num, "Course Description " + num, "Course Semester " + num, 2017);
+            Course newCourse = new Course(dept, numb, title, desc, sem, year);
 
-            for (int lec = 1; lec <= 2; lec++)
+            for (int lec = 1; lec <= numofLec; lec++)
             {
                 Offering offering = new Offering();
                 Section s = new Section()
@@ -62,7 +62,7 @@ namespace CPSC481_Prototype
                 };
                 s.Select_Command = new LectureCommand(newCourse, s);
                 offering.Lecture = s;
-                for (int i = 0; i < 2; i++)
+                for (int i = 0; i < numofTut; i++)
                 {
                     s = new Section()
                     {
@@ -70,36 +70,30 @@ namespace CPSC481_Prototype
                     };
                     offering.Tutorials.Add(s);
                 }
-                for (int i = 0; i < 2; i++)
+                for (int i = 0; i < numofLab; i++)
                 {
                     s = new Section()
                     {
                         Name = "Lab " + i
                     };
-                    if (num % 2 == 0)
-                    {
-                        offering.Labs.Add(s);
-                    }
+                    
+                    offering.Labs.Add(s);
+                    
                 }
 
                 newCourse.AddOffering(offering);
-                //newCourse._Lectures.Add(s);
             }
 
-            instance.visable.Add(newCourse);
+            instance.courses.Add(newCourse);
 
             // Notify listeners of the addition
             if(instance.CollectionChanged != null)
                 instance.CollectionChanged(instance, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, null));
 
             // Debug log
-            Console.WriteLine("Added course " + num);
+            Console.WriteLine("Added course");
         }
 
-        public static void addCourse(Course course)
-        {
-            instance.visable.Add(course);
-        }
 
         // TODO implement remove course
         public static void removeCourse(Course course)
@@ -162,7 +156,6 @@ namespace CPSC481_Prototype
 
         public Course(string Department, string Number, string Title, string Description, string Semester, int year)
         {
-            this.ID = _id++;
             this._Department = Department;
             this._Number = Number;
             this._Title = Title;

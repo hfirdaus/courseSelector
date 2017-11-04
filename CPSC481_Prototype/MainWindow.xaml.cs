@@ -20,11 +20,10 @@ namespace CPSC481_Prototype
     /// </summary>
     public partial class MainWindow : Window
     {
-        int courseNum = 0;
         public MainWindow()
         {
             InitializeComponent();
-
+            CourseSelectorCourses.addCourse("MGST", "217", "Introduction to Business Analytics", "COURSE DESCRIPTION", "Fall", 2017, 2, 2, 2);
             Course_Selector_Items.ItemsSource = CourseSelectorCourses.instance.visable;
         }
 
@@ -77,15 +76,31 @@ namespace CPSC481_Prototype
         {
         }
 
+        private void MGST217_MouseDown(object sender, RoutedEventArgs e)
+        {
+            foreach (Course clickedCourse in CourseSelectorCourses.instance.courses)
+            {   
+                if (clickedCourse.Department == "MGST" && clickedCourse.Number == "217")
+                {
+                    if(CourseSelectorCourses.instance.visable.Count == 0)
+                    {
+                        CourseSelectorCourses.instance.visable.Add(clickedCourse);
+                    }
+                }
+            }
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("Trying to add course...");
-            CourseSelectorCourses.addCourse(courseNum++);
+            
+
         }
 
         private void DeleteCourse(object sender, RoutedEventArgs e)
         {
-
+            
+            
         }
     }
 }
