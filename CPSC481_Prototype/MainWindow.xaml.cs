@@ -20,9 +20,12 @@ namespace CPSC481_Prototype
     /// </summary>
     public partial class MainWindow : Window
     {
+        int courseNum = 0;
         public MainWindow()
         {
             InitializeComponent();
+
+            Course_Selector_Items.ItemsSource = CourseSelectorCourses.instance.visable;
         }
 
         private void Requirement_Popup_MouseDown(object sender, MouseButtonEventArgs e)
@@ -41,5 +44,49 @@ namespace CPSC481_Prototype
         {
             Show_Completed_Stack_Panel.Visibility = Visibility.Collapsed;
         }
+
+        private void Add_to_Cart_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Added to Cart"); 
+        }
+
+        private void Search_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Requirement_Popup.Visibility = Visibility.Visible;
+            Course_Search_Panel.Visibility = Visibility.Visible;
+            Degree_Search_Panel.Visibility = Visibility.Hidden;
+        }
+
+        private void Add_Degree_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Requirement_Popup.Visibility = Visibility.Visible;
+            Course_Search_Panel.Visibility = Visibility.Hidden;
+            Degree_Search_Panel.Visibility = Visibility.Visible;
+        }
+
+        //private void Course_ACCT_Click(object sender, MouseButtonEventArgs e)
+        //{
+        //    Main_Faculty_Menu.Header = "ACCT - Accounting";
+        //}
+
+        private void Remove_From_Cart(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void Enroll(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Trying to add course...");
+            CourseSelectorCourses.addCourse(courseNum++);
+        }
+
+        private void DeleteCourse(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
+}
 }
