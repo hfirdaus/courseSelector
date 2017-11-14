@@ -20,12 +20,11 @@ namespace CPSC481_Prototype
     /// </summary>
     public partial class MainWindow : Window
     {
-        int courseNum = 0;
         public MainWindow()
         {
             InitializeComponent();
 
-            Course_Selector_Items.ItemsSource = CourseSelectorCourses.instance.visable;
+            Course_Selector_Items.DataContext = CourseSelectorCourses.instance.visable;
         }
 
         private void Requirement_Popup_MouseDown(object sender, MouseButtonEventArgs e)
@@ -77,16 +76,69 @@ namespace CPSC481_Prototype
         {
         }
 
+        int num = 0;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Trying to add course...");
-            CourseSelectorCourses.addCourse(courseNum++);
+            foreach(Semester semester in Semester.ALL_SEMESTERS)
+            {
+                // Make a course
+                Course newCourse = new Course("CPSC", "217", "Course Title " + num, "Course Description " + num, semester, 2017);
+
+                for (int lec = 1; lec <= 2; lec++)
+                {
+                    Offering offering = new Offering();
+                    Section s = new Section()
+                    {
+                        Name = "Lecture " + lec
+                    };
+                    s.Select_Command = new LectureCommand(newCourse, s);
+                    offering.Lecture = s;
+                    for (int i = 0; i < 2; i++)
+                    {
+                        s = new Section()
+                        {
+                            Name = "Tutorial " + i
+                        };
+                        offering.Tutorials.Add(s);
+                    }
+                    for (int i = 0; i < 2; i++)
+                    {
+                        s = new Section()
+                        {
+                            Name = "Lab " + i
+                        };
+                        if (num % 2 == 0)
+                        {
+                            offering.Labs.Add(s);
+                        }
+                    }
+
+                    newCourse.AddOffering(offering);
+                }
+
+                CourseSelectorCourses.AddCourse(newCourse);
+                num++;
+            }
+
         }
 
         private void DeleteCourse(object sender, RoutedEventArgs e)
         {
 
         }
+
+        private void Semester_Checked(object sender, RoutedEventArgs e)
+        {
+            Semester s = Semester.SearchSemester(((CheckBox)sender).Tag.ToString());
+            if (s == null)
+                return;
+            if (((CheckBox) sender).IsChecked == true)
+            {
+                CourseSelectorCourses.AddVisibleSemester(s);
+            } else
+            {
+                CourseSelectorCourses.RemoveVisibleSemester(s);
+            }
+        }
     }
-}
 }

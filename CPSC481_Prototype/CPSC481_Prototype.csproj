@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CourseCommand.cs" />
+    <Compile Include="LectureCommand.cs" />
+    <Compile Include="Section.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,6 +66,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Course.cs" />
     <Compile Include="CourseSelectorCourses.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -71,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainWindow_Cart_Functionality.xaml.cs" />
+    <Compile Include="Offering.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
