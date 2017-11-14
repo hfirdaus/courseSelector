@@ -232,19 +232,19 @@
                             </Grid.ColumnDefinitions>
 
                             <WrapPanel Grid.Column="0" HorizontalAlignment="Center">
-                                <CheckBox VerticalAlignment="Center" Margin="2"/>
+                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Semester_Checked" Unchecked="Semester_Checked" Tag="Fall"/>
                                 <Label Content="Fall"/>
                             </WrapPanel>
                             <WrapPanel Grid.Column="1" HorizontalAlignment="Center">
-                                <CheckBox VerticalAlignment="Center" Margin="2"/>
+                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Semester_Checked" Unchecked="Semester_Checked" Tag="Winter"/>
                                 <Label Content="Winter"/>
                             </WrapPanel>
                             <WrapPanel Grid.Column="2" HorizontalAlignment="Center">
-                                <CheckBox VerticalAlignment="Center" Margin="2"/>
+                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Semester_Checked" Unchecked="Semester_Checked" Tag="Spring"/>
                                 <Label Content="Spring"/>
                             </WrapPanel>
                             <WrapPanel Grid.Column="3" HorizontalAlignment="Center">
-                                <CheckBox VerticalAlignment="Center" Margin="2"/>
+                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Semester_Checked" Unchecked="Semester_Checked" Tag="Summer"/>
                                 <Label Content="Summer"/>
                             </WrapPanel>
                         </Grid>
