@@ -29,7 +29,7 @@ namespace CPSC481_Prototype
             Course_Selector_Items.ItemsSource = CourseSelectorCourses.instance.visable;
         }
 
-        private void View_Tutorial_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Tutorial_Button_Click(object sender, RoutedEventArgs e)
         {
             Tutorial_Popup.Visibility = Visibility.Visible;
         }

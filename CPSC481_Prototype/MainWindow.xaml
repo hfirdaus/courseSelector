@@ -3,45 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
         xmlns:local="clr-namespace:CPSC481_Prototype"
         mc:Ignorable="d"
         Title="Improved Course Registration" Height="600" Width="830" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
-
-    <!--
-        Creating bubbles with ToolTip
-    -->
-    <Window.Resources>
-        <Style x:Key="{x:Type ToolTip}" TargetType="ToolTip">
-            <Setter Property="OverridesDefaultStyle" Value="true" />
-            <Setter Property="HasDropShadow" Value="True" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ToolTip">
-                        <ed:Callout Name="Border"
-                                Width="{TemplateBinding Width}"
-                                Height="{TemplateBinding Height}"
-                                MinWidth="100"
-                                MinHeight="30"
-                                Margin="0,0,0,50"
-                                AnchorPoint="0,1.5"
-                                Background="{StaticResource LightBrush}"
-                                BorderBrush="{StaticResource SolidBorderBrush}"
-                                BorderThickness="1"
-                                CalloutStyle="RoundedRectangle"
-                                Fill="#FFF4F4F5"
-                                FontSize="14.667"
-                                Stroke="Black">
-                            <ContentPresenter Margin="4"
-                                          HorizontalAlignment="Left"
-                                          VerticalAlignment="Top" />
-                        </ed:Callout>
-
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
 
     <Grid>
         <Grid>
@@ -319,7 +283,7 @@
                                 </StackPanel>
                                 <Button Click="Enroll" Margin="4" Content="Enroll into Course(s)" FontWeight="Bold" MaxWidth="150" />
                             </StackPanel>
-                            
+
                             <StackPanel Name="Sched_Stack_Panel" MinHeight="150" Visibility="Collapsed" Background="PaleGreen">
                                 <StackPanel>
                                     <Border Margin="0" BorderThickness="0 1 0 1" BorderBrush="Black" Background="AliceBlue">
@@ -424,29 +388,29 @@
                                                             </Style.Triggers>
                                                         </Style>
                                                     </Expander.Resources>
-                                                        <StackPanel Orientation="Horizontal">
-                                                            <ItemsControl ItemsSource="{Binding Labs}">
-                                                                <ItemsControl.ItemTemplate>
-                                                                    <DataTemplate DataType="x:Type local:Section">
-                                                                        <RadioButton Content="{Binding Name}"
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <ItemsControl ItemsSource="{Binding Labs}">
+                                                            <ItemsControl.ItemTemplate>
+                                                                <DataTemplate DataType="x:Type local:Section">
+                                                                    <RadioButton Content="{Binding Name}"
                                                                                  Command="{Binding Section_Selected}"
                                                                                  IsEnabled="{Binding Selectable}"
                                                                                  GroupName="{Binding DataContext.ID, RelativeSource={RelativeSource AncestorType=ItemsControl}, StringFormat='LAB{0}'}">
-                                                                            <RadioButton.Resources>
-                                                                                <Style TargetType="RadioButton">
-                                                                                    <Style.Triggers>
-                                                                                        <Trigger Property="IsEnabled" Value="False">
-                                                                                            <Setter Property="IsChecked" Value="False"/>
-                                                                                        </Trigger>
-                                                                                    </Style.Triggers>
-                                                                                </Style>
-                                                                            </RadioButton.Resources>
-                                                                        </RadioButton>
-                                                                    </DataTemplate>
-                                                                </ItemsControl.ItemTemplate>
-                                                            </ItemsControl>
-                                                        </StackPanel>
-                                                    </Expander>
+                                                                        <RadioButton.Resources>
+                                                                            <Style TargetType="RadioButton">
+                                                                                <Style.Triggers>
+                                                                                    <Trigger Property="IsEnabled" Value="False">
+                                                                                        <Setter Property="IsChecked" Value="False"/>
+                                                                                    </Trigger>
+                                                                                </Style.Triggers>
+                                                                            </Style>
+                                                                        </RadioButton.Resources>
+                                                                    </RadioButton>
+                                                                </DataTemplate>
+                                                            </ItemsControl.ItemTemplate>
+                                                        </ItemsControl>
+                                                    </StackPanel>
+                                                </Expander>
                                             </StackPanel>
                                         </Border>
                                     </DataTemplate>
@@ -469,7 +433,7 @@
                                 </Label.Resources>
                             </Label>
                             <!--Create Tutorial button here-->
-                            
+                            <Button Content="Tutorial" Click="Tutorial_Button_Click" Grid.Column="1" RenderTransformOrigin="0.133,0.425" HorizontalAlignment="Center" Width="77" Margin="176,236,176,180" BorderThickness="1 1 1 1"/>
                             <StackPanel Name="course_selector_stackpanel" Orientation="Vertical" Grid.Column="1">
                                 <!--
                                 <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
@@ -563,8 +527,8 @@
             </Border>
             <StackPanel Name="Course_Search_Panel" Height="315" VerticalAlignment="Top" Width="456" Margin="183,73,183,0" Background="White">
                 <Label Content="Search for Course" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
-                
-                <Label Content="Course Faculty" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" /> 
+
+                <Label Content="Course Faculty" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
                 <ComboBox Width="150" HorizontalAlignment="Center">
                     <ComboBoxItem>ACCT - Accounting</ComboBoxItem>
                     <ComboBoxItem>BSEN - Business</ComboBoxItem>
@@ -579,7 +543,7 @@
                     <ComboBoxItem>500</ComboBoxItem>
                 </ComboBox>
                 <Label Content="Enter a Keyword" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
-                
+
                 <TextBox HorizontalAlignment="Center" Width="100" />
                 <Grid Margin="2" HorizontalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
@@ -612,7 +576,7 @@
                     </WrapPanel>
                 </Grid>
                 <Button Content="Search" Width="50" Margin="203,10"/>
-                
+
             </StackPanel>
             <StackPanel Name="Degree_Search_Panel" Height="315" VerticalAlignment="Top" Width="456" Margin="183,73,183,0" Background="White">
                 <Label Content="Add Degree" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
@@ -646,12 +610,26 @@
             </StackPanel>
 
         </Grid>
-      
-        
+
+        <!--
+        Tutorial Screen
+        -->
         <Grid Name="Tutorial_Popup" Visibility="Visible">
-            <Border Background="Black" Opacity="0.5" MouseDown="Tutorial_Popup_MouseDown">
-                
+            <Border Background="Black" Opacity="0.3" MouseDown="Tutorial_Popup_MouseDown"/>
+            <Border CornerRadius="5" Background="White" BorderThickness="1" BorderBrush="Black" Margin="583,65,24,449">
+                <TextBox Text="Testing" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
             </Border>
+            <Path Fill="White" Stretch="Fill" Stroke="#FF000000" HorizontalAlignment="Left" Margin="754.839,16.467,0,512.552" Width="22.061" 
+        Data="M22.166642,154.45381 L29.999666,187.66699 40.791059,154.54395" RenderTransformOrigin="-0.198,0.052">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="178.717"/>
+                        <TranslateTransform X="41.676" Y="47.164"/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
         </Grid>
         <ToolBarTray HorizontalAlignment="Left" Height="100" Margin="353,-5,0,0" VerticalAlignment="Top" Width="100"/>
 
