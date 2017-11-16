@@ -616,20 +616,20 @@
         -->
         <Grid Name="Tutorial_Popup" Visibility="Visible">
             <Border Background="Black" Opacity="0.3" MouseDown="Tutorial_Popup_MouseDown"/>
-            <Border CornerRadius="5" Background="White" BorderThickness="1" BorderBrush="Black" Margin="583,65,24,449">
-                <TextBox Text="Testing" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Polygon Points="760,70 770,25 780,70" Fill="White"/>
+            <Polygon Points="585,70 595,55 605,70" Fill="White"/>
+            <Border CornerRadius="5" Background="White" Margin="583,65,24,368">
+                <!--<TextBox Text="You can make a Search here.&#x0a;Use Quick Search to search for only&#x0a;keywords"  Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" AcceptsReturn="True" Margin="0,0,0,19" Height="107" />
+                -->
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
+                    You can make a search here.<LineBreak/>
+                    Use <Bold>Quick Search</Bold> to find courses using<LineBreak/>
+                    only keywords or <Bold>Search Courses</Bold> for<LineBreak/>
+                    more search options. <LineBreak/><LineBreak/>
+                    Try keywords like:<LineBreak/>
+                    "ARKY" "211" or "Intro"
+                </TextBlock>
             </Border>
-            <Path Fill="White" Stretch="Fill" Stroke="#FF000000" HorizontalAlignment="Left" Margin="754.839,16.467,0,512.552" Width="22.061" 
-        Data="M22.166642,154.45381 L29.999666,187.66699 40.791059,154.54395" RenderTransformOrigin="-0.198,0.052">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="178.717"/>
-                        <TranslateTransform X="41.676" Y="47.164"/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
         </Grid>
         <ToolBarTray HorizontalAlignment="Left" Height="100" Margin="353,-5,0,0" VerticalAlignment="Top" Width="100"/>
 
