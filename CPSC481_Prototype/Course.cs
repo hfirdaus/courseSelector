@@ -136,13 +136,56 @@ namespace CPSC481_Prototype
                 foreach (Section tutorial in offering.Tutorials)
                 {
                     tutorial.Selectable = false;
+                    tutorial.IsChecked = false;
                 }
                 foreach (Section lab in offering.Labs)
                 {
                     lab.Selectable = false;
+                    lab.IsChecked = false;
                 }
             }
         }
 
+        public Offering SelectedOffering()
+        {
+            Offering chosen = null;
+            foreach(Offering offering in offerings)
+            {
+                if(offering.Lecture.IsChecked == true)
+                {
+                    if (offering.Tutorials.Count > 0)
+                    {
+                        bool isChecked = false;
+                        foreach (Section tutorial in offering.Tutorials)
+                        {
+                            if (tutorial.IsChecked == true)
+                            {
+                                isChecked = true;
+                                break;
+                            }
+                        }
+                        if (!isChecked)
+                            break;
+                    }
+                    if (offering.Labs.Count > 0)
+                    {
+                        bool isChecked = false;
+                        foreach (Section lab in offering.Labs)
+                        {
+                            if (lab.IsChecked == true)
+                            {
+                                isChecked = true;
+                                break;
+                            }
+                        }
+                        if (!isChecked)
+                            break;
+                    }
+                    chosen = offering;
+                    break;
+                }
+            }
+            return chosen;
+        }
     }
 }

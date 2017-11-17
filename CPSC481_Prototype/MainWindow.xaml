@@ -337,7 +337,8 @@
                                             <StackPanel Orientation="Vertical">
                                                 <Label Content="{Binding Title}"/>
                                                 <Label Content="{Binding Description}"/>
-                                                <Button Content="Grey out the lecture sections" Command="{Binding Button_Click}"/>
+                                                <Label Content="{Binding Semester}"/>
+                                                <Button Content="Add Course" Command="{Binding Button_Click}"/>
                                                 <StackPanel Orientation="Horizontal">
                                                     <ItemsControl ItemsSource="{Binding Lectures}">
                                                         <ItemsControl.ItemTemplate>
@@ -345,6 +346,7 @@
                                                                 <RadioButton Content="{Binding Name}"
                                                                              Command="{Binding Section_Selected}"
                                                                              IsEnabled="{Binding Selectable}"
+                                                                             IsChecked="{Binding IsChecked, Mode=TwoWay}"
                                                                              GroupName="{Binding DataContext.ID, RelativeSource={RelativeSource AncestorType=ItemsControl}, StringFormat='LEC{0}'}">
                                                                 </RadioButton>
                                                             </DataTemplate>
@@ -372,6 +374,7 @@
                                                                     <RadioButton Content="{Binding Name}"
                                                                              Command="{Binding Section_Selected}"
                                                                              IsEnabled="{Binding Selectable}"
+                                                                             IsChecked="{Binding IsChecked, Mode=TwoWay}"
                                                                              GroupName="{Binding DataContext.ID, RelativeSource={RelativeSource AncestorType=ItemsControl}, StringFormat='TUT{0}'}">
                                                                         <RadioButton.Resources>
                                                                             <Style TargetType="RadioButton">
@@ -409,6 +412,7 @@
                                                                     <RadioButton Content="{Binding Name}"
                                                                                  Command="{Binding Section_Selected}"
                                                                                  IsEnabled="{Binding Selectable}"
+                                                                                 IsChecked="{Binding IsChecked, Mode=TwoWay}"
                                                                                  GroupName="{Binding DataContext.ID, RelativeSource={RelativeSource AncestorType=ItemsControl}, StringFormat='LAB{0}'}">
                                                                         <RadioButton.Resources>
                                                                             <Style TargetType="RadioButton">

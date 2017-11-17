@@ -19,6 +19,22 @@ namespace CPSC481_Prototype
         // The time of the section (E.g. "MWF 2:00 - 4:00")
         public string Time { get; set; }
 
+
+        public bool? IsChecked
+        {
+            get
+            {
+                return _IsChecked;
+            }
+            set
+            {
+                _IsChecked = value;
+                if (PropertyChanged != null)
+                    PropertyChanged(this, new PropertyChangedEventArgs("IsChecked"));
+            }
+        }
+        private bool? _IsChecked = false;
+
         // Whether or not the section is selectable
         public bool Selectable
         {
