@@ -24,7 +24,7 @@ namespace CPSC481_Prototype
         {
             InitializeComponent();
 
-            Course_Selector_Items.DataContext = CourseSelectorCourses.instance.visable;
+            Course_Selector_Items.ItemsSource = CourseSelectorCourses.instance.visable;
         }
 
         private void Requirement_Popup_MouseDown(object sender, MouseButtonEventArgs e)
