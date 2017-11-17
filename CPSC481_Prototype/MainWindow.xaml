@@ -67,7 +67,8 @@
 
                     <ScrollViewer>
                         <StackPanel>
-
+                            <TextBlock FontWeight="Bold" Text="Business Degree" FontSize="14" TextAlignment="Center"/>
+                            <Separator BorderBrush="Black"/>
                             <Expander>
                                 <Expander.Header>
                                     <TextBlock Text="Requirement 1: Commerce Courses" FontWeight="Bold"/>
@@ -83,12 +84,9 @@
                                         </StackPanel>
                                     </Border>
 
-                                    <Border Margin="0,3" BorderThickness="1" BorderBrush="Black" Background="LightGreen">
+                                    <Border Margin="0,10" BorderThickness="1" BorderBrush="Black" Background="LightGreen" MouseDown="SGMA217_MouseDown">
                                         <StackPanel>
-                                            <StackPanel Orientation="Horizontal">
-                                                <RadioButton GroupName ="r1" Margin="3, 3"/>
-                                                <TextBlock Margin="3, 0" FontWeight="Medium" Text="SGMA 217 - Introduction to Business Skills" TextDecorations="Underline"/>
-                                            </StackPanel>
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="SGMA 217 - Introduction to Business Skills" TextDecorations="Underline"/>
                                             <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018"/>
                                             <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="Prerequisite: admission to the Haskayne Bachelor of Commerce program."/>
                                             <TextBlock Margin="3, 0" TextWrapping="Wrap" Text="Antirequisite: credit for SGMA217 and BSEN291 will not be allowed."/>
@@ -320,6 +318,7 @@
                                         <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
                                             <StackPanel Orientation="Vertical">
                                                 <Label Content="{Binding Title}"/>
+                                                <Label Content="{Binding Semester}"/>
                                                 <Label Content="{Binding Description}"/>
                                                 <Button Content="Grey out the lecture sections" Command="{Binding Button_Click}"/>
                                                 <StackPanel Orientation="Horizontal">

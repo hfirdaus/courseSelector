@@ -24,6 +24,9 @@ namespace CPSC481_Prototype
         {
             InitializeComponent();
             CourseSelectorCourses.addCourse("MGST", "217", "Introduction to Business Analytics", "COURSE DESCRIPTION", "Fall", 2017, 2, 2, 2);
+            CourseSelectorCourses.addCourse("MGST", "217", "Introduction to Business Analytics", "COURSE DESCRIPTION", "Winter", 2017, 2, 2, 2);
+            CourseSelectorCourses.addCourse("SGMA", "217", "Introduction to Business Skills", "COURSE DESCRIPTION", "Fall", 2017, 2, 2, 2);
+            CourseSelectorCourses.addCourse("SGMA", "217", "Introduction to Business Skills", "COURSE DESCRIPTION", "Winter", 2017, 2, 2, 2);
             Course_Selector_Items.ItemsSource = CourseSelectorCourses.instance.visable;
         }
 
@@ -78,14 +81,43 @@ namespace CPSC481_Prototype
 
         private void MGST217_MouseDown(object sender, RoutedEventArgs e)
         {
+            if (CourseSelectorCourses.instance.visable.Count != 0)
+            {
+                int visCount = CourseSelectorCourses.instance.visable.Count;
+                for (int i = 0; i < visCount; i++)
+                {
+                    CourseSelectorCourses.instance.visable.RemoveAt(0);
+                }
+            }
+
             foreach (Course clickedCourse in CourseSelectorCourses.instance.courses)
-            {   
+            {
                 if (clickedCourse.Department == "MGST" && clickedCourse.Number == "217")
                 {
-                    if(CourseSelectorCourses.instance.visable.Count == 0)
-                    {
-                        CourseSelectorCourses.instance.visable.Add(clickedCourse);
-                    }
+                    CourseSelectorCourses.instance.visable.Add(clickedCourse);
+                }
+            }
+        }
+
+        private void SGMA217_MouseDown(object sender, RoutedEventArgs e)
+        {
+            if (CourseSelectorCourses.instance.visable.Count != 0)
+            {
+                //CourseSelectorCourses.removeCourse();
+                
+                int visCount = CourseSelectorCourses.instance.visable.Count;
+                for (int i = 0; i < visCount; i++)
+                {
+                    CourseSelectorCourses.instance.visable.RemoveAt(0);
+                }
+                
+            }
+
+            foreach (Course clickedCourse in CourseSelectorCourses.instance.courses)
+            {
+                if (clickedCourse.Department == "SGMA" && clickedCourse.Number == "217")
+                {
+                    CourseSelectorCourses.instance.visable.Add(clickedCourse);
                 }
             }
         }
