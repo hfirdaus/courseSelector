@@ -48,7 +48,7 @@ namespace CPSC481_Prototype
         }
 
         // TODO this needs to be made to add an actual course. It is just making a new dummy course using the number given.
-        public static void addCourse(string dept, string numb, string title, string desc, string sem, int year, int numofLec, int numofTut, int numofLab)
+        public static void addCourse(string dept, string numb, string title, string desc, string sem, string year, int numofLec, int numofTut, int numofLab)
         {
             // Make a course
             Course newCourse = new Course(dept, numb, title, desc, sem, year);
@@ -154,7 +154,7 @@ namespace CPSC481_Prototype
         // A course can have 1 or more offerings.
         private List<Offering> offerings = new List<Offering>();
 
-        public Course(string Department, string Number, string Title, string Description, string Semester, int year)
+        public Course(string Department, string Number, string Title, string Description, string Semester, string year)
         {
             this._Department = Department;
             this._Number = Number;

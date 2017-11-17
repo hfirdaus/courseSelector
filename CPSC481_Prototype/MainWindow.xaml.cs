@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,10 +24,10 @@ namespace CPSC481_Prototype
         public MainWindow()
         {
             InitializeComponent();
-            CourseSelectorCourses.addCourse("MGST", "217", "Introduction to Business Analytics", "COURSE DESCRIPTION", "Fall", 2017, 2, 2, 2);
-            CourseSelectorCourses.addCourse("MGST", "217", "Introduction to Business Analytics", "COURSE DESCRIPTION", "Winter", 2017, 2, 2, 2);
-            CourseSelectorCourses.addCourse("SGMA", "217", "Introduction to Business Skills", "COURSE DESCRIPTION", "Fall", 2017, 2, 2, 2);
-            CourseSelectorCourses.addCourse("SGMA", "217", "Introduction to Business Skills", "COURSE DESCRIPTION", "Winter", 2017, 2, 2, 2);
+            CourseSelectorCourses.addCourse("MGST", "217", "Introduction to Business Analytics", "COURSE DESCRIPTION", "Fall", "2017", 2, 2, 2);
+            CourseSelectorCourses.addCourse("MGST", "217", "Introduction to Business Analytics", "COURSE DESCRIPTION", "Winter", "2017", 2, 2, 2);
+            CourseSelectorCourses.addCourse("SGMA", "217", "Introduction to Business Skills", "COURSE DESCRIPTION", "Fall", "2017", 2, 2, 2);
+            CourseSelectorCourses.addCourse("SGMA", "217", "Introduction to Business Skills", "COURSE DESCRIPTION", "Winter", "2017", 2, 2, 2);
             Course_Selector_Items.ItemsSource = CourseSelectorCourses.instance.visable;
         }
 
@@ -117,15 +118,30 @@ namespace CPSC481_Prototype
             {
                 if (clickedCourse.Department == "SGMA" && clickedCourse.Number == "217")
                 {
+                    Console.WriteLine(clickedCourse.Semester); 
                     CourseSelectorCourses.instance.visable.Add(clickedCourse);
                 }
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void CheckBox_Fall(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Trying to add course...");
-            
+            ObservableCollection<Course> temp = new ObservableCollection<Course>();
+            temp = CourseSelectorCourses.instance.visable;
+
+            int visCount = CourseSelectorCourses.instance.visable.Count;
+            for (int i = 0; i < visCount; i++)
+            {
+                CourseSelectorCourses.instance.visable.RemoveAt(0);
+            }
+
+            foreach (Course fallCourse in temp)
+            {
+                if(fallCourse.Semester.Equals("Fall 2017"))
+                {
+                    CourseSelectorCourses.instance.visable.Add(fallCourse);
+                }
+            }
 
         }
 
