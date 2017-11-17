@@ -31,7 +31,7 @@ namespace CPSC481_Prototype
             Course_Selector_Items.ItemsSource = CourseSelectorCourses.instance.visable;
         }
 
-        private void Requirement_Popup_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Requirement_Popup_MouseDown(object sender, RoutedEventArgs e)
         {
             if (Requirement_Popup.Visibility == Visibility.Visible)
             {
