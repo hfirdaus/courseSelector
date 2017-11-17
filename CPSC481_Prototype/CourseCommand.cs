@@ -10,6 +10,7 @@ namespace CPSC481_Prototype
     public class CourseCommand : ICommand
     {
 
+
         public event EventHandler CanExecuteChanged;
 
         private Course course;
