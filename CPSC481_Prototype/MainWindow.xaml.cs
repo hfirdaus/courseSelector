@@ -20,7 +20,6 @@ namespace CPSC481_Prototype
     /// </summary>
     public partial class MainWindow : Window
     {
-        int courseNum = 0;
 
         public MainWindow()
         {
@@ -93,12 +92,20 @@ namespace CPSC481_Prototype
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Trying to add course...");
-            CourseSelectorCourses.addCourse(courseNum++);
+            // Add course
         }
 
         private void DeleteCourse(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void Semester_Checked(object sender, RoutedEventArgs e)
+        {
+            if (((RadioButton)sender).IsChecked == true)
+                CourseSelectorCourses.AddVisibleSemester(Semester.SearchSemester(((RadioButton)sender).Tag.ToString()));
+            else
+                CourseSelectorCourses.RemoveVisibleSemester(Semester.SearchSemester(((RadioButton)sender).Tag.ToString()));
 
         }
     }
