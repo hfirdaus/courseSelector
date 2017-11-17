@@ -102,6 +102,7 @@ namespace CPSC481_Prototype
                     Section lecture = new Section();
                     lecture.Name = "Lecture " + i;
                     lecture.Time = "MWF 0:00";
+                    lecture.Select_Command = new LectureCommand(newCourse, lecture);
                     offering.Lecture = lecture;
                     for(int j = 0; j < 2; j++)
                     {
