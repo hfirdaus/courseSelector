@@ -90,9 +90,37 @@ namespace CPSC481_Prototype
         {
         }
 
+        int number = 0;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // Add course
+            foreach(Semester semester in Semester.ALL_SEMESTERS)
+            {
+                Course newCourse = new CPSC481_Prototype.Course("Department", "" + number++, "Title", "Description", semester, 2017);
+                for (int i = 0; i < 2; i++)
+                {
+                    Offering offering = new Offering();
+                    Section lecture = new Section();
+                    lecture.Name = "Lecture " + i;
+                    lecture.Time = "MWF 0:00";
+                    offering.Lecture = lecture;
+                    for(int j = 0; j < 2; j++)
+                    {
+                        Section tutorial = new Section();
+                        tutorial.Name = "Tutorial " + j;
+                        tutorial.Time = "W 1:11";
+                        offering.Tutorials.Add(tutorial);
+                    }
+                    for (int j = 0; j < 2; j++)
+                    {
+                        Section lab = new Section();
+                        lab.Name = "Lab " + j;
+                        lab.Time = "W 1:11";
+                        offering.Tutorials.Add(lab);
+                    }
+                    newCourse.AddOffering(offering);
+                }
+                CourseSelectorCourses.AddCourse(newCourse);
+            }
         }
 
         private void DeleteCourse(object sender, RoutedEventArgs e)
@@ -102,10 +130,10 @@ namespace CPSC481_Prototype
 
         private void Semester_Checked(object sender, RoutedEventArgs e)
         {
-            if (((RadioButton)sender).IsChecked == true)
-                CourseSelectorCourses.AddVisibleSemester(Semester.SearchSemester(((RadioButton)sender).Tag.ToString()));
+            if (((CheckBox)sender).IsChecked == true)
+                CourseSelectorCourses.AddVisibleSemester(Semester.SearchSemester(((CheckBox)sender).Tag.ToString()));
             else
-                CourseSelectorCourses.RemoveVisibleSemester(Semester.SearchSemester(((RadioButton)sender).Tag.ToString()));
+                CourseSelectorCourses.RemoveVisibleSemester(Semester.SearchSemester(((CheckBox)sender).Tag.ToString()));
 
         }
     }
