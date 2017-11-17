@@ -108,7 +108,7 @@ namespace CPSC481_Prototype
         {
             if (instance.CollectionChanged != null)
             {
-                instance.CollectionChanged(instance, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+                instance.CollectionChanged(instance, new NotifyCollectionChangedEventArgs(action));
                 Console.WriteLine("Notified change");
             }
             else
