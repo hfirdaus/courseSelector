@@ -12,12 +12,15 @@
         <SolidColorBrush x:Key="color2">#DCD0C0</SolidColorBrush>
         <SolidColorBrush x:Key="color3">#F4F4F4</SolidColorBrush>
         <SolidColorBrush x:Key="color4">#BAA898</SolidColorBrush>
-        <SolidColorBrush x:Key="color5">#E89790</SolidColorBrush> <!--Red - Needs Pre-Reqs-->
-        <SolidColorBrush x:Key="color6">#B8F2E6</SolidColorBrush> <!--Green - Reached Pre-Reqs-->
-        <SolidColorBrush x:Key="color7">#BFD7EA</SolidColorBrush> <!--Blue - Options-->
+        <SolidColorBrush x:Key="color5">#E89790</SolidColorBrush>
+        <!--Red - Needs Pre-Reqs-->
+        <SolidColorBrush x:Key="color6">#B8F2E6</SolidColorBrush>
+        <!--Green - Reached Pre-Reqs-->
+        <SolidColorBrush x:Key="color7">#BFD7EA</SolidColorBrush>
+        <!--Blue - Options-->
         <!--Green-->
     </Window.Resources>
-    
+
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -31,7 +34,7 @@
                     <Border BorderBrush="Black"
                         BorderThickness="0 0 0 1">
                         <!-- Border thickness order: "left top right bottom"-->
-                        <StackPanel Background="{StaticResource color1}">
+                        <StackPanel Background="{DynamicResource color1}">
                             <Label HorizontalAlignment="Left" DockPanel.Dock="Left" Content="Degree Navigator" FontWeight="Bold" FontSize="14"/>
                             <StackPanel Orientation="Horizontal"
                                 Margin="2">
