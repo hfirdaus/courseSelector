@@ -444,7 +444,18 @@
                                 </Label.Resources>
                             </Label>
                             <!--Create Tutorial button here-->
-                            <Button Content="Tutorial" Click="Tutorial_Button_Click" Grid.Column="1" Margin="0,0,0,-60" BorderThickness="1 1 1 1" HorizontalAlignment="Center" Width="77" Height="30" VerticalAlignment="Center" Background="{StaticResource color4}"/>
+                            <Button Content="Tutorial" Click="Tutorial_Button_Click" Grid.Column="1" Margin="0,0,0,-60" BorderThickness="1 1 1 1" HorizontalAlignment="Center" Width="77" Height="30" VerticalAlignment="Center" Background="{StaticResource color4}">
+                                <Button.Resources>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=Course_Selector_Items, Path=Items.Count}" Value="0">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
                             <StackPanel Name="course_selector_stackpanel" Orientation="Vertical" Grid.Column="1">
                                 <!--
                                 <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
