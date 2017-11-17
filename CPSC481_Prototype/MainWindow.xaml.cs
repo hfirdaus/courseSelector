@@ -21,11 +21,25 @@ namespace CPSC481_Prototype
     public partial class MainWindow : Window
     {
         int courseNum = 0;
+
         public MainWindow()
         {
             InitializeComponent();
 
             Course_Selector_Items.ItemsSource = CourseSelectorCourses.instance.visable;
+        }
+
+        private void Tutorial_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Tutorial_Popup.Visibility = Visibility.Visible;
+        }
+
+        private void Tutorial_Popup_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(Tutorial_Popup.Visibility == Visibility.Visible)
+            {
+                Tutorial_Popup.Visibility = Visibility.Hidden;
+            }
         }
 
         private void Requirement_Popup_MouseDown(object sender, MouseButtonEventArgs e)
@@ -82,5 +96,11 @@ namespace CPSC481_Prototype
             Console.WriteLine("Trying to add course...");
             CourseSelectorCourses.addCourse(courseNum++);
         }
+
+        private void DeleteCourse(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
+

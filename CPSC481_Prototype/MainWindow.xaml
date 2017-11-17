@@ -6,9 +6,22 @@
         xmlns:local="clr-namespace:CPSC481_Prototype"
         mc:Ignorable="d"
         Title="Improved Course Registration" Height="600" Width="830" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="color1">#C0B283</SolidColorBrush>
+        <SolidColorBrush x:Key="color2">#DCD0C0</SolidColorBrush>
+        <SolidColorBrush x:Key="color3">#F4F4F4</SolidColorBrush>
+        <SolidColorBrush x:Key="color4">#BAA898</SolidColorBrush>
+        <SolidColorBrush x:Key="color5">#E89790</SolidColorBrush>
+        <!--Red - Needs Pre-Reqs-->
+        <SolidColorBrush x:Key="color6">#B8F2E6</SolidColorBrush>
+        <!--Green - Reached Pre-Reqs-->
+        <SolidColorBrush x:Key="color7">#BFD7EA</SolidColorBrush>
+        <!--Blue - Options-->
+        <!--Green-->
+    </Window.Resources>
+
     <Grid>
-
-
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="4*"/>
@@ -21,13 +34,13 @@
                     <Border BorderBrush="Black"
                         BorderThickness="0 0 0 1">
                         <!-- Border thickness order: "left top right bottom"-->
-                        <StackPanel>
+                        <StackPanel Background="{DynamicResource color1}">
                             <Label HorizontalAlignment="Left" DockPanel.Dock="Left" Content="Degree Navigator" FontWeight="Bold" FontSize="14"/>
                             <StackPanel Orientation="Horizontal"
                                 Margin="2">
                                 <Border CornerRadius="100" BorderBrush="Black" BorderThickness="1"
                                 MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
-                                MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}">
+                                MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="{StaticResource color4}">
                                     <Label Content="1" HorizontalAlignment="Center"/>
                                 </Border>
                                 <Label HorizontalAlignment="Left" Content="Business..."/>
@@ -37,10 +50,10 @@
                                 <Border CornerRadius="100" BorderBrush="Black" BorderThickness="1"
                                 MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
                                 MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}"
-                                        MouseDown="Add_Degree_MouseDown">
+                                        MouseDown="Add_Degree_MouseDown" Background="{DynamicResource color4}">
                                     <Label Content="+" HorizontalAlignment="Center"/>
                                 </Border>
-                                <Label HorizontalAlignment="Left" Content="View additional degree"/>
+                                <Label HorizontalAlignment="Left" Content="View Additional Degree"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                 <CheckBox Checked="Show_Complete_CheckBox_Checked" Unchecked="Show_Complete_CheckBox_Unchecked" VerticalAlignment="Center"/>
@@ -65,7 +78,7 @@
                         </StackPanel>
                     </ScrollViewer>
 
-                    <ScrollViewer>
+                    <ScrollViewer Background="{StaticResource color3}">
                         <StackPanel>
 
                             <Expander>
@@ -74,7 +87,7 @@
                                 </Expander.Header>
 
                                 <StackPanel>
-                                    <Border BorderThickness="1" BorderBrush="Black" Background="LightGreen">
+                                    <Border BorderThickness="1" BorderBrush="Black" Background="{StaticResource color6}">
                                         <StackPanel>
                                             <StackPanel Orientation="Horizontal">
                                                 <RadioButton GroupName ="r1" Margin="3, 3"/>
@@ -86,7 +99,7 @@
                                         </StackPanel>
                                     </Border>
 
-                                    <Border Margin="0,3" BorderThickness="1" BorderBrush="Black" Background="LightGreen">
+                                    <Border Margin="0,3" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color6}">
                                         <StackPanel>
                                             <StackPanel Orientation="Horizontal">
                                                 <RadioButton GroupName ="r1" Margin="3, 3"/>
@@ -108,7 +121,7 @@
 
                                 <StackPanel>
                                     <Border BorderThickness="1" BorderBrush="Black" Background="LightGreen">
-                                        <StackPanel>
+                                        <StackPanel Background="{StaticResource color6}">
                                             <StackPanel Orientation="Horizontal">
                                                 <RadioButton GroupName ="r2" Margin="3, 3"/>
                                                 <TextBlock Margin="3, 0" FontWeight="Medium" Text="ECON 201 - Principles of Microeconomic" TextDecorations="Underline"/>
@@ -121,7 +134,7 @@
                                     </Border>
 
                                     <Border Margin="0,3" BorderThickness="1" BorderBrush="Black" Background="IndianRed">
-                                        <StackPanel>
+                                        <StackPanel Background="{StaticResource color5}">
                                             <StackPanel Orientation="Horizontal">
                                                 <RadioButton GroupName ="r2" Margin="3, 3"/>
                                                 <TextBlock Margin="3, 0" FontWeight="Medium" Text="ECON 203 - Principles of Marcoeconomic" TextDecorations="Underline"/>
@@ -142,21 +155,21 @@
                                 </Expander.Header>
 
                                 <StackPanel>
-                                    <Border Margin="0,3" BorderThickness="1" BorderBrush="Black" Background="LightSkyBlue">
+                                    <Border Margin="0,3" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}">
                                         <StackPanel>
                                             <TextBlock Margin="3, 0" FontWeight="Medium" Text="Junior Humanities or Fine Arts Option" TextDecorations="Underline"/>
                                             <TextBlock Margin="3, 0" Text="(3 units or 0.5 full-course equivalent)"/>
                                         </StackPanel>
                                     </Border>
 
-                                    <Border Margin="0,3" BorderThickness="1" BorderBrush="Black" Background="LightSkyBlue">
+                                    <Border Margin="0,3" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}">
                                         <StackPanel>
                                             <TextBlock Margin="3, 0" FontWeight="Medium" Text="Junior Science Option" TextDecorations="Underline"/>
                                             <TextBlock Margin="3, 0" Text="(3 units or 0.5 full-course equivalent)"/>
                                         </StackPanel>
                                     </Border>
 
-                                    <Border Margin="0,3" BorderThickness="1" BorderBrush="Black" Background="LightSkyBlue">
+                                    <Border Margin="0,3" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}">
                                         <StackPanel>
                                             <TextBlock Margin="3, 0" FontWeight="Medium" Text="Junior Non-Commerce Option" TextDecorations="Underline"/>
                                             <TextBlock Margin="3, 0" Text="(6 units or 1.0 full-course equivalent)"/>
@@ -180,13 +193,13 @@
             <Rectangle Grid.Column="1" Height="Auto" Fill="Black" Grid.RowSpan="2"/>
 
             <DockPanel LastChildFill="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2">
-                <StackPanel DockPanel.Dock="Top">
+                <StackPanel DockPanel.Dock="Top" Background="{StaticResource color2}">
                     <Border BorderBrush="Black"
                     BorderThickness="0 0 0 1">
                         <!-- Border thickness order: "left top right bottom"-->
                         <DockPanel>
                             <Label HorizontalAlignment="Left" DockPanel.Dock="Left" Content="Course Selector" FontWeight="Bold" FontSize="14"/>
-                            <Button Click="Search_Button_Click" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="4" Content="Search Courses" FontWeight="Bold"/>
+                            <Button Click="Search_Button_Click" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="4" Content="Search Courses" FontWeight="Bold" Background="{StaticResource color4}"/>
 
                         </DockPanel>
                     </Border>
@@ -204,8 +217,8 @@
                                 <Label DockPanel.Dock="Left" Content="Quick Search:"/>
                                 <Button DockPanel.Dock="Right" Content="Go" Margin="2"
                                         MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
-                                        MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}"/>
-                                <TextBox Margin="4"/>
+                                        MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="{StaticResource color4}"/>
+                                <TextBox Margin="4" Background="{StaticResource color3}"/>
                             </DockPanel>
                         </DockPanel>
                     </Border>
@@ -219,19 +232,19 @@
                             </Grid.ColumnDefinitions>
 
                             <WrapPanel Grid.Column="0" HorizontalAlignment="Center">
-                                <CheckBox VerticalAlignment="Center" Margin="2"/>
+                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Semester_Checked" Unchecked="Semester_Checked" Tag="Fall"/>
                                 <Label Content="Fall"/>
                             </WrapPanel>
                             <WrapPanel Grid.Column="1" HorizontalAlignment="Center">
-                                <CheckBox VerticalAlignment="Center" Margin="2"/>
+                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Semester_Checked" Unchecked="Semester_Checked" Tag="Winter"/>
                                 <Label Content="Winter"/>
                             </WrapPanel>
                             <WrapPanel Grid.Column="2" HorizontalAlignment="Center">
-                                <CheckBox VerticalAlignment="Center" Margin="2"/>
+                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Semester_Checked" Unchecked="Semester_Checked" Tag="Spring"/>
                                 <Label Content="Spring"/>
                             </WrapPanel>
                             <WrapPanel Grid.Column="3" HorizontalAlignment="Center">
-                                <CheckBox VerticalAlignment="Center" Margin="2"/>
+                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Semester_Checked" Unchecked="Semester_Checked" Tag="Summer"/>
                                 <Label Content="Summer"/>
                             </WrapPanel>
                         </Grid>
@@ -240,7 +253,7 @@
                 <StackPanel Name="Cart_Sched_Stack_Panel" DockPanel.Dock="Bottom" Visibility="Collapsed">
                     <Border BorderThickness="1" BorderBrush="Black" >
                         <StackPanel>
-                            <StackPanel Visibility="Visible" Orientation="Horizontal">
+                            <StackPanel Visibility="Visible" Orientation="Horizontal" Background="{StaticResource color2}">
                                 <CheckBox Margin="5, 7"/>
                                 <Label Content="All"/>
                                 <Rectangle Width="1" Height="Auto" Fill="Black" />
@@ -257,24 +270,24 @@
                                 <Label Content="Summer"/>
                                 <Rectangle Width="1" Height="Auto" Fill="Black"/>
                             </StackPanel>
-                            <StackPanel Name="Cart_Stack_Panel" MinHeight="150" Visibility="Collapsed" Background="LightBlue">
+                            <StackPanel Name="Cart_Stack_Panel" MinHeight="150" Visibility="Collapsed" Background="{StaticResource color2}">
                                 <StackPanel>
-                                    <Border Margin="0" BorderThickness="0 1 0 1" BorderBrush="Black" Background="AliceBlue">
+                                    <Border Margin="0" BorderThickness="0 1 0 1" BorderBrush="Black" Background="{StaticResource color3}">
                                         <StackPanel Orientation="Vertical">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Margin="3, 0" FontWeight="Bold" VerticalAlignment="Center" Text="ECON 201 - Principles of Microeconomics" TextDecorations="Underline"/>
-                                                <Button Click="Remove_From_Cart" Margin="5, 0" Content="Remove" FontWeight="Bold"/>
+                                                <Button Click="Remove_From_Cart" Margin="5, 0" Content="Remove" FontWeight="Bold" Background="{StaticResource color4}"/>
                                             </StackPanel>
                                             <TextBlock Margin="3, 0" Text="Fall 2017"/>
                                             <TextBlock Margin="3, 0" Text="L01 - Prof - TR - [time]"/>
                                             <TextBlock  Margin="3, 0" Text="T03 - TBA - MW - [time]"/>
                                         </StackPanel>
                                     </Border>
-                                    <Border Margin="0,3" BorderThickness="0 1 0 1" BorderBrush="Black" Background="AliceBlue">
+                                    <Border Margin="0,3" BorderThickness="0 1 0 1" BorderBrush="Black" Background="{DynamicResource color3}">
                                         <StackPanel Orientation="Vertical">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Margin="3, 0" FontWeight="Bold" VerticalAlignment="Center" Text="MGST 217 - Introduction to Business Analytics" TextDecorations="Underline"/>
-                                                <Button Click="Remove_From_Cart" Margin="5, 0" Content="Remove" FontWeight="Bold"/>
+                                                <Button Click="Remove_From_Cart" Margin="5, 0" Content="Remove" FontWeight="Bold" Background="{StaticResource color4}"/>
                                             </StackPanel>
                                             <TextBlock Margin="3, 0" Text="Fall 2017"/>
                                             <TextBlock Margin="3, 0" Text="L02 - Prof - MWF - [time]"/>
@@ -284,10 +297,10 @@
                                 </StackPanel>
                                 <Button Click="Enroll" Margin="4" Content="Enroll into Course(s)" FontWeight="Bold" MaxWidth="150" />
                             </StackPanel>
-                            
-                            <StackPanel Name="Sched_Stack_Panel" MinHeight="150" Visibility="Collapsed" Background="PaleGreen">
+
+                            <StackPanel Name="Sched_Stack_Panel" MinHeight="150" Visibility="Collapsed" Background="{StaticResource color2}">
                                 <StackPanel>
-                                    <Border Margin="0" BorderThickness="0 1 0 1" BorderBrush="Black" Background="AliceBlue">
+                                    <Border Margin="0" BorderThickness="0 1 0 1" BorderBrush="Black" Background="{StaticResource color3}">
                                         <StackPanel Orientation="Vertical">
                                             <StackPanel Orientation="Horizontal">
                                                 <CheckBox Margin="3, 3"/>
@@ -299,13 +312,13 @@
                                         </StackPanel>
                                     </Border>
                                 </StackPanel>
-                                <Button Click="DeleteCourse" Margin="4" Content="Delete Selected Course(s) from Schedule" FontWeight="Bold" MaxWidth="250"/>
+                                <Button Click="DeleteCourse" Margin="4" Content="Delete Selected Course(s) from Schedule" FontWeight="Bold" MaxWidth="250" Background="{DynamicResource color4}"/>
                             </StackPanel>
                         </StackPanel>
                     </Border>
                 </StackPanel>
                 <Grid>
-                    <ScrollViewer>
+                    <ScrollViewer Background="{StaticResource color3}">
                         <!-- This is the Course Selector content area -->
                         <Grid Margin="2">
                             <Grid.ColumnDefinitions>
@@ -324,7 +337,8 @@
                                             <StackPanel Orientation="Vertical">
                                                 <Label Content="{Binding Title}"/>
                                                 <Label Content="{Binding Description}"/>
-                                                <Button Content="Grey out the lecture sections" Command="{Binding Button_Click}"/>
+                                                <Label Content="{Binding Semester}"/>
+                                                <Button Content="Add Course" Command="{Binding Button_Click}"/>
                                                 <StackPanel Orientation="Horizontal">
                                                     <ItemsControl ItemsSource="{Binding Lectures}">
                                                         <ItemsControl.ItemTemplate>
@@ -332,6 +346,7 @@
                                                                 <RadioButton Content="{Binding Name}"
                                                                              Command="{Binding Section_Selected}"
                                                                              IsEnabled="{Binding Selectable}"
+                                                                             IsChecked="{Binding IsChecked, Mode=TwoWay}"
                                                                              GroupName="{Binding DataContext.ID, RelativeSource={RelativeSource AncestorType=ItemsControl}, StringFormat='LEC{0}'}">
                                                                 </RadioButton>
                                                             </DataTemplate>
@@ -359,6 +374,7 @@
                                                                     <RadioButton Content="{Binding Name}"
                                                                              Command="{Binding Section_Selected}"
                                                                              IsEnabled="{Binding Selectable}"
+                                                                             IsChecked="{Binding IsChecked, Mode=TwoWay}"
                                                                              GroupName="{Binding DataContext.ID, RelativeSource={RelativeSource AncestorType=ItemsControl}, StringFormat='TUT{0}'}">
                                                                         <RadioButton.Resources>
                                                                             <Style TargetType="RadioButton">
@@ -389,29 +405,30 @@
                                                             </Style.Triggers>
                                                         </Style>
                                                     </Expander.Resources>
-                                                        <StackPanel Orientation="Horizontal">
-                                                            <ItemsControl ItemsSource="{Binding Labs}">
-                                                                <ItemsControl.ItemTemplate>
-                                                                    <DataTemplate DataType="x:Type local:Section">
-                                                                        <RadioButton Content="{Binding Name}"
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <ItemsControl ItemsSource="{Binding Labs}">
+                                                            <ItemsControl.ItemTemplate>
+                                                                <DataTemplate DataType="x:Type local:Section">
+                                                                    <RadioButton Content="{Binding Name}"
                                                                                  Command="{Binding Section_Selected}"
                                                                                  IsEnabled="{Binding Selectable}"
+                                                                                 IsChecked="{Binding IsChecked, Mode=TwoWay}"
                                                                                  GroupName="{Binding DataContext.ID, RelativeSource={RelativeSource AncestorType=ItemsControl}, StringFormat='LAB{0}'}">
-                                                                            <RadioButton.Resources>
-                                                                                <Style TargetType="RadioButton">
-                                                                                    <Style.Triggers>
-                                                                                        <Trigger Property="IsEnabled" Value="False">
-                                                                                            <Setter Property="IsChecked" Value="False"/>
-                                                                                        </Trigger>
-                                                                                    </Style.Triggers>
-                                                                                </Style>
-                                                                            </RadioButton.Resources>
-                                                                        </RadioButton>
-                                                                    </DataTemplate>
-                                                                </ItemsControl.ItemTemplate>
-                                                            </ItemsControl>
-                                                        </StackPanel>
-                                                    </Expander>
+                                                                        <RadioButton.Resources>
+                                                                            <Style TargetType="RadioButton">
+                                                                                <Style.Triggers>
+                                                                                    <Trigger Property="IsEnabled" Value="False">
+                                                                                        <Setter Property="IsChecked" Value="False"/>
+                                                                                    </Trigger>
+                                                                                </Style.Triggers>
+                                                                            </Style>
+                                                                        </RadioButton.Resources>
+                                                                    </RadioButton>
+                                                                </DataTemplate>
+                                                            </ItemsControl.ItemTemplate>
+                                                        </ItemsControl>
+                                                    </StackPanel>
+                                                </Expander>
                                             </StackPanel>
                                         </Border>
                                     </DataTemplate>
@@ -433,6 +450,19 @@
                                     </Style>
                                 </Label.Resources>
                             </Label>
+                            <!--Create Tutorial button here-->
+                            <Button Content="Tutorial" Click="Tutorial_Button_Click" Grid.Column="1" Margin="0,0,0,-60" BorderThickness="1 1 1 1" HorizontalAlignment="Center" Width="77" Height="30" VerticalAlignment="Center" Background="{StaticResource color4}">
+                                <Button.Resources>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=Course_Selector_Items, Path=Items.Count}" Value="0">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
                             <StackPanel Name="course_selector_stackpanel" Orientation="Vertical" Grid.Column="1">
                                 <!--
                                 <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
@@ -506,10 +536,10 @@
                     </ScrollViewer>
 
                     <Canvas>
-                        <Border Name="Show_Cart_Border" BorderBrush="Black" BorderThickness="1 1 1 0" Canvas.Bottom="0" CornerRadius="0 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+                        <Border Name="Show_Cart_Border" BorderBrush="Black" BorderThickness="1 1 1 0" Canvas.Bottom="0" CornerRadius="0 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{StaticResource color2}">
                             <Label Name="Show_Cart_Label"  Content="Show Cart"/>
                         </Border>
-                        <Border Name="Show_Schedule_Border" BorderBrush="Black" BorderThickness="1 1 1 0" Canvas.Bottom="0" Canvas.Left="{Binding ElementName=Show_Cart_Label, Path=ActualWidth}" CornerRadius="10 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+                        <Border Name="Show_Schedule_Border" BorderBrush="Black" BorderThickness="1 1 1 0" Canvas.Bottom="0" Canvas.Left="{Binding ElementName=Show_Cart_Label, Path=ActualWidth}" CornerRadius="10 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{StaticResource color2}">
                             <Label Name="Show_Schedule_Label"  Content="Show Schedule"/>
                         </Border>
 
@@ -524,10 +554,10 @@
             <Border Background="Black" Opacity="0.5" MouseDown="Requirement_Popup_MouseDown">
 
             </Border>
-            <StackPanel Name="Course_Search_Panel" Height="315" VerticalAlignment="Top" Width="456" Margin="183,73,183,0" Background="White">
+            <StackPanel Name="Course_Search_Panel" Height="315" VerticalAlignment="Top" Width="456" Margin="183,73,183,0" Background="{StaticResource color3}">
                 <Label Content="Search for Course" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
-                
-                <Label Content="Course Faculty" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" /> 
+
+                <Label Content="Course Faculty" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
                 <ComboBox Width="150" HorizontalAlignment="Center">
                     <ComboBoxItem>ACCT - Accounting</ComboBoxItem>
                     <ComboBoxItem>BSEN - Business</ComboBoxItem>
@@ -542,7 +572,7 @@
                     <ComboBoxItem>500</ComboBoxItem>
                 </ComboBox>
                 <Label Content="Enter a Keyword" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
-                
+
                 <TextBox HorizontalAlignment="Center" Width="100" />
                 <Grid Margin="2" HorizontalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
@@ -575,9 +605,9 @@
                     </WrapPanel>
                 </Grid>
                 <Button Content="Search" Width="50" Margin="203,10"/>
-                
+
             </StackPanel>
-            <StackPanel Name="Degree_Search_Panel" Height="315" VerticalAlignment="Top" Width="456" Margin="183,73,183,0" Background="White">
+            <StackPanel Name="Degree_Search_Panel" Height="315" VerticalAlignment="Top" Width="456" Margin="183,73,183,0" Background="{StaticResource color3}">
                 <Label Content="Add Degree" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
                 <Label Content="Stream" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
                 <ComboBox Width="150" HorizontalAlignment="Center">
@@ -609,6 +639,82 @@
             </StackPanel>
 
         </Grid>
+
+        <!--
+        Tutorial Screen
+        -->
+        <Grid Name="Tutorial_Popup" Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="164*"/>
+                <ColumnDefinition Width="247*"/>
+            </Grid.ColumnDefinitions>
+            <Border Background="Black" Opacity="0.3" MouseDown="Tutorial_Popup_MouseDown" Grid.ColumnSpan="2"/>
+            <Polygon Points="760,70 770,25 780,70" Fill="White" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="-1,0,43,0" Grid.ColumnSpan="2"/>
+            <Polygon Points="585,70 595,55 605,70" Fill="White" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="-1,0,218,0" Grid.ColumnSpan="2"/>
+            <Border CornerRadius="5" Background="White" Margin="0,70,23,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="119" Width="220" Grid.Column="1">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
+                    You can make a search here.<LineBreak/>
+                    Use <Bold>Quick Search</Bold> to find courses using<LineBreak/>
+                    only keywords or <Bold>Search Courses</Bold> for<LineBreak/>
+                    more search options. <LineBreak/><LineBreak/>
+                    Try keywords like:<LineBreak/>
+                    "ARKY" "211" or "Intro"
+                </TextBlock>
+            </Border>
+            <Border CornerRadius="5" Background="White" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="192" Width="228">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
+                    This is the <Bold>Degre Navigator</Bold>.<LineBreak/>
+                    Here, you can view the requirements of<LineBreak/>
+                    your current degree. You can also view<LineBreak/>
+                    the requirements of another degree<LineBreak/>
+                    by clicking on the <Bold>+</Bold> next to <Bold>View<LineBreak/>
+                    Additional Degree</Bold>. <LineBreak/><LineBreak/>
+                    <Underline>Green requirements</Underline> means you have<LineBreak/>
+                    completed the pre-requisites.<LineBreak/>
+                    <Underline>Red requirements</Underline> means that the<LineBreak/>
+                    pre-requisite have not been reached.
+                </TextBlock>
+            </Border>
+            <Border CornerRadius="5" Background="White" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="92" Width="381" Grid.Column="1">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
+                    This is the <Bold>Course Selector</Bold>.<LineBreak/>
+                    After a requirement in the <Bold>Degree Navigator</Bold> has been seleted, or <LineBreak/>
+                    a search has been completed, the available courses appear here.
+                </TextBlock>
+            </Border>
+            <Polygon Points="50,110 60,90 70,110" Fill="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="494" Grid.Column="1"/>
+            <Border CornerRadius="5" Background="White" Margin="30,110,248,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="175" Width="216" Grid.Column="1">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
+                    These are the viewing options for the<LineBreak/>
+                    <Bold>Course Selector</Bold>.<LineBreak/><LineBreak/>
+                    <Underline>Expand All</Underline>: expands all results<LineBreak/>
+                    <Underline>Collapse All</Underline>: collapse all results<LineBreak/>
+                    <Underline>Clear All</Underline>: clears the results<LineBreak/>
+                    <LineBreak/>
+                    You can also view course availability<LineBreak/>
+                    for a particular semester by using the<LineBreak/>
+                    checkboxes.
+                </TextBlock>
+            </Border>
+            <Polygon Points="315,535 345,545 315,555" Fill="White" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="-17,0,0,0" Height="569"/>
+            <Border CornerRadius="5" Background="White" Margin="0,0,22,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="170" Height="76">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8" Width="162">
+                    Click on <Bold>Show Cart</Bold> to view <LineBreak/>
+                    courses that are currently in<LineBreak/>
+                    your enrollment shopping cart.
+                </TextBlock>
+            </Border>
+            <Polygon Points="190,535 160,545 190,555" Fill="White" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="494" Height="569" Grid.Column="1"/>
+            <Border CornerRadius="5" Background="White" Margin="175,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="76" Width="194" Grid.Column="1">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
+                    Click on <Bold>Show Schedule</Bold> to view<LineBreak/>
+                    courses you are currently enrolled<LineBreak/>
+                    in.
+                </TextBlock>
+            </Border>
+        </Grid>
+
+        <ToolBarTray HorizontalAlignment="Left" Height="100" Margin="225,0,0,0" VerticalAlignment="Top" Width="100"/>
 
     </Grid>
 </Window>
