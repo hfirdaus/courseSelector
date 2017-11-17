@@ -14,7 +14,7 @@
         <SolidColorBrush x:Key="color4">#BAA898</SolidColorBrush>
         <SolidColorBrush x:Key="color5">#E89790</SolidColorBrush> <!--Red - Needs Pre-Reqs-->
         <SolidColorBrush x:Key="color6">#B8F2E6</SolidColorBrush> <!--Green - Reached Pre-Reqs-->
-        <SolidColorBrush x:Key="color7">#AED9E0</SolidColorBrush> <!--Blue - Options-->
+        <SolidColorBrush x:Key="color7">#BFD7EA</SolidColorBrush> <!--Blue - Options-->
         <!--Green-->
     </Window.Resources>
     
@@ -250,7 +250,7 @@
                 <StackPanel Name="Cart_Sched_Stack_Panel" DockPanel.Dock="Bottom" Visibility="Collapsed">
                     <Border BorderThickness="1" BorderBrush="Black" >
                         <StackPanel>
-                            <StackPanel Visibility="Visible" Orientation="Horizontal">
+                            <StackPanel Visibility="Visible" Orientation="Horizontal" Background="{StaticResource color2}">
                                 <CheckBox Margin="5, 7"/>
                                 <Label Content="All"/>
                                 <Rectangle Width="1" Height="Auto" Fill="Black" />
@@ -267,24 +267,24 @@
                                 <Label Content="Summer"/>
                                 <Rectangle Width="1" Height="Auto" Fill="Black"/>
                             </StackPanel>
-                            <StackPanel Name="Cart_Stack_Panel" MinHeight="150" Visibility="Collapsed" Background="LightBlue">
+                            <StackPanel Name="Cart_Stack_Panel" MinHeight="150" Visibility="Collapsed" Background="{StaticResource color2}">
                                 <StackPanel>
-                                    <Border Margin="0" BorderThickness="0 1 0 1" BorderBrush="Black" Background="AliceBlue">
+                                    <Border Margin="0" BorderThickness="0 1 0 1" BorderBrush="Black" Background="{StaticResource color3}">
                                         <StackPanel Orientation="Vertical">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Margin="3, 0" FontWeight="Bold" VerticalAlignment="Center" Text="ECON 201 - Principles of Microeconomics" TextDecorations="Underline"/>
-                                                <Button Click="Remove_From_Cart" Margin="5, 0" Content="Remove" FontWeight="Bold"/>
+                                                <Button Click="Remove_From_Cart" Margin="5, 0" Content="Remove" FontWeight="Bold" Background="{StaticResource color4}"/>
                                             </StackPanel>
                                             <TextBlock Margin="3, 0" Text="Fall 2017"/>
                                             <TextBlock Margin="3, 0" Text="L01 - Prof - TR - [time]"/>
                                             <TextBlock  Margin="3, 0" Text="T03 - TBA - MW - [time]"/>
                                         </StackPanel>
                                     </Border>
-                                    <Border Margin="0,3" BorderThickness="0 1 0 1" BorderBrush="Black" Background="AliceBlue">
+                                    <Border Margin="0,3" BorderThickness="0 1 0 1" BorderBrush="Black" Background="{DynamicResource color3}">
                                         <StackPanel Orientation="Vertical">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Margin="3, 0" FontWeight="Bold" VerticalAlignment="Center" Text="MGST 217 - Introduction to Business Analytics" TextDecorations="Underline"/>
-                                                <Button Click="Remove_From_Cart" Margin="5, 0" Content="Remove" FontWeight="Bold"/>
+                                                <Button Click="Remove_From_Cart" Margin="5, 0" Content="Remove" FontWeight="Bold" Background="{StaticResource color4}"/>
                                             </StackPanel>
                                             <TextBlock Margin="3, 0" Text="Fall 2017"/>
                                             <TextBlock Margin="3, 0" Text="L02 - Prof - MWF - [time]"/>
@@ -295,9 +295,9 @@
                                 <Button Click="Enroll" Margin="4" Content="Enroll into Course(s)" FontWeight="Bold" MaxWidth="150" />
                             </StackPanel>
 
-                            <StackPanel Name="Sched_Stack_Panel" MinHeight="150" Visibility="Collapsed" Background="PaleGreen">
+                            <StackPanel Name="Sched_Stack_Panel" MinHeight="150" Visibility="Collapsed" Background="{StaticResource color2}">
                                 <StackPanel>
-                                    <Border Margin="0" BorderThickness="0 1 0 1" BorderBrush="Black" Background="AliceBlue">
+                                    <Border Margin="0" BorderThickness="0 1 0 1" BorderBrush="Black" Background="{StaticResource color3}">
                                         <StackPanel Orientation="Vertical">
                                             <StackPanel Orientation="Horizontal">
                                                 <CheckBox Margin="3, 3"/>
@@ -309,7 +309,7 @@
                                         </StackPanel>
                                     </Border>
                                 </StackPanel>
-                                <Button Click="DeleteCourse" Margin="4" Content="Delete Selected Course(s) from Schedule" FontWeight="Bold" MaxWidth="250"/>
+                                <Button Click="DeleteCourse" Margin="4" Content="Delete Selected Course(s) from Schedule" FontWeight="Bold" MaxWidth="250" Background="{DynamicResource color4}"/>
                             </StackPanel>
                         </StackPanel>
                     </Border>
