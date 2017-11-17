@@ -115,7 +115,7 @@ namespace CPSC481_Prototype
                         Section lab = new Section();
                         lab.Name = "Lab " + j;
                         lab.Time = "W 1:11";
-                        offering.Tutorials.Add(lab);
+                        offering.Labs.Add(lab);
                     }
                     newCourse.AddOffering(offering);
                 }
