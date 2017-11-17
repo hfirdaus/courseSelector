@@ -41,6 +41,7 @@ namespace CPSC481_Prototype
             if (instance.visibleSemesters.Contains(course.SemesterObject))
             {
                 instance.visable.Add(course);
+                Console.WriteLine("Added course to visable");
                 NotifyChange(NotifyCollectionChangedAction.Add, course);
             }
         }
@@ -77,8 +78,7 @@ namespace CPSC481_Prototype
 
         private static void UpdateSemesters()
         {
-            ObservableCollection<Course> oldList = instance.visable;
-            instance.visable = new ObservableCollection<Course>();
+            instance.visable.Clear();
             foreach(Course c in instance.courses)
             {
                 if(instance.visibleSemesters.Contains(c.SemesterObject))
@@ -86,22 +86,6 @@ namespace CPSC481_Prototype
                     instance.visable.Add(c);
                 }
             }
-
-            foreach(Course c in oldList)
-            {
-                if(!instance.visable.Contains(c))
-                {
-                    NotifyChange(NotifyCollectionChangedAction.Remove, c);
-                }
-            }
-            foreach(Course c in instance.visable)
-            {
-                if(!oldList.Contains(c))
-                {
-                    NotifyChange(NotifyCollectionChangedAction.Add, c);
-                }
-            }
-
         }
 
         private static void NotifyChange(NotifyCollectionChangedAction action, Course course)
