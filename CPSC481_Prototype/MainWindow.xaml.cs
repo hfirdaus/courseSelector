@@ -90,38 +90,42 @@ namespace CPSC481_Prototype
         {
         }
 
-        int number = 0;
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void MGST217_MouseDown(object sender, RoutedEventArgs e)
         {
-            foreach(Semester semester in Semester.ALL_SEMESTERS)
+            foreach (Semester semester in Semester.ALL_SEMESTERS.Take(2))
             {
-                Course newCourse = new CPSC481_Prototype.Course("Department", "" + number++, "Title", "Description", semester, 2017);
-                for (int i = 0; i < 2; i++)
-                {
-                    Offering offering = new Offering();
-                    Section lecture = new Section();
-                    lecture.Name = "Lecture " + i;
-                    lecture.Time = "MWF 0:00";
-                    lecture.Select_Command = new LectureCommand(newCourse, lecture);
-                    offering.Lecture = lecture;
-                    for(int j = 0; j < 2; j++)
-                    {
-                        Section tutorial = new Section();
-                        tutorial.Name = "Tutorial " + j;
-                        tutorial.Time = "W 1:11";
-                        offering.Tutorials.Add(tutorial);
-                    }
-                    for (int j = 0; j < 2; j++)
-                    {
-                        Section lab = new Section();
-                        lab.Name = "Lab " + j;
-                        lab.Time = "W 1:11";
-                        offering.Labs.Add(lab);
-                    }
-                    newCourse.AddOffering(offering);
-                }
-                CourseSelectorCourses.AddCourse(newCourse);
+                Add_Course_Click("MGST", "217", "Introduction to Business Analytics", "COURSE DESCR", semester, 2017, 2, 2, 2);
             }
+        }
+
+        private void Add_Course_Click(string dept, string number, string title, string descr, Semester semester, int year, int num_of_Off, int num_of_Tut, int num_of_Lab)
+        {
+            Course newCourse = new CPSC481_Prototype.Course(dept, number, title, descr, semester, year);
+            for (int i = 0; i < num_of_Off; i++)
+            {
+                Offering offering = new Offering();
+                Section lecture = new Section();
+                lecture.Name = "Lecture " + i;
+                lecture.Time = "MWF 0:00";
+                lecture.Select_Command = new LectureCommand(newCourse, lecture);
+                offering.Lecture = lecture;
+                for (int j = 0; j < num_of_Tut; j++)
+                {
+                    Section tutorial = new Section();
+                    tutorial.Name = "Tutorial " + j;
+                    tutorial.Time = "W 1:11";
+                    offering.Tutorials.Add(tutorial);
+                }
+                for (int j = 0; j < num_of_Lab; j++)
+                {
+                    Section lab = new Section();
+                    lab.Name = "Lab " + j;
+                    lab.Time = "W 1:11";
+                    offering.Labs.Add(lab);
+                }
+                newCourse.AddOffering(offering);
+            }
+            CourseSelectorCourses.AddCourse(newCourse);
         }
 
         private void DeleteCourse(object sender, RoutedEventArgs e)
