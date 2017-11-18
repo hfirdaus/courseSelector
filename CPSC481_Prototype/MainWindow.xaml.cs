@@ -90,11 +90,86 @@ namespace CPSC481_Prototype
         {
         }
 
+        private void DeleteCourse(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Semester_Checked(object sender, RoutedEventArgs e)
+        {
+            if (((CheckBox)sender).IsChecked == true)
+                CourseSelectorCourses.AddVisibleSemester(Semester.SearchSemester(((CheckBox)sender).Tag.ToString()));
+            else
+                CourseSelectorCourses.RemoveVisibleSemester(Semester.SearchSemester(((CheckBox)sender).Tag.ToString()));
+
+        }
+
         private void MGST217_MouseDown(object sender, RoutedEventArgs e)
         {
-            foreach (Semester semester in Semester.ALL_SEMESTERS.Take(2))
+            int contain_flag = 0;
+            foreach (Course check_course in CourseSelectorCourses.instance.courses)
             {
-                Add_Course_Click("MGST", "217", "Introduction to Business Analytics", "COURSE DESCR", semester, 2017, 2, 2, 2);
+                if(check_course.Department.Equals("MGST") && check_course.Number.Equals("217"))
+                {
+                    contain_flag = 1;
+                }
+            }
+            
+            if(contain_flag == 0)
+            {
+                foreach (Semester semester in Semester.ALL_SEMESTERS.Take(2))
+                {
+                    int year = 0;
+                    if (semester == Semester.FALL) year = 2017;
+                    else year = 2018;
+                    Add_Course_Click("MGST", "217", "Introduction to Business Analytics", "COURSE DESCR", semester, year, 2, 2, 2);
+                }
+            }
+        }
+
+        private void SGMA217_MouseDown(object sender, RoutedEventArgs e)
+        {
+            int contain_flag = 0;
+            foreach (Course check_course in CourseSelectorCourses.instance.courses)
+            {
+                if (check_course.Department.Equals("SGMA") && check_course.Number.Equals("217"))
+                {
+                    contain_flag = 1;
+                }
+            }
+
+            if (contain_flag == 0)
+            {
+                foreach (Semester semester in Semester.ALL_SEMESTERS.Take(2))
+                {
+                    int year = 0;
+                    if (semester == Semester.FALL) year = 2017;
+                    else year = 2018;
+                    Add_Course_Click("SGMA", "217", "Introduction to Business Skills", "COURSE DESCR", semester, year, 2, 2, 2);
+                }
+            }
+        }
+
+        private void ECON201_MouseDown(object sender, RoutedEventArgs e)
+        {
+            int contain_flag = 0;
+            foreach (Course check_course in CourseSelectorCourses.instance.courses)
+            {
+                if (check_course.Department.Equals("ECON") && check_course.Number.Equals("201"))
+                {
+                    contain_flag = 1;
+                }
+            }
+
+            if (contain_flag == 0)
+            {
+                foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
+                {
+                    int year = 0;
+                    if (semester == Semester.FALL) year = 2017;
+                    else year = 2018;
+                    Add_Course_Click("ECON", "201", "Principles of Microeconomic", "COURSE DESCR", semester, year, 2, 2, 2);
+                }
             }
         }
 
@@ -128,19 +203,15 @@ namespace CPSC481_Prototype
             CourseSelectorCourses.AddCourse(newCourse);
         }
 
-        private void DeleteCourse(object sender, RoutedEventArgs e)
+        private void Remove_Course_Click()
         {
 
         }
 
-        private void Semester_Checked(object sender, RoutedEventArgs e)
-        {
-            if (((CheckBox)sender).IsChecked == true)
-                CourseSelectorCourses.AddVisibleSemester(Semester.SearchSemester(((CheckBox)sender).Tag.ToString()));
-            else
-                CourseSelectorCourses.RemoveVisibleSemester(Semester.SearchSemester(((CheckBox)sender).Tag.ToString()));
+        
+        
 
-        }
+        
     }
 }
 

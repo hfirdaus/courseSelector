@@ -21,7 +21,7 @@ namespace CPSC481_Prototype
         public ObservableCollection<Course> visable;
 
         // Instance list of all courses
-        private ObservableCollection<Course> courses;
+        public ObservableCollection<Course> courses;
 
         // Event for when the visable list is changed
         public event NotifyCollectionChangedEventHandler CollectionChanged;
