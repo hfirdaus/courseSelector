@@ -41,7 +41,7 @@ namespace CPSC481_Prototype
             }
         }
 
-        private void Requirement_Popup_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Requirement_Popup_MouseDown(object sender, RoutedEventArgs e)
         {
             if (Requirement_Popup.Visibility == Visibility.Visible)
             {
@@ -208,10 +208,59 @@ namespace CPSC481_Prototype
 
         }
 
-        
-        
+        private void cmb_DropDownClosed(object sender, EventArgs e)
+        {
+            cmb_Filter();
+        }
 
-        
+        private void cmb1_DropDownClosed(object sender, EventArgs e)
+        {
+            cmb_Filter1();
+        }
+
+        private void cmb_Filter()
+        {
+            String cmbItem;
+            if (cmbDegree.SelectedItem != null)
+            {
+                cmbItem = cmbDegree.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last();
+                if(cmbItem.Equals("Bachelor of Arts"))
+                {
+                    cmbMajor.Items.Remove("ENGL - English");
+                    cmbMajor.Items.Remove("CPSC - Computer Science");
+                    cmbMajor.Items.Add("ENGL - English");
+                }
+                else if(cmbItem.Equals("Bachelor of Science"))
+                {
+                    cmbMajor.Items.Remove("ENGL - English");
+                    cmbMajor.Items.Remove("CPSC - Computer Science");
+                    cmbMajor.Items.Add("CPSC - Computer Science");
+                }
+            }
+        }
+
+        private void cmb_Filter1()
+        {
+            String cmbItem;
+            if (cmbMajor.SelectedItem != null)
+            {
+                cmbItem = cmbMajor.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last();
+                Console.WriteLine(cmbItem);
+                if(cmbItem.Equals("ENGL - English"))
+                {
+                    cmbConcentration.Items.Remove("Creative Writing");
+                    cmbConcentration.Items.Remove("Software Engineering");
+                    cmbConcentration.Items.Add("Creative Writing");
+                }
+                else if(cmbItem.Equals("CPSC - Computer Science"))
+                {
+                    cmbConcentration.Items.Remove("Creative Writing");
+                    cmbConcentration.Items.Remove("Software Engineering");
+                    cmbConcentration.Items.Add("Software Engineering");
+                }
+            }
+
+        }
     }
 }
 
