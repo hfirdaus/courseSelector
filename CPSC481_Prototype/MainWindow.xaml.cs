@@ -41,12 +41,23 @@ namespace CPSC481_Prototype
             }
         }
 
+        //Changing for the pop-up screens for adding an additional degree and searching for courses back to the main screen. 
         private void Requirement_Popup_MouseDown(object sender, RoutedEventArgs e)
         {
             if (Requirement_Popup.Visibility == Visibility.Visible)
             {
                 Requirement_Popup.Visibility = Visibility.Hidden;
             }
+
+            //Clearing the selections in the comboboxs in the add an additional degree pop-up.
+            cmbDegree.SelectedIndex = -1;
+            cmbMajor.SelectedIndex = -1;
+            cmbConcentration.SelectedIndex = -1;
+            cmbMinor.SelectedIndex = -1;
+            cmbMajor.Items.Remove("ENGL - English");
+            cmbMajor.Items.Remove("CPSC - Computer Science");
+            cmbConcentration.Items.Remove("Creative Writing");
+            cmbConcentration.Items.Remove("Software Engineering");
         }
         private void Show_Complete_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
@@ -64,6 +75,13 @@ namespace CPSC481_Prototype
         }
 
         private void Search_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Requirement_Popup.Visibility = Visibility.Visible;
+            Course_Search_Panel.Visibility = Visibility.Visible;
+            Degree_Search_Panel.Visibility = Visibility.Hidden;
+        }
+
+        public void Option_Search_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Requirement_Popup.Visibility = Visibility.Visible;
             Course_Search_Panel.Visibility = Visibility.Visible;
@@ -208,6 +226,29 @@ namespace CPSC481_Prototype
 
         }
 
+        //List containing the selections from the additional degree pop-up combobox.
+        List<string> selection_cmb = new List<string>();
+
+        private void addButton_cmb_Click(object sender, RoutedEventArgs e)
+        {
+            if (Requirement_Popup.Visibility == Visibility.Visible)
+            {
+                Requirement_Popup.Visibility = Visibility.Hidden;
+            }
+
+            if (selection_cmb.Contains("ECON_Minor")) {
+                Econ_Minor.Visibility = Visibility.Visible;
+                Phil_Minor.Visibility = Visibility.Collapsed;
+            }
+
+            if (selection_cmb.Contains("PHIL_Minor"))
+            {
+                Phil_Minor.Visibility = Visibility.Visible;
+                Econ_Minor.Visibility = Visibility.Collapsed;
+                selection_cmb.Clear();
+            }
+        }
+
         private void cmb_DropDownClosed(object sender, EventArgs e)
         {
             cmb_Filter();
@@ -218,6 +259,23 @@ namespace CPSC481_Prototype
             cmb_Filter1();
         }
 
+        //Fix issue where only one is selected instead of both.
+        private void cmb_Minor_DropDownClosed(object sender, EventArgs e)
+        {
+            if (selection_cmb.Contains("ECON_Minor")) {
+                selection_cmb.Clear();
+                selection_cmb.Add("ECON_Minor");
+            }
+
+            else if(selection_cmb.Contains("PHIL_Minor"))
+            {
+                selection_cmb.Clear();
+                selection_cmb.Add("PHIL_Minor");
+            }
+                
+        }
+
+        
         private void cmb_Filter()
         {
             String cmbItem;
@@ -261,6 +319,22 @@ namespace CPSC481_Prototype
             }
 
         }
+
+        private void Remove_SENG_Conc_Click(object sender, RoutedEventArgs e)
+        {
+            SoftEng_Conc.Visibility = Visibility.Collapsed;
+        }
+
+        private void Remove_ECON_Minor_Click(object sender, RoutedEventArgs e)
+        {
+            Econ_Minor.Visibility = Visibility.Collapsed;
+        }
+
+        private void Remove_PHIL_Minor_Click(object sender, RoutedEventArgs e)
+        {
+            Phil_Minor.Visibility = Visibility.Collapsed;
+        }
+
     }
 }
 

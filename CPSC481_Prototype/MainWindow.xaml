@@ -110,7 +110,7 @@
                                 </StackPanel>
                             </Expander>
 
-                            <Expander Margin="0, 10">
+                            <Expander Margin="0, 5">
                                 <Expander.Header>
                                     <TextBlock Text="Requirement 2: Non-Commerce Courses" FontWeight="Bold"/>
                                 </Expander.Header>
@@ -137,27 +137,27 @@
                                 </StackPanel>
                             </Expander>
 
-                            <Expander DockPanel.Dock="Top">
+                            <Expander Margin="0, 0">
                                 <Expander.Header>
                                     <TextBlock Text="Requirement 3: Option Courses" FontWeight="Bold"/>
                                 </Expander.Header>
 
                                 <StackPanel>
-                                    <Border Margin="0,3" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}">
+                                    <Border BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
                                         <StackPanel>
                                             <TextBlock Margin="3, 0" FontWeight="Medium" Text="Junior Humanities or Fine Arts Option" TextDecorations="Underline"/>
                                             <TextBlock Margin="3, 0" Text="(3 units or 0.5 full-course equivalent)"/>
                                         </StackPanel>
                                     </Border>
 
-                                    <Border Margin="0,3" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}">
+                                    <Border Margin="0,10" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
                                         <StackPanel>
                                             <TextBlock Margin="3, 0" FontWeight="Medium" Text="Junior Science Option" TextDecorations="Underline"/>
                                             <TextBlock Margin="3, 0" Text="(3 units or 0.5 full-course equivalent)"/>
                                         </StackPanel>
                                     </Border>
 
-                                    <Border Margin="0,3" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}">
+                                    <Border Margin="0,0" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
                                         <StackPanel>
                                             <TextBlock Margin="3, 0" FontWeight="Medium" Text="Junior Non-Commerce Option" TextDecorations="Underline"/>
                                             <TextBlock Margin="3, 0" Text="(6 units or 1.0 full-course equivalent)"/>
@@ -165,7 +165,72 @@
                                     </Border>
                                 </StackPanel>
                             </Expander>
+                            
+                            <!-- Hidden concentrations and minors -->
+                            <Expander Margin="0, 5" Name="SoftEng_Conc" Visibility="Visible">
+                                <Expander.Header>
+                                    <Grid Width="{Binding ElementName=SoftEng_Conc, Path=ActualWidth}">
+                                        <TextBlock Text="Requirement 4: Concentration - Software Engineering (SENG) " FontWeight="Bold" HorizontalAlignment="Left"/>
+                                        <Button Content="Remove" HorizontalAlignment="Right" Width="70px" Margin="0, 0, 40, 0" FontWeight="Bold" FontSize="12" BorderBrush="Black" Click="Remove_SENG_Conc_Click"/>
+                                    </Grid>
+                                </Expander.Header>
+
+                                <StackPanel>
+                                    <Border BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
+                                        <StackPanel>
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="5 full-course equivalents from the Field of Economics" TextDecorations="Underline"/>
+                                            <TextBlock Margin="3, 0" Text="Restrictions:"/>
+                                            <TextBlock Margin="5, 0" Text="-No more than 6 full-course equivalents"/>
+                                            <TextBlock Margin="5, 0" Text="-At least 3 full-course equivalents at 300 level or above"/>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                            </Expander>
+                            
+                            
+                            <Expander Margin="0, 5" Name="Econ_Minor" Visibility="Collapsed">
+                                <Expander.Header>
+                                    <Grid Width="{Binding ElementName=Econ_Minor, Path=ActualWidth}">
+                                        <TextBlock Text="Requirement 5: Minor - Economics (ECON) " FontWeight="Bold" HorizontalAlignment="Left"/>
+                                        <Button Content="Remove" HorizontalAlignment="Right" Width="70px" Margin="0, 0, 40, 0" FontWeight="Bold" FontSize="12" BorderBrush="Black" Click="Remove_ECON_Minor_Click"/>
+                                    </Grid>
+                                </Expander.Header>
+                                
+                                <StackPanel>
+                                    <Border BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
+                                        <StackPanel>
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="5 full-course equivalents from the Field of Economics" TextDecorations="Underline"/>
+                                            <TextBlock Margin="3, 0" Text="Restrictions:"/>
+                                            <TextBlock Margin="5, 0" Text="-No more than 6 full-course equivalents"/>
+                                            <TextBlock Margin="5, 0" Text="-At least 3 full-course equivalents at 300 level or above"/>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                            </Expander>
+
+                            <Expander Margin="0, 5" Name="Phil_Minor" Visibility="Collapsed">
+                                <Expander.Header>
+                                    <Grid Width="{Binding ElementName=Phil_Minor, Path=ActualWidth}">
+                                        <TextBlock Text="Requirement 5: Minor - Philosophy (PHIL) " FontWeight="Bold" HorizontalAlignment="Left"/>
+                                        <Button Content="Remove" HorizontalAlignment="Right" Width="70px" Margin="0, 0, 40, 0" FontWeight="Bold" FontSize="12" BorderBrush="Black" Click="Remove_PHIL_Minor_Click"/>
+                                    </Grid>
+                                </Expander.Header>
+
+                                <StackPanel>
+                                    <Border BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
+                                        <StackPanel>
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="5 full-course equivalents from the Field of Philosophy" TextDecorations="Underline"/>
+                                            <TextBlock Margin="3, 0" Text="Restrictions:"/>
+                                            <TextBlock Margin="5, 0" Text="-No more than 6 full-course equivalents"/>
+                                            <TextBlock Margin="5, 0" Text="-At least 3 full-course equivalents at 300 level or above"/>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                            </Expander>
+
                         </StackPanel>
+
+                        
 
                     </ScrollViewer>
                 </DockPanel>
@@ -610,12 +675,12 @@
                 <ComboBox Width="150" HorizontalAlignment="Center" Name="cmbConcentration"/>
                 
                 <Label Content="Minor" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
-                <ComboBox Width="150" HorizontalAlignment="Center" Name="cmbMinor">
+                <ComboBox Width="150" HorizontalAlignment="Center" Name="cmbMinor" DropDownClosed="cmb_Minor_DropDownClosed">
                     <ComboBoxItem>ECON - Economics</ComboBoxItem>
                     <ComboBoxItem>PHIL - Philosophy</ComboBoxItem>
                 </ComboBox>
 
-                <Button Content="Add" Width="50" Margin="203,10"/>
+                <Button Content="Add" Width="50" Margin="203,10" Click="addButton_cmb_Click"/>
             </StackPanel>
 
         </Grid>
