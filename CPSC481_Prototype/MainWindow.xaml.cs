@@ -41,7 +41,6 @@ namespace CPSC481_Prototype
             }
         }
 
-        //Changing for the pop-up screens for adding an additional degree and searching for courses back to the main screen. 
         private void Requirement_Popup_MouseDown(object sender, RoutedEventArgs e)
         {
             if (Requirement_Popup.Visibility == Visibility.Visible)
@@ -49,15 +48,6 @@ namespace CPSC481_Prototype
                 Requirement_Popup.Visibility = Visibility.Hidden;
             }
 
-            //Clearing the selections in the comboboxs in the add an additional degree pop-up.
-            cmbDegree.SelectedIndex = -1;
-            cmbMajor.SelectedIndex = -1;
-            cmbConcentration.SelectedIndex = -1;
-            cmbMinor.SelectedIndex = -1;
-            cmbMajor.Items.Remove("ENGL - English");
-            cmbMajor.Items.Remove("CPSC - Computer Science");
-            cmbConcentration.Items.Remove("Creative Writing");
-            cmbConcentration.Items.Remove("Software Engineering");
         }
         private void Show_Complete_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
@@ -262,17 +252,29 @@ namespace CPSC481_Prototype
         //Fix issue where only one is selected instead of both.
         private void cmb_Minor_DropDownClosed(object sender, EventArgs e)
         {
-            if (selection_cmb.Contains("ECON_Minor")) {
-                selection_cmb.Clear();
-                selection_cmb.Add("ECON_Minor");
-            }
-
-            else if(selection_cmb.Contains("PHIL_Minor"))
+            String cmbItem;
+            if (cmbMinor.SelectedItem != null)
             {
-                selection_cmb.Clear();
-                selection_cmb.Add("PHIL_Minor");
-            }
-                
+                cmbItem = cmbMinor.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last();
+
+                if (cmbItem.Equals("ECON - Economics"))
+                {
+                    if (!selection_cmb.Contains("ECON - Economics"))
+                    {
+                        selection_cmb.Clear();
+                        selection_cmb.Add("ECON_Minor");
+                    }
+                }
+
+                else if (cmbItem.Equals("PHIL - Philosophy"))
+                {
+                    if (!selection_cmb.Contains("PHIL - Philosophy"))
+                    {
+                        selection_cmb.Clear();
+                        selection_cmb.Add("PHIL_Minor");
+                    }
+                }
+            }   
         }
 
         
@@ -323,18 +325,39 @@ namespace CPSC481_Prototype
         private void Remove_SENG_Conc_Click(object sender, RoutedEventArgs e)
         {
             SoftEng_Conc.Visibility = Visibility.Collapsed;
+            
         }
 
         private void Remove_ECON_Minor_Click(object sender, RoutedEventArgs e)
         {
             Econ_Minor.Visibility = Visibility.Collapsed;
+            selection_cmb.Clear();
+            cmbMinor.SelectedIndex = -1;
         }
 
         private void Remove_PHIL_Minor_Click(object sender, RoutedEventArgs e)
         {
             Phil_Minor.Visibility = Visibility.Collapsed;
+            selection_cmb.Clear();
+            cmbMinor.SelectedIndex = -1;
         }
+        private void Clear_All_Click(object sender, RoutedEventArgs e)
+        {
+            //Clearing the selections in the comboboxs in the add an additional degree pop-up.
+            cmbDegree.SelectedIndex = -1;
+            cmbMajor.SelectedIndex = -1;
+            cmbConcentration.SelectedIndex = -1;
+            cmbMinor.SelectedIndex = -1;
 
+            cmbMajor.Items.Remove("ENGL - English");
+            cmbMajor.Items.Remove("CPSC - Computer Science");
+            cmbConcentration.Items.Remove("Creative Writing");
+            cmbConcentration.Items.Remove("Software Engineering");
+
+            Phil_Minor.Visibility = Visibility.Collapsed;
+            Econ_Minor.Visibility = Visibility.Collapsed;
+            selection_cmb.Clear();
+        }
     }
 }
 
