@@ -170,8 +170,11 @@
                             </Expander>
 
                             <!-- Hidden degrees and majors -->
-                            <Border BorderThickness="2" BorderBrush="Black" Background="{StaticResource color3}" Margin="2,10,4,2">
-                                
+                            <Border BorderThickness="2" BorderBrush="Black" Background="{StaticResource color3}" Margin="2,10,4,2" Name="Degree_CPSC">
+                                <Grid Width="{Binding ElementName=Degree_CPSC, Path=ActualWidth}">
+                                    <Label Content="BSc | Major - Computer Science" HorizontalContentAlignment="Center" FontSize="15px" FontWeight="Bold"/>
+                                    <Button Content="Remove" HorizontalAlignment="Right" Width="65px" Height="25px" Margin="0, 0, 10, 0" FontWeight="Bold" FontSize="12" BorderBrush="Black"/>
+                                </Grid>
                             </Border>
 
                             <Expander>
