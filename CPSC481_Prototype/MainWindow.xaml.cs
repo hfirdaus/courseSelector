@@ -615,6 +615,12 @@ namespace CPSC481_Prototype
 
             }
         }
+
+        private void Clear_All_Course_Selector(object sender, RoutedEventArgs e)
+        {
+            CourseSelectorCourses.ClearAllCourses();
+        }
+        
     }
 }
 

@@ -59,6 +59,14 @@ namespace CPSC481_Prototype
                 instance.courses.Remove(course);
         }
 
+        public static void ClearAllCourses()
+        {
+            instance.visable.Clear();
+            instance.courses.Clear();
+            if (instance.CollectionChanged != null)
+                instance.CollectionChanged(instance, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+        }
+
         public static void AddVisibleSemester(Semester semester)
         {
             if(!instance.visibleSemesters.Contains(semester))

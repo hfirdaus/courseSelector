@@ -347,7 +347,7 @@
                                 <Rectangle Width="1" Height="Auto" Fill="Black"/>
                                 <Label Content="Collapse All" MouseDown="Collapse_All_Course_Selector"/>
                                 <Rectangle Width="1" Height="Auto" Fill="Black"/>
-                                <Label Content="Clear All"/>
+                                <Label Content="Clear Courses" MouseDown="Clear_All_Course_Selector"/>
                                 <Rectangle Width="1" Height="Auto" Fill="Black"/>
                             </StackPanel>
                             <DockPanel LastChildFill="True">
