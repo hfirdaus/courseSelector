@@ -37,10 +37,10 @@ namespace CPSC481_Prototype
         public static void AddCourse(Course course)
         {
             Console.WriteLine("Added course");
-            instance.courses.Add(course);
+            instance.courses.Insert(0, course);
             if (instance.visibleSemesters.Contains(course.SemesterObject))
             {
-                instance.visable.Add(course);
+                instance.visable.Insert(0, course); 
                 Console.WriteLine("Added course to visable");
                 NotifyChange(NotifyCollectionChangedAction.Add, course);
             }
@@ -51,6 +51,7 @@ namespace CPSC481_Prototype
         {
             if (instance.visable.Contains(course))
             {
+                instance.courses.Remove(course);
                 instance.visable.Remove(course);
                 if (instance.CollectionChanged != null)
                     instance.CollectionChanged(instance, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, course));

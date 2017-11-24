@@ -35,25 +35,25 @@
                         BorderThickness="0 0 0 1">
                         <!-- Border thickness order: "left top right bottom"-->
                         <StackPanel Background="{DynamicResource color1}">
-                            <Label HorizontalAlignment="Left" DockPanel.Dock="Left" Content="Degree Navigator" FontWeight="Bold" FontSize="14"/>
+                            <TextBlock HorizontalAlignment="Left" DockPanel.Dock="Left" Text="Degree Navigator" FontWeight="Bold" FontSize="19px" TextDecorations="Underline" Margin="5,3,0,5"/>
                             <StackPanel Orientation="Horizontal"
                                 Margin="2">
-                                <Border CornerRadius="100" BorderBrush="Black" BorderThickness="1"
+                                <Border CornerRadius="100" BorderBrush="Black" BorderThickness="2"
                                 MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
                                 MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="{StaticResource color4}">
-                                    <Label Content="1" HorizontalAlignment="Center"/>
+                                    <Label Content="1" HorizontalAlignment="Center" FontSize="14"/>
                                 </Border>
-                                <Label HorizontalAlignment="Left" Content="Business..."/>
+                                <Label HorizontalAlignment="Left" Content="BComm | Majoring - Commerence" Margin="3,1,0,0"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"
                                 Margin="2">
-                                <Border CornerRadius="100" BorderBrush="Black" BorderThickness="1"
+                                <Border CornerRadius="100" BorderBrush="Black" BorderThickness="2"
                                 MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
                                 MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}"
                                         MouseDown="Add_Degree_MouseDown" Background="{DynamicResource color4}">
-                                    <Label Content="+" HorizontalAlignment="Center"/>
+                                    <Label Content="+" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14"/>
                                 </Border>
-                                <Label HorizontalAlignment="Left" Content="View Additional Degree"/>
+                                <Label HorizontalAlignment="Left" Content="View Additional Degree" Margin="3,3,0,0"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                 <CheckBox Checked="Show_Complete_CheckBox_Checked" Unchecked="Show_Complete_CheckBox_Unchecked" VerticalAlignment="Center"/>
@@ -63,6 +63,9 @@
                     </Border>
 
                 </StackPanel>
+
+
+
                 <DockPanel LastChildFill="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DockPanel.Dock="Top">
 
                     <ScrollViewer x:Name="Show_Completed_Stack_Panel" DockPanel.Dock="Bottom" Visibility="Collapsed" MinHeight="150" Background="LightYellow">
@@ -80,31 +83,27 @@
 
                     <ScrollViewer Background="{StaticResource color3}">
                         <StackPanel>
-
+                            <Border BorderThickness="2" BorderBrush="Black" Background="{StaticResource color3}" Margin="2,2,4,2">
+                                <Label Content="BComm | Major - Commerce" HorizontalContentAlignment="Center" FontSize="15px" FontWeight="Bold"/>
+                            </Border>
                             <Expander>
                                 <Expander.Header>
                                     <TextBlock Text="Requirement 1: Commerce Courses" FontWeight="Bold"/>
                                 </Expander.Header>
 
                                 <StackPanel>
-                                    <Border BorderThickness="1" BorderBrush="Black" Background="{StaticResource color6}">
+                                    <Border BorderThickness="1" BorderBrush="Black" Background="{StaticResource color6}" MouseDown="MGST217_MouseDown">
                                         <StackPanel>
-                                            <StackPanel Orientation="Horizontal">
-                                                <RadioButton GroupName ="r1" Margin="3, 3"/>
-                                                <TextBlock Margin="3, 0" FontWeight="Medium" Text="MGST 217 - Introduction to Business Analytics" TextDecorations="Underline"/>
-                                            </StackPanel>
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="MGST 217 - Introduction to Business Analytics" TextDecorations="Underline"/>
                                             <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018"/>
                                             <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="Prerequisite: admission to the Haskayne Bachelor of Commerce program."/>
                                             <TextBlock Margin="3, 0" TextWrapping="Wrap" Text="Antirequisite: credit for MGST217 and BSEN291 will not be allowed."/>
                                         </StackPanel>
                                     </Border>
 
-                                    <Border Margin="0,3" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color6}">
+                                    <Border Margin="0,10" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color6}" MouseDown="SGMA217_MouseDown">
                                         <StackPanel>
-                                            <StackPanel Orientation="Horizontal">
-                                                <RadioButton GroupName ="r1" Margin="3, 3"/>
-                                                <TextBlock Margin="3, 0" FontWeight="Medium" Text="SGMA 217 - Introduction to Business Skills" TextDecorations="Underline"/>
-                                            </StackPanel>
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="SGMA 217 - Introduction to Business Skills" TextDecorations="Underline"/>
                                             <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018"/>
                                             <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="Prerequisite: admission to the Haskayne Bachelor of Commerce program."/>
                                             <TextBlock Margin="3, 0" TextWrapping="Wrap" Text="Antirequisite: credit for SGMA217 and BSEN291 will not be allowed."/>
@@ -114,32 +113,24 @@
                                 </StackPanel>
                             </Expander>
 
-                            <Expander Margin="0, 10">
+                            <Expander Margin="0, 5">
                                 <Expander.Header>
                                     <TextBlock Text="Requirement 2: Non-Commerce Courses" FontWeight="Bold"/>
                                 </Expander.Header>
 
                                 <StackPanel>
-                                    <Border BorderThickness="1" BorderBrush="Black" Background="LightGreen">
+                                    <Border BorderThickness="1" BorderBrush="Black" Background="LightGreen" MouseDown="ECON201_MouseDown">
                                         <StackPanel Background="{StaticResource color6}">
-                                            <StackPanel Orientation="Horizontal">
-                                                <RadioButton GroupName ="r2" Margin="3, 3"/>
-                                                <TextBlock Margin="3, 0" FontWeight="Medium" Text="ECON 201 - Principles of Microeconomic" TextDecorations="Underline"/>
-                                            </StackPanel>
-
-                                            <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018"/>
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="ECON 201 - Principles of Microeconomic" TextDecorations="Underline"/>
+                                            <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018 | Spring 2018"/>
                                             <TextBlock Margin="3, 0" Text="Prerequisite: None"/>
                                             <TextBlock Margin="3, 0" Text="Corequisite: None"/>
                                         </StackPanel>
                                     </Border>
 
-                                    <Border Margin="0,3" BorderThickness="1" BorderBrush="Black" Background="IndianRed">
+                                    <Border Margin="0,10" BorderThickness="1" BorderBrush="Black" Background="IndianRed">
                                         <StackPanel Background="{StaticResource color5}">
-                                            <StackPanel Orientation="Horizontal">
-                                                <RadioButton GroupName ="r2" Margin="3, 3"/>
-                                                <TextBlock Margin="3, 0" FontWeight="Medium" Text="ECON 203 - Principles of Marcoeconomic" TextDecorations="Underline"/>
-
-                                            </StackPanel>
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="ECON 203 - Principles of Marcoeconomic" TextDecorations="Underline"/>
                                             <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018"/>
                                             <TextBlock Margin="3, 0" Text="Prerequisite: ECON 201"/>
                                             <TextBlock Margin="3, 0" Text="Corequisite: ECON 201"/>
@@ -149,27 +140,27 @@
                                 </StackPanel>
                             </Expander>
 
-                            <Expander DockPanel.Dock="Top">
+                            <Expander Margin="0, 0">
                                 <Expander.Header>
                                     <TextBlock Text="Requirement 3: Option Courses" FontWeight="Bold"/>
                                 </Expander.Header>
 
                                 <StackPanel>
-                                    <Border Margin="0,3" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}">
+                                    <Border BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
                                         <StackPanel>
                                             <TextBlock Margin="3, 0" FontWeight="Medium" Text="Junior Humanities or Fine Arts Option" TextDecorations="Underline"/>
                                             <TextBlock Margin="3, 0" Text="(3 units or 0.5 full-course equivalent)"/>
                                         </StackPanel>
                                     </Border>
 
-                                    <Border Margin="0,3" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}">
+                                    <Border Margin="0,10" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
                                         <StackPanel>
                                             <TextBlock Margin="3, 0" FontWeight="Medium" Text="Junior Science Option" TextDecorations="Underline"/>
                                             <TextBlock Margin="3, 0" Text="(3 units or 0.5 full-course equivalent)"/>
                                         </StackPanel>
                                     </Border>
 
-                                    <Border Margin="0,3" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}">
+                                    <Border Margin="0,0" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
                                         <StackPanel>
                                             <TextBlock Margin="3, 0" FontWeight="Medium" Text="Junior Non-Commerce Option" TextDecorations="Underline"/>
                                             <TextBlock Margin="3, 0" Text="(6 units or 1.0 full-course equivalent)"/>
@@ -177,15 +168,161 @@
                                     </Border>
                                 </StackPanel>
                             </Expander>
+
+                            <Expander Margin="0, 5" Name="FNCE_Conc" Visibility="Collapsed">
+                                <Expander.Header>
+                                    <Grid Width="{Binding ElementName=FNCE_Conc, Path=ActualWidth}">
+                                        <TextBlock Text="Requirement 4: Concentration - Finance (FNCE) " FontWeight="Bold" HorizontalAlignment="Left"/>
+                                        <Button Content="Remove" HorizontalAlignment="Right" Width="70px" Margin="0, 0, 40, 0" FontWeight="Bold" FontSize="12" BorderBrush="Black" Click="Remove_FNCE_Conc_Click"/>
+                                    </Grid>
+                                </Expander.Header>
+                                
+                                <StackPanel>
+                                    <Border BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}">
+                                        <StackPanel>
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="FNCE 451 - Advanced Financial Management" TextDecorations="Underline"/>
+                                            <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018"/>
+                                            <TextBlock Margin="3, 0" Text="Prerequisite:"/>
+                                            <TextBlock Margin="5, 0" Text="-Finance 317"/>
+                                            <TextBlock Margin="5, 0" Text="-Admission to the Haskayne School of Business"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <Border Margin="0,10" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
+                                        <StackPanel>
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="2 full-course equivalents from the Field of Finance" TextDecorations="Underline"/>
+                                            <TextBlock Margin="3, 0" Text="Restrictions:"/>
+                                            <TextBlock Margin="5, 0" Text="-Must be 400- or 500-level"/>
+                                        </StackPanel>
+                                    </Border>
+
+                                    <Border BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
+                                        <StackPanel>
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="One of the following 300-level courses from the Field of Economics" TextDecorations="Underline"/>
+                                            <TextBlock Margin="3, 0" Text="-Economics 301: Intermediate Economic Theory - Microeconomics I"/>
+                                            <TextBlock Margin="3, 0" Text="-Economics 303: Intermediate Economic Theory - Macroeconomics I"/>
+                                            <TextBlock Margin="3, 0" Text="-Economics 341: Money and Banking"/>
+                                            <TextBlock Margin="3, 0" Text="-Economics 373: Game Theory and Strategic Thinking for the Social Sciences"/>
+                                            <TextBlock Margin="3, 0" Text="-Economics 387: Introduction to Mathematical Economics I"/>
+                                            <TextBlock Margin="3, 0" Text="-Economics 395: Use of Statistics in Economics"/>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                            </Expander>
+
+                            <!-- Hidden CPSC degree and SENG concentration -->
+                            <Border BorderThickness="2" BorderBrush="Black" Background="{StaticResource color3}" Margin="2,10,4,2" Name="Degree_CPSC" Visibility="Collapsed">
+                                <Grid Width="{Binding ElementName=Degree_CPSC, Path=ActualWidth}">
+                                    <Label Content="BSc | Major - Computer Science" HorizontalContentAlignment="Center" FontSize="15px" FontWeight="Bold"/>
+                                    <Button Content="Remove All" HorizontalAlignment="Right" Width="75px" Height="25px" Margin="0, 0, 10, 0" FontWeight="Bold" FontSize="12" BorderBrush="Black" Click="Remove_CPSC_Degree_Click"/>
+                                </Grid>
+                            </Border>
+
+                            <Expander Visibility="{Binding ElementName=Degree_CPSC, Path=Visibility}">
+                                <Expander.Header>
+                                    <TextBlock Text="Requirement 1: Computer Science Courses" FontWeight="Bold"/>
+                                </Expander.Header>
+
+                                <StackPanel>
+                                    <Border BorderThickness="1" BorderBrush="Black" Background="{StaticResource color6}" MouseDown="MGST217_MouseDown">
+                                        <StackPanel>
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="MGST 217 - Introduction to Business Analytics" TextDecorations="Underline"/>
+                                            <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018"/>
+                                            <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="Prerequisite: admission to the Haskayne Bachelor of Commerce program."/>
+                                            <TextBlock Margin="3, 0" TextWrapping="Wrap" Text="Antirequisite: credit for MGST217 and BSEN291 will not be allowed."/>
+                                        </StackPanel>
+                                    </Border>
+
+                                    <Border Margin="0,10" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color6}" MouseDown="SGMA217_MouseDown">
+                                        <StackPanel>
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="SGMA 217 - Introduction to Business Skills" TextDecorations="Underline"/>
+                                            <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018"/>
+                                            <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="Prerequisite: admission to the Haskayne Bachelor of Commerce program."/>
+                                            <TextBlock Margin="3, 0" TextWrapping="Wrap" Text="Antirequisite: credit for SGMA217 and BSEN291 will not be allowed."/>
+                                        </StackPanel>
+                                    </Border>
+
+                                </StackPanel>
+                            </Expander>
+
+                            <Expander Margin="0,5,0,0" Name="SoftEng_Conc" Visibility="Collapsed">
+                                <Expander.Header>
+                                    <Grid Width="{Binding ElementName=SoftEng_Conc, Path=ActualWidth}">
+                                        <TextBlock Text="Requirement 4: Concentration - Software Engineering (SENG) " FontWeight="Bold" HorizontalAlignment="Left"/>
+                                        <Button Content="Remove" HorizontalAlignment="Right" Width="70px" Margin="0, 0, 40, 0" FontWeight="Bold" FontSize="12" BorderBrush="Black" Click="Remove_SENG_Conc_Click"/>
+                                    </Grid>
+                                </Expander.Header>
+
+                                <StackPanel>
+                                    <Border BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
+                                        <StackPanel>
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="5 full-course equivalents from the Field of Economics" TextDecorations="Underline"/>
+                                            <TextBlock Margin="3, 0" Text="Restrictions:"/>
+                                            <TextBlock Margin="5, 0" Text="-No more than 6 full-course equivalents"/>
+                                            <TextBlock Margin="5, 0" Text="-At least 3 full-course equivalents at 300 level or above"/>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                            </Expander>
+
+                            <!-- Hidden ECON and PHIL minors -->
+                            <Border BorderThickness="2" BorderBrush="Black" Background="{StaticResource color3}" Margin="2,10,4,2" Name="Econ_Minor" Visibility="Collapsed">
+                                <Grid Width="{Binding ElementName=Econ_Minor, Path=ActualWidth}">
+                                    <Label Content="BA | Minor - Economics" HorizontalContentAlignment="Center" FontSize="15px" FontWeight="Bold"/>
+                                    <Button Content="Remove All" HorizontalAlignment="Right" Width="75px" Height="25px" Margin="0, 0, 10, 0" FontWeight="Bold" FontSize="12" BorderBrush="Black" Click="Remove_ECON_Minor_Click"/>
+                                </Grid>
+                            </Border>
+
+                            <Expander Margin="0, 5" Name="Econ_Minor_Expander" Visibility="{Binding ElementName=Econ_Minor, Path=Visibility}">
+                                <Expander.Header>
+                                    <Grid Width="{Binding ElementName=Econ_Minor, Path=ActualWidth}">
+                                        <TextBlock Text="Requirement: Minor - Economics (ECON) " FontWeight="Bold" HorizontalAlignment="Left"/>
+                                    </Grid>
+                                </Expander.Header>
+
+                                <StackPanel>
+                                    <Border BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
+                                        <StackPanel>
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="5 full-course equivalents from the Field of Economics" TextDecorations="Underline"/>
+                                            <TextBlock Margin="3, 0" Text="Restrictions:"/>
+                                            <TextBlock Margin="5, 0" Text="-No more than 6 full-course equivalents"/>
+                                            <TextBlock Margin="5, 0" Text="-At least 3 full-course equivalents at 300 level or above"/>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                            </Expander>
+
+                            <Border BorderThickness="2" BorderBrush="Black" Background="{StaticResource color3}" Margin="2,10,4,2" Name="Phil_Minor" Visibility="Collapsed">
+                                <Grid Width="{Binding ElementName=Phil_Minor, Path=ActualWidth}">
+                                    <Label Content="BA | Minor - Philosophy" HorizontalContentAlignment="Center" FontSize="15px" FontWeight="Bold"/>
+                                    <Button Content="Remove All" HorizontalAlignment="Right" Width="75px" Height="25px" Margin="0, 0, 10, 0" FontWeight="Bold" FontSize="12" BorderBrush="Black" Click="Remove_PHIL_Minor_Click"/>
+                                </Grid>
+                            </Border>
+
+                            <Expander Margin="0, 5" Name="Phil_Minor_Expander" Visibility="{Binding ElementName=Phil_Minor, Path=Visibility}">
+                                <Expander.Header>
+                                    <Grid Width="{Binding ElementName=Phil_Minor, Path=ActualWidth}">
+                                        <TextBlock Text="Requirement: Minor - Philosophy (PHIL) " FontWeight="Bold" HorizontalAlignment="Left"/>
+                                    </Grid>
+                                </Expander.Header>
+
+                                <StackPanel>
+                                    <Border BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
+                                        <StackPanel>
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="5 full-course equivalents from the Field of Philosophy" TextDecorations="Underline"/>
+                                            <TextBlock Margin="3, 0" Text="Restrictions:"/>
+                                            <TextBlock Margin="5, 0" Text="-No more than 6 full-course equivalents"/>
+                                            <TextBlock Margin="5, 0" Text="-At least 3 full-course equivalents at 300 level or above"/>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                            </Expander>
+
                         </StackPanel>
 
                     </ScrollViewer>
                 </DockPanel>
-
-
-
             </DockPanel>
-
 
 
 
@@ -232,11 +369,11 @@
                             </Grid.ColumnDefinitions>
 
                             <WrapPanel Grid.Column="0" HorizontalAlignment="Center">
-                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Semester_Checked" Unchecked="Semester_Checked" Tag="Fall"/>
+                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Semester_Checked" Unchecked="Semester_Checked" Tag="Fall" IsChecked="True"/>
                                 <Label Content="Fall"/>
                             </WrapPanel>
                             <WrapPanel Grid.Column="1" HorizontalAlignment="Center">
-                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Semester_Checked" Unchecked="Semester_Checked" Tag="Winter"/>
+                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Semester_Checked" Unchecked="Semester_Checked" Tag="Winter" IsChecked="True"/>
                                 <Label Content="Winter"/>
                             </WrapPanel>
                             <WrapPanel Grid.Column="2" HorizontalAlignment="Center">
@@ -434,7 +571,7 @@
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
-                            <Button Content="Add course" Grid.Column="1" Grid.Row="1" Click="Button_Click"/>
+                            <!-- <Button Content="Add course" Grid.Column="1" Grid.Row="1" Click="Button_Click"/> -->
                             <Label Content="Select a requirement on the left, or start a search to get started"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
@@ -608,34 +745,33 @@
 
             </StackPanel>
             <StackPanel Name="Degree_Search_Panel" Height="315" VerticalAlignment="Top" Width="456" Margin="183,73,183,0" Background="{StaticResource color3}">
-                <Label Content="Add Degree" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
-                <Label Content="Stream" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
-                <ComboBox Width="150" HorizontalAlignment="Center">
+                <Button Content="X" Width="50px" HorizontalAlignment="Right" Margin="1,1" Click="Requirement_Popup_Button"/>
+                <TextBlock Text="Add Degree" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"  TextDecorations="Underline"/>
+
+                <Label Content="Degree" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
+                <ComboBox Width="150" HorizontalAlignment="Center" Name="cmbDegree" DropDownClosed="cmb_DropDownClosed">
                     <ComboBoxItem>Bachelor of Arts</ComboBoxItem>
-                    <ComboBoxItem>Bachelor of Commerce</ComboBoxItem>
                     <ComboBoxItem>Bachelor of Science</ComboBoxItem>
                 </ComboBox>
-                <Label Content="Major" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
-                <ComboBox Width="150" HorizontalAlignment="Center">
-                    <ComboBoxItem>ACCT - Accounting</ComboBoxItem>
-                    <ComboBoxItem>BSEN - Business</ComboBoxItem>
-                    <ComboBoxItem>ECON - Economics</ComboBoxItem>
-                </ComboBox>
+
+                <Label Content="Major" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16"/>
+                <ComboBox Width="150" HorizontalAlignment="Center" Name="cmbMajor" DropDownClosed="cmb1_DropDownClosed"/>
+
                 <Label Content="Concentration" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
-                <ComboBox Width="150" HorizontalAlignment="Center">
-                    <ComboBoxItem>Accounting</ComboBoxItem>
-                    <ComboBoxItem>Finance</ComboBoxItem>
-                    <ComboBoxItem>General</ComboBoxItem>
-                    <ComboBoxItem>Real Estate Studies</ComboBoxItem>
-                    <ComboBoxItem>Supply Chain Management</ComboBoxItem>
-                </ComboBox>
+                <ComboBox Width="150" HorizontalAlignment="Center" Name="cmbConcentration" DropDownClosed="cmb2_DropDownClosed"/>
+
                 <Label Content="Minor" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
-                <ComboBox Width="150" HorizontalAlignment="Center">
-                    <ComboBoxItem>ACCT - Accounting</ComboBoxItem>
-                    <ComboBoxItem>BSEN - Business</ComboBoxItem>
+                <ComboBox Width="150" HorizontalAlignment="Center" Name="cmbMinor" DropDownClosed="cmb_Minor_DropDownClosed">
                     <ComboBoxItem>ECON - Economics</ComboBoxItem>
+                    <ComboBoxItem>PHIL - Philosophy</ComboBoxItem>
                 </ComboBox>
-                <Button Content="Add" Width="50" Margin="203,10"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Add" Width="50" Margin="10, 10" Click="addButton_cmb_Click" FontSize="14"/>
+                    <Button Content="Clear All" Width="65" Margin="10, 10" Click="Clear_All_Click" FontSize="14"/>
+                </StackPanel>
+
+
             </StackPanel>
 
         </Grid>
@@ -713,9 +849,6 @@
                 </TextBlock>
             </Border>
         </Grid>
-
-        <ToolBarTray HorizontalAlignment="Left" Height="100" Margin="225,0,0,0" VerticalAlignment="Top" Width="100"/>
-
     </Grid>
 </Window>
 
