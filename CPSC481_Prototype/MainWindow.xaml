@@ -169,7 +169,7 @@
                                 </StackPanel>
                             </Expander>
 
-                            <Expander Margin="0, 5" Name="FNCE_Conc" Visibility="Hidden">
+                            <Expander Margin="0, 5" Name="FNCE_Conc" Visibility="Collapsed">
                                 <Expander.Header>
                                     <Grid Width="{Binding ElementName=FNCE_Conc, Path=ActualWidth}">
                                         <TextBlock Text="Requirement 4: Concentration - Finance (FNCE) " FontWeight="Bold" HorizontalAlignment="Left"/>
@@ -177,7 +177,6 @@
                                     </Grid>
                                 </Expander.Header>
                                 
-
                                 <StackPanel>
                                     <Border BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}">
                                         <StackPanel>
@@ -212,10 +211,10 @@
                             </Expander>
 
                             <!-- Hidden CPSC degree and SENG concentration -->
-                            <Border BorderThickness="2" BorderBrush="Black" Background="{StaticResource color3}" Margin="2,0,4,2" Name="Degree_CPSC" Visibility="Collapsed">
+                            <Border BorderThickness="2" BorderBrush="Black" Background="{StaticResource color3}" Margin="2,10,4,2" Name="Degree_CPSC" Visibility="Collapsed">
                                 <Grid Width="{Binding ElementName=Degree_CPSC, Path=ActualWidth}">
                                     <Label Content="BSc | Major - Computer Science" HorizontalContentAlignment="Center" FontSize="15px" FontWeight="Bold"/>
-                                    <Button Content="Remove" HorizontalAlignment="Right" Width="65px" Height="25px" Margin="0, 0, 10, 0" FontWeight="Bold" FontSize="12" BorderBrush="Black" Click="Remove_CPSC_Degree_Click"/>
+                                    <Button Content="Remove All" HorizontalAlignment="Right" Width="75px" Height="25px" Margin="0, 0, 10, 0" FontWeight="Bold" FontSize="12" BorderBrush="Black" Click="Remove_CPSC_Degree_Click"/>
                                 </Grid>
                             </Border>
 
@@ -246,7 +245,7 @@
                                 </StackPanel>
                             </Expander>
 
-                            <Expander Margin="0, 5" Name="SoftEng_Conc" Visibility="Collapsed">
+                            <Expander Margin="0,5,0,0" Name="SoftEng_Conc" Visibility="Collapsed">
                                 <Expander.Header>
                                     <Grid Width="{Binding ElementName=SoftEng_Conc, Path=ActualWidth}">
                                         <TextBlock Text="Requirement 4: Concentration - Software Engineering (SENG) " FontWeight="Bold" HorizontalAlignment="Left"/>
@@ -266,12 +265,11 @@
                                 </StackPanel>
                             </Expander>
 
-
                             <!-- Hidden ECON and PHIL minors -->
-                            <Border BorderThickness="2" BorderBrush="Black" Background="{StaticResource color3}" Margin="2,0,4,2" Name="Econ_Minor" Visibility="Collapsed">
+                            <Border BorderThickness="2" BorderBrush="Black" Background="{StaticResource color3}" Margin="2,10,4,2" Name="Econ_Minor" Visibility="Collapsed">
                                 <Grid Width="{Binding ElementName=Econ_Minor, Path=ActualWidth}">
                                     <Label Content="BA | Minor - Economics" HorizontalContentAlignment="Center" FontSize="15px" FontWeight="Bold"/>
-                                    <Button Content="Remove" HorizontalAlignment="Right" Width="65px" Height="25px" Margin="0, 0, 10, 0" FontWeight="Bold" FontSize="12" BorderBrush="Black" Click="Remove_ECON_Minor_Click"/>
+                                    <Button Content="Remove All" HorizontalAlignment="Right" Width="75px" Height="25px" Margin="0, 0, 10, 0" FontWeight="Bold" FontSize="12" BorderBrush="Black" Click="Remove_ECON_Minor_Click"/>
                                 </Grid>
                             </Border>
 
@@ -294,10 +292,10 @@
                                 </StackPanel>
                             </Expander>
 
-                            <Border BorderThickness="2" BorderBrush="Black" Background="{StaticResource color3}" Margin="2,0,4,2" Name="Phil_Minor" Visibility="Collapsed">
-                                <Grid Width="{Binding ElementName=Econ_Minor, Path=ActualWidth}">
+                            <Border BorderThickness="2" BorderBrush="Black" Background="{StaticResource color3}" Margin="2,10,4,2" Name="Phil_Minor" Visibility="Collapsed">
+                                <Grid Width="{Binding ElementName=Phil_Minor, Path=ActualWidth}">
                                     <Label Content="BA | Minor - Philosophy" HorizontalContentAlignment="Center" FontSize="15px" FontWeight="Bold"/>
-                                    <Button Content="Remove" HorizontalAlignment="Right" Width="65px" Height="25px" Margin="0, 0, 10, 0" FontWeight="Bold" FontSize="12" BorderBrush="Black" Click="Remove_PHIL_Minor_Click"/>
+                                    <Button Content="Remove All" HorizontalAlignment="Right" Width="75px" Height="25px" Margin="0, 0, 10, 0" FontWeight="Bold" FontSize="12" BorderBrush="Black" Click="Remove_PHIL_Minor_Click"/>
                                 </Grid>
                             </Border>
 
@@ -761,7 +759,7 @@
                 <ComboBox Width="150" HorizontalAlignment="Center" Name="cmbMajor" DropDownClosed="cmb1_DropDownClosed"/>
 
                 <Label Content="Concentration" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
-                <ComboBox Width="150" HorizontalAlignment="Center" Name="cmbConcentration"/>
+                <ComboBox Width="150" HorizontalAlignment="Center" Name="cmbConcentration" DropDownClosed="cmb2_DropDownClosed"/>
 
                 <Label Content="Minor" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
                 <ComboBox Width="150" HorizontalAlignment="Center" Name="cmbMinor" DropDownClosed="cmb_Minor_DropDownClosed">

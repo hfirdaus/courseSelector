@@ -218,7 +218,10 @@ namespace CPSC481_Prototype
 
         //List containing the selections from the minor section combobox.
         List<string> selection_cmb = new List<string>();
+        //List containing the selections from the degree/major section combobox.
         List<string> selection_degree_cmb = new List<string>();
+        //List containing the selections from the concentration section combobox.
+        List<string> selection_conc_cmb = new List<string>();
 
         private void addButton_cmb_Click(object sender, RoutedEventArgs e)
         {
@@ -242,7 +245,12 @@ namespace CPSC481_Prototype
             if (selection_degree_cmb.Contains("CPSC"))
             {
                 Degree_CPSC.Visibility = Visibility.Visible;
-                SoftEng_Conc.Visibility = Visibility.Hidden;
+                SoftEng_Conc.Visibility = Visibility.Collapsed;
+            }
+
+            if (selection_conc_cmb.Contains("SENG"))
+            {
+                SoftEng_Conc.Visibility = Visibility.Visible;
             }
         }
 
@@ -255,6 +263,11 @@ namespace CPSC481_Prototype
         private void cmb1_DropDownClosed(object sender, EventArgs e)
         {
             cmb_Filter1();
+        }
+
+        private void cmb2_DropDownClosed(object sender, EventArgs e)
+        {
+            cmb_Filter2();
         }
 
         //Fix issue where only one is selected instead of both.
@@ -303,10 +316,6 @@ namespace CPSC481_Prototype
                     cmbMajor.Items.Remove("ENGL - English");
                     cmbMajor.Items.Remove("CPSC - Computer Science");
                     cmbMajor.Items.Add("CPSC - Computer Science");
-
-                    if (!selection_degree_cmb.Contains("CPSC")) {
-                        selection_degree_cmb.Add("CPSC");
-                    }
                 }
             }
         }
@@ -328,30 +337,56 @@ namespace CPSC481_Prototype
                     cmbConcentration.Items.Remove("Creative Writing");
                     cmbConcentration.Items.Remove("Software Engineering");
                     cmbConcentration.Items.Add("Software Engineering");
+                    if (!selection_degree_cmb.Contains("CPSC"))
+                    {
+                        selection_degree_cmb.Add("CPSC");
+                    }
                 }
             }
-
         }
+
+        //Selection of concentration
+        private void cmb_Filter2()
+        {
+            String cmbItem;
+            if (cmbConcentration.SelectedItem != null)
+            {
+                cmbItem = cmbConcentration.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last();
+                if (cmbItem.Equals("Software Engineering"))
+                {
+                    if (!selection_conc_cmb.Contains("SENG"))
+                    {
+                        selection_conc_cmb.Add("SENG");
+                    }
+                }
+            }
+        }
+
         private void Remove_CPSC_Degree_Click(object sender, RoutedEventArgs e)
         {
             Degree_CPSC.Visibility = Visibility.Collapsed;
             SoftEng_Conc.Visibility = Visibility.Collapsed;
+
             selection_degree_cmb.Clear();
+            selection_conc_cmb.Clear();
+
             cmbDegree.SelectedIndex = -1;
             cmbMajor.SelectedIndex = -1;
+            cmbConcentration.SelectedIndex = -1;
         }
 
         private void Remove_SENG_Conc_Click(object sender, RoutedEventArgs e)
         {
-            SoftEng_Conc.Visibility = Visibility.Hidden;
+            SoftEng_Conc.Visibility = Visibility.Collapsed;
+
+            selection_conc_cmb.Clear();
+
             cmbConcentration.SelectedIndex = -1;
-            
         }
         
         private void Remove_FNCE_Conc_Click(object sender, RoutedEventArgs e)
         {
             FNCE_Conc.Visibility = Visibility.Hidden;
-
         }
 
         private void Remove_ECON_Minor_Click(object sender, RoutedEventArgs e)
@@ -385,7 +420,10 @@ namespace CPSC481_Prototype
             SoftEng_Conc.Visibility = Visibility.Collapsed;
             Phil_Minor.Visibility = Visibility.Collapsed;
             Econ_Minor.Visibility = Visibility.Collapsed;
+
             selection_cmb.Clear();
+            selection_degree_cmb.Clear();
+            selection_conc_cmb.Clear();
         }
     }
 }
