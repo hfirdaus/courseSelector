@@ -216,8 +216,9 @@ namespace CPSC481_Prototype
 
         }
 
-        //List containing the selections from the additional degree pop-up combobox.
+        //List containing the selections from the minor section combobox.
         List<string> selection_cmb = new List<string>();
+        List<string> selection_degree_cmb = new List<string>();
 
         private void addButton_cmb_Click(object sender, RoutedEventArgs e)
         {
@@ -237,7 +238,14 @@ namespace CPSC481_Prototype
                 Econ_Minor.Visibility = Visibility.Collapsed;
                 selection_cmb.Clear();
             }
+
+            if (selection_degree_cmb.Contains("CPSC"))
+            {
+                Degree_CPSC.Visibility = Visibility.Visible;
+                SoftEng_Conc.Visibility = Visibility.Hidden;
+            }
         }
+
 
         private void cmb_DropDownClosed(object sender, EventArgs e)
         {
@@ -295,6 +303,10 @@ namespace CPSC481_Prototype
                     cmbMajor.Items.Remove("ENGL - English");
                     cmbMajor.Items.Remove("CPSC - Computer Science");
                     cmbMajor.Items.Add("CPSC - Computer Science");
+
+                    if (!selection_degree_cmb.Contains("CPSC")) {
+                        selection_degree_cmb.Add("CPSC");
+                    }
                 }
             }
         }
@@ -305,7 +317,6 @@ namespace CPSC481_Prototype
             if (cmbMajor.SelectedItem != null)
             {
                 cmbItem = cmbMajor.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last();
-                Console.WriteLine(cmbItem);
                 if(cmbItem.Equals("ENGL - English"))
                 {
                     cmbConcentration.Items.Remove("Creative Writing");
@@ -321,11 +332,26 @@ namespace CPSC481_Prototype
             }
 
         }
+        private void Remove_CPSC_Degree_Click(object sender, RoutedEventArgs e)
+        {
+            Degree_CPSC.Visibility = Visibility.Collapsed;
+            SoftEng_Conc.Visibility = Visibility.Collapsed;
+            selection_degree_cmb.Clear();
+            cmbDegree.SelectedIndex = -1;
+            cmbMajor.SelectedIndex = -1;
+        }
 
         private void Remove_SENG_Conc_Click(object sender, RoutedEventArgs e)
         {
-            SoftEng_Conc.Visibility = Visibility.Collapsed;
+            SoftEng_Conc.Visibility = Visibility.Hidden;
+            cmbConcentration.SelectedIndex = -1;
             
+        }
+        
+        private void Remove_FNCE_Conc_Click(object sender, RoutedEventArgs e)
+        {
+            FNCE_Conc.Visibility = Visibility.Hidden;
+
         }
 
         private void Remove_ECON_Minor_Click(object sender, RoutedEventArgs e)
@@ -341,6 +367,7 @@ namespace CPSC481_Prototype
             selection_cmb.Clear();
             cmbMinor.SelectedIndex = -1;
         }
+
         private void Clear_All_Click(object sender, RoutedEventArgs e)
         {
             //Clearing the selections in the comboboxs in the add an additional degree pop-up.
@@ -354,6 +381,8 @@ namespace CPSC481_Prototype
             cmbConcentration.Items.Remove("Creative Writing");
             cmbConcentration.Items.Remove("Software Engineering");
 
+            Degree_CPSC.Visibility = Visibility.Collapsed;
+            SoftEng_Conc.Visibility = Visibility.Collapsed;
             Phil_Minor.Visibility = Visibility.Collapsed;
             Econ_Minor.Visibility = Visibility.Collapsed;
             selection_cmb.Clear();
