@@ -582,6 +582,39 @@ namespace CPSC481_Prototype
                 CourseSelectorCourses.AddCourse(newCourse);
             }
         }
+
+        private void Expand_All_Course_Selector(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < Course_Selector_Items.Items.Count; i++)
+            {
+                ContentPresenter child = (ContentPresenter)Course_Selector_Items.ItemContainerGenerator.ContainerFromIndex(i);
+                ChangeExpander(child, true);
+            }
+        }
+
+        private void Collapse_All_Course_Selector(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < Course_Selector_Items.Items.Count; i++)
+            {
+                ContentPresenter child = (ContentPresenter)Course_Selector_Items.ItemContainerGenerator.ContainerFromIndex(i);
+                ChangeExpander(child, false);
+            }
+        }
+
+        private void ChangeExpander(DependencyObject item, bool isExpanded)
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(item); i++)
+            {
+                DependencyObject child = VisualTreeHelper.GetChild(item, i);
+
+                if (child is Expander)
+                    ((Expander)child).IsExpanded = isExpanded;
+                else
+                    ChangeExpander(child, isExpanded);
+
+
+            }
+        }
     }
 }
 
