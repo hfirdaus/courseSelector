@@ -46,17 +46,17 @@ namespace CPSC481_Prototype
             }
         }
 
-        // TODO implement remove course
         public static void RemoveCourse(Course course)
         {
             if (instance.visable.Contains(course))
             {
-                instance.courses.Remove(course);
                 instance.visable.Remove(course);
                 if (instance.CollectionChanged != null)
                     instance.CollectionChanged(instance, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, course));
 
             }
+            if (instance.courses.Contains(course))
+                instance.courses.Remove(course);
         }
 
         public static void AddVisibleSemester(Semester semester)
