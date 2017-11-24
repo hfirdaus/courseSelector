@@ -41,7 +41,7 @@ namespace CPSC481_Prototype
             }
         }
 
-        private void Requirement_Popup_MouseDown(object sender, RoutedEventArgs e)
+        private void Requirement_Popup_Button(object sender, RoutedEventArgs e)
         {
             if (Requirement_Popup.Visibility == Visibility.Visible)
             {
@@ -49,6 +49,15 @@ namespace CPSC481_Prototype
             }
 
         }
+
+        private void Requirement_Popup_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Requirement_Popup.Visibility == Visibility.Visible)
+            {
+                Requirement_Popup.Visibility = Visibility.Hidden;
+            }
+        }
+
         private void Show_Complete_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             Show_Completed_Stack_Panel.Visibility = Visibility.Visible;
@@ -98,6 +107,40 @@ namespace CPSC481_Prototype
         {
         }
 
+        int number = 0;
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Semester semester in Semester.ALL_SEMESTERS)
+            {
+                Course newCourse = new CPSC481_Prototype.Course("Department", "" + number++, "Title", "Description", semester, 2017);
+                for (int i = 0; i < 2; i++)
+                {
+                    Offering offering = new Offering();
+                    Section lecture = new Section();
+                    lecture.Name = "Lecture " + i;
+                    lecture.Time = "MWF 0:00";
+                    lecture.Select_Command = new LectureCommand(newCourse, lecture);
+                    offering.Lecture = lecture;
+                    for (int j = 0; j < 2; j++)
+                    {
+                        Section tutorial = new Section();
+                        tutorial.Name = "Tutorial " + j;
+                        tutorial.Time = "W 1:11";
+                        offering.Tutorials.Add(tutorial);
+                    }
+                    for (int j = 0; j < 2; j++)
+                    {
+                        Section lab = new Section();
+                        lab.Name = "Lab " + j;
+                        lab.Time = "W 1:11";
+                        offering.Labs.Add(lab);
+                    }
+                    newCourse.AddOffering(offering);
+                }
+                CourseSelectorCourses.AddCourse(newCourse);
+            }
+        }
+
         private void DeleteCourse(object sender, RoutedEventArgs e)
         {
 
@@ -115,7 +158,7 @@ namespace CPSC481_Prototype
         private void MGST217_MouseDown(object sender, RoutedEventArgs e)
         {
             int contain_flag = 0;
-            foreach (Course check_course in CourseSelectorCourses.instance.courses)
+            foreach (Course check_course in CourseSelectorCourses.instance.visable)
             {
                 if(check_course.Department.Equals("MGST") && check_course.Number.Equals("217"))
                 {
@@ -134,11 +177,12 @@ namespace CPSC481_Prototype
                 }
             }
         }
-
+        
         private void SGMA217_MouseDown(object sender, RoutedEventArgs e)
         {
+            
             int contain_flag = 0;
-            foreach (Course check_course in CourseSelectorCourses.instance.courses)
+            foreach (Course check_course in CourseSelectorCourses.instance.visable)
             {
                 if (check_course.Department.Equals("SGMA") && check_course.Number.Equals("217"))
                 {
@@ -156,12 +200,14 @@ namespace CPSC481_Prototype
                     Add_Course_Click("SGMA", "217", "Introduction to Business Skills", "COURSE DESCR", semester, year, 2, 2, 2);
                 }
             }
+            
         }
 
         private void ECON201_MouseDown(object sender, RoutedEventArgs e)
         {
+            
             int contain_flag = 0;
-            foreach (Course check_course in CourseSelectorCourses.instance.courses)
+            foreach (Course check_course in CourseSelectorCourses.instance.visable)
             {
                 if (check_course.Department.Equals("ECON") && check_course.Number.Equals("201"))
                 {
@@ -178,7 +224,7 @@ namespace CPSC481_Prototype
                     else year = 2018;
                     Add_Course_Click("ECON", "201", "Principles of Microeconomic", "COURSE DESCR", semester, year, 2, 2, 2);
                 }
-            }
+            }            
         }
 
         private void Add_Course_Click(string dept, string number, string title, string descr, Semester semester, int year, int num_of_Off, int num_of_Tut, int num_of_Lab)
@@ -270,7 +316,7 @@ namespace CPSC481_Prototype
             cmb_Filter2();
         }
 
-        //Fix issue where only one is selected instead of both.
+
         private void cmb_Minor_DropDownClosed(object sender, EventArgs e)
         {
             String cmbItem;

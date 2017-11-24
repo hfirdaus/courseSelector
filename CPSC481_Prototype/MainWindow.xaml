@@ -688,11 +688,10 @@
         </Grid>
         <Grid Name="Requirement_Popup"  Visibility="Hidden">
 
-            <Border Background="Black" Opacity="0.5">
+            <Border Background="Black" Opacity="0.5" MouseDown="Requirement_Popup_MouseDown">
 
             </Border>
             <StackPanel Name="Course_Search_Panel" Height="315" VerticalAlignment="Top" Width="456" Margin="183,73,183,0" Background="{StaticResource color3}">
-                <Button Content="X" Width="50px" HorizontalAlignment="Right" Margin="1,1" Click="Requirement_Popup_MouseDown"/>
                 <Label Content="Search for Course" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
 
                 <Label Content="Course Faculty" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
@@ -746,7 +745,7 @@
 
             </StackPanel>
             <StackPanel Name="Degree_Search_Panel" Height="315" VerticalAlignment="Top" Width="456" Margin="183,73,183,0" Background="{StaticResource color3}">
-                <Button Content="X" Width="50px" HorizontalAlignment="Right" Margin="1,1" Click="Requirement_Popup_MouseDown"/>
+                <Button Content="X" Width="50px" HorizontalAlignment="Right" Margin="1,1" Click="Requirement_Popup_Button"/>
                 <TextBlock Text="Add Degree" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"  TextDecorations="Underline"/>
 
                 <Label Content="Degree" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
