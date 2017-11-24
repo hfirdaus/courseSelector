@@ -15,6 +15,7 @@ namespace CPSC481_Prototype
         public static Semester SPRING = new Semester("Spring");
         public static Semester SUMMER = new Semester("Summer");
         public static List<Semester> ALL_SEMESTERS = new List<Semester> { FALL, WINTER, SPRING, SUMMER };
+        public static List<Semester> FALL_WINTER = new List<Semester> { FALL, WINTER };
 
         private string name;
 
