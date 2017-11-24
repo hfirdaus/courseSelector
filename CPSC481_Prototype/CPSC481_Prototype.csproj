@@ -64,7 +64,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CourseCommand.cs" />
+    <Compile Include="RemoveCourseCommand.cs" />
+    <Compile Include="AddCourseCommand.cs" />
     <Compile Include="LectureCommand.cs" />
     <Compile Include="Section.cs" />
     <Page Include="MainWindow.xaml">

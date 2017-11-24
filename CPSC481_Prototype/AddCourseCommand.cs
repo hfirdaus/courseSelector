@@ -7,15 +7,14 @@ using System.Windows.Input;
 
 namespace CPSC481_Prototype
 {
-    public class CourseCommand : ICommand
+    public class AddCourseCommand : ICommand
     {
-
 
         public event EventHandler CanExecuteChanged;
 
         private Course course;
 
-        public CourseCommand(Course course)
+        public AddCourseCommand(Course course)
         {
             this.course = course;
         }

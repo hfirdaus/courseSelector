@@ -73,9 +73,11 @@ namespace CPSC481_Prototype
         private Semester _SemesterObject;
 
 
-        public ICommand Button_Click { get { return Click_Command; } }
+        public ICommand Add_Course { get { return _Add_Course; } }
+        private ICommand _Add_Course;
 
-        private ICommand Click_Command;
+        public ICommand Remove_Course { get { return _Remove_Course; } }
+        private ICommand _Remove_Course;
 
         // A list of lecture sections
         public ObservableCollection<Section> Lectures { get { return _Lectures; } }
@@ -101,7 +103,8 @@ namespace CPSC481_Prototype
             this._Description = Description;
             this._Semester = Semester + " " + year;
             this._SemesterObject = Semester;
-            Click_Command = new CourseCommand(this);
+            _Add_Course = new AddCourseCommand(this);
+            _Remove_Course = new RemoveCourseCommand(this);
         }
 
         public void AddOffering(Offering offering)

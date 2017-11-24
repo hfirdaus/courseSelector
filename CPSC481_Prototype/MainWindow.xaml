@@ -475,7 +475,8 @@
                                                 <Label Content="{Binding Title}"/>
                                                 <Label Content="{Binding Description}"/>
                                                 <Label Content="{Binding Semester}"/>
-                                                <Button Content="Add Course" Command="{Binding Button_Click}"/>
+                                                <Button Content="Add Course" Command="{Binding Add_Course}"/>
+                                                <Button Content="Remove Course" Command="{Binding Remove_Course}"/>
                                                 <StackPanel Orientation="Horizontal">
                                                     <ItemsControl ItemsSource="{Binding Lectures}">
                                                         <ItemsControl.ItemTemplate>
