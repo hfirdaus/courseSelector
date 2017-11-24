@@ -343,9 +343,9 @@
                     <Border BorderBrush="Black" BorderThickness="0 0 0 1">
                         <DockPanel Margin="2">
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="Expand All"/>
+                                <Label Content="Expand All" MouseDown="Expand_All_Course_Selector"/>
                                 <Rectangle Width="1" Height="Auto" Fill="Black"/>
-                                <Label Content="Collapse All"/>
+                                <Label Content="Collapse All" MouseDown="Collapse_All_Course_Selector"/>
                                 <Rectangle Width="1" Height="Auto" Fill="Black"/>
                                 <Label Content="Clear All"/>
                                 <Rectangle Width="1" Height="Auto" Fill="Black"/>
