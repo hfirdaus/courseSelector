@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CartAndScheduleEntry.cs" />
+    <Compile Include="ScheduleSelections.cs" />
+    <Compile Include="CartSelections.cs" />
     <Compile Include="RemoveCourseCommand.cs" />
     <Compile Include="AddCourseCommand.cs" />
     <Compile Include="LectureCommand.cs" />

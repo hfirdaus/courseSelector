@@ -26,6 +26,7 @@ namespace CPSC481_Prototype
             InitializeComponent();
 
             Course_Selector_Items.ItemsSource = CourseSelectorCourses.instance.visable;
+            Cart_Items.ItemsSource = CartSelections.instance.cart;
         }
 
         private void Tutorial_Button_Click(object sender, RoutedEventArgs e)

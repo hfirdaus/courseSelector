@@ -27,8 +27,11 @@ namespace CPSC481_Prototype
         public void Execute(object parameter)
         {
             Offering selected = course.SelectedOffering();
-            if(selected != null)
+            if (selected != null)
+            {
                 CourseSelectorCourses.RemoveCourse(course);
+                CartSelections.AddCartAndScheduleEntry(course);
+            }   
         }
     }
 }

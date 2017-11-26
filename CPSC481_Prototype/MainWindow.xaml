@@ -391,24 +391,82 @@
                     <Border BorderThickness="1" BorderBrush="Black" >
                         <StackPanel>
                             <StackPanel Visibility="Visible" Orientation="Horizontal" Background="{StaticResource color2}">
-                                <CheckBox Margin="5, 7"/>
-                                <Label Content="All"/>
-                                <Rectangle Width="1" Height="Auto" Fill="Black" />
-                                <CheckBox Margin="5, 7"/>
-                                <Label Content="Fall"/>
-                                <Rectangle Width="1" Height="Auto" Fill="Black"/>
-                                <CheckBox Margin="5, 7"/>
-                                <Label Content="Winter"/>
-                                <Rectangle Width="1" Height="Auto" Fill="Black"/>
-                                <CheckBox Margin="5, 7"/>
-                                <Label Content="Spring"/>
-                                <Rectangle Width="1" Height="Auto" Fill="Black"/>
-                                <CheckBox Margin="5, 7"/>
-                                <Label Content="Summer"/>
-                                <Rectangle Width="1" Height="Auto" Fill="Black"/>
+     <!--                           <Border BorderBrush="Black" BorderThickness="0 0 0 1">
+                                    <Grid Margin="2" HorizontalAlignment="Stretch">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <WrapPanel Grid.Column="0" HorizontalAlignment="Center">
+                                            <CheckBox VerticalAlignment="Center" Margin="2" Checked="Semester_Checked" Unchecked="Semester_Checked" Tag="Fall" IsChecked="True"/>
+                                            <Label Content="Fall"/>
+                                        </WrapPanel>
+                                        <WrapPanel Grid.Column="1" HorizontalAlignment="Center">
+                                            <CheckBox VerticalAlignment="Center" Margin="2" Checked="Semester_Checked" Unchecked="Semester_Checked" Tag="Winter" IsChecked="True"/>
+                                            <Label Content="Winter"/>
+                                        </WrapPanel>
+                                        <WrapPanel Grid.Column="2" HorizontalAlignment="Center">
+                                            <CheckBox VerticalAlignment="Center" Margin="2" Checked="Semester_Checked" Unchecked="Semester_Checked" Tag="Spring"/>
+                                            <Label Content="Spring"/>
+                                        </WrapPanel>
+                                        <WrapPanel Grid.Column="3" HorizontalAlignment="Center">
+                                            <CheckBox VerticalAlignment="Center" Margin="2" Checked="Semester_Checked" Unchecked="Semester_Checked" Tag="Summer"/>
+                                            <Label Content="Summer"/>
+                                        </WrapPanel>
+                                    </Grid>
+                                </Border>
+               -->             </StackPanel>
+                            <StackPanel Name="Cart_Stack_Panel" MinHeight="150" MaxHeight="450" Visibility="Collapsed" Background="{StaticResource color2}">
+                                <ScrollViewer Background="{StaticResource color3}">
+                                    <!-- This is the Cart Stack Panel content area -->
+                                    <Grid Margin="2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="20*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="{Binding ElementName=Show_Cart_Border, Path=ActualHeight}"/>
+                                        </Grid.RowDefinitions>
+                                        <ItemsControl Name="Cart_Items" Grid.Column="1">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate DataType="x:Type local:CartAndScheduleEntry">
+                                                    <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
+                                                        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <Label Content="{Binding Department}"/>
+                                                                <Label Content="{Binding Number}"/>
+                                                                <Label Content="{Binding Title}"/>
+                                                            </StackPanel>
+                                                            <Label Content="{Binding Semester}"/>
+                                                            <ItemsControl ItemsSource="{Binding Sections}">
+                                                                <ItemsControl.ItemTemplate>
+                                                                    <DataTemplate DataType="x:Type local:Section">
+                                                                        <StackPanel Orientation="Horizontal">
+                                                                            <Label Content="{Binding Name}"/>
+                                                                            <Label Content="{Binding Time}"/>
+                                                                        </StackPanel>
+                                                                    </DataTemplate>
+                                                                </ItemsControl.ItemTemplate>
+                                                            </ItemsControl>
+                                                            <Button Content="Enroll"  Command="{Binding Enroll}"/>
+                                                            <Button Content="Remove" Command="{Binding Remove}"/>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+
+                                    </Grid>
+                                </ScrollViewer>
                             </StackPanel>
-                            <StackPanel Name="Cart_Stack_Panel" MinHeight="150" Visibility="Collapsed" Background="{StaticResource color2}">
-                                <StackPanel>
+                            <StackPanel Name="Sched_Stack_Panel" MinHeight="150" Visibility="Collapsed" Background="{StaticResource color2}">
+
+                                <!--    <StackPanel> HARDCODED CART AND SCHEDULE
                                     <Border Margin="0" BorderThickness="0 1 0 1" BorderBrush="Black" Background="{StaticResource color3}">
                                         <StackPanel Orientation="Vertical">
                                             <StackPanel Orientation="Horizontal">
@@ -436,6 +494,7 @@
                             </StackPanel>
 
                             <StackPanel Name="Sched_Stack_Panel" MinHeight="150" Visibility="Collapsed" Background="{StaticResource color2}">
+-->
                                 <StackPanel>
                                     <Border Margin="0" BorderThickness="0 1 0 1" BorderBrush="Black" Background="{StaticResource color3}">
                                         <StackPanel Orientation="Vertical">
