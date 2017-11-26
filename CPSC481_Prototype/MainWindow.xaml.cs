@@ -78,6 +78,7 @@ namespace CPSC481_Prototype
             Requirement_Popup.Visibility = Visibility.Visible;
             Course_Search_Panel.Visibility = Visibility.Visible;
             Degree_Search_Panel.Visibility = Visibility.Hidden;
+            Current_Degree_Panel.Visibility = Visibility.Hidden;
         }
 
         public void Option_Search_MouseDown(object sender, MouseButtonEventArgs e)
@@ -85,6 +86,7 @@ namespace CPSC481_Prototype
             Requirement_Popup.Visibility = Visibility.Visible;
             Course_Search_Panel.Visibility = Visibility.Visible;
             Degree_Search_Panel.Visibility = Visibility.Hidden;
+            Current_Degree_Panel.Visibility = Visibility.Hidden;
         }
 
         private void Add_Degree_MouseDown(object sender, MouseButtonEventArgs e)
@@ -92,6 +94,15 @@ namespace CPSC481_Prototype
             Requirement_Popup.Visibility = Visibility.Visible;
             Course_Search_Panel.Visibility = Visibility.Hidden;
             Degree_Search_Panel.Visibility = Visibility.Visible;
+            Current_Degree_Panel.Visibility = Visibility.Hidden;
+        }
+
+        private void Current_Degree_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Requirement_Popup.Visibility = Visibility.Visible;
+            Course_Search_Panel.Visibility = Visibility.Hidden;
+            Degree_Search_Panel.Visibility = Visibility.Hidden;
+            Current_Degree_Panel.Visibility = Visibility.Visible;
         }
 
         //private void Course_ACCT_Click(object sender, MouseButtonEventArgs e)
@@ -257,17 +268,14 @@ namespace CPSC481_Prototype
             CourseSelectorCourses.AddCourse(newCourse);
         }
 
-        private void Remove_Course_Click()
-        {
-
-        }
-
         //List containing the selections from the minor section combobox.
         List<string> selection_cmb = new List<string>();
         //List containing the selections from the degree/major section combobox.
         List<string> selection_degree_cmb = new List<string>();
         //List containing the selections from the concentration section combobox.
         List<string> selection_conc_cmb = new List<string>();
+        //List containing the selection from the concentration for the current degree combobox.
+        List<string> selection_cmb_Comm_conc = new List<string>();
 
         private void addButton_cmb_Click(object sender, RoutedEventArgs e)
         {
@@ -300,6 +308,21 @@ namespace CPSC481_Prototype
             }
         }
 
+        private void addButton_cmb_Comm_conc_Click(object sender, RoutedEventArgs e)
+        {
+            if (Requirement_Popup.Visibility == Visibility.Visible)
+            {
+                Requirement_Popup.Visibility = Visibility.Hidden;
+            }
+
+            if (selection_cmb_Comm_conc.Contains("FNCE"))
+            {
+                Regular_Degree_Title.Visibility = Visibility.Collapsed;
+                Conc_Degree_Title.Visibility = Visibility.Visible;
+                FNCE_Conc.Visibility = Visibility.Visible;
+            }
+        }
+
 
         private void cmb_DropDownClosed(object sender, EventArgs e)
         {
@@ -316,6 +339,17 @@ namespace CPSC481_Prototype
             cmb_Filter2();
         }
 
+        private void cmb_Comm_conc_DropDownClosed(object sender, EventArgs e)
+        {
+            String cmbItem;
+            if (cmbComm_Conc.SelectedItem != null)
+            {
+                cmbItem = cmbComm_Conc.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last();
+                if(!selection_cmb_Comm_conc.Contains("FNCE - Finance")) {
+                    selection_cmb_Comm_conc.Add("FNCE");
+                }
+            }    
+        }
 
         private void cmb_Minor_DropDownClosed(object sender, EventArgs e)
         {
@@ -432,7 +466,11 @@ namespace CPSC481_Prototype
         
         private void Remove_FNCE_Conc_Click(object sender, RoutedEventArgs e)
         {
-            FNCE_Conc.Visibility = Visibility.Hidden;
+            FNCE_Conc.Visibility = Visibility.Collapsed;
+            selection_cmb_Comm_conc.Clear();
+            cmbComm_Conc.SelectedIndex = -1;
+            Regular_Degree_Title.Visibility = Visibility.Visible;
+            Conc_Degree_Title.Visibility = Visibility.Collapsed;
         }
 
         private void Remove_ECON_Minor_Click(object sender, RoutedEventArgs e)

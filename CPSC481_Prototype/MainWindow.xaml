@@ -35,29 +35,38 @@
                         BorderThickness="0 0 0 1">
                         <!-- Border thickness order: "left top right bottom"-->
                         <StackPanel Background="{DynamicResource color1}">
-                            <TextBlock HorizontalAlignment="Left" DockPanel.Dock="Left" Text="Degree Navigator" FontWeight="Bold" FontSize="19px" TextDecorations="Underline" Margin="5,3,0,5"/>
+                            <TextBlock HorizontalAlignment="Left" DockPanel.Dock="Left" Text="Degree Navigator" FontWeight="Bold" FontSize="20" TextDecorations="Underline" Margin="5,3,0,5"/>
+                            <Label HorizontalAlignment="Left" Content="Degree: BComm | Major - Commerce" Margin="3,0,0,0" FontSize="16"/>
+
+                            <Border BorderThickness="1" BorderBrush="Black" Margin="0 5 0 5" Height="1"/>
+                            
                             <StackPanel Orientation="Horizontal"
                                 Margin="2">
                                 <Border CornerRadius="100" BorderBrush="Black" BorderThickness="2"
                                 MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
-                                MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="{StaticResource color4}">
-                                    <Label Content="1" HorizontalAlignment="Center" FontSize="14"/>
+                                MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" MouseDown="Current_Degree_MouseDown" Background="{StaticResource color4}">
+                                    <Label Content="o" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0 0 0 3"/>
                                 </Border>
-                                <Label HorizontalAlignment="Left" Content="BComm | Majoring - Commerence" Margin="3,1,0,0"/>
+                                <Label HorizontalAlignment="Left" Content="View concentration for current degree" Margin="3,3,0,0" FontSize="14" FontStyle="Italic"/>
                             </StackPanel>
+                            
+                            <Border BorderThickness="1" BorderBrush="Black" Margin="0 5 0 5" Height="1"/>
                             <StackPanel Orientation="Horizontal"
                                 Margin="2">
                                 <Border CornerRadius="100" BorderBrush="Black" BorderThickness="2"
                                 MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
                                 MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}"
                                         MouseDown="Add_Degree_MouseDown" Background="{DynamicResource color4}">
-                                    <Label Content="+" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+                                    <Label Content="+" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0 0 0 3"/>
                                 </Border>
-                                <Label HorizontalAlignment="Left" Content="View Additional Degree" Margin="3,3,0,0"/>
+                                <Label HorizontalAlignment="Left" Content="View additional degree (major and/or minor)" Margin="3,3,0,0" FontSize="14" FontStyle="Italic"/>
                             </StackPanel>
+
+                            <Border BorderThickness="1" BorderBrush="Black" Margin="0 5 0 5" Height="1"/>
+                            
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                 <CheckBox Checked="Show_Complete_CheckBox_Checked" Unchecked="Show_Complete_CheckBox_Unchecked" VerticalAlignment="Center"/>
-                                <Label Content="Show Completed Required Course(s)"/>
+                                <Label Content="Show Completed Required Course(s)" FontSize="14"/>
                             </StackPanel>
                         </StackPanel>
                     </Border>
@@ -84,11 +93,14 @@
                     <ScrollViewer Background="{StaticResource color3}">
                         <StackPanel>
                             <Border BorderThickness="2" BorderBrush="Black" Background="{StaticResource color3}" Margin="2,2,4,2">
-                                <Label Content="BComm | Major - Commerce" HorizontalContentAlignment="Center" FontSize="15px" FontWeight="Bold"/>
+                                <StackPanel>
+                                    <Label Name="Regular_Degree_Title" Content="BComm | Major - Commerce" HorizontalContentAlignment="Center" FontSize="16" FontWeight="Bold" Visibility="Visible"/>
+                                    <Label Name="Conc_Degree_Title" Content="BComm | Major - Commerce | Concentration - Finance" HorizontalContentAlignment="Center" FontSize="16" FontWeight="Bold" Visibility="Collapsed"/>
+                                </StackPanel>
                             </Border>
                             <Expander>
                                 <Expander.Header>
-                                    <TextBlock Text="Requirement 1: Commerce Courses" FontWeight="Bold"/>
+                                    <TextBlock Text="Requirement 1: Commerce Courses" FontWeight="Bold" FontSize="14"/>
                                 </Expander.Header>
 
                                 <StackPanel>
@@ -115,7 +127,7 @@
 
                             <Expander Margin="0, 5">
                                 <Expander.Header>
-                                    <TextBlock Text="Requirement 2: Non-Commerce Courses" FontWeight="Bold"/>
+                                    <TextBlock Text="Requirement 2: Non-Commerce Courses" FontWeight="Bold" FontSize="14"/>
                                 </Expander.Header>
 
                                 <StackPanel>
@@ -142,7 +154,7 @@
 
                             <Expander Margin="0, 0">
                                 <Expander.Header>
-                                    <TextBlock Text="Requirement 3: Option Courses" FontWeight="Bold"/>
+                                    <TextBlock Text="Requirement 3: Option Courses" FontWeight="Bold" FontSize="14"/>
                                 </Expander.Header>
 
                                 <StackPanel>
@@ -172,7 +184,7 @@
                             <Expander Margin="0, 5" Name="FNCE_Conc" Visibility="Collapsed">
                                 <Expander.Header>
                                     <Grid Width="{Binding ElementName=FNCE_Conc, Path=ActualWidth}">
-                                        <TextBlock Text="Requirement 4: Concentration - Finance (FNCE) " FontWeight="Bold" HorizontalAlignment="Left"/>
+                                        <TextBlock Text="Requirement 4: Concentration - Finance (FNCE) " FontWeight="Bold" HorizontalAlignment="Left" FontSize="14"/>
                                         <Button Content="Remove" HorizontalAlignment="Right" Width="70px" Margin="0, 0, 40, 0" FontWeight="Bold" FontSize="12" BorderBrush="Black" Click="Remove_FNCE_Conc_Click"/>
                                     </Grid>
                                 </Expander.Header>
@@ -771,10 +783,27 @@
                     <Button Content="Add" Width="50" Margin="10, 10" Click="addButton_cmb_Click" FontSize="14"/>
                     <Button Content="Clear All" Width="65" Margin="10, 10" Click="Clear_All_Click" FontSize="14"/>
                 </StackPanel>
-
-
             </StackPanel>
 
+            <StackPanel Name="Current_Degree_Panel" Height="315" VerticalAlignment="Top" Width="456" Margin="183,73,183,0" Background="{StaticResource color3}">
+                <Button Content="X" Width="50px" HorizontalAlignment="Right" Margin="1,1" Click="Requirement_Popup_Button"/>
+                <StackPanel Margin="0 20 0 0">
+                    <TextBlock Text="Current Degree" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"  TextDecorations="Underline"/>
+
+                    <Label Content="Degree: Bachelor of Commerce" Margin="0 5 0 0" HorizontalAlignment="Center" FontSize="16"/>
+                    <Label Content="Major: Commerce" Margin="0 5 0 0" HorizontalAlignment="Center" FontSize="16"/>
+
+                    <Label Content="Concentration" Margin="0 5 0 0" HorizontalAlignment="Center" FontSize="16"/>
+                    <ComboBox Width="150" HorizontalAlignment="Center" Name="cmbComm_Conc" DropDownClosed="cmb_Comm_conc_DropDownClosed">
+                        <ComboBoxItem>FNCE - Finance</ComboBoxItem>
+                    </ComboBox>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Content="Add" Width="50" Margin="10, 10" FontSize="14" Click="addButton_cmb_Comm_conc_Click"/>
+                        <Button Content="Clear" Width="65" Margin="10, 10" FontSize="14"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
         </Grid>
 
         <!--
