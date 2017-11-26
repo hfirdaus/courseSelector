@@ -24,9 +24,10 @@ namespace CPSC481_Prototype
         public MainWindow()
         {
             InitializeComponent();
-
+            DataContext = this;
             Course_Selector_Items.ItemsSource = CourseSelectorCourses.instance.visable;
-            Cart_Items.ItemsSource = CartSelections.instance.cart;
+            Cart_Items.ItemsSource = CartSelections.instance.visible;
+            Schedule_Items.ItemsSource = ScheduleSelections.instance.visible;    
         }
 
         private void Tutorial_Button_Click(object sender, RoutedEventArgs e)
@@ -147,13 +148,28 @@ namespace CPSC481_Prototype
 
         }
 
-        private void Semester_Checked(object sender, RoutedEventArgs e)
+        private void Course_Semester_Checked(object sender, RoutedEventArgs e)
         {
+            Console.Write("Course semester checked...");
             if (((CheckBox)sender).IsChecked == true)
                 CourseSelectorCourses.AddVisibleSemester(Semester.SearchSemester(((CheckBox)sender).Tag.ToString()));
             else
                 CourseSelectorCourses.RemoveVisibleSemester(Semester.SearchSemester(((CheckBox)sender).Tag.ToString()));
 
+        }
+
+        private void Cart_Semester_Checked(object sender, RoutedEventArgs e)
+        {
+            Console.Write("Cart semester checked...");
+            if (((CheckBox)sender).IsChecked == true)
+            {
+                CartSelections.AddVisibleSemester(Semester.SearchSemester(((CheckBox)sender).Tag.ToString()));
+                ScheduleSelections.AddVisibleSemester(Semester.SearchSemester(((CheckBox)sender).Tag.ToString()));
+            }
+            else { 
+                CartSelections.RemoveVisibleSemester(Semester.SearchSemester(((CheckBox)sender).Tag.ToString()));
+                ScheduleSelections.RemoveVisibleSemester(Semester.SearchSemester(((CheckBox)sender).Tag.ToString()));
+            }
         }
 
         private void MGST217_MouseDown(object sender, RoutedEventArgs e)

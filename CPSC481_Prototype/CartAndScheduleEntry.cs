@@ -36,22 +36,20 @@ namespace CPSC481_Prototype
         public ObservableCollection<Section> Sections { get { return _Sections; } }
         private ObservableCollection<Section> _Sections = new ObservableCollection<Section>();
 
-        public Section Lecture { get { return _Lecture; } }
-        private Section _Lecture;
+        public ICommand Enroll { get { return _Enroll; } } // Only show for Cart
+        private ICommand _Enroll;
 
-        public Section Lab { get { return _Lab; } }
-        private Section _Lab;
+        public ICommand Remove { get { return _Remove; } }
+        private ICommand _Remove;
 
-        public Section Tutorial { get { return _Tutorial; } }
-        private Section _Tutorial;
- //       public ICommand Add_Course { get { return _Add_Course; } } Need for "Remove Selection" "Enroll" and "Remove/Back to Cart" options
-   //     private ICommand _Add_Course;
-   //
-     //   public ICommand Remove_Course { get { return _Remove_Course; } }
-       // private ICommand _Remove_Course;
-
-
-        public CartAndScheduleEntry(string Department, string Number, string Title, string Semester, Semester SemesterObject, Section lecture, Section lab, Section tutorial)
+        public CartAndScheduleEntry(string Department, 
+                                    string Number, 
+                                    string Title, 
+                                    string Semester, 
+                                    Semester SemesterObject, 
+                                    Section lecture, 
+                                    Section lab, 
+                                    Section tutorial)
         {
             this.ID = _id++;
             this._Department = Department;
@@ -62,11 +60,13 @@ namespace CPSC481_Prototype
             this._Sections.Add(lecture);
             this._Sections.Add(lab);
             this._Sections.Add(tutorial);
-            this._Lab = lab;
-            this._Lecture = lecture;
-            this._Tutorial = tutorial;
-//            _Add_Course = new AddCourseCommand(this);
-  //          _Remove_Course = new RemoveCourseCommand(this);
+            this._Remove = new RemoveFromCartCommand(this);
+            this._Enroll = new EnrollCourseCommand(this);
+        }
+
+        public void UpdateRemoveFromSchedule() 
+        {
+            this._Remove = new RemoveFromScheduleCommand(this);
         }
     }
 }

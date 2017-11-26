@@ -19,6 +19,9 @@ namespace CPSC481_Prototype
             // List of chosen offerings in cart
             public ObservableCollection<CartAndScheduleEntry> cart;
 
+             // List of chosen offerings currently visible in cart
+            public ObservableCollection<CartAndScheduleEntry> visible;
+
             // Event for when the list is changed
             public event NotifyCollectionChangedEventHandler CollectionChanged;
 
@@ -27,11 +30,13 @@ namespace CPSC481_Prototype
             private CartSelections()
             {
                 cart = new ObservableCollection<CartAndScheduleEntry>();
+                visible = new ObservableCollection<CartAndScheduleEntry>();
             }
 
-        public static void AddCartAndScheduleEntry(Course course)
+        public static void AddToCart(Course course)
         {
             Console.WriteLine("Moving this course to cart");
+            
             Offering selected = course.SelectedOffering();
             Section chosenLecture = selected.Lecture;
             Section chosenTutorial = null;
@@ -59,26 +64,31 @@ namespace CPSC481_Prototype
                     }
                 }
             }
-
             CartAndScheduleEntry entry = new CartAndScheduleEntry(course.Department, course.Number, course.Title, course.Semester, course.SemesterObject, chosenLecture, chosenLab, chosenTutorial);
             instance.cart.Insert(0, entry);
-            NotifyChange(NotifyCollectionChangedAction.Add, entry);
+            if (instance.visibleSemesters.Contains(entry.SemesterObject))
+            {
+                instance.visible.Insert(0, entry);
+                NotifyChange(NotifyCollectionChangedAction.Add, entry);
+            }
         }
 
-            public static void RemoveCartAndScheduleEntry(CartAndScheduleEntry entry)
+        public static void RemoveFromCart(CartAndScheduleEntry entry)
+        {
+            if (instance.visible.Contains(entry))
             {
-                if (instance.cart.Contains(entry))
-                {
-                    instance.cart.Remove(entry);
-                    if (instance.CollectionChanged != null)
-                        instance.CollectionChanged(instance, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, entry));
-
-                }
+                instance.visible.Remove(entry);
+                if (instance.CollectionChanged != null)
+                    instance.CollectionChanged(instance, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, entry));
             }
+            if (instance.cart.Contains(entry))
+                instance.cart.Remove(entry);
+        }
 
             public static void ClearCart()
             {
                 instance.cart.Clear();
+               instance.visible.Clear();
                 if (instance.CollectionChanged != null)
                     instance.CollectionChanged(instance, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
             }
@@ -103,12 +113,13 @@ namespace CPSC481_Prototype
 
             private static void UpdateSemesters()
             {
-                instance.cart.Clear();
+                instance.visible.Clear();
+
                 foreach (CartAndScheduleEntry c in instance.cart)
                 {
                     if (instance.visibleSemesters.Contains(c.SemesterObject))
                     {
-                        instance.cart.Add(c);
+                        instance.visible.Add(c);
                     }
                 }
             }
@@ -124,7 +135,7 @@ namespace CPSC481_Prototype
                 {
                     Console.WriteLine("Did not notify change in cart");
                 }
-            }
+            }   
         }
 
 
