@@ -336,15 +336,11 @@
                 </DockPanel>
             </DockPanel>
 
-
-
-
             <Rectangle Grid.Column="1" Height="Auto" Fill="Black" Grid.RowSpan="2"/>
 
             <DockPanel LastChildFill="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2">
                 <StackPanel DockPanel.Dock="Top" Background="{StaticResource color2}">
-                    <Border BorderBrush="Black"
-                    BorderThickness="0 0 0 1">
+                    <Border BorderBrush="Black" BorderThickness="0 0 0 1">
                         <!-- Border thickness order: "left top right bottom"-->
                         <DockPanel>
                             <Label HorizontalAlignment="Left" DockPanel.Dock="Left" Content="Course Selector" FontWeight="Bold" FontSize="14"/>
@@ -381,19 +377,19 @@
                             </Grid.ColumnDefinitions>
 
                             <WrapPanel Grid.Column="0" HorizontalAlignment="Center">
-                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Semester_Checked" Unchecked="Semester_Checked" Tag="Fall" IsChecked="True"/>
+                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Course_Semester_Checked" Unchecked="Course_Semester_Checked" Tag="Fall" IsChecked="True"/>
                                 <Label Content="Fall"/>
                             </WrapPanel>
                             <WrapPanel Grid.Column="1" HorizontalAlignment="Center">
-                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Semester_Checked" Unchecked="Semester_Checked" Tag="Winter" IsChecked="True"/>
+                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Course_Semester_Checked" Unchecked="Course_Semester_Checked" Tag="Winter" IsChecked="True"/>
                                 <Label Content="Winter"/>
                             </WrapPanel>
                             <WrapPanel Grid.Column="2" HorizontalAlignment="Center">
-                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Semester_Checked" Unchecked="Semester_Checked" Tag="Spring"/>
+                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Course_Semester_Checked" Unchecked="Course_Semester_Checked" Tag="Spring"/>
                                 <Label Content="Spring"/>
                             </WrapPanel>
                             <WrapPanel Grid.Column="3" HorizontalAlignment="Center">
-                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Semester_Checked" Unchecked="Semester_Checked" Tag="Summer"/>
+                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Course_Semester_Checked" Unchecked="Course_Semester_Checked" Tag="Summer"/>
                                 <Label Content="Summer"/>
                             </WrapPanel>
                         </Grid>
@@ -402,25 +398,123 @@
                 <StackPanel Name="Cart_Sched_Stack_Panel" DockPanel.Dock="Bottom" Visibility="Collapsed">
                     <Border BorderThickness="1" BorderBrush="Black" >
                         <StackPanel>
-                            <StackPanel Visibility="Visible" Orientation="Horizontal" Background="{StaticResource color2}">
-                                <CheckBox Margin="5, 7"/>
-                                <Label Content="All"/>
-                                <Rectangle Width="1" Height="Auto" Fill="Black" />
-                                <CheckBox Margin="5, 7"/>
-                                <Label Content="Fall"/>
-                                <Rectangle Width="1" Height="Auto" Fill="Black"/>
-                                <CheckBox Margin="5, 7"/>
-                                <Label Content="Winter"/>
-                                <Rectangle Width="1" Height="Auto" Fill="Black"/>
-                                <CheckBox Margin="5, 7"/>
-                                <Label Content="Spring"/>
-                                <Rectangle Width="1" Height="Auto" Fill="Black"/>
-                                <CheckBox Margin="5, 7"/>
-                                <Label Content="Summer"/>
-                                <Rectangle Width="1" Height="Auto" Fill="Black"/>
+                            <StackPanel Visibility="Visible" Orientation="Horizontal" Background="{StaticResource color2}" HorizontalAlignment="Stretch">
+                                <Border BorderBrush="Black" BorderThickness="0 0 0 1">
+                                    <Grid Margin="2" HorizontalAlignment="Stretch">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <WrapPanel Grid.Column="0" HorizontalAlignment="Center">
+                                            <CheckBox VerticalAlignment="Center" Margin="2" Checked="Cart_Semester_Checked" Unchecked="Cart_Semester_Checked" Tag="Fall" IsChecked="True"/>
+                                            <Label Content="Fall"/>
+                                        </WrapPanel>
+                                        <WrapPanel Grid.Column="1" HorizontalAlignment="Center">
+                                            <CheckBox VerticalAlignment="Center" Margin="2" Checked="Cart_Semester_Checked" Unchecked="Cart_Semester_Checked" Tag="Winter" IsChecked="True"/>
+                                            <Label Content="Winter"/>
+                                        </WrapPanel>
+                                        <WrapPanel Grid.Column="2" HorizontalAlignment="Center">
+                                            <CheckBox VerticalAlignment="Center" Margin="2" Checked="Cart_Semester_Checked" Unchecked="Cart_Semester_Checked" Tag="Spring"/>
+                                            <Label Content="Spring"/>
+                                        </WrapPanel>
+                                        <WrapPanel Grid.Column="3" HorizontalAlignment="Center">
+                                            <CheckBox VerticalAlignment="Center" Margin="2" Checked="Cart_Semester_Checked" Unchecked="Cart_Semester_Checked" Tag="Summer"/>
+                                            <Label Content="Summer"/>
+                                        </WrapPanel>
+                                    </Grid>
+                                </Border>
+                               </StackPanel>
+                            <StackPanel Name="Cart_Stack_Panel" MinHeight="150" MaxHeight="350" Visibility="Collapsed" Background="{StaticResource color2}">
+                                <ScrollViewer Background="{StaticResource color3}">
+                                    <!-- This is the Cart Stack Panel content area -->
+                                    <Grid Margin="2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="20*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="{Binding ElementName=Show_Cart_Border, Path=ActualHeight}"/>
+                                        </Grid.RowDefinitions>
+                                        <ItemsControl Name="Cart_Items" Grid.Column="1">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate DataType="x:Type local:CartAndScheduleEntry">
+                                                    <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
+                                                        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <Label Content="{Binding Department}"/>
+                                                                <Label Content="{Binding Number}"/>
+                                                                <Label Content="{Binding Title}"/>
+                                                            </StackPanel>
+                                                            <Label Content="{Binding Semester}"/>
+                                                            <ItemsControl ItemsSource="{Binding Sections}">
+                                                                <ItemsControl.ItemTemplate>
+                                                                    <DataTemplate DataType="x:Type local:Section">
+                                                                        <StackPanel Orientation="Horizontal">
+                                                                            <Label Content="{Binding Name}"/>
+                                                                            <Label Content="{Binding Time}"/>
+                                                                        </StackPanel>
+                                                                    </DataTemplate>
+                                                                </ItemsControl.ItemTemplate>
+                                                            </ItemsControl>
+                                                            <Button Content="Enroll"  Command="{Binding Enroll}"/>
+                                                            <Button Content="Remove" Command="{Binding Remove}"/>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+
+                                    </Grid>
+                                </ScrollViewer>
                             </StackPanel>
-                            <StackPanel Name="Cart_Stack_Panel" MinHeight="150" Visibility="Collapsed" Background="{StaticResource color2}">
-                                <StackPanel>
+                            <StackPanel Name="Sched_Stack_Panel" MinHeight="150" MaxHeight="350" Visibility="Collapsed" Background="{StaticResource color2}">
+                                <ScrollViewer Background="{StaticResource color3}">
+                                    <!-- This is the Schedule Stack Panel content area -->
+                                    <Grid Margin="2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="20*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="{Binding ElementName=Show_Schedule_Border, Path=ActualHeight}"/>
+                                        </Grid.RowDefinitions>
+                                        <ItemsControl Name="Schedule_Items" Grid.Column="1">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate DataType="x:Type local:CartAndScheduleEntry">
+                                                    <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
+                                                        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <Label Content="{Binding Department}"/>
+                                                                <Label Content="{Binding Number}"/>
+                                                                <Label Content="{Binding Title}"/>
+                                                            </StackPanel>
+                                                            <Label Content="{Binding Semester}"/>
+                                                            <ItemsControl ItemsSource="{Binding Sections}">
+                                                                <ItemsControl.ItemTemplate>
+                                                                    <DataTemplate DataType="x:Type local:Section">
+                                                                        <StackPanel Orientation="Horizontal">
+                                                                            <Label Content="{Binding Name}"/>
+                                                                            <Label Content="{Binding Time}"/>
+                                                                        </StackPanel>
+                                                                    </DataTemplate>
+                                                                </ItemsControl.ItemTemplate>
+                                                            </ItemsControl>
+                                                            <Button Content="Remove" Command="{Binding Remove}"/>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </Grid>
+                                </ScrollViewer>
+                                <!--    <StackPanel> HARDCODED CART AND SCHEDULE
                                     <Border Margin="0" BorderThickness="0 1 0 1" BorderBrush="Black" Background="{StaticResource color3}">
                                         <StackPanel Orientation="Vertical">
                                             <StackPanel Orientation="Horizontal">
@@ -448,6 +542,7 @@
                             </StackPanel>
 
                             <StackPanel Name="Sched_Stack_Panel" MinHeight="150" Visibility="Collapsed" Background="{StaticResource color2}">
+
                                 <StackPanel>
                                     <Border Margin="0" BorderThickness="0 1 0 1" BorderBrush="Black" Background="{StaticResource color3}">
                                         <StackPanel Orientation="Vertical">
@@ -462,7 +557,7 @@
                                     </Border>
                                 </StackPanel>
                                 <Button Click="DeleteCourse" Margin="4" Content="Delete Selected Course(s) from Schedule" FontWeight="Bold" MaxWidth="250" Background="{DynamicResource color4}"/>
-                            </StackPanel>
+-->                            </StackPanel>
                         </StackPanel>
                     </Border>
                 </StackPanel>
@@ -687,13 +782,11 @@
 
                     <Canvas>
                         <Border Name="Show_Cart_Border" BorderBrush="Black" BorderThickness="1 1 1 0" Canvas.Bottom="0" CornerRadius="0 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{StaticResource color2}">
-                            <Label Name="Show_Cart_Label"  Content="Show Cart"/>
+                                <Label Name="Show_Cart_Label" Content="Show Cart"/>
                         </Border>
                         <Border Name="Show_Schedule_Border" BorderBrush="Black" BorderThickness="1 1 1 0" Canvas.Bottom="0" Canvas.Left="{Binding ElementName=Show_Cart_Label, Path=ActualWidth}" CornerRadius="10 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{StaticResource color2}">
-                            <Label Name="Show_Schedule_Label"  Content="Show Schedule"/>
+                                <Label Name="Show_Schedule_Label"  Content="Show Schedule"/>
                         </Border>
-
-
                     </Canvas>
                 </Grid>
             </DockPanel>
