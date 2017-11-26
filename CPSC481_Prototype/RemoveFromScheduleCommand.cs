@@ -7,16 +7,16 @@ using System.Windows.Input;
 
 namespace CPSC481_Prototype
 {
-    public class AddCourseCommand : ICommand
+    public class RemoveFromScheduleCommand : ICommand
     {
 
         public event EventHandler CanExecuteChanged;
 
-        private Course course;
+        private CartAndScheduleEntry entry;
 
-        public AddCourseCommand(Course course)
+        public RemoveFromScheduleCommand(CartAndScheduleEntry entry)
         {
-            this.course = course;
+            this.entry = entry;
         }
 
         public bool CanExecute(object parameter)
@@ -26,12 +26,7 @@ namespace CPSC481_Prototype
 
         public void Execute(object parameter)
         {
-            Offering selected = course.SelectedOffering();
-            if (selected != null)
-            {
-                CourseSelectorCourses.RemoveCourse(course);
-                CartSelections.AddToCart(course);
-            }   
+            ScheduleSelections.RemoveFromSchedule(entry);
         }
     }
 }
