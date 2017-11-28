@@ -562,7 +562,7 @@
                     </Border>
                 </StackPanel>
                 <Grid>
-                    <ScrollViewer Background="{StaticResource color3}">
+                    <ScrollViewer Name="Course_Selector_ScrollViewer" Background="{StaticResource color3}">
                         <!-- This is the Course Selector content area -->
                         <Grid Margin="2">
                             <Grid.ColumnDefinitions>
@@ -779,7 +779,19 @@
                             </StackPanel>
                         </Grid>
                     </ScrollViewer>
-
+                    <ItemsControl Name="Messages_Box"
+                               MaxWidth="200"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Bottom"
+                               Margin="0, 0, 20, 0">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate DataType="x:Type local:Message">
+                                <Border Background="Green">
+                                    <TextBlock TextWrapping="WrapWithOverflow" Text="{Binding text}"/>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
                     <Canvas>
                         <Border Name="Show_Cart_Border" BorderBrush="Black" BorderThickness="1 1 1 0" Canvas.Bottom="0" CornerRadius="0 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{StaticResource color2}">
                                 <Label Name="Show_Cart_Label" Content="Show Cart"/>
