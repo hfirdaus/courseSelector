@@ -29,10 +29,6 @@ namespace CPSC481_Prototype
             Cart_Items.ItemsSource = CartSelections.instance.visible;
             Schedule_Items.ItemsSource = ScheduleSelections.instance.visible;
 
-            Messages_Box.ItemsSource = Messages.messages;
-            Messages.AddMessage("Message 1");
-            Messages.AddMessage("Message 2");
-            Messages.AddMessage("Message 3 is a really long message that should \nbe wrapped or it will end up being very wide");
         }
 
         private void Tutorial_Button_Click(object sender, RoutedEventArgs e)
@@ -1120,7 +1116,7 @@ namespace CPSC481_Prototype
         {
             CourseSelectorCourses.ClearAllCourses();
         }
-        
+
     }
 }
 

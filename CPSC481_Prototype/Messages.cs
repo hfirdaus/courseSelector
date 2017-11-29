@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace CPSC481_Prototype
@@ -50,17 +52,29 @@ namespace CPSC481_Prototype
         {
             messages.Remove(message);
         }
+
+        public static void ClearMessages()
+        {
+            List<Message> toRemove = new List<Message>();
+            foreach(Message msg in messages)
+            {
+                //if (msg.Opac == 0.0)
+                    toRemove.Add(msg);
+            }
+            foreach (Message m in toRemove) messages.Remove(m);
+            Console.Out.WriteLine("Number of messages: " + messages.Count);
+        }
     }
 
     class Message
     {
         public string text { get; set; }
-        public ICommand clear;
+        public ICommand clearMsg { get; set; }
 
         public Message(string message)
         {
             this.text = message;
-            clear = new MessageClear(this);
+            clearMsg = new MessageClear(this);
         }
 
         class MessageClear : ICommand
