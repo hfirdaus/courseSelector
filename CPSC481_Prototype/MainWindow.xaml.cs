@@ -255,7 +255,7 @@ namespace CPSC481_Prototype
                     int year = 0;
                     if (semester == Semester.FALL) year = 2017;
                     else year = 2018;
-                    Add_Course_Click("ECON", "201", "Principles of Microeconomic", "COURSE DESCR", semester, year, 2, 2, 2);
+                    Add_Course_Click("ECON", "201", "ECON 201 - Principles of Microeconomic", "Principles of consumption, production, exchange: market and firm equilibrium under different competitive conditions. These principles are applied to various contemporary problems in the Canadian economy, such as the changing structure of agriculture, foreign ownership and control, and pollution.", semester, year, 2, 2, 2);
                 }
             }            
         }
@@ -298,6 +298,26 @@ namespace CPSC481_Prototype
         List<string> selection_conc_cmb = new List<string>();
         //List containing the selection from the concentration for the current degree combobox.
         List<string> selection_cmb_Comm_conc = new List<string>();
+
+        private void degreeNav_ExpandAll_MouseDown(object sender, RoutedEventArgs e)
+        {
+            req1_expander.IsExpanded = true;
+            req1_higher_expander.IsExpanded = true;
+            req1_lower_expander.IsExpanded = true;
+            req2_expander.IsExpanded = true;
+            req3_expander.IsExpanded = true;
+            if (selection_cmb_Comm_conc.Contains("FNCE")) FNCE_Conc.IsExpanded = true;
+        }
+
+        private void degreeNav_CollapseAll_MouseDown(object sender, RoutedEventArgs e)
+        {
+            req1_expander.IsExpanded = false;
+            req1_higher_expander.IsExpanded = false;
+            req1_lower_expander.IsExpanded = false;
+            req2_expander.IsExpanded = false;
+            req3_expander.IsExpanded = false;
+            if (selection_cmb_Comm_conc.Contains("FNCE")) FNCE_Conc.IsExpanded = false;
+        }
 
         private void addButton_cmb_Click(object sender, RoutedEventArgs e)
         {
@@ -399,7 +419,6 @@ namespace CPSC481_Prototype
                 }
             }   
         }
-
         
         private void cmb_Filter()
         {
@@ -493,6 +512,7 @@ namespace CPSC481_Prototype
             cmbComm_Conc.SelectedIndex = -1;
             Regular_Degree_Title.Visibility = Visibility.Visible;
             Conc_Degree_Title.Visibility = Visibility.Collapsed;
+            FNCE_Conc.IsExpanded = false;
         }
 
         private void Remove_ECON_Minor_Click(object sender, RoutedEventArgs e)
