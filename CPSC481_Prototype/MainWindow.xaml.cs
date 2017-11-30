@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -20,7 +21,7 @@ namespace CPSC481_Prototype
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        public static MainWindow instance;
         public MainWindow()
         {
             InitializeComponent();
@@ -28,7 +29,83 @@ namespace CPSC481_Prototype
             Course_Selector_Items.ItemsSource = CourseSelectorCourses.instance.visable;
             Cart_Items.ItemsSource = CartSelections.instance.visible;
             Schedule_Items.ItemsSource = ScheduleSelections.instance.visible;
+            instance = this;
 
+            AddMessage(new Message("Message1"));
+            AddMessage(new Message("Message2"));
+        }
+
+        public void AddMessage(Message msg)
+        {
+            Border border = new Border();
+            border.Background = Brushes.Green;
+            border.Opacity = 0;
+
+            double fadeInDur = 0.5;
+            double waitDur = 2.0;
+            double fadeOutDur = 1.5;
+            
+            DoubleAnimation fadeIn = new DoubleAnimation();
+            Storyboard.SetTargetProperty(fadeIn, new PropertyPath(Border.OpacityProperty));
+            fadeIn.To = 1;
+            fadeIn.Duration = new Duration(TimeSpan.FromSeconds(fadeInDur));
+
+            DoubleAnimation quickFadeOut = new DoubleAnimation();
+            Storyboard.SetTargetProperty(quickFadeOut, new PropertyPath(Border.OpacityProperty));
+            fadeIn.To = 1;
+            fadeIn.Duration = new Duration(TimeSpan.FromSeconds(0));
+
+            DoubleAnimation fadeOut = new DoubleAnimation();
+            Storyboard.SetTargetProperty(fadeOut, new PropertyPath(Border.OpacityProperty));
+            fadeOut.To = 0;
+            fadeOut.BeginTime = TimeSpan.FromSeconds(waitDur);
+            fadeOut.Duration = new Duration(TimeSpan.FromSeconds(fadeOutDur));
+            fadeOut.Completed += (s, e) => RemoveMessage(border);
+
+
+            Storyboard quickFadeInSB = new Storyboard();
+            quickFadeInSB.Children.Add(fadeIn);
+
+            Storyboard fadeOutSB = new Storyboard();
+            fadeOutSB.Children.Add(fadeOut);
+            //fadeOutSB.Completed += (s,e) => RemoveMessage(border);
+
+            Storyboard fullRunSB = new Storyboard();
+            fullRunSB.Children.Add(fadeIn);
+            fullRunSB.Children.Add(fadeOut);
+            //fullRunSB.Completed += (s, e) => RemoveMessage(border);
+
+            EventTrigger loadedTrigger = new EventTrigger();
+            border.Triggers.Add(loadedTrigger);
+            loadedTrigger.RoutedEvent = Border.LoadedEvent;
+            BeginStoryboard bsb = new BeginStoryboard();
+            bsb.Storyboard = fullRunSB;
+            loadedTrigger.Actions.Add(bsb);
+
+            EventTrigger mouseOverTrigger = new EventTrigger();
+            border.Triggers.Add(mouseOverTrigger);
+            mouseOverTrigger.RoutedEvent = Border.MouseEnterEvent;
+            BeginStoryboard fisb = new BeginStoryboard();
+            fisb.Storyboard = quickFadeInSB;
+            mouseOverTrigger.Actions.Add(fisb);
+
+            EventTrigger mouseOutTrigger = new EventTrigger();
+            border.Triggers.Add(mouseOutTrigger);
+            mouseOutTrigger.RoutedEvent = Border.MouseLeaveEvent;
+            BeginStoryboard fosb = new BeginStoryboard();
+            fosb.Storyboard = fadeOutSB;
+            mouseOutTrigger.Actions.Add(fosb);
+
+
+            Label text = new Label();
+            border.Child = text;
+            text.Content = msg.text;
+            Messages_Box.Children.Add(border);
+        }
+
+        public void RemoveMessage(Border border)
+        {
+            Messages_Box.Children.Remove(border);
         }
 
         private void Tutorial_Button_Click(object sender, RoutedEventArgs e)
