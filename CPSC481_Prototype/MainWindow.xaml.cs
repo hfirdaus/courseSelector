@@ -548,7 +548,18 @@ namespace CPSC481_Prototype
             req3_expander.IsExpanded = true;
             if (selection_cmb_Comm_conc.Contains("FNCE")) FNCE_Conc.IsExpanded = true;
             if (selection_cmb.Contains("ECON_Minor")) Econ_Minor_Expander.IsExpanded = true;
-            if (selection_cmb.Contains("PHIL_Minor")) Econ_Minor_Expander.IsExpanded = true;
+            if (selection_cmb.Contains("PHIL_Minor")) Phil_Minor_Expander.IsExpanded = true;
+
+            if (selection_degree_cmb.Contains("CPSC"))
+            {
+                req1CPSC_expander.IsExpanded = true;
+                req1CPSC_higher_expander.IsExpanded = true;
+                req1CPSC_lower_expander.IsExpanded = true;
+                req2CPSC_expander.IsExpanded = true;
+                req3CPSC_expander.IsExpanded = true;
+            }
+            if (selection_conc_cmb.Contains("SENG")) SoftEng_Conc.IsExpanded = true;
+
         }
 
         private void degreeNav_CollapseAll_MouseDown(object sender, RoutedEventArgs e)
@@ -560,7 +571,17 @@ namespace CPSC481_Prototype
             req3_expander.IsExpanded = false;
             if (selection_cmb_Comm_conc.Contains("FNCE")) FNCE_Conc.IsExpanded = false;
             if (selection_cmb.Contains("ECON_Minor")) Econ_Minor_Expander.IsExpanded = false;
-            if (selection_cmb.Contains("PHIL_Minor")) Econ_Minor_Expander.IsExpanded = false;
+            if (selection_cmb.Contains("PHIL_Minor")) Phil_Minor_Expander.IsExpanded = false;
+
+            if (selection_degree_cmb.Contains("CPSC"))
+            {
+                req1CPSC_expander.IsExpanded = false;
+                req1CPSC_higher_expander.IsExpanded = false;
+                req1CPSC_lower_expander.IsExpanded = false;
+                req2CPSC_expander.IsExpanded = false;
+                req3CPSC_expander.IsExpanded = false;
+            }
+            if (selection_conc_cmb.Contains("SENG")) SoftEng_Conc.IsExpanded = false;
         }
 
         private void addButton_cmb_Click(object sender, RoutedEventArgs e)
@@ -579,7 +600,7 @@ namespace CPSC481_Prototype
             {
                 Phil_Minor.Visibility = Visibility.Visible;
                 Econ_Minor.Visibility = Visibility.Collapsed;
-                selection_cmb.Clear();
+                
             }
 
             if (selection_degree_cmb.Contains("CPSC"))
@@ -672,12 +693,17 @@ namespace CPSC481_Prototype
                 cmbItem = cmbDegree.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last();
                 if(cmbItem.Equals("Bachelor of Arts"))
                 {
+                    cmbConcentration.SelectedIndex = -1;
+                    selection_degree_cmb.Clear();
+                    selection_conc_cmb.Clear();
                     cmbMajor.Items.Remove("ENGL - English");
                     cmbMajor.Items.Remove("CPSC - Computer Science");
                     cmbMajor.Items.Add("ENGL - English");
                 }
                 else if(cmbItem.Equals("Bachelor of Science"))
                 {
+                    selection_degree_cmb.Clear();
+                    selection_conc_cmb.Clear();
                     cmbMajor.Items.Remove("ENGL - English");
                     cmbMajor.Items.Remove("CPSC - Computer Science");
                     cmbMajor.Items.Add("CPSC - Computer Science");
@@ -692,14 +718,12 @@ namespace CPSC481_Prototype
             {
                 cmbItem = cmbMajor.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last();
                 if(cmbItem.Equals("ENGL - English"))
-                {
-                    cmbConcentration.Items.Remove("Creative Writing");
+                {                   
                     cmbConcentration.Items.Remove("Software Engineering");
-                    cmbConcentration.Items.Add("Creative Writing");
                 }
+
                 else if(cmbItem.Equals("CPSC - Computer Science"))
-                {
-                    cmbConcentration.Items.Remove("Creative Writing");
+                {                    
                     cmbConcentration.Items.Remove("Software Engineering");
                     cmbConcentration.Items.Add("Software Engineering");
                     if (!selection_degree_cmb.Contains("CPSC"))
@@ -738,15 +762,21 @@ namespace CPSC481_Prototype
             cmbDegree.SelectedIndex = -1;
             cmbMajor.SelectedIndex = -1;
             cmbConcentration.SelectedIndex = -1;
+
+            req1CPSC_expander.IsExpanded = false;
+            req1CPSC_higher_expander.IsExpanded = false;
+            req1CPSC_lower_expander.IsExpanded = false;
+            req2CPSC_expander.IsExpanded = false;
+            req3CPSC_expander.IsExpanded = false;
+            if(selection_conc_cmb.Contains("SENG")) SoftEng_Conc.IsExpanded = false; 
         }
 
         private void Remove_SENG_Conc_Click(object sender, RoutedEventArgs e)
         {
             SoftEng_Conc.Visibility = Visibility.Collapsed;
-
             selection_conc_cmb.Clear();
-
             cmbConcentration.SelectedIndex = -1;
+            SoftEng_Conc.IsExpanded = false;
         }
         
         private void Remove_FNCE_Conc_Click(object sender, RoutedEventArgs e)
@@ -799,6 +829,52 @@ namespace CPSC481_Prototype
 
             Econ_Minor_Expander.IsExpanded = false;
             Phil_Minor_Expander.IsExpanded = false;
+            SoftEng_Conc.IsExpanded = false;
+            FNCE_Conc.IsExpanded = false;
+            req1CPSC_expander.IsExpanded = false;
+            req1CPSC_higher_expander.IsExpanded = false;
+            req1CPSC_lower_expander.IsExpanded = false;
+            req2CPSC_expander.IsExpanded = false;
+            req3CPSC_expander.IsExpanded = false;
+        }
+
+        private void RemoveAll_MouseDown (object sender, RoutedEventArgs e)
+        {
+            //Clearing the selections in the comboboxs in the add an additional degree pop-up.
+            cmbDegree.SelectedIndex = -1;
+            cmbMajor.SelectedIndex = -1;
+            cmbConcentration.SelectedIndex = -1;
+            cmbMinor.SelectedIndex = -1;
+
+            cmbMajor.Items.Remove("ENGL - English");
+            cmbMajor.Items.Remove("CPSC - Computer Science");
+            cmbConcentration.Items.Remove("Creative Writing");
+            cmbConcentration.Items.Remove("Software Engineering");
+
+            Degree_CPSC.Visibility = Visibility.Collapsed;
+            SoftEng_Conc.Visibility = Visibility.Collapsed;
+            Phil_Minor.Visibility = Visibility.Collapsed;
+            Econ_Minor.Visibility = Visibility.Collapsed;
+
+            selection_cmb.Clear();
+            selection_degree_cmb.Clear();
+            selection_conc_cmb.Clear();
+
+            Econ_Minor_Expander.IsExpanded = false;
+            Phil_Minor_Expander.IsExpanded = false;
+            SoftEng_Conc.IsExpanded = false;
+            FNCE_Conc.IsExpanded = false;
+            req1CPSC_expander.IsExpanded = false;
+            req1CPSC_higher_expander.IsExpanded = false;
+            req1CPSC_lower_expander.IsExpanded = false;
+            req2CPSC_expander.IsExpanded = false;
+            req3CPSC_expander.IsExpanded = false;
+
+            FNCE_Conc.Visibility = Visibility.Collapsed;
+            selection_cmb_Comm_conc.Clear();
+            cmbComm_Conc.SelectedIndex = -1;
+            Regular_Degree_Title.Visibility = Visibility.Visible;
+            Conc_Degree_Title.Visibility = Visibility.Collapsed;
         }
 
         private void Advanced_Search_Click(object sender, RoutedEventArgs e)

@@ -79,7 +79,7 @@
                                 <Rectangle Width="1" Height="Auto" Fill="Black"/>
                                 <Label Content="Collapse All" FontSize="15" FontWeight="Medium" MouseDown="degreeNav_CollapseAll_MouseDown"  Background="#FFF5EAA4"/>
                                 <Rectangle Width="1" Height="Auto" Fill="Black"/>
-                                <Label Content="Remove All" FontSize="15" FontWeight="Medium" Background="#FFF5EAA4"/>
+                                <Label Content="Remove All" FontSize="15" FontWeight="Medium" Background="#FFF5EAA4" MouseDown="RemoveAll_MouseDown"/>
                                 <Rectangle Width="1" Height="Auto" Fill="Black"/>
                             </StackPanel>
                         </StackPanel>
@@ -87,15 +87,19 @@
                 </StackPanel>
 
                 <DockPanel LastChildFill="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DockPanel.Dock="Top">
-
-                    <ScrollViewer x:Name="Show_Completed_Stack_Panel" DockPanel.Dock="Bottom" Visibility="Collapsed" MinHeight="150" Background="LightYellow">
+                    <!--Show Completed Course-->
+                    <ScrollViewer x:Name="Show_Completed_Stack_Panel" DockPanel.Dock="Bottom" Visibility="Collapsed" MinHeight="150" Background="{DynamicResource color4}">
                         <StackPanel>
-                            <TextBlock Text="Completed Required Courses" FontSize="15" FontWeight="Bold" TextAlignment="Center"/>
-                            <Border Margin="0,3" BorderThickness="1" BorderBrush="Black" Background="White">
+                            <Border BorderThickness="2" BorderBrush="Black" Margin="2,5,4,2">
                                 <StackPanel>
-                                    <TextBlock Text="ENGL 201 - Approaches to Literature" TextDecorations="Underline" FontWeight="Medium" Margin="3, 0"/>
-                                    <TextBlock TextWrapping="Wrap" Text="Requirement 2: Non-Commerce Courses (Junior English 3 units or 0.5 full course equivalent)" Margin="3, 0"/>
-                                    <TextBlock Margin="3, 0" Text="Completed date: Fall Block Week 2017"/>
+                                    <TextBlock Text="Completed Course(s)" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Margin="3"/>
+                                </StackPanel>
+                            </Border>
+                            <Border Margin="5 10 5 0" BorderThickness="1" BorderBrush="Black" Background="White">
+                                <StackPanel>
+                                    <TextBlock Text="ENGL 201 - Approaches to Literature" TextDecorations="Underline" FontWeight="Medium" Margin="3, 0" FontSize="14"/>
+                                    <TextBlock TextWrapping="Wrap" Text="Requirement 2: Non-Commerce Courses (Junior English 3 units or 0.5 full course equivalent)" Margin="3, 0" FontSize="14"/>
+                                    <TextBlock Margin="3, 0" Text="Completed date: Fall Block Week 2017" FontSize="14"/>
                                 </StackPanel>
                             </Border>
                         </StackPanel>
@@ -112,13 +116,13 @@
 
                             <Expander Name="req1_expander">
                                 <Expander.Header>
-                                    <TextBlock Text="Requirement 1: Commerce Courses" FontWeight="Bold" FontSize="15" TextDecorations="Underline"/>
+                                    <TextBlock Text="Requirement 1: Commerce Courses" FontWeight="Medium" FontSize="15" TextDecorations="Underline"/>
                                 </Expander.Header>
 
                                 <StackPanel>
                                     <Expander Margin="20 5 0 5" Name="req1_lower_expander">
                                         <Expander.Header>
-                                            <TextBlock Text="Lower-Level Commerce Courses (200 and 300 level courses)" FontWeight="Bold" FontSize="15"/>
+                                            <TextBlock Text="Lower-Level Commerce Courses (200 and 300 level courses)" FontWeight="Medium" FontSize="15" TextDecorations="Underline"/>
                                         </Expander.Header>
 
                                         <StackPanel>
@@ -126,17 +130,17 @@
                                                 <StackPanel>
                                                     <TextBlock Margin="3, 0" FontWeight="Medium" Text="MGST 217 - Introduction to Business Analytics" TextDecorations="Underline" FontSize="14"/>
                                                     <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018" FontSize="14"/>
-                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="- Prerequisite: Admission to the Haskayne Bachelor of Commerce program." FontSize="14"/>
-                                                    <TextBlock Margin="3, 0" TextWrapping="Wrap" Text="- Antirequisite: Credit for MGST217 and BSEN291 will not be allowed." FontSize="14"/>
+                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="- Prerequisite: Admission to the Haskayne Bachelor of Commerce program." FontSize="14" FontStyle="Italic"/>
+                                                    <TextBlock Margin="3, 0" TextWrapping="Wrap" Text="- Antirequisite: Credit for MGST217 and BSEN291 will not be allowed." FontSize="14" FontStyle="Italic"/>
                                                 </StackPanel>
                                             </Border>
 
                                             <Border Margin="0 10 0 0" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color6}" MouseDown="SGMA217_MouseDown">
                                                 <StackPanel>
-                                                    <TextBlock Margin="3, 0" FontWeight="Medium" Text="SGMA 217 - Introduction to Business Skills" TextDecorations="Underline"/>
-                                                    <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018"/>
-                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="- Prerequisite: admission to the Haskayne Bachelor of Commerce program."/>
-                                                    <TextBlock Margin="3, 0" TextWrapping="Wrap" Text="- Antirequisite: credit for SGMA217 and BSEN291 will not be allowed."/>
+                                                    <TextBlock Margin="3, 0" FontWeight="Medium" Text="SGMA 217 - Introduction to Business Skills" TextDecorations="Underline" FontSize="14"/>
+                                                    <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018" FontSize="14"/>
+                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="- Prerequisite: admission to the Haskayne Bachelor of Commerce program." FontSize="14" FontStyle="Italic"/>
+                                                    <TextBlock Margin="3, 0" TextWrapping="Wrap" Text="- Antirequisite: credit for SGMA217 and BSEN291 will not be allowed." FontSize="14" FontStyle="Italic"/>
                                                 </StackPanel>
                                             </Border>
 
@@ -144,17 +148,17 @@
                                                 <StackPanel>
                                                     <TextBlock Margin="3, 0" FontWeight="Medium" Text="ACCT 323 - Introductory Managerial Accounting" TextDecorations="Underline" FontSize="14"/>
                                                     <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018 | Spring 2018" FontSize="14"/>
-                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="- Prerequisite: Admission to the Haskayne Bachelor of Commerce program and Accounting 217 or 317." FontSize="14"/>
-                                                    <TextBlock Margin="3, 0" TextWrapping="Wrap" Text="- Antirequisite: Credit for Accounting 323 and 301 will not be allowed." FontSize="14"/>
+                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="- Prerequisite: Admission to the Haskayne Bachelor of Commerce program and Accounting 217 or 317." FontSize="14" FontStyle="Italic"/>
+                                                    <TextBlock Margin="3, 0" TextWrapping="Wrap" Text="- Antirequisite: Credit for Accounting 323 and 301 will not be allowed." FontSize="14" FontStyle="Italic"/>
                                                 </StackPanel>
                                             </Border>
 
                                         </StackPanel>
                                     </Expander>
 
-                                    <Expander Margin="20 0 0 5" Name="req1_higher_expander">
+                                    <Expander Margin="20 0 0 0" Name="req1_higher_expander">
                                         <Expander.Header>
-                                            <TextBlock Text="Higher-Level Commerce Courses (400 and 500 level courses)" FontWeight="Bold" FontSize="15"/>
+                                            <TextBlock Text="Higher-Level Commerce Courses (400 and 500 level courses)" FontWeight="Medium" FontSize="15" TextDecorations="Underline"/>
                                         </Expander.Header>
 
                                         <StackPanel>
@@ -162,8 +166,8 @@
                                                 <StackPanel>
                                                     <TextBlock Margin="3, 0" FontWeight="Medium" Text="MGST 451 - Corporate Governance and Ethical Decision-Making" TextDecorations="Underline" FontSize="14"/>
                                                     <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018" FontSize="14"/>
-                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="- Prerequisite: Admission to the Haskayne Bachelor of Commerce program and and 54 units (9.0 full-course equivalents) including Finance 317." FontSize="14"/>
-                                                    <TextBlock Margin="3, 0" TextWrapping="Wrap" Text="- Antirequisite: Credit for Management Studies 451 and any of Business and Environment 291, Management Studies 491, 493 or 495 will not be allowed." FontSize="14"/>
+                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="- Prerequisite: Admission to the Haskayne Bachelor of Commerce program and and 54 units (9.0 full-course equivalents) including Finance 317." FontSize="14" FontStyle="Italic"/>
+                                                    <TextBlock Margin="3, 0" TextWrapping="Wrap" Text="- Antirequisite: Credit for Management Studies 451 and any of Business and Environment 291, Management Studies 491, 493 or 495 will not be allowed." FontSize="14" FontStyle="Italic"/>
                                                 </StackPanel>
                                             </Border>
 
@@ -171,7 +175,7 @@
                                                 <StackPanel>
                                                     <TextBlock Margin="3, 0" FontWeight="Medium" Text="SGMA 591 - Strategic Management" TextDecorations="Underline" FontSize="14"/>
                                                     <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018 | Spring 2018" FontSize="14"/>
-                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="- Prerequisite: Admission to the Haskayne Bachelor of Commerce program and and 84 units (14.0 full-course equivalents) including Accounting 217 or 317, Accounting 323, Business and Environment 395, Communications Studies 363 or 369 or Entrepreneurship and Innovation 317, Management Studies 391, Organizational Behaviour and Human Resources 317, Business Technology Management 317, Finance 317, Marketing 317, Operations Management 317." FontSize="14"/>
+                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="- Prerequisite: Admission to the Haskayne Bachelor of Commerce program and and 84 units (14.0 full-course equivalents) including Accounting 217 or 317, Accounting 323, Business and Environment 395, Communications Studies 363 or 369 or Entrepreneurship and Innovation 317, Management Studies 391, Organizational Behaviour and Human Resources 317, Business Technology Management 317, Finance 317, Marketing 317, Operations Management 317." FontSize="14" FontStyle="Italic"/>
                                                 </StackPanel>
                                             </Border>
                                         </StackPanel>
@@ -182,7 +186,7 @@
 
                             <Expander Margin="0, 5" Name="req2_expander">
                                 <Expander.Header>
-                                    <TextBlock Text="Requirement 2: Non-Commerce Courses" FontWeight="Bold" FontSize="15" TextDecorations="Underline"/>
+                                    <TextBlock Text="Requirement 2: Non-Commerce Courses" FontWeight="Medium" FontSize="15" TextDecorations="Underline"/>
                                 </Expander.Header>
 
                                 <StackPanel>
@@ -190,8 +194,8 @@
                                         <StackPanel>
                                             <TextBlock Margin="3, 0" FontWeight="Medium" Text="ECON 201 - Principles of Microeconomic" TextDecorations="Underline" FontSize="14"/>
                                             <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018 | Spring 2018 | Summer 2018" FontSize="14"/>
-                                            <TextBlock Margin="3, 0" Text="- Prerequisite: None" FontSize="14"/>
-                                            <TextBlock Margin="3, 0" Text="- Corequisite: None" FontSize="14"/>
+                                            <TextBlock Margin="3, 0" Text="- Prerequisite: None" FontSize="14" FontStyle="Italic"/>
+                                            <TextBlock Margin="3, 0" Text="- Corequisite: None" FontSize="14" FontStyle="Italic"/>
                                         </StackPanel>
                                     </Border>
 
@@ -199,8 +203,8 @@
                                         <StackPanel>
                                             <TextBlock Margin="3, 0" FontWeight="Medium" Text="ECON 203 - Principles of Marcoeconomic" TextDecorations="Underline" FontSize="14"/>
                                             <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018 | Spring 2018 | Summer 2018" FontSize="14"/>
-                                            <TextBlock Margin="3, 0" Text="- Prerequisite: Economics 201" FontSize="14"/>
-                                            <TextBlock Margin="3, 0" Text="- Corequisite: Economics 201" FontSize="14"/>
+                                            <TextBlock Margin="3, 0" Text="- Prerequisite: Economics 201" FontSize="14" FontStyle="Italic"/>
+                                            <TextBlock Margin="3, 0" Text="- Corequisite: Economics 201" FontSize="14" FontStyle="Italic"/>
                                         </StackPanel>
                                     </Border>
 
@@ -209,28 +213,28 @@
 
                             <Expander Name="req3_expander">
                                 <Expander.Header>
-                                    <TextBlock Text="Requirement 3: Option Courses" FontWeight="Bold" FontSize="15" TextDecorations="Underline"/>
+                                    <TextBlock Text="Requirement 3: Option Courses" FontWeight="Medium" FontSize="15" TextDecorations="Underline"/>
                                 </Expander.Header>
 
                                 <StackPanel>
                                     <Border Margin="5 10 0 0" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
                                         <StackPanel>
                                             <TextBlock Margin="3, 0" FontWeight="Medium" Text="Junior Humanities or Fine Arts Option" TextDecorations="Underline" FontSize="14"/>
-                                            <TextBlock Margin="3, 0" Text="- (3 units or 0.5 full-course equivalent)" FontSize="14"/>
+                                            <TextBlock Margin="3, 0" Text="- (3 units or 0.5 full-course equivalent)" FontSize="14" FontStyle="Italic"/>
                                         </StackPanel>
                                     </Border>
 
                                     <Border Margin="5 10 0 0" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
                                         <StackPanel>
                                             <TextBlock Margin="3, 0" FontWeight="Medium" Text="Junior Science Option" TextDecorations="Underline" FontSize="14"/>
-                                            <TextBlock Margin="3, 0" Text="- (3 units or 0.5 full-course equivalent)" FontSize="14"/>
+                                            <TextBlock Margin="3, 0" Text="- (3 units or 0.5 full-course equivalent)" FontSize="14" FontStyle="Italic"/>
                                         </StackPanel>
                                     </Border>
 
                                     <Border Margin="5 10 0 0" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
                                         <StackPanel>
                                             <TextBlock Margin="3, 0" FontWeight="Medium" Text="Senior Humanities, Social Sciences, Science or Fine Arts Option" TextDecorations="Underline" FontSize="14"/>
-                                            <TextBlock Margin="3, 0" Text="- (6 units or 1.0 full-course equivalent)" FontSize="14"/>
+                                            <TextBlock Margin="3, 0" Text="- (6 units or 1.0 full-course equivalent)" FontSize="14" FontStyle="Italic"/>
                                         </StackPanel>
                                     </Border>
                                     
@@ -240,8 +244,8 @@
                             <Expander Margin="0, 5" Name="FNCE_Conc" Visibility="Collapsed">
                                 <Expander.Header>
                                     <Grid Width="{Binding ElementName=FNCE_Conc, Path=ActualWidth}">
-                                        <TextBlock Text="Requirement 4: Concentration - Finance (FNCE) " FontWeight="Bold" HorizontalAlignment="Left" FontSize="15" TextDecorations="Underline"/>
-                                        <Button Content="Remove" HorizontalAlignment="Right" Width="70px" Margin="0, 0, 40, 0" FontWeight="Bold" FontSize="14" BorderBrush="Black" Click="Remove_FNCE_Conc_Click"/>
+                                        <TextBlock Text="Requirement 4: Concentration - Finance (FNCE) " FontWeight="Medium" HorizontalAlignment="Left" FontSize="15" TextDecorations="Underline"/>
+                                        <Button Content="Remove" HorizontalAlignment="Right" Width="70px" Margin="0, 0, 40, 0" FontWeight="Medium" FontSize="14" BorderBrush="Black" Click="Remove_FNCE_Conc_Click"/>
                                     </Grid>
                                 </Expander.Header>
 
@@ -250,7 +254,7 @@
                                         <StackPanel>
                                             <TextBlock Margin="3, 0" FontWeight="Medium" Text="FNCE 451 - Advanced Financial Management" TextDecorations="Underline" FontSize="14"/>
                                             <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018" FontSize="14"/>
-                                            <TextBlock Margin="3, 0" Text="- Prerequisite: Admission to the Haskayne School of Business and Finance 317" FontSize="14"/>
+                                            <TextBlock Margin="3, 0" Text="- Prerequisite: Admission to the Haskayne School of Business and Finance 317" FontSize="14" FontStyle="Italic"/>
                                         </StackPanel>
                                     </Border>
 
@@ -258,19 +262,19 @@
                                         <StackPanel>
                                             <TextBlock Margin="3, 0" FontWeight="Medium" Text="2 full-course equivalents from the Field of Finance" TextDecorations="Underline" FontSize="14"/>
                                             <TextBlock Margin="3, 0" Text="Restrictions:" FontSize="14"/>
-                                            <TextBlock Margin="5, 0" Text="- Must be 400 or 500 level" FontSize="14"/>
+                                            <TextBlock Margin="5, 0" Text="- Must be 400 or 500 level" FontSize="14" FontStyle="Italic"/>
                                         </StackPanel>
                                     </Border>
 
                                     <Border Margin="5 10 0 0" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
                                         <StackPanel>
                                             <TextBlock Margin="3, 0" FontWeight="Medium" Text="One of the following 300-level courses from the Field of Economics" TextDecorations="Underline" FontSize="14"/>
-                                            <TextBlock Margin="3, 0" Text="- Economics 301: Intermediate Economic Theory - Microeconomics I" FontSize="14"/>
-                                            <TextBlock Margin="3, 0" Text="- Economics 303: Intermediate Economic Theory - Macroeconomics I" FontSize="14"/>
-                                            <TextBlock Margin="3, 0" Text="- Economics 341: Money and Banking"/>
-                                            <TextBlock Margin="3, 0" Text="- Economics 373: Game Theory and Strategic Thinking for the Social Sciences" FontSize="14"/>
-                                            <TextBlock Margin="3, 0" Text="- Economics 387: Introduction to Mathematical Economics I" FontSize="14"/>
-                                            <TextBlock Margin="3, 0" Text="- Economics 395: Use of Statistics in Economics" FontSize="14"/>
+                                            <TextBlock Margin="3, 0" Text="- Economics 301: Intermediate Economic Theory - Microeconomics I" FontSize="14" FontStyle="Italic"/>
+                                            <TextBlock Margin="3, 0" Text="- Economics 303: Intermediate Economic Theory - Macroeconomics I" FontSize="14" FontStyle="Italic"/>
+                                            <TextBlock Margin="3, 0" Text="- Economics 341: Money and Banking" FontSize="14" FontStyle="Italic"/>
+                                            <TextBlock Margin="3, 0" Text="- Economics 373: Game Theory and Strategic Thinking for the Social Sciences" FontSize="14" FontStyle="Italic"/>
+                                            <TextBlock Margin="3, 0" Text="- Economics 387: Introduction to Mathematical Economics I" FontSize="14" FontStyle="Italic"/>
+                                            <TextBlock Margin="3, 0" Text="- Economics 395: Use of Statistics in Economics" FontSize="14" FontStyle="Italic"/>
                                         </StackPanel>
                                     </Border>
                                 </StackPanel>
@@ -281,19 +285,19 @@
                                 <Grid Width="{Binding ElementName=Degree_CPSC, Path=ActualWidth}">
                                     <TextBlock Text="BSc | Major - Computer Science" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Name="CPSCdegree_Regular" Visibility="Visible" Margin="6"/>
                                     <TextBlock Text="BSc | Major - Computer Science | Concentration - Software Engineering" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Name="CPSCdegree_Conc" Visibility="Collapsed" Margin="6"/>
-                                    <Button Content="Remove All" HorizontalAlignment="Right" Width="85px" Height="25px" Margin="0, 0, 10, 0" FontWeight="Bold" FontSize="15" BorderBrush="Black" Click="Remove_CPSC_Degree_Click"/>
+                                    <Button Content="Remove All" HorizontalAlignment="Right" Width="85px" Height="25px" Margin="0, 0, 10, 0" FontWeight="Medium" FontSize="15" BorderBrush="Black" Click="Remove_CPSC_Degree_Click"/>
                                 </Grid>
                             </Border>
 
-                            <Expander Visibility="{Binding ElementName=Degree_CPSC, Path=Visibility}">
+                            <Expander Visibility="{Binding ElementName=Degree_CPSC, Path=Visibility}" Name="req1CPSC_expander">
                                 <Expander.Header>
-                                    <TextBlock Text="Requirement 1: Computer Science Courses" FontWeight="Bold" FontSize="15"/>
+                                    <TextBlock Text="Requirement 1: Computer Science Courses" FontWeight="Medium" FontSize="15" TextDecorations="Underline"/>
                                 </Expander.Header>
 
                                 <StackPanel>
                                     <Expander Margin="20 5 0 5" Name="req1CPSC_lower_expander">
                                         <Expander.Header>
-                                            <TextBlock Text="Lower-Level Computer Science Courses (200 and 300 level courses)" FontWeight="Bold" FontSize="15"/>
+                                            <TextBlock Text="Lower-Level Computer Science Courses (200 and 300 level courses)" FontWeight="Medium" FontSize="15"/>
                                         </Expander.Header>
 
                                         <StackPanel>
@@ -301,8 +305,8 @@
                                                 <StackPanel>
                                                     <TextBlock Margin="3, 0" FontWeight="Medium" Text="CSPC 231 - Introduction to Computer Science for Computer Science Majors I" TextDecorations="Underline" FontSize="14"/>
                                                     <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018 | Spring 2018" FontSize="14"/>
-                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="- Antirequisite: Credit for Computer Science 231 and any of 215, 217, 235, Computer Engineering 339 or Engineering 233 will not be allowed." FontSize="14"/>
-                                                    <TextBlock Margin="3, 0" TextWrapping="Wrap" Text="- Note: Computer Science 101 is strongly recommended as preparation for this course." FontSize="14"/>
+                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="- Antirequisite: Credit for Computer Science 231 and any of 215, 217, 235, Computer Engineering 339 or Engineering 233 will not be allowed." FontSize="14" FontStyle="Italic"/>
+                                                    <TextBlock Margin="3, 0" TextWrapping="Wrap" Text="- Note: Computer Science 101 is strongly recommended as preparation for this course." FontSize="14" FontStyle="Italic"/>
                                                 </StackPanel>
                                             </Border>
 
@@ -310,17 +314,17 @@
                                                 <StackPanel>
                                                     <TextBlock Margin="3, 0" FontWeight="Medium" Text="CPSC 313 - Introduction to Computability" TextDecorations="Underline" FontSize="14"/>
                                                     <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018 | Spring 2018" FontSize="14"/>
-                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="- Prerequisite: Mathematics 271 or 273; Philosophy 279 or 377; and one of Computer Science 219, 233 or 235." FontSize="14"/>
-                                                    <TextBlock Margin="3, 0" TextWrapping="Wrap" Text="- Note: One of Computer Science 319 or 331 is strongly recommended as preparation for this course." FontSize="14"/>
+                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="- Prerequisite: Mathematics 271 or 273; Philosophy 279 or 377; and one of Computer Science 219, 233 or 235." FontSize="14" FontStyle="Italic"/>
+                                                    <TextBlock Margin="3, 0" TextWrapping="Wrap" Text="- Note: One of Computer Science 319 or 331 is strongly recommended as preparation for this course." FontSize="14" FontStyle="Italic"/>
                                                 </StackPanel>
                                             </Border>
 
                                         </StackPanel>
                                     </Expander>
 
-                                    <Expander Margin="20 0 0 5" Name="req1CPSC_higher_expander">
+                                    <Expander Margin="20 0 0 0" Name="req1CPSC_higher_expander">
                                         <Expander.Header>
-                                            <TextBlock Text="Higher-Level Computer Science Courses (400 and 500 level courses)" FontWeight="Bold" FontSize="15"/>
+                                            <TextBlock Text="Higher-Level Computer Science Courses (400 and 500 level courses)" FontWeight="Medium" FontSize="15"/>
                                         </Expander.Header>
 
                                         <StackPanel>
@@ -328,8 +332,8 @@
                                                 <StackPanel>
                                                     <TextBlock Margin="3, 0" FontWeight="Medium" Text="CPSC 413 - Design and Analysis of Algorithms I" TextDecorations="Underline" FontSize="14"/>
                                                     <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018" FontSize="14"/>
-                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="- Prerequisite: Computer Science 313; and either Computer Science 331 or both Computer Science 319 and 105; and Mathematics 211 or 213; and one of Mathematics 249, 251, 265, 275, 281 or Applied Mathematics 217." FontSize="14"/>
-                                                    <TextBlock Margin="3, 0" TextWrapping="Wrap" Text="- Notes: One of Mathematics 265 or 275 is highly recommended as preparation for this course, but not mandatory. Students who have completed Computer Science 319 instead of Computer Science 331, and who have been unable to complete Computer Science 105, should contact the Department of Computer Science for information about how to be prepared for, and how to be eligible to take, Computer Science 413." FontSize="14"/>
+                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="- Prerequisite: Computer Science 313; and either Computer Science 331 or both Computer Science 319 and 105; and Mathematics 211 or 213; and one of Mathematics 249, 251, 265, 275, 281 or Applied Mathematics 217." FontSize="14" FontStyle="Italic"/>
+                                                    <TextBlock Margin="3, 0" TextWrapping="Wrap" Text="- Notes: One of Mathematics 265 or 275 is highly recommended as preparation for this course, but not mandatory. Students who have completed Computer Science 319 instead of Computer Science 331, and who have been unable to complete Computer Science 105, should contact the Department of Computer Science for information about how to be prepared for, and how to be eligible to take, Computer Science 413." FontSize="14" FontStyle="Italic"/>
                                                 </StackPanel>
                                             </Border>
 
@@ -337,7 +341,7 @@
                                                 <StackPanel>
                                                     <TextBlock Margin="3, 0" FontWeight="Medium" Text="1.5 full-course equivalents from the Field of Computer Science" TextDecorations="Underline" FontSize="14"/>
                                                     <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="Restriction:" FontSize="14"/>
-                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="- Courses must be numbered 500 or above" FontSize="14"/>
+                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="- Courses must be numbered 500 or above" FontSize="14" FontStyle="Italic"/>
                                                 </StackPanel>
                                             </Border>
                                         </StackPanel>
@@ -348,7 +352,7 @@
 
                             <Expander Margin="0 5" Name="req2CPSC_expander" Visibility="{Binding ElementName=Degree_CPSC, Path=Visibility}">
                                 <Expander.Header>
-                                    <TextBlock Text="Requirement 2: Non-Computer Science Courses" FontWeight="Bold" FontSize="15"/>
+                                    <TextBlock Text="Requirement 2: Non-Computer Science Courses" FontWeight="Medium" FontSize="15" TextDecorations="Underline"/>
                                 </Expander.Header>
 
                                 <StackPanel>
@@ -356,7 +360,7 @@
                                         <StackPanel>
                                             <TextBlock Margin="3, 0" FontWeight="Medium" Text="PHIL 279 - Logic I" TextDecorations="Underline" FontSize="14"/>
                                             <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018" FontSize="14"/>
-                                            <TextBlock Margin="3, 0" Text="- Antirequisite: Credit for Philosophy 279 and 377 will not be allowed." FontSize="14"/>
+                                            <TextBlock Margin="3, 0" Text="- Antirequisite: Credit for Philosophy 279 and 377 will not be allowed." FontSize="14" FontStyle="Italic"/>
                                         </StackPanel>
                                     </Border>
                                 </StackPanel>
@@ -364,7 +368,7 @@
 
                             <Expander Name="req3CPSC_expander" Visibility="{Binding ElementName=Degree_CPSC, Path=Visibility}">
                                 <Expander.Header>
-                                    <TextBlock Text="Requirement 3: Option Courses" FontWeight="Bold" FontSize="15"/>
+                                    <TextBlock Text="Requirement 3: Option Courses" FontWeight="Medium" FontSize="15" TextDecorations="Underline"/>
                                 </Expander.Header>
 
                                 <StackPanel>
@@ -372,7 +376,7 @@
                                         <StackPanel>
                                             <TextBlock Margin="3, 0" FontWeight="Medium" Text="6 full-course equivalents Non-CPSC Course Requirements" TextDecorations="Underline" FontSize="14"/>
                                             <TextBlock Margin="3, 0" Text="Restriction:" FontSize="14"/>
-                                            <TextBlock Margin="3, 0" Text="- Option courses must not be in the field of Computer Science" FontSize="14"/>
+                                            <TextBlock Margin="3, 0" Text="- Option courses must not be in the field of Computer Science" FontSize="14" FontStyle="Italic"/>
                                         </StackPanel>
                                     </Border>
                                 </StackPanel>
@@ -381,8 +385,8 @@
                             <Expander Margin="0,5" Name="SoftEng_Conc" Visibility="Collapsed">
                                 <Expander.Header>
                                     <Grid Width="{Binding ElementName=SoftEng_Conc, Path=ActualWidth}">
-                                        <TextBlock Text="Requirement 4: Concentration - Software Engineering (SENG) " FontWeight="Bold" HorizontalAlignment="Left" FontSize="15"/>
-                                        <Button Content="Remove" HorizontalAlignment="Right" Width="70px" Margin="0, 0, 40, 0" FontWeight="Bold" FontSize="14" BorderBrush="Black" Click="Remove_SENG_Conc_Click"/>
+                                        <TextBlock Text="Requirement 4: Concentration - Software Engineering (SENG) " FontWeight="Medium" HorizontalAlignment="Left" FontSize="15" TextDecorations="Underline"/>
+                                        <Button Content="Remove" HorizontalAlignment="Right" Width="70px" Margin="0, 0, 40, 0" FontWeight="Medium" FontSize="14" BorderBrush="Black" Click="Remove_SENG_Conc_Click"/>
                                     </Grid>
                                 </Expander.Header>
 
@@ -392,8 +396,8 @@
                                             <StackPanel>
                                                 <TextBlock Margin="3, 0" FontWeight="Medium" Text="ECON 201 - Principles of Microeconomic" TextDecorations="Underline" FontSize="14"/>
                                                 <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018 | Spring 2018 | Summer 2018" FontSize="14"/>
-                                                <TextBlock Margin="3, 0" Text="- Prerequisite: None" FontSize="14"/>
-                                                <TextBlock Margin="3, 0" Text="- Corequisite: None" FontSize="14"/>
+                                                <TextBlock Margin="3, 0" Text="- Prerequisite: None" FontSize="14" FontStyle="Italic"/>
+                                                <TextBlock Margin="3, 0" Text="- Corequisite: None" FontSize="14" FontStyle="Italic"/>
                                             </StackPanel>
                                         </Border>
 
@@ -401,7 +405,7 @@
                                             <StackPanel>
                                                 <TextBlock Margin="3, 0" FontWeight="Medium" Text="CPSC 481 - Human-Computer Interaction I" TextDecorations="Underline" FontSize="14"/>
                                                 <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018 | Spring 2018" FontSize="14"/>
-                                                <TextBlock Margin="3, 0" Text="- Prerequisite: One of Software Engineering 300, 301 or Software Engineering for Engineers 480." FontSize="14"/>
+                                                <TextBlock Margin="3, 0" Text="- Prerequisite: One of Software Engineering 300, 301 or Software Engineering for Engineers 480." FontSize="14" FontStyle="Italic"/>
                                             </StackPanel>
                                         </Border>
                                     </StackPanel>
@@ -411,25 +415,25 @@
                             <!-- Hidden ECON and PHIL minors -->
                             <Border BorderThickness="2" BorderBrush="Black" Background="{StaticResource color3}" Margin="2,10,4,2" Name="Econ_Minor" Visibility="Collapsed">
                                 <Grid Width="{Binding ElementName=Econ_Minor, Path=ActualWidth}">
-                                    <Label Content="BA | Minor - Economics" HorizontalContentAlignment="Center" FontSize="15px" FontWeight="Bold"/>
-                                    <Button Content="Remove All" HorizontalAlignment="Right" Width="75px" Height="25px" Margin="0, 0, 10, 0" FontWeight="Bold" FontSize="12" BorderBrush="Black" Click="Remove_ECON_Minor_Click"/>
+                                    <TextBlock Text="BA | Minor - Economics" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Margin="6"/>
+                                    <Button Content="Remove All" HorizontalAlignment="Right" Width="85px" Height="25px" Margin="0, 0, 10, 0" FontWeight="Medium" FontSize="15" BorderBrush="Black" Click="Remove_ECON_Minor_Click"/>
                                 </Grid>
                             </Border>
 
-                            <Expander Margin="0, 5" Name="Econ_Minor_Expander" Visibility="{Binding ElementName=Econ_Minor, Path=Visibility}">
+                            <Expander Name="Econ_Minor_Expander" Visibility="{Binding ElementName=Econ_Minor, Path=Visibility}">
                                 <Expander.Header>
                                     <Grid Width="{Binding ElementName=Econ_Minor, Path=ActualWidth}">
-                                        <TextBlock Text="Requirement: Minor - Economics (ECON) " FontWeight="Bold" HorizontalAlignment="Left"/>
+                                        <TextBlock Text="Requirement: Minor - Economics (ECON) " FontWeight="Medium" HorizontalAlignment="Left" FontSize="15" TextDecorations="Underline"/>
                                     </Grid>
                                 </Expander.Header>
 
                                 <StackPanel>
-                                    <Border BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
+                                    <Border Margin="5 10 0 0" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
                                         <StackPanel>
-                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="5 full-course equivalents from the Field of Economics" TextDecorations="Underline"/>
-                                            <TextBlock Margin="3, 0" Text="Restrictions:"/>
-                                            <TextBlock Margin="5, 0" Text="-No more than 6 full-course equivalents"/>
-                                            <TextBlock Margin="5, 0" Text="-At least 3 full-course equivalents at 300 level or above"/>
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="5 full-course equivalents from the Field of Economics" TextDecorations="Underline" FontSize="14"/>
+                                            <TextBlock Margin="3, 0" Text="Restrictions:" FontSize="14"/>
+                                            <TextBlock Margin="5, 0" Text="- No more than 6 full-course equivalents" FontSize="14" FontStyle="Italic"/>
+                                            <TextBlock Margin="5, 0" Text="- At least 3 full-course equivalents at 300 level or above" FontSize="14" FontStyle="Italic"/>
                                         </StackPanel>
                                     </Border>
                                 </StackPanel>
@@ -437,25 +441,25 @@
 
                             <Border BorderThickness="2" BorderBrush="Black" Background="{StaticResource color3}" Margin="2,10,4,2" Name="Phil_Minor" Visibility="Collapsed">
                                 <Grid Width="{Binding ElementName=Phil_Minor, Path=ActualWidth}">
-                                    <Label Content="BA | Minor - Philosophy" HorizontalContentAlignment="Center" FontSize="15px" FontWeight="Bold"/>
-                                    <Button Content="Remove All" HorizontalAlignment="Right" Width="75px" Height="25px" Margin="0, 0, 10, 0" FontWeight="Bold" FontSize="12" BorderBrush="Black" Click="Remove_PHIL_Minor_Click"/>
+                                    <TextBlock Text="BA | Minor - Philosophy" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Margin="6"/>
+                                    <Button Content="Remove All" HorizontalAlignment="Right" Width="85px" Height="25px" Margin="0, 0, 10, 0" FontWeight="Medium" FontSize="15" BorderBrush="Black" Click="Remove_PHIL_Minor_Click"/>
                                 </Grid>
                             </Border>
 
-                            <Expander Margin="0, 5" Name="Phil_Minor_Expander" Visibility="{Binding ElementName=Phil_Minor, Path=Visibility}">
+                            <Expander Name="Phil_Minor_Expander" Visibility="{Binding ElementName=Phil_Minor, Path=Visibility}">
                                 <Expander.Header>
                                     <Grid Width="{Binding ElementName=Phil_Minor, Path=ActualWidth}">
-                                        <TextBlock Text="Requirement: Minor - Philosophy (PHIL) " FontWeight="Bold" HorizontalAlignment="Left"/>
+                                        <TextBlock Text="Requirement: Minor - Philosophy (PHIL) " FontWeight="Medium" HorizontalAlignment="Left" FontSize="15" TextDecorations="Underline"/>
                                     </Grid>
                                 </Expander.Header>
 
                                 <StackPanel>
-                                    <Border BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
+                                    <Border Margin="5 10 0 0" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
                                         <StackPanel>
-                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="5 full-course equivalents from the Field of Philosophy" TextDecorations="Underline"/>
-                                            <TextBlock Margin="3, 0" Text="Restrictions:"/>
-                                            <TextBlock Margin="5, 0" Text="-No more than 6 full-course equivalents"/>
-                                            <TextBlock Margin="5, 0" Text="-At least 3 full-course equivalents at 300 level or above"/>
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="5 full-course equivalents from the Field of Philosophy" TextDecorations="Underline" FontSize="14"/>
+                                            <TextBlock Margin="3, 0" Text="Restrictions:" FontSize="14"/>
+                                            <TextBlock Margin="5, 0" Text="- No more than 6 full-course equivalents" FontSize="14" FontStyle="Italic"/>
+                                            <TextBlock Margin="5, 0" Text="- At least 3 full-course equivalents at 300 level or above" FontSize="14" FontStyle="Italic"/>
                                         </StackPanel>
                                     </Border>
                                 </StackPanel>
