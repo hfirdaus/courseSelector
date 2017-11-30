@@ -66,7 +66,7 @@ namespace CPSC481_Prototype
         }
     }
 
-    class Message
+    public class Message
     {
         public string text { get; set; }
         public ICommand clearMsg { get; set; }
