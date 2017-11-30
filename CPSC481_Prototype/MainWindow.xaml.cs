@@ -206,7 +206,7 @@ namespace CPSC481_Prototype
                     int year = 0;
                     if (semester == Semester.FALL) year = 2017;
                     else year = 2018;
-                    Add_Course_Click("MGST", "217", "Introduction to Business Analytics", "COURSE DESCR", semester, year, 2, 2, 2);
+                    Add_Course_Click("MGST", "217", "MGST 217 - Introduction to Business Analytics", "Introduction to data representation and analysis. Students will think critically about business problems, gather, evaluate, analyze and synthesize relevant data, and create insightful models to improve the quality of decisions. Communicating and presenting quantitative analysis to lead managerial decision making will be emphasized while continuing to advance both individual and group leadership skills.", semester, year, 3, 2, 2);
                 }
             }
         }
@@ -230,7 +230,7 @@ namespace CPSC481_Prototype
                     int year = 0;
                     if (semester == Semester.FALL) year = 2017;
                     else year = 2018;
-                    Add_Course_Click("SGMA", "217", "Introduction to Business Skills", "COURSE DESCR", semester, year, 2, 2, 2);
+                    Add_Course_Click("SGMA", "217", "SGMA 217 - Introduction to Business Skills", "Introduction to the external business environment, human resource management, and marketing. Topics will include ethical decision-making, teamwork, secondary research, proper use of business communication tools and presentation skills. Pedagogical approaches may include case analysis, exercises, simulations, and class discussion.", semester, year, 2, 2, 2);
                 }
             }
             
@@ -250,14 +250,254 @@ namespace CPSC481_Prototype
 
             if (contain_flag == 0)
             {
+                foreach (Semester semester in Semester.ALL_SEMESTERS.Take(4))
+                {
+                    int year = 0;
+                    if (semester == Semester.FALL) year = 2017;
+                    else year = 2018;
+                    Add_Course_Click("ECON", "201", "ECON 201 - Principles of Microeconomic", "Principles of consumption, production, exchange: market and firm equilibrium under different competitive conditions. These principles are applied to various contemporary problems in the Canadian economy, such as the changing structure of agriculture, foreign ownership and control, and pollution.", semester, year, 3, 3, 0);
+                }
+            }            
+        }
+
+        private void ECON203_MouseDown(object sender, RoutedEventArgs e)
+        {
+
+            int contain_flag = 0;
+            foreach (Course check_course in CourseSelectorCourses.instance.visable)
+            {
+                if (check_course.Department.Equals("ECON") && check_course.Number.Equals("203"))
+                {
+                    contain_flag = 1;
+                }
+            }
+
+            if (contain_flag == 0)
+            {
+                foreach (Semester semester in Semester.ALL_SEMESTERS.Take(4))
+                {
+                    int year = 0;
+                    if (semester == Semester.FALL) year = 2017;
+                    else year = 2018;
+                    Add_Course_Click("ECON", "203", "ECON 203 - Principles of Marcoeconomic", "National income determination, the monetary and banking system, and elementary fiscal and monetary policies. Contemporary problems of unemployment, inflation, economic growth, business cycles and the international economy.", semester, year, 2, 4, 0);
+                }
+            }
+        }
+
+        private void ACCT323_MouseDown(object sender, RoutedEventArgs e)
+        {
+
+            int contain_flag = 0;
+            foreach (Course check_course in CourseSelectorCourses.instance.visable)
+            {
+                if (check_course.Department.Equals("ACCT") && check_course.Number.Equals("323"))
+                {
+                    contain_flag = 1;
+                }
+            }
+
+            if (contain_flag == 0)
+            {
                 foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
                 {
                     int year = 0;
                     if (semester == Semester.FALL) year = 2017;
                     else year = 2018;
-                    Add_Course_Click("ECON", "201", "ECON 201 - Principles of Microeconomic", "Principles of consumption, production, exchange: market and firm equilibrium under different competitive conditions. These principles are applied to various contemporary problems in the Canadian economy, such as the changing structure of agriculture, foreign ownership and control, and pollution.", semester, year, 2, 2, 2);
+                    Add_Course_Click("ACCT", "323", "ACCT 323 - Introductory Managerial Accounting", "An introduction to the use of accounting within an organizational context. Emphasis is placed on the development and dissemination of accounting information necessary for effective management including: planning, directing, motivating, and controlling activities and behaviours.", semester, year, 3, 2, 0);
                 }
-            }            
+            }
+        }
+
+        private void MGST451_MouseDown(object sender, RoutedEventArgs e)
+        {
+
+            int contain_flag = 0;
+            foreach (Course check_course in CourseSelectorCourses.instance.visable)
+            {
+                if (check_course.Department.Equals("MGST") && check_course.Number.Equals("451"))
+                {
+                    contain_flag = 1;
+                }
+            }
+
+            if (contain_flag == 0)
+            {
+                foreach (Semester semester in Semester.ALL_SEMESTERS.Take(2))
+                {
+                    int year = 0;
+                    if (semester == Semester.FALL) year = 2017;
+                    else year = 2018;
+                    Add_Course_Click("MGST", "451", "MGST 451 - Corporate Governance and Ethical Decision-Making", "Develop an increased awareness of the importance of corporate governance systems and strong financial decision making systems in developing effective business enterprises. Specific emphasis on the resolution of agency problems, the role of the board of directors, compensation systems and financial modelling.", semester, year, 2, 0, 0);
+                }
+            }
+        }
+
+        private void SMGA591_MouseDown(object sender, RoutedEventArgs e)
+        {
+
+            int contain_flag = 0;
+            foreach (Course check_course in CourseSelectorCourses.instance.visable)
+            {
+                if (check_course.Department.Equals("SGMA") && check_course.Number.Equals("591"))
+                {
+                    contain_flag = 1;
+                }
+            }
+
+            if (contain_flag == 0)
+            {
+                foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
+                {
+                    int year = 0;
+                    if (semester == Semester.FALL) year = 2017;
+                    else year = 2018;
+                    Add_Course_Click("SGMA", "591", "SGMA 591 - Strategic Management", "Analysis of competitive situations from the general management point of view, including fit between key environmental forces and the firm's resources, and changes in these over time. Formulating and implementing strategy based on that analysis. Developing and leveraging a firm's core competencies to gain long-term sustainable advantage.", semester, year, 4, 0, 0);
+                }
+            }
+        }
+
+        private void FNCE451_MouseDown(object sender, RoutedEventArgs e)
+        {
+
+            int contain_flag = 0;
+            foreach (Course check_course in CourseSelectorCourses.instance.visable)
+            {
+                if (check_course.Department.Equals("FNCE") && check_course.Number.Equals("451"))
+                {
+                    contain_flag = 1;
+                }
+            }
+
+            if (contain_flag == 0)
+            {
+                foreach (Semester semester in Semester.ALL_SEMESTERS.Take(2))
+                {
+                    int year = 0;
+                    if (semester == Semester.FALL) year = 2017;
+                    else year = 2018;
+                    Add_Course_Click("FNCE", "451", "FNCE 451 - Advanced Financial Management", "Focuses on understanding the advanced theories and practices of financial management that are required for finance majors. Topics include market imperfections arising from asymmetric information and taxation. It applies these concepts to study incentives and conflicts in various financial agent pairings. These concepts are then used in a theoretical and empirical study of important financial decisions, such as capital structure, dividend policy, retained ownership, security underwriting, management of distressed firms, managerial compensation, corporate governance and mergers.", semester, year, 1, 0, 0);
+                }
+            }
+        }
+
+        private void CPSC231_MouseDown(object sender, RoutedEventArgs e)
+        {
+
+            int contain_flag = 0;
+            foreach (Course check_course in CourseSelectorCourses.instance.visable)
+            {
+                if (check_course.Department.Equals("CPSC") && check_course.Number.Equals("231"))
+                {
+                    contain_flag = 1;
+                }
+            }
+
+            if (contain_flag == 0)
+            {
+                foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
+                {
+                    int year = 0;
+                    if (semester == Semester.FALL) year = 2017;
+                    else year = 2018;
+                    Add_Course_Click("CPSC", "231", "CSPC 231 - Introduction to Computer Science for Computer Science Majors I", "Introduction to problem solving, the analysis and design of small-scale computational systems, and implementation using a procedural programming language. For computer science majors.", semester, year, 2, 2, 0);
+                }
+            }
+        }
+
+        private void CPSC313_MouseDown(object sender, RoutedEventArgs e)
+        {
+
+            int contain_flag = 0;
+            foreach (Course check_course in CourseSelectorCourses.instance.visable)
+            {
+                if (check_course.Department.Equals("CPSC") && check_course.Number.Equals("313"))
+                {
+                    contain_flag = 1;
+                }
+            }
+
+            if (contain_flag == 0)
+            {
+                foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
+                {
+                    int year = 0;
+                    if (semester == Semester.FALL) year = 2017;
+                    else year = 2018;
+                    Add_Course_Click("CPSC", "313", "CPSC 313 - Introduction to Computability", "An introduction to abstract models of sequential computation, including finite automata, regular expressions, context-free grammars, and Turing machines. Formal languages, including regular, context-free, and recursive languages, methods for classifying languages according to these types, and relationships among these classes.", semester, year, 2, 3, 0);
+                }
+            }
+        }
+
+        private void CPSC413_MouseDown(object sender, RoutedEventArgs e)
+        {
+
+            int contain_flag = 0;
+            foreach (Course check_course in CourseSelectorCourses.instance.visable)
+            {
+                if (check_course.Department.Equals("CPSC") && check_course.Number.Equals("413"))
+                {
+                    contain_flag = 1;
+                }
+            }
+
+            if (contain_flag == 0)
+            {
+                foreach (Semester semester in Semester.ALL_SEMESTERS.Take(2))
+                {
+                    int year = 0;
+                    if (semester == Semester.FALL) year = 2017;
+                    else year = 2018;
+                    Add_Course_Click("CPSC", "413", "CPSC 413 - Design and Analysis of Algorithms I", "Techniques for the analysis of algorithms, including counting, summation, recurrences, and asymptotic relations; techniques for the design of efficient algorithms, including greedy methods, divide and conquer, and dynamic programming; examples of their application; an introduction to tractable and intractable problems.", semester, year, 2, 3, 0);
+                }
+            }
+        }
+
+        private void PHIL279_MouseDown(object sender, RoutedEventArgs e)
+        {
+
+            int contain_flag = 0;
+            foreach (Course check_course in CourseSelectorCourses.instance.visable)
+            {
+                if (check_course.Department.Equals("PHIL") && check_course.Number.Equals("279"))
+                {
+                    contain_flag = 1;
+                }
+            }
+
+            if (contain_flag == 0)
+            {
+                foreach (Semester semester in Semester.ALL_SEMESTERS.Take(2))
+                {
+                    int year = 0;
+                    if (semester == Semester.FALL) year = 2017;
+                    else year = 2018;
+                    Add_Course_Click("PHIL", "279", "PHIL 279 - Logic I", "Sentential and first-order logic from both deductive and semantic points of view. Some elementary metatheorems.", semester, year, 2, 2, 0);
+                }
+            }
+        }
+
+        private void CPSC481_MouseDown(object sender, RoutedEventArgs e)
+        {
+
+            int contain_flag = 0;
+            foreach (Course check_course in CourseSelectorCourses.instance.visable)
+            {
+                if (check_course.Department.Equals("CPSC") && check_course.Number.Equals("481"))
+                {
+                    contain_flag = 1;
+                }
+            }
+
+            if (contain_flag == 0)
+            {
+                foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
+                {
+                    int year = 0;
+                    if (semester == Semester.FALL) year = 2017;
+                    else year = 2018;
+                    Add_Course_Click("CPSC", "481", "CPSC 481 - Human-Computer Interaction I", "Fundamental theory and practice of the design, implementation, and evaluation of human-computer interfaces. Topics include: principles of design; methods for evaluating interfaces with or without user involvement; techniques for prototyping and implementing graphical user interfaces.", semester, year, 1, 4, 0);
+                }
+            }
         }
 
         private void Add_Course_Click(string dept, string number, string title, string descr, Semester semester, int year, int num_of_Off, int num_of_Tut, int num_of_Lab)
@@ -307,6 +547,8 @@ namespace CPSC481_Prototype
             req2_expander.IsExpanded = true;
             req3_expander.IsExpanded = true;
             if (selection_cmb_Comm_conc.Contains("FNCE")) FNCE_Conc.IsExpanded = true;
+            if (selection_cmb.Contains("ECON_Minor")) Econ_Minor_Expander.IsExpanded = true;
+            if (selection_cmb.Contains("PHIL_Minor")) Econ_Minor_Expander.IsExpanded = true;
         }
 
         private void degreeNav_CollapseAll_MouseDown(object sender, RoutedEventArgs e)
@@ -317,6 +559,8 @@ namespace CPSC481_Prototype
             req2_expander.IsExpanded = false;
             req3_expander.IsExpanded = false;
             if (selection_cmb_Comm_conc.Contains("FNCE")) FNCE_Conc.IsExpanded = false;
+            if (selection_cmb.Contains("ECON_Minor")) Econ_Minor_Expander.IsExpanded = false;
+            if (selection_cmb.Contains("PHIL_Minor")) Econ_Minor_Expander.IsExpanded = false;
         }
 
         private void addButton_cmb_Click(object sender, RoutedEventArgs e)
@@ -520,6 +764,7 @@ namespace CPSC481_Prototype
             Econ_Minor.Visibility = Visibility.Collapsed;
             selection_cmb.Clear();
             cmbMinor.SelectedIndex = -1;
+            Econ_Minor_Expander.IsExpanded = false;
         }
 
         private void Remove_PHIL_Minor_Click(object sender, RoutedEventArgs e)
@@ -527,6 +772,7 @@ namespace CPSC481_Prototype
             Phil_Minor.Visibility = Visibility.Collapsed;
             selection_cmb.Clear();
             cmbMinor.SelectedIndex = -1;
+            Phil_Minor_Expander.IsExpanded = false;
         }
 
         private void Clear_All_Click(object sender, RoutedEventArgs e)
@@ -550,6 +796,9 @@ namespace CPSC481_Prototype
             selection_cmb.Clear();
             selection_degree_cmb.Clear();
             selection_conc_cmb.Clear();
+
+            Econ_Minor_Expander.IsExpanded = false;
+            Phil_Minor_Expander.IsExpanded = false;
         }
 
         private void Advanced_Search_Click(object sender, RoutedEventArgs e)
