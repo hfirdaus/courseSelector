@@ -20,19 +20,23 @@ namespace CPSC481_Prototype
 
         public static void AddMessage(string text)
         {
-            messages.Add(new Message(text));
+            MainWindow.instance.AddMessage(new Message(text));
         }
 
         public static void AddMessage(string text, ProgAction action)
         {
             Message msg = new Message(text);
             msg.clearMsg = action;
-            messages.Add(msg);
+            //messages.Add(msg);
+            MainWindow.instance.AddMessage(msg);
         }
 
         public static void AddUndoMessage(string text, Action action)
         {
-
+            Message msg = new Message(text);
+            msg.clearMsg = new UndoAction(action);
+            //messages.Add(msg);
+            MainWindow.instance.AddMessage(msg);
         }
         
         public static void AddUndoMessage(string text, UndoAction action)
