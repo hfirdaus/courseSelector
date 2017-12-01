@@ -659,7 +659,7 @@ namespace CPSC481_Prototype
                 {
                     Section lab = new Section();
                     lab.Name = "Lab " + j;
-                    lab.Time = "W 1:11";
+                    lab.Time = "F 1:11";
                     offering.Labs.Add(lab);
                 }
                 newCourse.AddOffering(offering);

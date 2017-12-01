@@ -81,8 +81,17 @@
                                 <Rectangle Width="1" Height="Auto" Fill="Black"/>
                                 <Label Content="Collapse All" FontSize="15" FontWeight="Medium" MouseDown="degreeNav_CollapseAll_MouseDown"  Background="#FFF5EAA4"/>
                                 <Rectangle Width="1" Height="Auto" Fill="Black"/>
-                                <Label Content="Remove All" FontSize="15" FontWeight="Medium" Background="#FFF5EAA4" MouseDown="RemoveAll_MouseDown"/>
+                                <Label Content="View Default" FontSize="15" FontWeight="Medium" Background="#FFF5EAA4" MouseDown="RemoveAll_MouseDown"/>
                                 <Rectangle Width="1" Height="Auto" Fill="Black"/>
+                            </StackPanel>
+                            
+                            <Border BorderThickness="1" BorderBrush="Black" Margin="0 0 0 5" Height="1"/>
+
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="15" Height="15" Margin="5 0 0 5" Fill="{DynamicResource color6}" Stroke="Black"/>
+                                <TextBlock Text=" - Represents the requirement course you are able to take based"/>
+                                <Rectangle Width="15" Height="15" Margin="5 0 0 5" Fill="{DynamicResource color5}" Stroke="Black"/>
+                                <TextBlock Text=" - Represents the requirement course you are able to take"/>
                             </StackPanel>
                         </StackPanel>
                     </Border>
