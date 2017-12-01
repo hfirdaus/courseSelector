@@ -60,7 +60,7 @@ namespace CPSC481_Prototype
             fadeOut.To = 0;
             fadeOut.BeginTime = TimeSpan.FromSeconds(waitDur);
             fadeOut.Duration = new Duration(TimeSpan.FromSeconds(fadeOutDur));
-            fadeOut.Completed += (s, e) => RemoveMessage(border);
+            fadeOut.Completed += (s, e) => RemoveMessage(border, msg);
 
 
             Storyboard quickFadeInSB = new Storyboard();
@@ -68,12 +68,10 @@ namespace CPSC481_Prototype
 
             Storyboard fadeOutSB = new Storyboard();
             fadeOutSB.Children.Add(fadeOut);
-            //fadeOutSB.Completed += (s,e) => RemoveMessage(border);
 
             Storyboard fullRunSB = new Storyboard();
             fullRunSB.Children.Add(fadeIn);
             fullRunSB.Children.Add(fadeOut);
-            //fullRunSB.Completed += (s, e) => RemoveMessage(border);
 
             EventTrigger loadedTrigger = new EventTrigger();
             border.Triggers.Add(loadedTrigger);
@@ -103,9 +101,13 @@ namespace CPSC481_Prototype
             Messages_Box.Children.Add(border);
         }
 
-        public void RemoveMessage(Border border)
+        public void RemoveMessage(Border border, Message msg)
         {
-            Messages_Box.Children.Remove(border);
+            if (border.Opacity == 0)
+            {
+                Messages_Box.Children.Remove(border);
+                Messages.RemoveMessage(msg);
+            }
         }
 
         private void Tutorial_Button_Click(object sender, RoutedEventArgs e)
