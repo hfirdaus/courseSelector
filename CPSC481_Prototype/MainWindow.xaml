@@ -1026,12 +1026,14 @@
 
                 <Label Content="Course Faculty" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
                 <ComboBox SelectedItem="default" Name="Course_Faculty_Combobox" Width="150" HorizontalAlignment="Center">
+                    <ComboBoxItem>-</ComboBoxItem>
                     <ComboBoxItem Name="ACCT_Combo_Item">ACCT - Accounting</ComboBoxItem>
                     <ComboBoxItem>BSEN - Business</ComboBoxItem>
                     <ComboBoxItem>ECON - Economics</ComboBoxItem>
                 </ComboBox>
                 <Label  Content="Course Level" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
                 <ComboBox Name="Course_Level_Combobox" Width="150" HorizontalAlignment="Center">
+                    <ComboBoxItem>-</ComboBoxItem>
                     <ComboBoxItem>100</ComboBoxItem>
                     <ComboBoxItem>200</ComboBoxItem>
                     <ComboBoxItem>300</ComboBoxItem>
@@ -1041,7 +1043,7 @@
                 <Label Content="Enter a Keyword" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
 
                 <TextBox Name="Advanced_Search_Textbox" HorizontalAlignment="Center" Width="100" />
-                <Grid Margin="2" HorizontalAlignment="Stretch">
+                <!--<Grid Margin="2" HorizontalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -1070,7 +1072,7 @@
                         <CheckBox VerticalAlignment="Center" Margin="2"/>
                         <Label Content="Fri"/>
                     </WrapPanel>
-                </Grid>
+                </Grid>-->
                 <Button Name="Advanced_Search_Button" Content="Search" Width="50" Margin="203,10" Click="Advanced_Search_Click"/>
 
             </StackPanel>
