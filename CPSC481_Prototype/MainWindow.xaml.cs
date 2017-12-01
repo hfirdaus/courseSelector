@@ -974,6 +974,7 @@ namespace CPSC481_Prototype
 
         private void Advanced_Search_Click(object sender, RoutedEventArgs e)
         {
+            CourseSelectorCourses.ClearAllCourses();
             String Faculty_Selection = "";
             String Level_Selection = "";
             String Text_Selection = Advanced_Search_Textbox.Text;
@@ -1009,10 +1010,17 @@ namespace CPSC481_Prototype
                 {
                     BSEN401();
                 }
+                else if (Level_Selection == "System.Windows.Controls.ComboBoxItem: 500")
+                {
+                    BSEN533();
+                    BSEN569();
+                }
                 else
                 {
                     BSEN395();
                     BSEN401();
+                    BSEN533();
+                    BSEN569();
                 }
             }
             Console.WriteLine(Faculty_Selection);
@@ -1023,63 +1031,133 @@ namespace CPSC481_Prototype
             Degree_Search_Panel.Visibility = Visibility.Hidden;
         }
 
+        private void ACCT217()
+        {
+
+            foreach (Semester semester in Semester.FALL_WINTER)
+            {
+                int year = 0;
+                if (semester == Semester.FALL) year = 2017;
+                else year = 2018;
+                Add_Course_Click("ACCT", "217", "Introduction to Financial Accounting",
+                    "Introduction to accounting for business organizations", semester, year, 2, 2, 2);
+            }
+        }
+
+        private void ACCT301()
+        {
+
+            foreach (Semester semester in Semester.FALL_WINTER)
+            {
+                int year = 0;
+                if (semester == Semester.FALL) year = 2017;
+                else year = 2018;
+                Add_Course_Click("ACCT", "301", "Accounting Principles",
+                    "Introduction to basic accounting principles and practices", semester, year, 2, 2, 2);
+            }
+        }
+
+        private void ACCT341()
+        {
+
+            foreach (Semester semester in Semester.FALL_WINTER)
+            {
+                int year = 0;
+                if (semester == Semester.FALL) year = 2017;
+                else year = 2018;
+                Add_Course_Click("ACCT", "341", "Intermediate Financial Accounting I",
+                    "Financial accounting from a producer point of view", semester, year, 2, 2, 2);
+            }
+        }
+
         private void BSEN395()
         {
 
             foreach (Semester semester in Semester.FALL_WINTER)
             {
-                Course newCourse = new CPSC481_Prototype.Course("Department", "" + number++, "BSEN 395: Business in Canada", "Business law topics may include: regulatory compliance and environment management, tort and contractual liability, legal issues affecting the strategic management of sole proprietorships, partnerships, corporations and joint ventures, personal liability of corporate directors and officers, intellectual property, advertising and promotion law, consumer protection legislation, legal issues affecting employees and independent contractors, the strategic management of international business, securities law and other current business law issues.Business law topics may include: regulatory compliance and environment management, tort and contractual liability, legal issues affecting the strategic management of sole proprietorships, partnerships, corporations and joint ventures, personal liability of corporate directors and officers, intellectual property, advertising and promotion law, consumer protection legislation, legal issues affecting employees and independent contractors, the strategic management of international business, securities law and other current business law issues.", semester, 2017);
-                for (int i = 0; i < 2; i++)
-                {
-                    Offering offering = new Offering();
-                    Section lecture = new Section();
-                    lecture.Name = "Lecture " + i;
-                    lecture.Time = "MWF 0:00";
-                    lecture.Select_Command = new LectureCommand(newCourse, lecture);
-                    offering.Lecture = lecture;
-                    for (int j = 0; j < 2; j++)
-                    {
-                        Section tutorial = new Section();
-                        tutorial.Name = "Tutorial " + j;
-                        tutorial.Time = "W 1:11";
-                        offering.Tutorials.Add(tutorial);
-                    }
-                    for (int j = 0; j < 2; j++)
-                    {
-                        Section lab = new Section();
-                        lab.Name = "Lab " + j;
-                        lab.Time = "W 1:11";
-                        offering.Labs.Add(lab);
-                    }
-                    newCourse.AddOffering(offering);
-                }
-                CourseSelectorCourses.AddCourse(newCourse);
+                int year = 0;
+                if (semester == Semester.FALL) year = 2017;
+                else year = 2018;
+                Add_Course_Click("BSEN", "395", "Business Law for Strategic Decision Makers",
+                    "Strategic management of international business, securities law and other current business law issues", semester, year, 2, 2, 2);
             }
         }
 
         private void BSEN401()
         {
-            foreach (Semester semester in Semester.ALL_SEMESTERS)
+            
+            foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
             {
-                Course newCourse = new CPSC481_Prototype.Course("Department", "" + number++, "BSEN 401: Dilemmas and Decisions in Business", "A comparative analysis of Canada's competitive position in the global economy utilizing case studies analyzing strategies employed by Canadian corporations to be successful in world markets.", semester, 2017);
+                int year = 0;
+                if (semester == Semester.FALL) year = 2017;
+                else year = 2018;
+                Add_Course_Click("BSEN", "401", "Business in Canada", 
+                    "A comparative analysis of Canada's competitive position in the global economy.", semester, year, 2, 2, 2);
+            }
+        }
 
-                Offering offering = new Offering();
-                Section lecture = new Section();
-                lecture.Name = "Lecture " + 1;
-                lecture.Time = "MWF 0:00";
-                lecture.Select_Command = new LectureCommand(newCourse, lecture);
-                offering.Lecture = lecture;
-                for (int j = 0; j < 2; j++)
-                {
-                    Section tutorial = new Section();
-                    tutorial.Name = "Tutorial " + j;
-                    tutorial.Time = "W 1:11";
-                    offering.Tutorials.Add(tutorial);
-                }
+        private void BSEN533()
+        {
 
-                newCourse.AddOffering(offering);
+            foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
+            {
+                int year = 0;
+                if (semester == Semester.FALL) year = 2017;
+                else year = 2018;
+                Add_Course_Click("BSEN", "533", "Dilemmas and Decisions in Business",
+                    "Balance ethical, social and legal decision-making principles, process complex facts and obtain well-reasoned results in order to make decisions in turbulent times", semester, year, 2, 2, 2);
+            }
+        }
 
-                CourseSelectorCourses.AddCourse(newCourse);
+        private void BSEN569()
+        {
+
+            foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
+            {
+                int year = 0;
+                if (semester == Semester.FALL) year = 2017;
+                else year = 2018;
+                Add_Course_Click("BSEN", "569", "Ethical Issues and the Professional Manager",
+                    "provide tools for making sound ethical decisions in various business situations and in the face of moral dilemmas", semester, year, 2, 2, 2);
+            }
+        }
+
+        private void ECON201()
+        {
+
+            foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
+            {
+                int year = 0;
+                if (semester == Semester.FALL) year = 2017;
+                else year = 2018;
+                Add_Course_Click("ECON", "201", "Introduction to Microeconomics",
+                    "Principles of consumption, production, exchange: market and firm equilibrium under different competitive conditions", semester, year, 2, 2, 2);
+            }
+        }
+
+        private void ECON203()
+        {
+
+            foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
+            {
+                int year = 0;
+                if (semester == Semester.FALL) year = 2017;
+                else year = 2018;
+                Add_Course_Click("ECON", "203", "Introduction to Macroeconomics",
+                    "National income determination, the monetary and banking system, and elementary fiscal and monetary policies", semester, year, 2, 2, 2);
+            }
+        }
+
+        private void ECON355()
+        {
+
+            foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
+            {
+                int year = 0;
+                if (semester == Semester.FALL) year = 2017;
+                else year = 2018;
+                Add_Course_Click("ECON", "355", "Canadian Public Finance",
+                    "Examination of the institutions behind and economic rationale for Canadian government policy relating to public expenditures and taxation", semester, year, 2, 2, 2);
             }
         }
 
