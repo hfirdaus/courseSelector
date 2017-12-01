@@ -611,7 +611,14 @@ namespace CPSC481_Prototype
 
             if (selection_conc_cmb.Contains("SENG"))
             {
+                CPSCdegree_Conc.Visibility = Visibility.Visible;
+                CPSCdegree_Regular.Visibility = Visibility.Collapsed;
                 SoftEng_Conc.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                CPSCdegree_Conc.Visibility = Visibility.Collapsed;
+                CPSCdegree_Regular.Visibility = Visibility.Visible;
             }
         }
 
@@ -777,6 +784,8 @@ namespace CPSC481_Prototype
             selection_conc_cmb.Clear();
             cmbConcentration.SelectedIndex = -1;
             SoftEng_Conc.IsExpanded = false;
+            CPSCdegree_Conc.Visibility = Visibility.Collapsed;
+            CPSCdegree_Regular.Visibility = Visibility.Visible;
         }
         
         private void Remove_FNCE_Conc_Click(object sender, RoutedEventArgs e)
