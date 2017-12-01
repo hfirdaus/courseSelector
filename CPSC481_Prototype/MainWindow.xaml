@@ -993,10 +993,10 @@
                     </ScrollViewer>
                     <StackPanel Orientation="Vertical"
                                Name="Messages_Box"
-                               MaxWidth="200"
+                               MaxWidth="250"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Bottom"
-                               Margin="0, 0, 20, 0">
+                               Margin="0, 0, 20, 5">
                     </StackPanel>
                     <Canvas>
                         <Border Name="Show_Cart_Border" BorderBrush="Black" BorderThickness="1 1 1 0" Canvas.Bottom="0" CornerRadius="0 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{StaticResource color2}">
