@@ -130,7 +130,6 @@ namespace CPSC481_Prototype
             if (border.Opacity == 0)
             {
                 Messages_Box.Children.Remove(border);
-                Messages.RemoveMessage(msg);
             }
         }
 
@@ -138,7 +137,6 @@ namespace CPSC481_Prototype
         {
             msg.clearMsg.run();
             Messages_Box.Children.Remove(border);
-            Messages.RemoveMessage(msg);
         }
 
         private void SetMousePoint()
