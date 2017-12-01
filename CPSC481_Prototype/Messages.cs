@@ -25,7 +25,9 @@ namespace CPSC481_Prototype
 
         public static void AddMessage(string text, ProgAction action)
         {
-
+            Message msg = new Message(text);
+            msg.clearMsg = action;
+            messages.Add(msg);
         }
 
         public static void AddUndoMessage(string text, Action action)
@@ -69,14 +71,15 @@ namespace CPSC481_Prototype
     public class Message
     {
         public string text { get; set; }
-        public ICommand clearMsg { get; set; }
+        public ProgAction clearMsg { get; set; }
 
         public Message(string message)
         {
             this.text = message;
-            clearMsg = new MessageClear(this);
+            
         }
 
+        /*
         class MessageClear : ICommand
         {
             public event EventHandler CanExecuteChanged;
@@ -97,8 +100,9 @@ namespace CPSC481_Prototype
                 Messages.RemoveMessage(message);
             }
         }
+        */
     }
-    abstract class ProgAction
+    public abstract class ProgAction
     {
 
         public ProgAction(Action action)
@@ -114,12 +118,12 @@ namespace CPSC481_Prototype
         }
     }
 
-    class UndoAction : ProgAction
+    public class UndoAction : ProgAction
     {
         public UndoAction(Action action) : base(action) { }
     }
 
-    class RedoAction : ProgAction
+    public class RedoAction : ProgAction
     {
         public RedoAction(Action action) : base(action) { }
     }
