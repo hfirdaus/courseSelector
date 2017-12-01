@@ -61,28 +61,6 @@ namespace CPSC481_Prototype
             
         }
 
-        /*
-        class MessageClear : ICommand
-        {
-            public event EventHandler CanExecuteChanged;
-
-            private Message message;
-            public MessageClear(Message message)
-            {
-                this.message = message;
-            }
-
-            public bool CanExecute(object parameter)
-            {
-                return true;
-            }
-
-            public void Execute(object parameter)
-            {
-                Messages.RemoveMessage(message);
-            }
-        }
-        */
     }
     public abstract class ProgAction
     {
