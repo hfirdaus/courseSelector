@@ -31,8 +31,6 @@ namespace CPSC481_Prototype
             Schedule_Items.ItemsSource = ScheduleSelections.instance.visible;
             instance = this;
 
-            AddMessage(new Message("Message1"));
-            AddMessage(new Message("Message2"));
         }
 
         public void AddMessage(Message msg)
