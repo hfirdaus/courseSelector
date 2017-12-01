@@ -14,7 +14,7 @@
         <SolidColorBrush x:Key="color4">#BAA898</SolidColorBrush>
         <SolidColorBrush x:Key="color5">#E89790</SolidColorBrush>
         <!--Red - Needs Pre-Reqs-->
-        <SolidColorBrush x:Key="color6">#B8F2E6</SolidColorBrush>
+        <SolidColorBrush x:Key="color6">#98FB98</SolidColorBrush>
         <!--Green - Reached Pre-Reqs-->
         <SolidColorBrush x:Key="color7">#BFD7EA</SolidColorBrush>
         <!--Blue - Options-->
