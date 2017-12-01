@@ -500,6 +500,30 @@ namespace CPSC481_Prototype
             }
         }
 
+        private void POLI321_MouseDown(object sender, RoutedEventArgs e)
+        {
+
+            int contain_flag = 0;
+            foreach (Course check_course in CourseSelectorCourses.instance.visable)
+            {
+                if (check_course.Department.Equals("POLI") && check_course.Number.Equals("321"))
+                {
+                    contain_flag = 1;
+                }
+            }
+
+            if (contain_flag == 0)
+            {
+                foreach (Semester semester in Semester.ALL_SEMESTERS.Take(2))
+                {
+                    int year = 0;
+                    if (semester == Semester.FALL) year = 2017;
+                    else year = 2018;
+                    Add_Course_Click("POLI", "321", "POLI 321 - Politics and Government in Canada", "An examination of institutions and political processes in Canada. Significant attention is paid to key institutions such as Parliament, the executive, federalism, the Constitution, and the courts. Emphasis is also placed on the way that political processes are shaped by these and other institutions. This course may have a special instructional format. Please consult the Department for details.", semester, year, 1, 3, 0);
+                }
+            }
+        }
+
         private void Add_Course_Click(string dept, string number, string title, string descr, Semester semester, int year, int num_of_Off, int num_of_Tut, int num_of_Lab)
         {
             Course newCourse = new CPSC481_Prototype.Course(dept, number, title, descr, semester, year);
@@ -560,6 +584,13 @@ namespace CPSC481_Prototype
             }
             if (selection_conc_cmb.Contains("SENG")) SoftEng_Conc.IsExpanded = true;
 
+            if (selection_degree_cmb.Contains("POLI"))
+            {
+                req1Poli_expander.IsExpanded = true;
+                req1Poli_lower_expander.IsExpanded = true;
+                req1Poli_higher_expander.IsExpanded = true;
+                req2Poli_expander.IsExpanded = true;
+            }
         }
 
         private void degreeNav_CollapseAll_MouseDown(object sender, RoutedEventArgs e)
@@ -582,6 +613,14 @@ namespace CPSC481_Prototype
                 req3CPSC_expander.IsExpanded = false;
             }
             if (selection_conc_cmb.Contains("SENG")) SoftEng_Conc.IsExpanded = false;
+
+            if (selection_degree_cmb.Contains("POLI"))
+            {
+                req1Poli_expander.IsExpanded = false;
+                req1Poli_lower_expander.IsExpanded = false;
+                req1Poli_higher_expander.IsExpanded = false;
+                req2Poli_expander.IsExpanded = false;
+            }
         }
 
         private void addButton_cmb_Click(object sender, RoutedEventArgs e)
@@ -603,10 +642,29 @@ namespace CPSC481_Prototype
                 
             }
 
+            if(!selection_degree_cmb.Contains("CPSC"))
+            {
+                Degree_CPSC.Visibility = Visibility.Collapsed;
+                SoftEng_Conc.Visibility = Visibility.Collapsed;
+            }
+
+            if (!selection_degree_cmb.Contains("POLI"))
+            {
+                Degree_Poli.Visibility = Visibility.Collapsed;
+            }
+
             if (selection_degree_cmb.Contains("CPSC"))
             {
                 Degree_CPSC.Visibility = Visibility.Visible;
                 SoftEng_Conc.Visibility = Visibility.Collapsed;
+                Degree_Poli.Visibility = Visibility.Collapsed;
+            }
+
+            if (selection_degree_cmb.Contains("POLI"))
+            {
+                Degree_CPSC.Visibility = Visibility.Collapsed;
+                SoftEng_Conc.Visibility = Visibility.Collapsed;
+                Degree_Poli.Visibility = Visibility.Visible;
             }
 
             if (selection_conc_cmb.Contains("SENG"))
@@ -703,15 +761,15 @@ namespace CPSC481_Prototype
                     cmbConcentration.SelectedIndex = -1;
                     selection_degree_cmb.Clear();
                     selection_conc_cmb.Clear();
-                    cmbMajor.Items.Remove("ENGL - English");
+                    cmbMajor.Items.Remove("POLI - Political Science");
                     cmbMajor.Items.Remove("CPSC - Computer Science");
-                    cmbMajor.Items.Add("ENGL - English");
+                    cmbMajor.Items.Add("POLI - Political Science");
                 }
                 else if(cmbItem.Equals("Bachelor of Science"))
                 {
                     selection_degree_cmb.Clear();
                     selection_conc_cmb.Clear();
-                    cmbMajor.Items.Remove("ENGL - English");
+                    cmbMajor.Items.Remove("POLI - Political Science");
                     cmbMajor.Items.Remove("CPSC - Computer Science");
                     cmbMajor.Items.Add("CPSC - Computer Science");
                 }
@@ -724,9 +782,13 @@ namespace CPSC481_Prototype
             if (cmbMajor.SelectedItem != null)
             {
                 cmbItem = cmbMajor.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last();
-                if(cmbItem.Equals("ENGL - English"))
+                if(cmbItem.Equals("POLI - Political Science"))
                 {                   
                     cmbConcentration.Items.Remove("Software Engineering");
+                    if (!selection_degree_cmb.Contains("POLI"))
+                    {
+                        selection_degree_cmb.Add("POLI");
+                    }
                 }
 
                 else if(cmbItem.Equals("CPSC - Computer Science"))
@@ -778,6 +840,22 @@ namespace CPSC481_Prototype
             if(selection_conc_cmb.Contains("SENG")) SoftEng_Conc.IsExpanded = false; 
         }
 
+        private void Remove_POLI_Degree_Click(object sender, RoutedEventArgs e)
+        {
+            Degree_Poli.Visibility = Visibility.Collapsed;
+
+            selection_degree_cmb.Clear();
+            selection_conc_cmb.Clear();
+
+            cmbDegree.SelectedIndex = -1;
+            cmbMajor.SelectedIndex = -1;
+
+            req1Poli_expander.IsExpanded = false;
+            req1Poli_lower_expander.IsExpanded = false;
+            req1Poli_higher_expander.IsExpanded = false;
+            req2Poli_expander.IsExpanded = false;
+        }
+
         private void Remove_SENG_Conc_Click(object sender, RoutedEventArgs e)
         {
             SoftEng_Conc.Visibility = Visibility.Collapsed;
@@ -822,15 +900,15 @@ namespace CPSC481_Prototype
             cmbConcentration.SelectedIndex = -1;
             cmbMinor.SelectedIndex = -1;
 
-            cmbMajor.Items.Remove("ENGL - English");
+            cmbMajor.Items.Remove("POLI - Political Science");
             cmbMajor.Items.Remove("CPSC - Computer Science");
-            cmbConcentration.Items.Remove("Creative Writing");
             cmbConcentration.Items.Remove("Software Engineering");
 
             Degree_CPSC.Visibility = Visibility.Collapsed;
             SoftEng_Conc.Visibility = Visibility.Collapsed;
             Phil_Minor.Visibility = Visibility.Collapsed;
             Econ_Minor.Visibility = Visibility.Collapsed;
+            Degree_Poli.Visibility = Visibility.Collapsed;
 
             selection_cmb.Clear();
             selection_degree_cmb.Clear();
@@ -845,6 +923,10 @@ namespace CPSC481_Prototype
             req1CPSC_lower_expander.IsExpanded = false;
             req2CPSC_expander.IsExpanded = false;
             req3CPSC_expander.IsExpanded = false;
+            req1Poli_expander.IsExpanded = false;
+            req1Poli_lower_expander.IsExpanded = false;
+            req1Poli_higher_expander.IsExpanded = false;
+            req2Poli_expander.IsExpanded = false;
         }
 
         private void RemoveAll_MouseDown (object sender, RoutedEventArgs e)
@@ -855,15 +937,15 @@ namespace CPSC481_Prototype
             cmbConcentration.SelectedIndex = -1;
             cmbMinor.SelectedIndex = -1;
 
-            cmbMajor.Items.Remove("ENGL - English");
+            cmbMajor.Items.Remove("POLI - Political Science");
             cmbMajor.Items.Remove("CPSC - Computer Science");
-            cmbConcentration.Items.Remove("Creative Writing");
             cmbConcentration.Items.Remove("Software Engineering");
 
             Degree_CPSC.Visibility = Visibility.Collapsed;
             SoftEng_Conc.Visibility = Visibility.Collapsed;
             Phil_Minor.Visibility = Visibility.Collapsed;
             Econ_Minor.Visibility = Visibility.Collapsed;
+            Degree_Poli.Visibility = Visibility.Collapsed;
 
             selection_cmb.Clear();
             selection_degree_cmb.Clear();
@@ -878,6 +960,10 @@ namespace CPSC481_Prototype
             req1CPSC_lower_expander.IsExpanded = false;
             req2CPSC_expander.IsExpanded = false;
             req3CPSC_expander.IsExpanded = false;
+            req1Poli_expander.IsExpanded = false;
+            req1Poli_lower_expander.IsExpanded = false;
+            req1Poli_higher_expander.IsExpanded = false;
+            req2Poli_expander.IsExpanded = false;
 
             FNCE_Conc.Visibility = Visibility.Collapsed;
             selection_cmb_Comm_conc.Clear();

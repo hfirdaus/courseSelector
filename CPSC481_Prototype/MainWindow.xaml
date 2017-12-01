@@ -417,7 +417,76 @@
                             </Expander>
                             
                             <!-- Hidden English Degree -->
-                            
+                            <Border BorderThickness="2" BorderBrush="Black" Background="#FFFFECDD" Margin="2,10,4,2" Name="Degree_Poli" Visibility="Collapsed">
+                                <Grid Width="{Binding ElementName=Degree_Poli, Path=ActualWidth}">
+                                    <TextBlock Text="BA | Major - Political Science" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Visibility="Visible" Margin="6"/>
+                                    <Button Content="Remove All" HorizontalAlignment="Right" Width="85px" Height="25px" Margin="0, 0, 10, 0" FontWeight="Medium" FontSize="15" BorderBrush="Black" Background="#FF595959" Foreground="White" Click="Remove_POLI_Degree_Click"/>
+                                </Grid>
+                            </Border>
+
+                            <Expander Visibility="{Binding ElementName=Degree_Poli, Path=Visibility}" Name="req1Poli_expander" Background="#FFFFECDD" Margin="10 0">
+                                <Expander.Header>
+                                    <TextBlock Text="Requirement 1: Political Science Courses" FontWeight="Medium" FontSize="15" TextDecorations="Underline"/>
+                                </Expander.Header>
+
+                                <StackPanel>
+                                    <Expander Margin="20 5 0 5" Name="req1Poli_lower_expander">
+                                        <Expander.Header>
+                                            <TextBlock Text="Lower-Level Political Science Courses (200 and 300 level courses)" FontWeight="Medium" FontSize="15"/>
+                                        </Expander.Header>
+
+                                        <StackPanel>
+                                            <Border Margin="0 10 5 0" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
+                                                <StackPanel>
+                                                    <TextBlock Margin="3, 0" FontWeight="Medium" Text="1 full-course equivalent in the Field of Political Science" TextDecorations="Underline" FontSize="14"/>
+                                                    <TextBlock Margin="3, 0" Text="Restriction:" FontSize="14"/>
+                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="- Must be 200-level courses" FontSize="14" FontStyle="Italic"/>
+                                                </StackPanel>
+                                            </Border>
+
+                                            <Border Margin="0 10 5 5" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color5}" MouseDown="POLI321_MouseDown">
+                                                <StackPanel>
+                                                    <TextBlock Margin="3, 0" FontWeight="Medium" Text="POLI 321 - Politics and Government in Canada" TextDecorations="Underline" FontSize="14"/>
+                                                    <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018" FontSize="14"/>
+                                                </StackPanel>
+                                            </Border>
+
+                                        </StackPanel>
+                                    </Expander>
+
+                                    <Expander Margin="20 0 0 0" Name="req1Poli_higher_expander">
+                                        <Expander.Header>
+                                            <TextBlock Text="Higher-Level Political Science Courses (400 and 500 level courses)" FontWeight="Medium" FontSize="15"/>
+                                        </Expander.Header>
+
+                                        <StackPanel>
+                                            <Border Margin="0 10 5 5" BorderThickness="1" BorderBrush="Black" Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
+                                                <StackPanel>
+                                                    <TextBlock Margin="3, 0" FontWeight="Medium" Text="2 full-course equivalent in the Field of Political Science" TextDecorations="Underline" FontSize="14"/>
+                                                    <TextBlock Margin="3, 0" Text="Restriction:" FontSize="14"/>
+                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="- Must be 400-level or above courses" FontSize="14" FontStyle="Italic"/>
+                                                </StackPanel>
+                                            </Border>
+                                        </StackPanel>
+                                    </Expander>
+
+                                </StackPanel>
+                            </Expander>
+
+                            <Expander Name="req2Poli_expander" Visibility="{Binding ElementName=Degree_Poli, Path=Visibility}" Background="#FFFFECDD" Margin="10 5">
+                                <Expander.Header>
+                                    <TextBlock Text="Requirement 2: Option Courses" FontWeight="Medium" FontSize="15" TextDecorations="Underline"/>
+                                </Expander.Header>
+
+                                <StackPanel>
+                                    <Border Margin="5 10 5 5" BorderThickness="1" BorderBrush="Black"  Background="{StaticResource color7}" MouseDown="Option_Search_MouseDown">
+                                        <StackPanel>
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="1 full-course equivalents from the Faculty of Science" TextDecorations="Underline" FontSize="14"/>
+                                            <TextBlock Margin="3, 0" Text="- Note: Must take a minimum of 1 full-course equivalents from the Faculty of Science" FontSize="14" FontStyle="Italic"/>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                            </Expander>
 
                             <!-- Hidden ECON and PHIL minors -->
                             <Border BorderThickness="2" BorderBrush="Black" Background="#FFFDEAFF" Margin="2,10,4,2" Name="Econ_Minor" Visibility="Collapsed">
