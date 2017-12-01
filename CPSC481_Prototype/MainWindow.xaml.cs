@@ -279,7 +279,7 @@ namespace CPSC481_Prototype
                     int year = 0;
                     if (semester == Semester.FALL) year = 2017;
                     else year = 2018;
-                    Add_Course_Click("ECON", "203", "ECON 203 - Principles of Marcoeconomic", "National income determination, the monetary and banking system, and elementary fiscal and monetary policies. Contemporary problems of unemployment, inflation, economic growth, business cycles and the international economy.", semester, year, 2, 4, 0);
+                    Add_Course_Click("ECON", "203", "ECON 203 - Principles of Macroeconomic", "National income determination, the monetary and banking system, and elementary fiscal and monetary policies. Contemporary problems of unemployment, inflation, economic growth, business cycles and the international economy.", semester, year, 2, 4, 0);
                 }
             }
         }
