@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace CPSC481_Prototype
@@ -31,7 +32,9 @@ namespace CPSC481_Prototype
             {
                 CourseSelectorCourses.RemoveCourse(course);
                 CartSelections.AddToCart(course);
-            }   
+                MessageBox.Show("Added " + course.Department + " " + course.Number + " to Cart");
+
+            }
         }
     }
 }
