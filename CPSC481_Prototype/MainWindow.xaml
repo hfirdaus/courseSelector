@@ -607,10 +607,10 @@
                     </Border>
                 </StackPanel>
                 <StackPanel Name="Cart_Sched_Stack_Panel" DockPanel.Dock="Bottom" Visibility="Collapsed">
-                    <Border BorderThickness="1" BorderBrush="Black" >
+                    <Border BorderThickness="0 1 0 1" BorderBrush="Black" >
                         <StackPanel>
-                            <StackPanel Visibility="Visible" Orientation="Horizontal" Background="{StaticResource color2}" HorizontalAlignment="Stretch">
-                                <Border BorderBrush="Black" BorderThickness="0 0 0 1">
+                            <Border BorderBrush="Black" BorderThickness="0 0 0 1">
+                                <StackPanel Visibility="Visible" Orientation="Horizontal" Background="{StaticResource color2}" HorizontalAlignment="Stretch">
                                     <Grid Margin="2" HorizontalAlignment="Stretch">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*"/>
@@ -635,11 +635,17 @@
                                             <CheckBox VerticalAlignment="Center" Margin="2" Checked="Cart_Semester_Checked" Unchecked="Cart_Semester_Checked" Tag="Summer"/>
                                             <Label Content="Summer"/>
                                         </WrapPanel>
+                                        <WrapPanel Grid.Column="3" HorizontalAlignment="Center">
+                                            <CheckBox VerticalAlignment="Center" Margin="2" Checked="Cart_Semester_Checked" Unchecked="Cart_Semester_Checked" Tag="Summer"/>
+                                            <Label Content="Summer"/>
+                                        </WrapPanel>
+
                                     </Grid>
-                                </Border>
                             </StackPanel>
-                            <StackPanel Name="Cart_Stack_Panel" MinHeight="150" MaxHeight="350" Visibility="Collapsed" Background="{StaticResource color2}">
-                                <ScrollViewer Background="{StaticResource color3}">
+                    </Border>
+
+                    <StackPanel Name="Cart_Stack_Panel" Height="500" Visibility="Collapsed" Background="white">
+                                <ScrollViewer Background="white" Height="{Binding ActualHeight, ElementName=Cart_Stack_Panel}">
                                     <!-- This is the Cart Stack Panel content area -->
                                     <Grid Margin="2">
                                         <Grid.ColumnDefinitions>
@@ -683,8 +689,8 @@
                                     </Grid>
                                 </ScrollViewer>
                             </StackPanel>
-                            <StackPanel Name="Sched_Stack_Panel" MinHeight="150" MaxHeight="350" Visibility="Collapsed" Background="{StaticResource color2}">
-                                <ScrollViewer Background="{StaticResource color3}">
+                            <StackPanel Name="Sched_Stack_Panel" Height="500" Visibility="Collapsed" Background="White">
+                                <ScrollViewer Background="white" Height="{Binding ActualHeight, ElementName=Sched_Stack_Panel}">
                                     <!-- This is the Schedule Stack Panel content area -->
                                     <Grid Margin="2">
                                         <Grid.ColumnDefinitions>
