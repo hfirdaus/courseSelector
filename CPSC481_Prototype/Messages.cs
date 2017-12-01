@@ -11,12 +11,8 @@ using System.Windows.Input;
 
 namespace CPSC481_Prototype
 {
-    class Messages : INotifyCollectionChanged
+    class Messages
     {
-
-        public static ObservableCollection<Message> messages = new ObservableCollection<Message>();
-
-        public event NotifyCollectionChangedEventHandler CollectionChanged;
 
         public static void AddMessage(string text)
         {
@@ -27,7 +23,6 @@ namespace CPSC481_Prototype
         {
             Message msg = new Message(text);
             msg.clearMsg = action;
-            //messages.Add(msg);
             MainWindow.instance.AddMessage(msg);
         }
 
@@ -35,7 +30,6 @@ namespace CPSC481_Prototype
         {
             Message msg = new Message(text);
             msg.clearMsg = new UndoAction(action);
-            //messages.Add(msg);
             MainWindow.instance.AddMessage(msg);
         }
         
@@ -54,22 +48,6 @@ namespace CPSC481_Prototype
 
         }
 
-        public static void RemoveMessage(Message message)
-        {
-            messages.Remove(message);
-        }
-
-        public static void ClearMessages()
-        {
-            List<Message> toRemove = new List<Message>();
-            foreach(Message msg in messages)
-            {
-                //if (msg.Opac == 0.0)
-                    toRemove.Add(msg);
-            }
-            foreach (Message m in toRemove) messages.Remove(m);
-            Console.Out.WriteLine("Number of messages: " + messages.Count);
-        }
     }
 
     public class Message
