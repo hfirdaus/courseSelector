@@ -27,17 +27,23 @@ namespace CPSC481_Prototype
         
         public static void AddUndoMessage(string text, UndoAction action)
         {
-
+            Message msg = new Message(text);
+            msg.clearMsg = action;
+            MainWindow.instance.AddMessage(msg);
         }
 
         public static void AddRedoMessage(string text, Action action)
         {
-
+            Message msg = new Message(text);
+            msg.clearMsg = new RedoAction(action);
+            MainWindow.instance.AddMessage(msg);
         }
 
         public static void AddRedoMessage(string text, RedoAction action)
         {
-
+            Message msg = new Message(text);
+            msg.clearMsg = action;
+            MainWindow.instance.AddMessage(msg);
         }
 
     }
@@ -50,7 +56,6 @@ namespace CPSC481_Prototype
         public Message(string message)
         {
             this.text = message;
-            
         }
 
     }
