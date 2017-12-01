@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -20,7 +21,7 @@ namespace CPSC481_Prototype
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        public static MainWindow instance;
         public MainWindow()
         {
             InitializeComponent();
@@ -28,13 +29,125 @@ namespace CPSC481_Prototype
             Course_Selector_Items.ItemsSource = CourseSelectorCourses.instance.visable;
             Cart_Items.ItemsSource = CartSelections.instance.visible;
             Schedule_Items.ItemsSource = ScheduleSelections.instance.visible;
+            instance = this;
 
-            Messages_Box.ItemsSource = Messages.messages;
-            Messages.AddMessage("Message 1");
-            Messages.AddMessage("Message 2");
-            Messages.AddMessage("Message 3 is a really long message that should \nbe wrapped or it will end up being very wide");
         }
 
+        public void AddMessage(Message msg)
+        {
+
+            Console.Out.WriteLine("Adding message");
+            Border border = new Border();
+            border.Background = Brushes.AliceBlue;
+            border.BorderBrush = Brushes.Black;
+            border.Margin = new Thickness(0, 5, 0, 0);
+            border.BorderThickness = new Thickness(1);
+            border.CornerRadius = new CornerRadius(10);
+            border.Opacity = 0;
+            border.Width = 250;
+
+            double fadeInDur = 0.5;
+            double waitDur = 2.0;
+            double fadeOutDur = 1.5;
+            
+            DoubleAnimation fadeIn = new DoubleAnimation();
+            Storyboard.SetTargetProperty(fadeIn, new PropertyPath(Border.OpacityProperty));
+            fadeIn.To = 1;
+            fadeIn.Duration = new Duration(TimeSpan.FromSeconds(fadeInDur));
+
+            DoubleAnimation quickFadeOut = new DoubleAnimation();
+            Storyboard.SetTargetProperty(quickFadeOut, new PropertyPath(Border.OpacityProperty));
+            fadeIn.To = 1;
+            fadeIn.Duration = new Duration(TimeSpan.FromSeconds(0));
+
+            DoubleAnimation fadeOut = new DoubleAnimation();
+            Storyboard.SetTargetProperty(fadeOut, new PropertyPath(Border.OpacityProperty));
+            fadeOut.To = 0;
+            fadeOut.BeginTime = TimeSpan.FromSeconds(waitDur);
+            fadeOut.Duration = new Duration(TimeSpan.FromSeconds(fadeOutDur));
+            fadeOut.Completed += (s, e) => RemoveMessage(border, msg);
+
+
+            Storyboard quickFadeInSB = new Storyboard();
+            quickFadeInSB.Children.Add(fadeIn);
+
+            Storyboard fadeOutSB = new Storyboard();
+            fadeOutSB.Children.Add(fadeOut);
+
+            Storyboard fullRunSB = new Storyboard();
+            fullRunSB.Children.Add(fadeIn);
+            fullRunSB.Children.Add(fadeOut);
+
+            EventTrigger loadedTrigger = new EventTrigger();
+            border.Triggers.Add(loadedTrigger);
+            loadedTrigger.RoutedEvent = Border.LoadedEvent;
+            BeginStoryboard bsb = new BeginStoryboard();
+            bsb.Storyboard = fullRunSB;
+            loadedTrigger.Actions.Add(bsb);
+
+            EventTrigger mouseOverTrigger = new EventTrigger();
+            border.Triggers.Add(mouseOverTrigger);
+            mouseOverTrigger.RoutedEvent = Border.MouseEnterEvent;
+            BeginStoryboard fisb = new BeginStoryboard();
+            fisb.Storyboard = quickFadeInSB;
+            mouseOverTrigger.Actions.Add(fisb);
+
+            EventTrigger mouseOutTrigger = new EventTrigger();
+            border.Triggers.Add(mouseOutTrigger);
+            mouseOutTrigger.RoutedEvent = Border.MouseLeaveEvent;
+            BeginStoryboard fosb = new BeginStoryboard();
+            fosb.Storyboard = fadeOutSB;
+            mouseOutTrigger.Actions.Add(fosb);
+
+
+            StackPanel content = new StackPanel();
+            border.Child = content;
+
+            TextBlock text = new TextBlock();
+            content.Children.Add(text);
+            text.Margin = new Thickness(5);
+            text.Text = msg.text;
+            text.TextWrapping = TextWrapping.WrapWithOverflow;
+
+            if (msg.clearMsg != null)
+            {
+                Label undo = new Label();
+                content.Children.Add(undo);
+                if (msg.clearMsg is UndoAction)
+                    undo.Content = "Undo";
+                else
+                    undo.Content = "Redo";
+                undo.Foreground = Brushes.Blue;
+                undo.MouseDown += (s, e) => RemoveMessageAction(border, msg);
+                undo.MouseEnter += (s, e) => SetMousePoint();
+                undo.MouseLeave += (s, e) => SetMouseNormal();
+            }
+            Messages_Box.Children.Add(border);
+        }
+
+        public void RemoveMessage(Border border, Message msg)
+        {
+            if (border.Opacity == 0)
+            {
+                Messages_Box.Children.Remove(border);
+            }
+        }
+
+        public void RemoveMessageAction(Border border, Message msg)
+        {
+            msg.clearMsg.run();
+            Messages_Box.Children.Remove(border);
+        }
+
+        private void SetMousePoint()
+        {
+            Cursor = Cursors.Hand;
+        }
+
+        private void SetMouseNormal()
+        {
+            Cursor = Cursors.AppStarting;
+        }
         private void Tutorial_Button_Click(object sender, RoutedEventArgs e)
         {
             Tutorial_Popup.Visibility = Visibility.Visible;
@@ -1198,7 +1311,7 @@ namespace CPSC481_Prototype
         {
             CourseSelectorCourses.ClearAllCourses();
         }
-        
+
     }
 }
 

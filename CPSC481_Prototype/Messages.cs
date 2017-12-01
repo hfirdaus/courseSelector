@@ -1,90 +1,65 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+
 
 namespace CPSC481_Prototype
 {
-    class Messages : INotifyCollectionChanged
+    class Messages
     {
-
-        public static ObservableCollection<Message> messages = new ObservableCollection<Message>();
-
-        public event NotifyCollectionChangedEventHandler CollectionChanged;
 
         public static void AddMessage(string text)
         {
-            messages.Add(new Message(text));
+            MainWindow.instance.AddMessage(new Message(text));
         }
 
         public static void AddMessage(string text, ProgAction action)
         {
-
+            Message msg = new Message(text);
+            msg.clearMsg = action;
+            MainWindow.instance.AddMessage(msg);
         }
 
         public static void AddUndoMessage(string text, Action action)
         {
-
+            Message msg = new Message(text);
+            msg.clearMsg = new UndoAction(action);
+            MainWindow.instance.AddMessage(msg);
         }
         
         public static void AddUndoMessage(string text, UndoAction action)
         {
-
+            Message msg = new Message(text);
+            msg.clearMsg = action;
+            MainWindow.instance.AddMessage(msg);
         }
 
         public static void AddRedoMessage(string text, Action action)
         {
-
+            Message msg = new Message(text);
+            msg.clearMsg = new RedoAction(action);
+            MainWindow.instance.AddMessage(msg);
         }
 
         public static void AddRedoMessage(string text, RedoAction action)
         {
-
+            Message msg = new Message(text);
+            msg.clearMsg = action;
+            MainWindow.instance.AddMessage(msg);
         }
 
-        public static void RemoveMessage(Message message)
-        {
-            messages.Remove(message);
-        }
     }
 
-    class Message
+    public class Message
     {
         public string text { get; set; }
-        public ICommand clear;
+        public ProgAction clearMsg { get; set; }
 
         public Message(string message)
         {
             this.text = message;
-            clear = new MessageClear(this);
         }
 
-        class MessageClear : ICommand
-        {
-            public event EventHandler CanExecuteChanged;
-
-            private Message message;
-            public MessageClear(Message message)
-            {
-                this.message = message;
-            }
-
-            public bool CanExecute(object parameter)
-            {
-                return true;
-            }
-
-            public void Execute(object parameter)
-            {
-                Messages.RemoveMessage(message);
-            }
-        }
     }
-    abstract class ProgAction
+    public abstract class ProgAction
     {
 
         public ProgAction(Action action)
@@ -100,12 +75,12 @@ namespace CPSC481_Prototype
         }
     }
 
-    class UndoAction : ProgAction
+    public class UndoAction : ProgAction
     {
         public UndoAction(Action action) : base(action) { }
     }
 
-    class RedoAction : ProgAction
+    public class RedoAction : ProgAction
     {
         public RedoAction(Action action) : base(action) { }
     }
