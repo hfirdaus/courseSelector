@@ -617,6 +617,7 @@
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
 
                                         <WrapPanel Grid.Column="0" HorizontalAlignment="Center">
@@ -635,16 +636,14 @@
                                             <CheckBox VerticalAlignment="Center" Margin="2" Checked="Cart_Semester_Checked" Unchecked="Cart_Semester_Checked" Tag="Summer"/>
                                             <Label Content="Summer"/>
                                         </WrapPanel>
-                                        <WrapPanel Grid.Column="3" HorizontalAlignment="Center">
-                                            <CheckBox VerticalAlignment="Center" Margin="2" Checked="Cart_Semester_Checked" Unchecked="Cart_Semester_Checked" Tag="Summer"/>
-                                            <Label Content="Summer"/>
+                                        <WrapPanel Grid.Column="4" HorizontalAlignment="Center">
+                                            <Button Content="Visualize Schedule"/>
                                         </WrapPanel>
-
                                     </Grid>
                             </StackPanel>
                     </Border>
 
-                    <StackPanel Name="Cart_Stack_Panel" Height="500" Visibility="Collapsed" Background="white">
+                    <StackPanel Name="Cart_Stack_Panel" Height="300" Visibility="Collapsed" Background="white">
                                 <ScrollViewer Background="white" Height="{Binding ActualHeight, ElementName=Cart_Stack_Panel}">
                                     <!-- This is the Cart Stack Panel content area -->
                                     <Grid Margin="2">
@@ -689,7 +688,7 @@
                                     </Grid>
                                 </ScrollViewer>
                             </StackPanel>
-                            <StackPanel Name="Sched_Stack_Panel" Height="500" Visibility="Collapsed" Background="White">
+                            <StackPanel Name="Sched_Stack_Panel" Height="300" Visibility="Collapsed" Background="White">
                                 <ScrollViewer Background="white" Height="{Binding ActualHeight, ElementName=Sched_Stack_Panel}">
                                     <!-- This is the Schedule Stack Panel content area -->
                                     <Grid Margin="2">

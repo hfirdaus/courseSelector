@@ -14,29 +14,29 @@ namespace CPSC481_Prototype
 {
     class CartSelections : INotifyCollectionChanged
     {
-            public static CartSelections instance = new CartSelections();
+        public static CartSelections instance = new CartSelections();
 
-            // List of chosen offerings in cart
-            public ObservableCollection<CartAndScheduleEntry> cart;
+        // List of chosen offerings in cart
+        public ObservableCollection<CartAndScheduleEntry> cart;
 
-             // List of chosen offerings currently visible in cart
-            public ObservableCollection<CartAndScheduleEntry> visible;
+        // List of chosen offerings currently visible in cart
+        public ObservableCollection<CartAndScheduleEntry> visible;
 
-            // Event for when the list is changed
-            public event NotifyCollectionChangedEventHandler CollectionChanged;
+        // Event for when the list is changed
+        public event NotifyCollectionChangedEventHandler CollectionChanged;
 
-            private List<Semester> visibleSemesters = new List<Semester>();
+        private List<Semester> visibleSemesters = new List<Semester>();
 
-            private CartSelections()
-            {
-                cart = new ObservableCollection<CartAndScheduleEntry>();
-                visible = new ObservableCollection<CartAndScheduleEntry>();
-            }
+        private CartSelections()
+        {
+            cart = new ObservableCollection<CartAndScheduleEntry>();
+            visible = new ObservableCollection<CartAndScheduleEntry>();
+        }
 
-        public static void AddToCart(Course course)
+        public static CartAndScheduleEntry AddToCart(Course course)
         {
             Console.WriteLine("Moving this course to cart");
-            
+
             Offering selected = course.SelectedOffering();
             Section chosenLecture = selected.Lecture;
             Section chosenTutorial = null;
@@ -71,9 +71,20 @@ namespace CPSC481_Prototype
                 instance.visible.Insert(0, entry);
                 NotifyChange(NotifyCollectionChangedAction.Add, entry);
             }
+            return entry;
         }
 
-        public static void RemoveFromCart(CartAndScheduleEntry entry)
+        public static CartAndScheduleEntry AddToCart(CartAndScheduleEntry entry) {
+            instance.cart.Insert(0, entry);
+            if (instance.visibleSemesters.Contains(entry.SemesterObject))
+            {
+                instance.visible.Insert(0, entry);
+                NotifyChange(NotifyCollectionChangedAction.Add, entry);
+            }
+            return entry;
+        }
+
+        public static CartAndScheduleEntry RemoveFromCart(CartAndScheduleEntry entry)
         {
             if (instance.visible.Contains(entry))
             {
@@ -83,6 +94,7 @@ namespace CPSC481_Prototype
             }
             if (instance.cart.Contains(entry))
                 instance.cart.Remove(entry);
+            return entry;
         }
 
             public static void ClearCart()

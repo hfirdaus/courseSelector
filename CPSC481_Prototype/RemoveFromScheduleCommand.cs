@@ -27,6 +27,7 @@ namespace CPSC481_Prototype
         public void Execute(object parameter)
         {
             ScheduleSelections.RemoveFromSchedule(entry);
+            Messages.AddUndoMessage("Removed " + entry.Department + " " + entry.Number + " from Schedule", () => ScheduleSelections.AddToSchedule(entry));
         }
     }
 }

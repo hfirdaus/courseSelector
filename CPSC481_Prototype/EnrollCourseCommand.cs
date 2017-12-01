@@ -26,9 +26,22 @@ namespace CPSC481_Prototype
 
         public void Execute(object parameter)
         {
+                if (!entry.Number.StartsWith("2") || entry.Number.Equals("203"))
+            {
+                Messages.AddMessage("Can't add " + entry.Department + " " + entry.Number + " to Schedule as you do not have the prerequisites");
+                return;
+            }
                 CartSelections.RemoveFromCart(entry);
                 entry.UpdateRemoveFromSchedule();
                 ScheduleSelections.AddToSchedule(entry);
+                Messages.AddUndoMessage("Moved " + entry.Department + " " + entry.Number + " to Schedule", () => reverseEnroll(entry));        
+        }
+
+        public void reverseEnroll(CartAndScheduleEntry entry)
+        {
+            entry.UpdateRemoveFromCart();
+            CartSelections.AddToCart(entry);
+            ScheduleSelections.RemoveFromSchedule(entry);
         }
     }
 }

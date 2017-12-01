@@ -31,8 +31,8 @@ namespace CPSC481_Prototype
             if (selected != null)
             {
                 CourseSelectorCourses.RemoveCourse(course);
-                CartSelections.AddToCart(course);
-                MessageBox.Show("Added " + course.Department + " " + course.Number + " to Cart");
+                CartAndScheduleEntry entry = CartSelections.AddToCart(course);
+                Messages.AddUndoMessage("Added " + course.Department + " " + course.Number + " to Cart", () => CartSelections.RemoveFromCart(entry));
 
             }
         }

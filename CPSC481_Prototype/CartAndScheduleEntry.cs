@@ -68,5 +68,10 @@ namespace CPSC481_Prototype
         {
             this._Remove = new RemoveFromScheduleCommand(this);
         }
+
+        public void UpdateRemoveFromCart()
+        {
+            this._Remove = new RemoveFromCartCommand(this);
+        }
     }
 }
