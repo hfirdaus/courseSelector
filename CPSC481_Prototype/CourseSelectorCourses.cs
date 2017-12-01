@@ -37,6 +37,7 @@ namespace CPSC481_Prototype
         public static void AddCourse(Course course)
         {
             Console.WriteLine("Added course");
+            Messages.AddUndoMessage("Added course to viewer " + course.Title, () => RemoveCourse(course));
             instance.courses.Insert(0, course);
             if (instance.visibleSemesters.Contains(course.SemesterObject))
             {

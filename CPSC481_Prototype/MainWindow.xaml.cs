@@ -31,15 +31,20 @@ namespace CPSC481_Prototype
             Schedule_Items.ItemsSource = ScheduleSelections.instance.visible;
             instance = this;
 
-            AddMessage(new Message("Message1"));
-            AddMessage(new Message("Message2"));
         }
 
         public void AddMessage(Message msg)
         {
+
+            Console.Out.WriteLine("Adding message");
             Border border = new Border();
-            border.Background = Brushes.Green;
+            border.Background = Brushes.AliceBlue;
+            border.BorderBrush = Brushes.Black;
+            border.Margin = new Thickness(0, 5, 0, 0);
+            border.BorderThickness = new Thickness(1);
+            border.CornerRadius = new CornerRadius(10);
             border.Opacity = 0;
+            border.Width = 250;
 
             double fadeInDur = 0.5;
             double waitDur = 2.0;
@@ -95,9 +100,28 @@ namespace CPSC481_Prototype
             mouseOutTrigger.Actions.Add(fosb);
 
 
-            Label text = new Label();
-            border.Child = text;
-            text.Content = msg.text;
+            StackPanel content = new StackPanel();
+            border.Child = content;
+
+            TextBlock text = new TextBlock();
+            content.Children.Add(text);
+            text.Margin = new Thickness(5);
+            text.Text = msg.text;
+            text.TextWrapping = TextWrapping.WrapWithOverflow;
+
+            if (msg.clearMsg != null)
+            {
+                Label undo = new Label();
+                content.Children.Add(undo);
+                if (msg.clearMsg is UndoAction)
+                    undo.Content = "Undo";
+                else
+                    undo.Content = "Redo";
+                undo.Foreground = Brushes.Blue;
+                undo.MouseDown += (s, e) => RemoveMessageAction(border, msg);
+                undo.MouseEnter += (s, e) => SetMousePoint();
+                undo.MouseLeave += (s, e) => SetMouseNormal();
+            }
             Messages_Box.Children.Add(border);
         }
 
@@ -110,6 +134,22 @@ namespace CPSC481_Prototype
             }
         }
 
+        public void RemoveMessageAction(Border border, Message msg)
+        {
+            msg.clearMsg.run();
+            Messages_Box.Children.Remove(border);
+            Messages.RemoveMessage(msg);
+        }
+
+        private void SetMousePoint()
+        {
+            Cursor = Cursors.Hand;
+        }
+
+        private void SetMouseNormal()
+        {
+            Cursor = Cursors.AppStarting;
+        }
         private void Tutorial_Button_Click(object sender, RoutedEventArgs e)
         {
             Tutorial_Popup.Visibility = Visibility.Visible;
