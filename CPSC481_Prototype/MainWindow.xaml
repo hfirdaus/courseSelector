@@ -205,7 +205,7 @@
 
                                     <Border Margin="5 10 5 5" BorderThickness="1" BorderBrush="Black" MouseDown="ECON203_MouseDown" Background="{StaticResource color5}">
                                         <StackPanel>
-                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="ECON 203 - Principles of Marcoeconomic" TextDecorations="Underline" FontSize="14"/>
+                                            <TextBlock Margin="3, 0" FontWeight="Medium" Text="ECON 203 - Principles of Macroeconomic" TextDecorations="Underline" FontSize="14"/>
                                             <TextBlock Margin="3, 0" Text="Availability: Fall 2017 | Winter 2018 | Spring 2018 | Summer 2018" FontSize="14"/>
                                             <TextBlock Margin="3, 0" Text="- Prerequisite: Economics 201" FontSize="14" FontStyle="Italic"/>
                                             <TextBlock Margin="3, 0" Text="- Corequisite: Economics 201" FontSize="14" FontStyle="Italic"/>
@@ -1020,12 +1020,14 @@
 
                 <Label Content="Course Faculty" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
                 <ComboBox SelectedItem="default" Name="Course_Faculty_Combobox" Width="150" HorizontalAlignment="Center">
+                    <ComboBoxItem>-</ComboBoxItem>
                     <ComboBoxItem Name="ACCT_Combo_Item">ACCT - Accounting</ComboBoxItem>
                     <ComboBoxItem>BSEN - Business</ComboBoxItem>
                     <ComboBoxItem>ECON - Economics</ComboBoxItem>
                 </ComboBox>
                 <Label  Content="Course Level" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
                 <ComboBox Name="Course_Level_Combobox" Width="150" HorizontalAlignment="Center">
+                    <ComboBoxItem>-</ComboBoxItem>
                     <ComboBoxItem>100</ComboBoxItem>
                     <ComboBoxItem>200</ComboBoxItem>
                     <ComboBoxItem>300</ComboBoxItem>
@@ -1035,7 +1037,7 @@
                 <Label Content="Enter a Keyword" Margin="10 0 5 0" HorizontalAlignment="Center" FontSize="16" />
 
                 <TextBox Name="Advanced_Search_Textbox" HorizontalAlignment="Center" Width="100" />
-                <Grid Margin="2" HorizontalAlignment="Stretch">
+                <!--<Grid Margin="2" HorizontalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -1064,7 +1066,7 @@
                         <CheckBox VerticalAlignment="Center" Margin="2"/>
                         <Label Content="Fri"/>
                     </WrapPanel>
-                </Grid>
+                </Grid>-->
                 <Button Name="Advanced_Search_Button" Content="Search" Width="50" Margin="203,10" Click="Advanced_Search_Click"/>
 
             </StackPanel>
@@ -1143,18 +1145,16 @@
                     "ARKY" "211" or "Intro"
                 </TextBlock>
             </Border>
-            <Border CornerRadius="5" Background="White" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="192" Width="228">
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
-                    This is the <Bold>Degre Navigator</Bold>.<LineBreak/>
-                    Here, you can view the requirements of<LineBreak/>
-                    your current degree. You can also view<LineBreak/>
-                    the requirements of another degree<LineBreak/>
-                    by clicking on the <Bold>+</Bold> next to <Bold>View<LineBreak/>
-                    Additional Degree</Bold>. <LineBreak/><LineBreak/>
-                    <Underline>Green requirements</Underline> means you have<LineBreak/>
-                    completed the pre-requisites.<LineBreak/>
-                    <Underline>Red requirements</Underline> means that the<LineBreak/>
-                    pre-requisite have not been reached.
+            <Border CornerRadius="5" Background="White" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="340" Width="400" Padding="5">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" TextWrapping="Wrap">
+                    This is the <Bold>Degre Navigator</Bold>.<LineBreak/><LineBreak/>
+                    
+                    Here, you can view the requirements of your current degree but you can also view a concentration for your current degree by clicking the <Bold>'o'</Bold> button. 
+                    You can also view the requirements of another degree (major and/or minor) by clicking on the <Bold>'+'</Bold> button. <LineBreak/><LineBreak/>
+ 
+                    <Underline>Green requirements:</Underline> means you have completed the pre-requisite(s) and when clicked will load the course in the course selector.<LineBreak/>
+                    <Underline>Red requirements:</Underline> means that the pre-requisite(s) have not yet been fulfilled and when clicked will load the course in the course selector.<LineBreak/>
+                    <Underline>Blue requirements:</Underline> represents the general requirement(s) to fulfill and when clicked will take you to the search pop-up.
                 </TextBlock>
             </Border>
             <Border CornerRadius="5" Background="White" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="92" Width="381" Grid.Column="1">
