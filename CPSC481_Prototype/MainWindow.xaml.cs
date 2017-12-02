@@ -319,7 +319,7 @@ namespace CPSC481_Prototype
                     int year = 0;
                     if (semester == Semester.FALL) year = 2017;
                     else year = 2018;
-                    Add_Course_Click("MGST", "217", "MGST 217 - Introduction to Business Analytics", "Introduction to data representation and analysis. Students will think critically about business problems, gather, evaluate, analyze and synthesize relevant data, and create insightful models to improve the quality of decisions. Communicating and presenting quantitative analysis to lead managerial decision making will be emphasized while continuing to advance both individual and group leadership skills.", semester, year, 3, 2, 2);
+                    Add_Course_Click("MGST", "217", "Introduction to Business Analytics", "Introduction to data representation and analysis. Students will think critically about business problems, gather, evaluate, analyze and synthesize relevant data, and create insightful models to improve the quality of decisions. Communicating and presenting quantitative analysis to lead managerial decision making will be emphasized while continuing to advance both individual and group leadership skills.", semester, year, 3, 2, 2);
                 }
             }
         }
@@ -343,7 +343,7 @@ namespace CPSC481_Prototype
                     int year = 0;
                     if (semester == Semester.FALL) year = 2017;
                     else year = 2018;
-                    Add_Course_Click("SGMA", "217", "SGMA 217 - Introduction to Business Skills", "Introduction to the external business environment, human resource management, and marketing. Topics will include ethical decision-making, teamwork, secondary research, proper use of business communication tools and presentation skills. Pedagogical approaches may include case analysis, exercises, simulations, and class discussion.", semester, year, 2, 2, 2);
+                    Add_Course_Click("SGMA", "217", "Introduction to Business Skills", "Introduction to the external business environment, human resource management, and marketing. Topics will include ethical decision-making, teamwork, secondary research, proper use of business communication tools and presentation skills. Pedagogical approaches may include case analysis, exercises, simulations, and class discussion.", semester, year, 2, 2, 2);
                 }
             }
             
@@ -368,7 +368,7 @@ namespace CPSC481_Prototype
                     int year = 0;
                     if (semester == Semester.FALL) year = 2017;
                     else year = 2018;
-                    Add_Course_Click("ECON", "201", "ECON 201 - Principles of Microeconomic", "Principles of consumption, production, exchange: market and firm equilibrium under different competitive conditions. These principles are applied to various contemporary problems in the Canadian economy, such as the changing structure of agriculture, foreign ownership and control, and pollution.", semester, year, 3, 3, 0);
+                    Add_Course_Click("ECON", "201", "Principles of Microeconomic", "Principles of consumption, production, exchange: market and firm equilibrium under different competitive conditions. These principles are applied to various contemporary problems in the Canadian economy, such as the changing structure of agriculture, foreign ownership and control, and pollution.", semester, year, 3, 3, 0);
                 }
             }            
         }
@@ -392,7 +392,7 @@ namespace CPSC481_Prototype
                     int year = 0;
                     if (semester == Semester.FALL) year = 2017;
                     else year = 2018;
-                    Add_Course_Click("ECON", "203", "ECON 203 - Principles of Macroeconomic", "National income determination, the monetary and banking system, and elementary fiscal and monetary policies. Contemporary problems of unemployment, inflation, economic growth, business cycles and the international economy.", semester, year, 2, 4, 0);
+                    Add_Course_Click("ECON", "203", "Principles of Macroeconomic", "National income determination, the monetary and banking system, and elementary fiscal and monetary policies. Contemporary problems of unemployment, inflation, economic growth, business cycles and the international economy.", semester, year, 2, 4, 0);
                 }
             }
         }
@@ -416,7 +416,7 @@ namespace CPSC481_Prototype
                     int year = 0;
                     if (semester == Semester.FALL) year = 2017;
                     else year = 2018;
-                    Add_Course_Click("ACCT", "323", "ACCT 323 - Introductory Managerial Accounting", "An introduction to the use of accounting within an organizational context. Emphasis is placed on the development and dissemination of accounting information necessary for effective management including: planning, directing, motivating, and controlling activities and behaviours.", semester, year, 3, 2, 0);
+                    Add_Course_Click("ACCT", "323", "Introductory Managerial Accounting", "An introduction to the use of accounting within an organizational context. Emphasis is placed on the development and dissemination of accounting information necessary for effective management including: planning, directing, motivating, and controlling activities and behaviours.", semester, year, 3, 2, 0);
                 }
             }
         }
@@ -440,7 +440,7 @@ namespace CPSC481_Prototype
                     int year = 0;
                     if (semester == Semester.FALL) year = 2017;
                     else year = 2018;
-                    Add_Course_Click("MGST", "451", "MGST 451 - Corporate Governance and Ethical Decision-Making", "Develop an increased awareness of the importance of corporate governance systems and strong financial decision making systems in developing effective business enterprises. Specific emphasis on the resolution of agency problems, the role of the board of directors, compensation systems and financial modelling.", semester, year, 2, 0, 0);
+                    Add_Course_Click("MGST", "451", "Corporate Governance and Ethical Decision-Making", "Develop an increased awareness of the importance of corporate governance systems and strong financial decision making systems in developing effective business enterprises. Specific emphasis on the resolution of agency problems, the role of the board of directors, compensation systems and financial modelling.", semester, year, 2, 0, 0);
                 }
             }
         }
@@ -464,7 +464,7 @@ namespace CPSC481_Prototype
                     int year = 0;
                     if (semester == Semester.FALL) year = 2017;
                     else year = 2018;
-                    Add_Course_Click("SGMA", "591", "SGMA 591 - Strategic Management", "Analysis of competitive situations from the general management point of view, including fit between key environmental forces and the firm's resources, and changes in these over time. Formulating and implementing strategy based on that analysis. Developing and leveraging a firm's core competencies to gain long-term sustainable advantage.", semester, year, 4, 0, 0);
+                    Add_Course_Click("SGMA", "591", "Strategic Management", "Analysis of competitive situations from the general management point of view, including fit between key environmental forces and the firm's resources, and changes in these over time. Formulating and implementing strategy based on that analysis. Developing and leveraging a firm's core competencies to gain long-term sustainable advantage.", semester, year, 4, 0, 0);
                 }
             }
         }
@@ -488,7 +488,7 @@ namespace CPSC481_Prototype
                     int year = 0;
                     if (semester == Semester.FALL) year = 2017;
                     else year = 2018;
-                    Add_Course_Click("FNCE", "451", "FNCE 451 - Advanced Financial Management", "Focuses on understanding the advanced theories and practices of financial management that are required for finance majors. Topics include market imperfections arising from asymmetric information and taxation. It applies these concepts to study incentives and conflicts in various financial agent pairings. These concepts are then used in a theoretical and empirical study of important financial decisions, such as capital structure, dividend policy, retained ownership, security underwriting, management of distressed firms, managerial compensation, corporate governance and mergers.", semester, year, 1, 0, 0);
+                    Add_Course_Click("FNCE", "451", "Advanced Financial Management", "Focuses on understanding the advanced theories and practices of financial management that are required for finance majors. Topics include market imperfections arising from asymmetric information and taxation. It applies these concepts to study incentives and conflicts in various financial agent pairings. These concepts are then used in a theoretical and empirical study of important financial decisions, such as capital structure, dividend policy, retained ownership, security underwriting, management of distressed firms, managerial compensation, corporate governance and mergers.", semester, year, 1, 0, 0);
                 }
             }
         }
@@ -512,7 +512,7 @@ namespace CPSC481_Prototype
                     int year = 0;
                     if (semester == Semester.FALL) year = 2017;
                     else year = 2018;
-                    Add_Course_Click("CPSC", "231", "CSPC 231 - Introduction to Computer Science for Computer Science Majors I", "Introduction to problem solving, the analysis and design of small-scale computational systems, and implementation using a procedural programming language. For computer science majors.", semester, year, 2, 2, 0);
+                    Add_Course_Click("CPSC", "231", "Introduction to Computer Science for Computer Science Majors I", "Introduction to problem solving, the analysis and design of small-scale computational systems, and implementation using a procedural programming language. For computer science majors.", semester, year, 2, 2, 0);
                 }
             }
         }
@@ -536,7 +536,7 @@ namespace CPSC481_Prototype
                     int year = 0;
                     if (semester == Semester.FALL) year = 2017;
                     else year = 2018;
-                    Add_Course_Click("CPSC", "313", "CPSC 313 - Introduction to Computability", "An introduction to abstract models of sequential computation, including finite automata, regular expressions, context-free grammars, and Turing machines. Formal languages, including regular, context-free, and recursive languages, methods for classifying languages according to these types, and relationships among these classes.", semester, year, 2, 3, 0);
+                    Add_Course_Click("CPSC", "313", "Introduction to Computability", "An introduction to abstract models of sequential computation, including finite automata, regular expressions, context-free grammars, and Turing machines. Formal languages, including regular, context-free, and recursive languages, methods for classifying languages according to these types, and relationships among these classes.", semester, year, 2, 3, 0);
                 }
             }
         }
@@ -560,7 +560,7 @@ namespace CPSC481_Prototype
                     int year = 0;
                     if (semester == Semester.FALL) year = 2017;
                     else year = 2018;
-                    Add_Course_Click("CPSC", "413", "CPSC 413 - Design and Analysis of Algorithms I", "Techniques for the analysis of algorithms, including counting, summation, recurrences, and asymptotic relations; techniques for the design of efficient algorithms, including greedy methods, divide and conquer, and dynamic programming; examples of their application; an introduction to tractable and intractable problems.", semester, year, 2, 3, 0);
+                    Add_Course_Click("CPSC", "413", "Design and Analysis of Algorithms I", "Techniques for the analysis of algorithms, including counting, summation, recurrences, and asymptotic relations; techniques for the design of efficient algorithms, including greedy methods, divide and conquer, and dynamic programming; examples of their application; an introduction to tractable and intractable problems.", semester, year, 2, 3, 0);
                 }
             }
         }
@@ -584,7 +584,7 @@ namespace CPSC481_Prototype
                     int year = 0;
                     if (semester == Semester.FALL) year = 2017;
                     else year = 2018;
-                    Add_Course_Click("PHIL", "279", "PHIL 279 - Logic I", "Sentential and first-order logic from both deductive and semantic points of view. Some elementary metatheorems.", semester, year, 2, 2, 0);
+                    Add_Course_Click("PHIL", "279", "Logic I", "Sentential and first-order logic from both deductive and semantic points of view. Some elementary metatheorems.", semester, year, 2, 2, 0);
                 }
             }
         }
@@ -608,7 +608,7 @@ namespace CPSC481_Prototype
                     int year = 0;
                     if (semester == Semester.FALL) year = 2017;
                     else year = 2018;
-                    Add_Course_Click("CPSC", "481", "CPSC 481 - Human-Computer Interaction I", "Fundamental theory and practice of the design, implementation, and evaluation of human-computer interfaces. Topics include: principles of design; methods for evaluating interfaces with or without user involvement; techniques for prototyping and implementing graphical user interfaces.", semester, year, 1, 4, 0);
+                    Add_Course_Click("CPSC", "481", "Human-Computer Interaction I", "Fundamental theory and practice of the design, implementation, and evaluation of human-computer interfaces. Topics include: principles of design; methods for evaluating interfaces with or without user involvement; techniques for prototyping and implementing graphical user interfaces.", semester, year, 1, 4, 0);
                 }
             }
         }
@@ -632,7 +632,7 @@ namespace CPSC481_Prototype
                     int year = 0;
                     if (semester == Semester.FALL) year = 2017;
                     else year = 2018;
-                    Add_Course_Click("POLI", "321", "POLI 321 - Politics and Government in Canada", "An examination of institutions and political processes in Canada. Significant attention is paid to key institutions such as Parliament, the executive, federalism, the Constitution, and the courts. Emphasis is also placed on the way that political processes are shaped by these and other institutions. This course may have a special instructional format. Please consult the Department for details.", semester, year, 1, 3, 0);
+                    Add_Course_Click("POLI", "321", "Politics and Government in Canada", "An examination of institutions and political processes in Canada. Significant attention is paid to key institutions such as Parliament, the executive, federalism, the Constitution, and the courts. Emphasis is also placed on the way that political processes are shaped by these and other institutions. This course may have a special instructional format. Please consult the Department for details.", semester, year, 1, 3, 0);
                 }
             }
         }
@@ -675,6 +675,8 @@ namespace CPSC481_Prototype
         List<string> selection_conc_cmb = new List<string>();
         //List containing the selection from the concentration for the current degree combobox.
         List<string> selection_cmb_Comm_conc = new List<string>();
+        //List cotaining the bachalor of the degree
+        List<string> selection_bachalor = new List<string>();
 
         private void degreeNav_ExpandAll_MouseDown(object sender, RoutedEventArgs e)
         {
@@ -748,11 +750,17 @@ namespace CPSC481_Prototype
                 Phil_Minor.Visibility = Visibility.Collapsed;
             }
 
-            if (selection_cmb.Contains("PHIL_Minor"))
+            else if (selection_cmb.Contains("PHIL_Minor"))
             {
                 Phil_Minor.Visibility = Visibility.Visible;
                 Econ_Minor.Visibility = Visibility.Collapsed;
                 
+            }
+
+            else
+            {
+                Phil_Minor.Visibility = Visibility.Collapsed;
+                Econ_Minor.Visibility = Visibility.Collapsed;
             }
 
             if(!selection_degree_cmb.Contains("CPSC"))
@@ -791,6 +799,25 @@ namespace CPSC481_Prototype
                 CPSCdegree_Conc.Visibility = Visibility.Collapsed;
                 CPSCdegree_Regular.Visibility = Visibility.Visible;
             }
+
+            if (selection_degree_cmb.Count == 0 && selection_conc_cmb.Count == 0)
+            {
+                if (selection_bachalor.Count != 0)
+                {
+                    if (!selection_degree_cmb.Contains("CPSC") && !selection_degree_cmb.Contains("POLI"))
+                    {
+                        MessageBox.Show("No major was selected");
+                    }
+                }
+                else if (selection_cmb.Count == 0)
+                {
+                    MessageBox.Show("Nothing was selected");
+                }
+                else
+                {
+                    MessageBox.Show("No major was selected");
+                }
+            }            
         }
 
         private void addButton_cmb_Comm_conc_Click(object sender, RoutedEventArgs e)
@@ -805,6 +832,14 @@ namespace CPSC481_Prototype
                 Regular_Degree_Title.Visibility = Visibility.Collapsed;
                 Conc_Degree_Title.Visibility = Visibility.Visible;
                 FNCE_Conc.Visibility = Visibility.Visible;
+            }
+
+            else
+            {
+                Regular_Degree_Title.Visibility = Visibility.Visible;
+                Conc_Degree_Title.Visibility = Visibility.Collapsed;
+                FNCE_Conc.Visibility = Visibility.Collapsed;
+                MessageBox.Show("No concentration was selected");
             }
         }
 
@@ -830,8 +865,17 @@ namespace CPSC481_Prototype
             if (cmbComm_Conc.SelectedItem != null)
             {
                 cmbItem = cmbComm_Conc.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last();
-                if(!selection_cmb_Comm_conc.Contains("FNCE - Finance")) {
-                    selection_cmb_Comm_conc.Add("FNCE");
+                if (cmbItem.Equals("FNCE - Finance"))
+                {
+                    if (!selection_cmb_Comm_conc.Contains("FNCE"))
+                    {
+                        selection_cmb_Comm_conc.Add("FNCE");
+                    }
+                }
+
+                else if (cmbItem.Equals("None"))
+                {
+                    selection_cmb_Comm_conc.Clear();
                 }
             }    
         }
@@ -845,7 +889,7 @@ namespace CPSC481_Prototype
 
                 if (cmbItem.Equals("ECON - Economics"))
                 {
-                    if (!selection_cmb.Contains("ECON - Economics"))
+                    if (!selection_cmb.Contains("ECON_Minor"))
                     {
                         selection_cmb.Clear();
                         selection_cmb.Add("ECON_Minor");
@@ -854,11 +898,16 @@ namespace CPSC481_Prototype
 
                 else if (cmbItem.Equals("PHIL - Philosophy"))
                 {
-                    if (!selection_cmb.Contains("PHIL - Philosophy"))
+                    if (!selection_cmb.Contains("PHIL_Minor"))
                     {
                         selection_cmb.Clear();
                         selection_cmb.Add("PHIL_Minor");
                     }
+                }
+
+                else if (cmbItem.Equals("None"))
+                {
+                    selection_cmb.Clear();
                 }
             }   
         }
@@ -871,21 +920,39 @@ namespace CPSC481_Prototype
                 cmbItem = cmbDegree.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last();
                 if(cmbItem.Equals("Bachelor of Arts"))
                 {
-                    cmbConcentration.SelectedIndex = -1;
+                    cmbMajor.SelectedIndex = 0;
+                    cmbConcentration.SelectedIndex = 0;
                     selection_degree_cmb.Clear();
                     selection_conc_cmb.Clear();
                     cmbMajor.Items.Remove("POLI - Political Science");
                     cmbMajor.Items.Remove("CPSC - Computer Science");
                     cmbMajor.Items.Add("POLI - Political Science");
+                    selection_bachalor.Clear();
+                    selection_bachalor.Add("BA");
                 }
+
                 else if(cmbItem.Equals("Bachelor of Science"))
                 {
+                    cmbMajor.SelectedIndex = 0;
+                    cmbConcentration.SelectedIndex = 0;
                     selection_degree_cmb.Clear();
                     selection_conc_cmb.Clear();
                     cmbMajor.Items.Remove("POLI - Political Science");
                     cmbMajor.Items.Remove("CPSC - Computer Science");
                     cmbMajor.Items.Add("CPSC - Computer Science");
+                    selection_bachalor.Clear();
+                    selection_bachalor.Add("BSC");
                 }
+
+                else if(cmbItem.Equals("None"))
+                {
+                    cmbMajor.SelectedIndex = 0;
+                    cmbConcentration.SelectedIndex = 0;
+                    selection_degree_cmb.Clear();
+                    selection_conc_cmb.Clear();
+                    selection_bachalor.Clear();
+                }
+
             }
         }
 
@@ -900,6 +967,7 @@ namespace CPSC481_Prototype
                     cmbConcentration.Items.Remove("Software Engineering");
                     if (!selection_degree_cmb.Contains("POLI"))
                     {
+                        selection_degree_cmb.Clear();
                         selection_degree_cmb.Add("POLI");
                     }
                 }
@@ -910,8 +978,14 @@ namespace CPSC481_Prototype
                     cmbConcentration.Items.Add("Software Engineering");
                     if (!selection_degree_cmb.Contains("CPSC"))
                     {
+                        selection_degree_cmb.Clear();
                         selection_degree_cmb.Add("CPSC");
                     }
+                }
+
+                else if(cmbItem.Equals("None"))
+                {
+                    selection_degree_cmb.Clear();
                 }
             }
         }
@@ -927,9 +1001,16 @@ namespace CPSC481_Prototype
                 {
                     if (!selection_conc_cmb.Contains("SENG"))
                     {
+                        selection_conc_cmb.Clear();
                         selection_conc_cmb.Add("SENG");
                     }
                 }
+
+                else if(cmbItem.Equals("None"))
+                {
+                    selection_conc_cmb.Clear();
+                }
+
             }
         }
 
@@ -940,10 +1021,11 @@ namespace CPSC481_Prototype
 
             selection_degree_cmb.Clear();
             selection_conc_cmb.Clear();
+            selection_bachalor.Clear();
 
-            cmbDegree.SelectedIndex = -1;
-            cmbMajor.SelectedIndex = -1;
-            cmbConcentration.SelectedIndex = -1;
+            cmbDegree.SelectedIndex = 0;
+            cmbMajor.SelectedIndex = 0;
+            cmbConcentration.SelectedIndex = 0;
 
             req1CPSC_expander.IsExpanded = false;
             req1CPSC_higher_expander.IsExpanded = false;
@@ -959,9 +1041,10 @@ namespace CPSC481_Prototype
 
             selection_degree_cmb.Clear();
             selection_conc_cmb.Clear();
+            selection_bachalor.Clear();
 
-            cmbDegree.SelectedIndex = -1;
-            cmbMajor.SelectedIndex = -1;
+            cmbDegree.SelectedIndex = 0;
+            cmbMajor.SelectedIndex = 0;
 
             req1Poli_expander.IsExpanded = false;
             req1Poli_lower_expander.IsExpanded = false;
@@ -973,7 +1056,7 @@ namespace CPSC481_Prototype
         {
             SoftEng_Conc.Visibility = Visibility.Collapsed;
             selection_conc_cmb.Clear();
-            cmbConcentration.SelectedIndex = -1;
+            cmbConcentration.SelectedIndex = 0;
             SoftEng_Conc.IsExpanded = false;
             CPSCdegree_Conc.Visibility = Visibility.Collapsed;
             CPSCdegree_Regular.Visibility = Visibility.Visible;
@@ -983,7 +1066,7 @@ namespace CPSC481_Prototype
         {
             FNCE_Conc.Visibility = Visibility.Collapsed;
             selection_cmb_Comm_conc.Clear();
-            cmbComm_Conc.SelectedIndex = -1;
+            cmbComm_Conc.SelectedIndex = 0;
             Regular_Degree_Title.Visibility = Visibility.Visible;
             Conc_Degree_Title.Visibility = Visibility.Collapsed;
             FNCE_Conc.IsExpanded = false;
@@ -993,7 +1076,7 @@ namespace CPSC481_Prototype
         {
             Econ_Minor.Visibility = Visibility.Collapsed;
             selection_cmb.Clear();
-            cmbMinor.SelectedIndex = -1;
+            cmbMinor.SelectedIndex = 0;
             Econ_Minor_Expander.IsExpanded = false;
         }
 
@@ -1001,17 +1084,17 @@ namespace CPSC481_Prototype
         {
             Phil_Minor.Visibility = Visibility.Collapsed;
             selection_cmb.Clear();
-            cmbMinor.SelectedIndex = -1;
+            cmbMinor.SelectedIndex = 0;
             Phil_Minor_Expander.IsExpanded = false;
         }
 
         private void Clear_All_Click(object sender, RoutedEventArgs e)
         {
             //Clearing the selections in the comboboxs in the add an additional degree pop-up.
-            cmbDegree.SelectedIndex = -1;
-            cmbMajor.SelectedIndex = -1;
-            cmbConcentration.SelectedIndex = -1;
-            cmbMinor.SelectedIndex = -1;
+            cmbDegree.SelectedIndex = 0;
+            cmbMajor.SelectedIndex = 0;
+            cmbConcentration.SelectedIndex = 0;
+            cmbMinor.SelectedIndex = 0;
 
             cmbMajor.Items.Remove("POLI - Political Science");
             cmbMajor.Items.Remove("CPSC - Computer Science");
@@ -1026,6 +1109,7 @@ namespace CPSC481_Prototype
             selection_cmb.Clear();
             selection_degree_cmb.Clear();
             selection_conc_cmb.Clear();
+            selection_bachalor.Clear();
 
             Econ_Minor_Expander.IsExpanded = false;
             Phil_Minor_Expander.IsExpanded = false;
@@ -1045,10 +1129,10 @@ namespace CPSC481_Prototype
         private void RemoveAll_MouseDown (object sender, RoutedEventArgs e)
         {
             //Clearing the selections in the comboboxs in the add an additional degree pop-up.
-            cmbDegree.SelectedIndex = -1;
-            cmbMajor.SelectedIndex = -1;
-            cmbConcentration.SelectedIndex = -1;
-            cmbMinor.SelectedIndex = -1;
+            cmbDegree.SelectedIndex = 0;
+            cmbMajor.SelectedIndex = 0;
+            cmbConcentration.SelectedIndex = 0;
+            cmbMinor.SelectedIndex = 0;
 
             cmbMajor.Items.Remove("POLI - Political Science");
             cmbMajor.Items.Remove("CPSC - Computer Science");
@@ -1063,6 +1147,7 @@ namespace CPSC481_Prototype
             selection_cmb.Clear();
             selection_degree_cmb.Clear();
             selection_conc_cmb.Clear();
+            selection_bachalor.Clear();
 
             Econ_Minor_Expander.IsExpanded = false;
             Phil_Minor_Expander.IsExpanded = false;
@@ -1080,7 +1165,7 @@ namespace CPSC481_Prototype
 
             FNCE_Conc.Visibility = Visibility.Collapsed;
             selection_cmb_Comm_conc.Clear();
-            cmbComm_Conc.SelectedIndex = -1;
+            cmbComm_Conc.SelectedIndex = 0;
             Regular_Degree_Title.Visibility = Visibility.Visible;
             Conc_Degree_Title.Visibility = Visibility.Collapsed;
         }
