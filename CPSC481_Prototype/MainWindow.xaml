@@ -34,13 +34,13 @@
                     <Border BorderBrush="Black"
                         BorderThickness="0 0 0 1">
                         <!-- Border thickness order: "left top right bottom"-->
-                        <StackPanel Background="{DynamicResource color1}">
+                        <StackPanel Background="#FFDAD1B1">
                             <StackPanel Background="#FFEED5AB">
                                 <TextBlock HorizontalAlignment="Center" DockPanel.Dock="Left" Text="Degree Navigator" FontWeight="Bold" FontSize="24" TextDecorations="Underline" Margin="74,3,55.6,5"/>
                                 <Label HorizontalAlignment="Center" Content="Bachalor of Commerce | Majoring in Commerce" Margin="3,0,0,0" FontSize="18" FontWeight="Medium"/>
                             </StackPanel>
 
-                            <Border BorderThickness="1" BorderBrush="Black" Margin="0 0 0 5" Height="1"/>
+                            <Border BorderThickness="1" BorderBrush="Black" Margin="0 0 0 5"/>
 
                             <StackPanel Orientation="Horizontal"
                                 Margin="2">
@@ -61,38 +61,53 @@
                                         MouseDown="Add_Degree_MouseDown" Background="#FFFFF29E">
                                     <Label Content="+" HorizontalAlignment="Center" FontSize="15" FontWeight="Bold" Margin="0 0 0 3"/>
                                 </Border>
-                                <Label HorizontalAlignment="Left" Content="View additional degree (major and/or minor)" Margin="3,3,0,0" FontSize="15" FontStyle="Italic"/>
+                                <Label HorizontalAlignment="Left" Content="View another degree and/or a minor" Margin="3,3,0,0" FontSize="15" FontStyle="Italic"/>
                             </StackPanel>
 
                             <Border BorderThickness="1" BorderBrush="Black" Margin="0 5 0 5" Height="1"/>
 
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                <CheckBox Margin="15 0 10 0" Checked="Show_Complete_CheckBox_Checked" Unchecked="Show_Complete_CheckBox_Unchecked" VerticalAlignment="Center"/>
+                                <CheckBox Margin="15 0 10 0" Checked="Show_Complete_CheckBox_Checked" Unchecked="Show_Complete_CheckBox_Unchecked" VerticalAlignment="Center">
+                                    <CheckBox.LayoutTransform>
+                                        <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+                                    </CheckBox.LayoutTransform>
+                                </CheckBox>
                                 <Label Content="Show Completed Required Course(s)" FontSize="15" FontStyle="Italic"/>
                             </StackPanel>
 
-                            <Border BorderThickness="1" BorderBrush="Black" Margin="0 5 0 0" Height="1"/>
-
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                <Label Content="Options for requirement tabs:" FontSize="15" FontStyle="Italic"/>
-
-                                <Rectangle Width="1" Height="Auto" Fill="Black"/>
-                                <Label Content="Expand All" FontSize="15" FontWeight="Medium" MouseDown="degreeNav_ExpandAll_MouseDown" Background="#FFF5EAA4"/>
-                                <Rectangle Width="1" Height="Auto" Fill="Black"/>
-                                <Label Content="Collapse All" FontSize="15" FontWeight="Medium" MouseDown="degreeNav_CollapseAll_MouseDown"  Background="#FFF5EAA4"/>
-                                <Rectangle Width="1" Height="Auto" Fill="Black"/>
-                                <Label Content="View Default" FontSize="15" FontWeight="Medium" Background="#FFF5EAA4" MouseDown="RemoveAll_MouseDown"/>
-                                <Rectangle Width="1" Height="Auto" Fill="Black"/>
+                            <Border BorderThickness="1" BorderBrush="Black" Margin="0 5 0 0"/>
+                            <StackPanel Background="#FFDAD1B1">
+                                <StackPanel Orientation="Horizontal" Margin="15 10 0 5">
+                                    <Rectangle Width="20" Height="20" Fill="{DynamicResource color6}" Stroke="Black"/>
+                                    <TextBlock Text=" - Represents courses that you have met the pre-requisites for and can enroll into them." FontSize="15" FontStyle="Italic"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="15 5 0 5">
+                                    <Rectangle Width="20" Height="20" Fill="{DynamicResource color5}" Stroke="Black"/>
+                                    <TextBlock Text=" - Represents courses that you have not met the pre-requisties for and cannot enroll into them."  FontSize="15" FontStyle="Italic"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="15 5 0 5">
+                                    <Rectangle Width="20" Height="20" Fill="{DynamicResource color7}" Stroke="Black"/>
+                                    <TextBlock Text=" - Represents the general course requirement to be fulfilled for a degree." FontSize="15" FontStyle="Italic"/>
+                                </StackPanel>
                             </StackPanel>
                             
-                            <Border BorderThickness="1" BorderBrush="Black" Margin="0 0 0 5" Height="1"/>
+                            <Border BorderThickness="1" BorderBrush="Black" Margin="0 0 0 0" Height="1"/>
 
-                            <StackPanel Orientation="Horizontal">
-                                <Rectangle Width="15" Height="15" Margin="5 0 0 5" Fill="{DynamicResource color6}" Stroke="Black"/>
-                                <TextBlock Text=" - Represents the requirement course you are able to take based"/>
-                                <Rectangle Width="15" Height="15" Margin="5 0 0 5" Fill="{DynamicResource color5}" Stroke="Black"/>
-                                <TextBlock Text=" - Represents the requirement course you are able to take"/>
+                            <StackPanel Background="#FFDAD1B1">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                    <Label Content="Options for requirement tabs:" FontSize="15" FontStyle="Italic"/>
+
+                                    <Rectangle Width="1" Height="Auto" Fill="Black"/>
+                                    <Label Content="Expand All" FontSize="15" FontWeight="Medium" MouseDown="degreeNav_ExpandAll_MouseDown" Background="#FFF5EAA4"/>
+                                    <Rectangle Width="1" Height="Auto" Fill="Black"/>
+                                    <Label Content="Collapse All" FontSize="15" FontWeight="Medium" MouseDown="degreeNav_CollapseAll_MouseDown"  Background="#FFF5EAA4"/>
+                                    <Rectangle Width="1" Height="Auto" Fill="Black"/>
+                                    <Label Content="View Default" FontSize="15" FontWeight="Medium" Background="#FFF5EAA4" MouseDown="RemoveAll_MouseDown"/>
+                                    <Rectangle Width="1" Height="Auto" Fill="Black"/>
+                                </StackPanel>
                             </StackPanel>
+
+                            <Border BorderThickness="1" BorderBrush="Black"/>
                         </StackPanel>
                     </Border>
                 </StackPanel>
@@ -424,7 +439,7 @@
                                     </StackPanel>
                                 </StackPanel>
                             </Expander>
-                            
+
                             <!-- Hidden English Degree -->
                             <Border BorderThickness="2" BorderBrush="Black" Background="#FFFFECDD" Margin="2,10,4,2" Name="Degree_Poli" Visibility="Collapsed">
                                 <Grid Width="{Binding ElementName=Degree_Poli, Path=ActualWidth}">
@@ -650,10 +665,10 @@
                                         </WrapPanel>
 
                                     </Grid>
-                            </StackPanel>
-                    </Border>
+                                </StackPanel>
+                            </Border>
 
-                    <StackPanel Name="Cart_Stack_Panel" Height="500" Visibility="Collapsed" Background="white">
+                            <StackPanel Name="Cart_Stack_Panel" Height="500" Visibility="Collapsed" Background="white">
                                 <ScrollViewer Background="white" Height="{Binding ActualHeight, ElementName=Cart_Stack_Panel}">
                                     <!-- This is the Cart Stack Panel content area -->
                                     <Grid Margin="2">
@@ -1150,63 +1165,71 @@
             <Border Background="Black" Opacity="0.3" MouseDown="Tutorial_Popup_MouseDown" Grid.ColumnSpan="2"/>
             <Polygon Points="760,70 770,25 780,70" Fill="White" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="-1,0,43,0" Grid.ColumnSpan="2"/>
             <Polygon Points="585,70 595,55 605,70" Fill="White" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="-1,0,218,0" Grid.ColumnSpan="2"/>
-            <Border CornerRadius="5" Background="White" Margin="0,70,23,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="119" Width="220" Grid.Column="1">
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
-                    You can make a search here.<LineBreak/>
-                    Use <Bold>Quick Search</Bold> to find courses using<LineBreak/>
-                    only keywords or <Bold>Search Courses</Bold> for<LineBreak/>
-                    more search options. <LineBreak/><LineBreak/>
-                    Try keywords like:<LineBreak/>
-                    "ARKY" "211" or "Intro"
+            <Border CornerRadius="5" Background="White" Margin="0,70,23,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="150" Width="250" Grid.Column="1">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap">
+                    You can search for a course here.<LineBreak/><LineBreak/>
+                    Use <Bold>Quick Search</Bold> to find courses using only keywords or <Bold>Search Courses</Bold> for more search options. <LineBreak/>
+                    Eg., Keywords: "ARKY" "211" or "Intro"                    
                 </TextBlock>
             </Border>
-            <Border CornerRadius="5" Background="White" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="340" Width="400" Padding="5">
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" TextWrapping="Wrap">
+
+            <Border CornerRadius="5" Background="White" Margin="0 -800 -100 0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="150" Width="600" Padding="5" Grid.Column="0">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap">
+                    - Clicking on the <Bold>"o"</Bold> button will load a window where you can add a concentration for your current degree and view it in <Italic>Degree Navigator</Italic>.<LineBreak/>
+                    - Clicking on the <Bold>"+"</Bold> button will load a window where you can add another degree and/or a minor and view it in <Italic>Degree Navigator</Italic>.<LineBreak/>
+                    - Clicking the checkbox will show all the course(s) you have completed so far in your degree and which requirement it fulfills.    
+                </TextBlock>
+            </Border>
+
+            <Border CornerRadius="5" Background="White" Margin="0 -525 -25 0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="75" Width="600" Grid.Column="0">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap">
+                    <LineBreak/>- <Underline>Expand All</Underline>: Expands all requirement tabs presently in <Italic>Degree Navigator</Italic>.<LineBreak/>
+                    - <Underline>Collapse All</Underline>: Collapse all requirement tabs presently in <Italic>Degree Navigator</Italic>.<LineBreak/>
+                    - <Underline>View Default</Underline>: Reverts back to the default view when you initially open <Italic>Degree Navigator</Italic>.<LineBreak/>
+                </TextBlock>
+            </Border>
+
+            <Border CornerRadius="5" Background="White" Margin="0 200 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="380" Width="400" Padding="5">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap">
                     This is the <Bold>Degre Navigator</Bold>.<LineBreak/><LineBreak/>
                     
                     Here, you can view the requirements of your current degree but you can also view a concentration for your current degree by clicking the <Bold>'o'</Bold> button. 
-                    You can also view the requirements of another degree (major and/or minor) by clicking on the <Bold>'+'</Bold> button. <LineBreak/><LineBreak/>
+                    You can also view the requirements of another degree and/or a minor by clicking on the <Bold>'+'</Bold> button. <LineBreak/><LineBreak/>
  
                     <Underline>Green requirements:</Underline> means you have completed the pre-requisite(s) and when clicked will load the course in the course selector.<LineBreak/>
                     <Underline>Red requirements:</Underline> means that the pre-requisite(s) have not yet been fulfilled and when clicked will load the course in the course selector.<LineBreak/>
-                    <Underline>Blue requirements:</Underline> represents the general requirement(s) to fulfill and when clicked will take you to the search pop-up.
+                    <Underline>Blue requirements:</Underline> represents the general course requirement to be fulfilled for a degree and when clicked will load the search course window.
                 </TextBlock>
             </Border>
-            <Border CornerRadius="5" Background="White" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="92" Width="381" Grid.Column="1">
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
-                    This is the <Bold>Course Selector</Bold>.<LineBreak/>
-                    After a requirement in the <Bold>Degree Navigator</Bold> has been seleted, or <LineBreak/>
-                    a search has been completed, the available courses appear here.
+            
+            <Border CornerRadius="5" Background="White" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="100" Width="420" Grid.Column="1">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap">
+                    This is the <Bold>Course Selector</Bold>.<LineBreak/><LineBreak/>
+                    
+                    After a course in the <Italic>Degree Navigator</Italic> has been seleted or a search has been completed, the courses appear here.                    
                 </TextBlock>
             </Border>
             <Polygon Points="50,110 60,90 70,110" Fill="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="494" Grid.Column="1"/>
-            <Border CornerRadius="5" Background="White" Margin="30,110,248,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="175" Width="216" Grid.Column="1">
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
-                    These are the viewing options for the<LineBreak/>
-                    <Bold>Course Selector</Bold>.<LineBreak/><LineBreak/>
-                    <Underline>Expand All</Underline>: expands all results<LineBreak/>
-                    <Underline>Collapse All</Underline>: collapse all results<LineBreak/>
-                    <Underline>Clear All</Underline>: clears the results<LineBreak/>
+            <Border CornerRadius="5" Background="White" Margin="30,110,248,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="220" Width="350" Grid.Column="1">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap">
+                    These are the viewing options for the <Bold>Course Selector</Bold>.<LineBreak/><LineBreak/>
+                    <Underline>Expand All</Underline>: Expands all results<LineBreak/>
+                    <Underline>Collapse All</Underline>: Collapse all results<LineBreak/>
+                    <Underline>Clear All</Underline>: Clears all the results<LineBreak/>
                     <LineBreak/>
-                    You can also view course availability<LineBreak/>
-                    for a particular semester by using the<LineBreak/>
-                    checkboxes.
+                    You can also filter the course availability for a particular semester by checking or unchecking the corresponding checkbox to a semester.
                 </TextBlock>
             </Border>
             <Polygon Points="315,535 345,545 315,555" Fill="White" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="-17,0,0,0" Height="569"/>
-            <Border CornerRadius="5" Background="White" Margin="0,0,22,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="170" Height="76">
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8" Width="162">
-                    Click on <Bold>Show Cart</Bold> to view <LineBreak/>
-                    courses that are currently in<LineBreak/>
-                    your enrollment shopping cart.
+            <Border CornerRadius="5" Background="White" Margin="0,0,22,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="180" Height="90">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5" FontSize="15" TextWrapping="Wrap">
+                    Click on <Bold>Show Cart</Bold> to view courses that you have added from the course selector.
                 </TextBlock>
             </Border>
             <Polygon Points="190,535 160,545 190,555" Fill="White" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="494" Height="569" Grid.Column="1"/>
-            <Border CornerRadius="5" Background="White" Margin="175,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="76" Width="194" Grid.Column="1">
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
-                    Click on <Bold>Show Schedule</Bold> to view<LineBreak/>
-                    courses you are currently enrolled<LineBreak/>
-                    in.
+            <Border CornerRadius="5" Background="White" Margin="175,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="80" Width="200" Grid.Column="1">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap" Margin="5,5">
+                    Click on <Bold>Show Schedule</Bold> to view courses you are currently enrolled in.
                 </TextBlock>
             </Border>
         </Grid>
