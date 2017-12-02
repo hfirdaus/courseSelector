@@ -813,9 +813,9 @@ namespace CPSC481_Prototype
                 {
                     MessageBox.Show("Nothing was selected");
                 }
-                else
+                else if (selection_bachalor.Count == 0)
                 {
-                    MessageBox.Show("No major was selected");
+                    MessageBox.Show("No degree was selected");
                 }
             }            
         }

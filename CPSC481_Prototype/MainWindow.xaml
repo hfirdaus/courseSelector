@@ -49,7 +49,7 @@
                                 MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" MouseDown="Current_Degree_MouseDown"  Background="#FFFFF29E">
                                     <Label Content="o" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Margin="0 0 0 3"/>
                                 </Border>
-                                <Label HorizontalAlignment="Left" Content="View concentration for current degree" Margin="3,3,0,0" FontSize="15" FontStyle="Italic"/>
+                                <Label HorizontalAlignment="Left" Content="View a concentration with current degree" Margin="3,3,0,0" FontSize="15" FontStyle="Italic"/>
                             </StackPanel>
 
                             <Border BorderThickness="1" BorderBrush="Black" Margin="0 5 0 5" Height="1"/>
@@ -1106,34 +1106,42 @@
                 </StackPanel>
             </Border>
 
-            <Border BorderThickness="5" BorderBrush="White" Name="Degree_Search_Panel" Height="410" VerticalAlignment="Top" Width="500" Margin="183,85,183,0" Background="#FFD8D7BA">
+            <Border BorderThickness="5" BorderBrush="White" Name="Degree_Search_Panel" Height="350" VerticalAlignment="Top" Width="500" Margin="183,85,183,0" Background="#FFD8D7BA">
                 <StackPanel>
                     <Button Content="X" Width="50px" HorizontalAlignment="Right" Margin="2,2" Click="Requirement_Popup_Button" Background="#FFD62920" Foreground="White" FontWeight="Medium" FontSize="15"/>
-                    <TextBlock Text="Add Degree" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"  TextDecorations="Underline"/>
+                    <TextBlock Text="Select a Degree and/or a Minor" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"  TextDecorations="Underline"/>
 
-                    <Label Content="Degree" Margin="0 15 0 0" HorizontalAlignment="Center" FontSize="18" FontWeight="Medium"/>
-                    <ComboBox Width="200" HorizontalAlignment="Center" Name="cmbDegree" DropDownClosed="cmb_DropDownClosed" FontSize="15">
-                        <ComboBoxItem FontSize="15" IsSelected="True">None</ComboBoxItem>
-                        <ComboBoxItem FontSize="15">Bachelor of Arts</ComboBoxItem>
-                        <ComboBoxItem FontSize="15">Bachelor of Science</ComboBoxItem>
-                    </ComboBox>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <StackPanel>
+                            <Label Content="Degree" Margin="0 15 0 0" HorizontalAlignment="Center" FontSize="18" FontWeight="Medium"/>
+                            <ComboBox Width="200" HorizontalAlignment="Center" Name="cmbDegree" DropDownClosed="cmb_DropDownClosed" FontSize="15">
+                                <ComboBoxItem FontSize="15" IsSelected="True">None</ComboBoxItem>
+                                <ComboBoxItem FontSize="15">Bachelor of Arts</ComboBoxItem>
+                                <ComboBoxItem FontSize="15">Bachelor of Science</ComboBoxItem>
+                            </ComboBox>
 
-                    <Label Content="Major" Margin="10 5 5 0" HorizontalAlignment="Center" FontSize="18" FontWeight="Medium"/>
-                    <ComboBox Width="200" HorizontalAlignment="Center" Name="cmbMajor" DropDownClosed="cmb1_DropDownClosed" FontSize="15">
-                        <ComboBoxItem FontSize="15" IsSelected="True">None</ComboBoxItem>
-                    </ComboBox>
+                            <Label Content="Major" Margin="10 5 5 0" HorizontalAlignment="Center" FontSize="18" FontWeight="Medium"/>
+                            <ComboBox Width="200" HorizontalAlignment="Center" Name="cmbMajor" DropDownClosed="cmb1_DropDownClosed" FontSize="15">
+                                <ComboBoxItem FontSize="15" IsSelected="True">None</ComboBoxItem>
+                            </ComboBox>
 
-                    <Label Content="Concentration" Margin="10 5 5 0" HorizontalAlignment="Center" FontSize="18" FontWeight="Medium"/>
-                    <ComboBox Width="200" HorizontalAlignment="Center" Name="cmbConcentration" DropDownClosed="cmb2_DropDownClosed" FontSize="15">
-                        <ComboBoxItem FontSize="15" IsSelected="True">None</ComboBoxItem>
-                    </ComboBox>
+                            <Label Content="Concentration" Margin="10 5 5 0" HorizontalAlignment="Center" FontSize="18" FontWeight="Medium"/>
+                            <ComboBox Width="200" HorizontalAlignment="Center" Name="cmbConcentration" DropDownClosed="cmb2_DropDownClosed" FontSize="15">
+                                <ComboBoxItem FontSize="15" IsSelected="True">None</ComboBoxItem>
+                            </ComboBox>
+                        </StackPanel>
 
-                    <Label Content="Minor" Margin="10 5 5 0" HorizontalAlignment="Center" FontSize="18" FontWeight="Medium"/>
-                    <ComboBox Width="200" HorizontalAlignment="Center" Name="cmbMinor" DropDownClosed="cmb_Minor_DropDownClosed" FontSize="15">
-                        <ComboBoxItem FontSize="15" IsSelected="True">None</ComboBoxItem>
-                        <ComboBoxItem FontSize="15">ECON - Economics</ComboBoxItem>
-                        <ComboBoxItem FontSize="15">PHIL - Philosophy</ComboBoxItem>
-                    </ComboBox>
+                        <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" BorderThickness="2" BorderBrush="Black" Margin="25 30 25 0"/>
+
+                        <StackPanel>
+                            <Label Content="Minor" Margin="10 70 5 0" HorizontalAlignment="Center" FontSize="18" FontWeight="Medium"/>
+                            <ComboBox Width="200" HorizontalAlignment="Center" Name="cmbMinor" DropDownClosed="cmb_Minor_DropDownClosed" FontSize="15">
+                                <ComboBoxItem FontSize="15" IsSelected="True">None</ComboBoxItem>
+                                <ComboBoxItem FontSize="15">ECON - Economics</ComboBoxItem>
+                                <ComboBoxItem FontSize="15">PHIL - Philosophy</ComboBoxItem>
+                            </ComboBox>
+                        </StackPanel>
+                    </StackPanel>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Content="Add" Width="65" Margin="10, 20" Click="addButton_cmb_Click" FontSize="18" FontWeight="Medium"/>
@@ -1146,7 +1154,7 @@
                 <StackPanel>
                     <Button Content="X" Width="50px" HorizontalAlignment="Right" Margin="2,2" Click="Requirement_Popup_Button" Background="#FFD62920" Foreground="White" FontWeight="Medium" FontSize="15"/>
                     <StackPanel>
-                        <TextBlock Text="Current Degree" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"  TextDecorations="Underline"/>
+                        <TextBlock Text="Select a Concentration" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" TextDecorations="Underline" Margin="0 5 0 0"/>
 
                         <Label Content="Degree: Bachelor of Commerce" Margin="0 15 0 0" HorizontalAlignment="Center" FontSize="18" FontStyle="Italic" FontWeight="Medium"/>
                         <Label Content="Major: Commerce" Margin="0 5 0 0" HorizontalAlignment="Center" FontSize="18" FontStyle="Italic" FontWeight="Medium"/>
