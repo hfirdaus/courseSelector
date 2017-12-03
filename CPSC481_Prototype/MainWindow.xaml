@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CPSC481_Prototype"
         mc:Ignorable="d"
-        Title="Improved Course Registration" Height="600" Width="830" Background="#FFEEECE9">
+        Title="Improved Course Registration" Height="600" Width="830" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
     <Window.Resources>
         <SolidColorBrush x:Key="color1">#FFDAD1B1</SolidColorBrush>
         <SolidColorBrush x:Key="color2">#DCD0C0</SolidColorBrush>
