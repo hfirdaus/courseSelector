@@ -115,18 +115,16 @@
 
                 <DockPanel LastChildFill="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DockPanel.Dock="Top">
                     <!--Show Completed Course-->
-                    <Border BorderThickness="0 3 0 3" BorderBrush="Black" Name="Show_Completed_Stack_Panel" DockPanel.Dock="Bottom" Visibility="Collapsed" MinHeight="150">
-                        <ScrollViewer Background="{DynamicResource color4}">
+                    <Border BorderThickness="0 3 0 3" BorderBrush="Black" Name="Show_Completed_Stack_Panel" DockPanel.Dock="Bottom" Visibility="Collapsed" MinHeight="175">
+                        <ScrollViewer Background="#FFC3BEA6">
                             <StackPanel>
-                                <Border BorderThickness="2" BorderBrush="Black" Margin="2,5,4,2">
-                                    <StackPanel Background="White">
-                                        <TextBlock Text="Completed Course(s)" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Margin="3"/>
-                                    </StackPanel>
-                                </Border>
+                                <TextBlock Text="Completed Course(s)" HorizontalAlignment="Center" FontSize="22" FontWeight="Bold" Margin="3" TextDecorations="Underline"/>
+                                <Border BorderThickness="1" BorderBrush="Black" Margin="0,3,0,0"/>
+
                                 <Border Margin="5 10 5 0" BorderThickness="1" BorderBrush="Black" Background="White">
-                                    <StackPanel>
+                                    <StackPanel Background="#FFC4FFEF">
                                         <TextBlock Text="ENGL 201 - Approaches to Literature" TextDecorations="Underline" FontWeight="Medium" Margin="3, 0" FontSize="14"/>
-                                        <TextBlock TextWrapping="Wrap" Text="Requirement 2: Non-Commerce Courses (Junior English 3 units or 0.5 full course equivalent)" Margin="3, 0" FontSize="14"/>
+                                        <TextBlock TextWrapping="Wrap" Text="Requirement 2: Non-Commerce Courses - Junior English 3 units or 0.5 full course equivalent" Margin="3, 0" FontSize="14"/>
                                         <TextBlock Margin="3, 0" Text="Completed date: Fall Block Week 2017" FontSize="14"/>
                                     </StackPanel>
                                 </Border>
