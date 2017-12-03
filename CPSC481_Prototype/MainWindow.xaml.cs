@@ -642,24 +642,36 @@ namespace CPSC481_Prototype
             Course newCourse = new CPSC481_Prototype.Course(dept, number, title, descr, semester, year);
             for (int i = 0; i < num_of_Off; i++)
             {
+                Random rnd = new Random();
+                int lect_time = rnd.Next(1, 7);
+                int tut_time = rnd.Next(1, 6);
+                int lab_time = rnd.Next(1, 6);            
+                if (lect_time == lab_time)
+                {
+                    do
+                    {
+                        lab_time = rnd.Next(1, 6);
+                    } while (lect_time == lab_time);
+                }
+
                 Offering offering = new Offering();
                 Section lecture = new Section();
                 lecture.Name = "Lecture " + i;
-                lecture.Time = "MWF 0:00";
+                lecture.Time = "M/W/F: " + lect_time.ToString() + ":00PM - " + lect_time.ToString() + ":50PM";
                 lecture.Select_Command = new LectureCommand(newCourse, lecture);
                 offering.Lecture = lecture;
                 for (int j = 0; j < num_of_Tut; j++)
                 {
                     Section tutorial = new Section();
                     tutorial.Name = "Tutorial " + j;
-                    tutorial.Time = "W 1:11";
+                    tutorial.Time = "T/R: " + tut_time.ToString() + ":00PM - " + tut_time.ToString() + ":50PM";
                     offering.Tutorials.Add(tutorial);
                 }
                 for (int j = 0; j < num_of_Lab; j++)
                 {
                     Section lab = new Section();
                     lab.Name = "Lab " + j;
-                    lab.Time = "F 1:11";
+                    lab.Time = "F: " + lab_time.ToString() + ":00PM - " + lab_time.ToString() + ":50PM";
                     offering.Labs.Add(lab);
                 }
                 newCourse.AddOffering(offering);

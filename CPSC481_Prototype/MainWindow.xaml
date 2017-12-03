@@ -580,23 +580,23 @@
                         <!-- Border thickness order: "left top right bottom"-->
                         <DockPanel>
                             <TextBlock HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="10 3 " TextDecorations="Underline" Text="Course Selector" FontWeight="Bold" FontSize="24"/>
-                            <Button Click="Search_Button_Click" HorizontalAlignment="Center" DockPanel.Dock="Right" Margin="4" Content="Search Courses" FontSize="22" FontWeight="Medium" Background="{StaticResource color4}"/>
+                            <Button Click="Search_Button_Click" HorizontalAlignment="Center" DockPanel.Dock="Right" Margin="4" Content="Search Courses" FontSize="18" FontWeight="Medium" Background="{StaticResource color4}"/>
 
                         </DockPanel>
                     </Border>
                     <Border BorderBrush="Black" BorderThickness="0 0 0 1">
                         <DockPanel Margin="2">
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="Expand All" MouseDown="Expand_All_Course_Selector"/>
+                                <Label Content="Expand All" MouseDown="Expand_All_Course_Selector" FontSize="15" FontWeight="Medium"/>
                                 <Rectangle Width="1" Height="Auto" Fill="Black"/>
-                                <Label Content="Collapse All" MouseDown="Collapse_All_Course_Selector"/>
+                                <Label Content="Collapse All" MouseDown="Collapse_All_Course_Selector" FontSize="15" FontWeight="Medium"/>
                                 <Rectangle Width="1" Height="Auto" Fill="Black"/>
-                                <Label Content="Clear Courses" MouseDown="Clear_All_Course_Selector"/>
+                                <Label Content="Clear Courses" MouseDown="Clear_All_Course_Selector" FontSize="15" FontWeight="Medium"/>
                                 <Rectangle Width="1" Height="Auto" Fill="Black"/>
                             </StackPanel>
                             <DockPanel LastChildFill="True">
-                                <Label DockPanel.Dock="Left" Content="Quick Search:"/>
-                                <Button DockPanel.Dock="Right" Content="Go" Margin="2"
+                                <Label DockPanel.Dock="Left" Content="Quick Search:" FontSize="15" FontWeight="Medium"/>
+                                <Button DockPanel.Dock="Right" Content="Go" Margin="2" FontSize="15" FontWeight="Medium"
                                         MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
                                         MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="{StaticResource color4}"/>
                                 <TextBox Margin="4" Background="{StaticResource color3}"/>
@@ -631,6 +631,7 @@
                         </Grid>
                     </Border>
                 </StackPanel>
+
                 <StackPanel Name="Cart_Sched_Stack_Panel" DockPanel.Dock="Bottom" Visibility="Collapsed">
                     <Border BorderThickness="0 1 0 1" BorderBrush="Black" >
                         <StackPanel>
@@ -939,7 +940,7 @@
                                 </Label.Resources>
                             </Label>
                             <!--Create Tutorial button here-->
-                            <Button Content="Tutorial" Click="Tutorial_Button_Click" Grid.Column="1" Margin="0,0,0,-60" FontSize="22" FontWeight="Medium" BorderThickness="1 1 1 1" HorizontalAlignment="Center" Width="77" Height="30" VerticalAlignment="Center" Background="{StaticResource color4}">
+                            <Button Content="Tutorial" Click="Tutorial_Button_Click" Grid.Column="1" Margin="0,25,0,-60" FontSize="20" FontWeight="Medium" HorizontalAlignment="Center" Width="100" Height="35" VerticalAlignment="Center" Background="{StaticResource color4}">
                                 <Button.Resources>
                                     <Style TargetType="Button">
                                         <Setter Property="Visibility" Value="Collapsed"/>
@@ -1030,11 +1031,11 @@
                                Margin="0, 0, 20, 5">
                     </StackPanel>
                     <Canvas>
-                        <Border Name="Show_Cart_Border" BorderBrush="Black" BorderThickness="1 1 1 0" Canvas.Bottom="0" CornerRadius="0 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{StaticResource color2}">
-                            <Label Name="Show_Cart_Label" Content="Show Cart"/>
+                        <Border Name="Show_Cart_Border" BorderBrush="Black" BorderThickness="0 3 3 0" Canvas.Bottom="0" CornerRadius="0 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{StaticResource color2}">
+                            <Label Name="Show_Cart_Label" Content="Show Cart" FontWeight="Medium" FontSize="18"/>
                         </Border>
-                        <Border Name="Show_Schedule_Border" BorderBrush="Black" BorderThickness="1 1 1 0" Canvas.Bottom="0" Canvas.Left="{Binding ElementName=Show_Cart_Label, Path=ActualWidth}" CornerRadius="10 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{StaticResource color2}">
-                            <Label Name="Show_Schedule_Label"  Content="Show Schedule"/>
+                        <Border Name="Show_Schedule_Border" BorderBrush="Black" BorderThickness="3 3 3 0" Canvas.Bottom="0" Canvas.Left="{Binding ElementName=Show_Cart_Label, Path=ActualWidth}" CornerRadius="10 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{StaticResource color2}">
+                            <Label Name="Show_Schedule_Label"  Content="Show Schedule" FontWeight="Medium" FontSize="18"/>
                         </Border>
                     </Canvas>
                 </Grid>
