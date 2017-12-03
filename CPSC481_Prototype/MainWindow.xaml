@@ -796,99 +796,113 @@
                                     <DataTemplate DataType="x:Type local:Course">
                                         <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
                                             <StackPanel Orientation="Vertical">
-                                                <TextBlock Text="{Binding Title}" FontWeight="Bold" TextDecorations="Underline" Margin="5 5" FontSize="14"/>
-                                                <TextBlock Text="{Binding Description}" TextWrapping="Wrap" Margin="5 0" FontStyle="Italic" FontSize="12"/>
-                                                <Label Content="{Binding Semester}" FontSize="12"/>
-                                                <Button Content="Add Course" Command="{Binding Add_Course}"/>
-                                                <Button Content="Remove Course" Command="{Binding Remove_Course}"/>
-                                                <StackPanel Orientation="Horizontal">
-                                                    <ItemsControl ItemsSource="{Binding Lectures}">
-                                                        <ItemsControl.ItemTemplate>
-                                                            <DataTemplate DataType="x:Type local:Section">
-                                                                <RadioButton Content="{Binding Name}"
-                                                                             Command="{Binding Section_Selected}"
-                                                                             IsEnabled="{Binding Selectable}"
-                                                                             IsChecked="{Binding IsChecked, Mode=TwoWay}"
-                                                                             GroupName="{Binding DataContext.ID, RelativeSource={RelativeSource AncestorType=ItemsControl}, StringFormat='LEC{0}'}">
-                                                                </RadioButton>
-                                                            </DataTemplate>
-                                                        </ItemsControl.ItemTemplate>
-                                                    </ItemsControl>
-                                                </StackPanel>
-                                                <Expander IsExpanded="True">
+                                                <DockPanel>
+                                                    <Border BorderBrush="Black" BorderThickness="0 0 0 1">
+                                                        <TextBlock Text="{Binding Title}" FontWeight="Bold" TextDecorations="Underline" Margin="5 5" FontSize="14"/>
+                                                    </Border>
+                                                </DockPanel>
+                                                <Expander IsExpanded="False">
                                                     <Expander.Header>
-                                                        <TextBlock Text="Tutorials" FontWeight="Bold"/>
+                                                        <Label Content="{Binding Semester}" FontWeight="Bold" FontSize="12"/>
                                                     </Expander.Header>
-                                                    <Expander.Resources>
-                                                        <Style TargetType="Expander">
-                                                            <Setter Property="Visibility" Value="Visible"/>
-                                                            <Style.Triggers>
-                                                                <DataTrigger Binding="{Binding Tutorials.Count}" Value="0">
-                                                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                                                </DataTrigger>
-                                                            </Style.Triggers>
-                                                        </Style>
-                                                    </Expander.Resources>
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <ItemsControl ItemsSource="{Binding Tutorials}">
-                                                            <ItemsControl.ItemTemplate>
-                                                                <DataTemplate DataType="x:Type local:Section">
-                                                                    <RadioButton Content="{Binding Name}"
-                                                                             Command="{Binding Section_Selected}"
-                                                                             IsEnabled="{Binding Selectable}"
-                                                                             IsChecked="{Binding IsChecked, Mode=TwoWay}"
-                                                                             GroupName="{Binding DataContext.ID, RelativeSource={RelativeSource AncestorType=ItemsControl}, StringFormat='TUT{0}'}">
-                                                                        <RadioButton.Resources>
-                                                                            <Style TargetType="RadioButton">
-                                                                                <Style.Triggers>
-                                                                                    <Trigger Property="IsEnabled" Value="False">
-                                                                                        <Setter Property="IsChecked" Value="False"/>
-                                                                                    </Trigger>
-                                                                                </Style.Triggers>
-                                                                            </Style>
-                                                                        </RadioButton.Resources>
-                                                                    </RadioButton>
-                                                                </DataTemplate>
-                                                            </ItemsControl.ItemTemplate>
-                                                        </ItemsControl>
-                                                    </StackPanel>
-                                                </Expander>
-                                                <Expander IsExpanded="True">
-                                                    <Expander.Header>
-                                                        <TextBlock Text="Labs" FontWeight="Bold"/>
-                                                    </Expander.Header>
-                                                    <Expander.Resources>
-                                                        <Style TargetType="Expander">
-                                                            <Setter Property="Visibility" Value="Visible"/>
-                                                            <Style.Triggers>
-                                                                <DataTrigger Binding="{Binding Labs.Count}" Value="0">
-                                                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                                                </DataTrigger>
-                                                            </Style.Triggers>
-                                                        </Style>
-                                                    </Expander.Resources>
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <ItemsControl ItemsSource="{Binding Labs}">
-                                                            <ItemsControl.ItemTemplate>
-                                                                <DataTemplate DataType="x:Type local:Section">
-                                                                    <RadioButton Content="{Binding Name}"
-                                                                                 Command="{Binding Section_Selected}"
-                                                                                 IsEnabled="{Binding Selectable}"
-                                                                                 IsChecked="{Binding IsChecked, Mode=TwoWay}"
-                                                                                 GroupName="{Binding DataContext.ID, RelativeSource={RelativeSource AncestorType=ItemsControl}, StringFormat='LAB{0}'}">
-                                                                        <RadioButton.Resources>
-                                                                            <Style TargetType="RadioButton">
-                                                                                <Style.Triggers>
-                                                                                    <Trigger Property="IsEnabled" Value="False">
-                                                                                        <Setter Property="IsChecked" Value="False"/>
-                                                                                    </Trigger>
-                                                                                </Style.Triggers>
-                                                                            </Style>
-                                                                        </RadioButton.Resources>
-                                                                    </RadioButton>
-                                                                </DataTemplate>
-                                                            </ItemsControl.ItemTemplate>
-                                                        </ItemsControl>
+                                                    <StackPanel>
+                                                        <TextBlock Text="{Binding Description}" TextWrapping="Wrap" Margin="5 0" FontStyle="Italic" FontSize="12"/>
+                                                        <Expander IsExpanded="True">
+                                                            <Expander.Header>
+                                                                <TextBlock Text="Lecture" FontWeight="Bold"/>
+                                                            </Expander.Header>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <ItemsControl ItemsSource="{Binding Lectures}">
+                                                                    <ItemsControl.ItemTemplate>
+                                                                        <DataTemplate DataType="x:Type local:Section">
+                                                                            <RadioButton Content="{Binding Name}"
+													 Command="{Binding Section_Selected}"
+													 IsEnabled="{Binding Selectable}"
+													 IsChecked="{Binding IsChecked, Mode=TwoWay}"
+													 GroupName="{Binding DataContext.ID, RelativeSource={RelativeSource AncestorType=ItemsControl}, StringFormat='LEC{0}'}">
+                                                                            </RadioButton>
+                                                                        </DataTemplate>
+                                                                    </ItemsControl.ItemTemplate>
+                                                                </ItemsControl>
+                                                            </StackPanel>
+                                                        </Expander>
+                                                        <Expander IsExpanded="True">
+                                                            <Expander.Header>
+                                                                <TextBlock Text="Tutorials" FontWeight="Bold"/>
+                                                            </Expander.Header>
+                                                            <Expander.Resources>
+                                                                <Style TargetType="Expander">
+                                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding Tutorials.Count}" Value="0">
+                                                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </Expander.Resources>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <ItemsControl ItemsSource="{Binding Tutorials}">
+                                                                    <ItemsControl.ItemTemplate>
+                                                                        <DataTemplate DataType="x:Type local:Section">
+                                                                            <RadioButton Content="{Binding Name}"
+												 Command="{Binding Section_Selected}"
+												 IsEnabled="{Binding Selectable}"
+												 IsChecked="{Binding IsChecked, Mode=TwoWay}"
+												 GroupName="{Binding DataContext.ID, RelativeSource={RelativeSource AncestorType=ItemsControl}, StringFormat='TUT{0}'}">
+                                                                                <RadioButton.Resources>
+                                                                                    <Style TargetType="RadioButton">
+                                                                                        <Style.Triggers>
+                                                                                            <Trigger Property="IsEnabled" Value="False">
+                                                                                                <Setter Property="IsChecked" Value="False"/>
+                                                                                            </Trigger>
+                                                                                        </Style.Triggers>
+                                                                                    </Style>
+                                                                                </RadioButton.Resources>
+                                                                            </RadioButton>
+                                                                        </DataTemplate>
+                                                                    </ItemsControl.ItemTemplate>
+                                                                </ItemsControl>
+                                                            </StackPanel>
+                                                        </Expander>
+                                                        <Expander IsExpanded="True">
+                                                            <Expander.Header>
+                                                                <TextBlock Text="Labs" FontWeight="Bold"/>
+                                                            </Expander.Header>
+                                                            <Expander.Resources>
+                                                                <Style TargetType="Expander">
+                                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding Labs.Count}" Value="0">
+                                                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </Expander.Resources>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <ItemsControl ItemsSource="{Binding Labs}">
+                                                                    <ItemsControl.ItemTemplate>
+                                                                        <DataTemplate DataType="x:Type local:Section">
+                                                                            <RadioButton Content="{Binding Name}"
+													 Command="{Binding Section_Selected}"
+													 IsEnabled="{Binding Selectable}"
+													 IsChecked="{Binding IsChecked, Mode=TwoWay}"
+													 GroupName="{Binding DataContext.ID, RelativeSource={RelativeSource AncestorType=ItemsControl}, StringFormat='LAB{0}'}">
+                                                                                <RadioButton.Resources>
+                                                                                    <Style TargetType="RadioButton">
+                                                                                        <Style.Triggers>
+                                                                                            <Trigger Property="IsEnabled" Value="False">
+                                                                                                <Setter Property="IsChecked" Value="False"/>
+                                                                                            </Trigger>
+                                                                                        </Style.Triggers>
+                                                                                    </Style>
+                                                                                </RadioButton.Resources>
+                                                                            </RadioButton>
+                                                                        </DataTemplate>
+                                                                    </ItemsControl.ItemTemplate>
+                                                                </ItemsControl>
+                                                            </StackPanel>
+                                                        </Expander>
+                                                        <Button Content="Add To Cart" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="4" Command="{Binding Add_Course}"/>
                                                     </StackPanel>
                                                 </Expander>
                                             </StackPanel>
@@ -925,75 +939,6 @@
                                     </Style>
                                 </Button.Resources>
                             </Button>
-                            <StackPanel Name="course_selector_stackpanel" Orientation="Vertical" Grid.Column="1">
-                                <!--
-                                <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
-                                        <StackPanel>
-                                            <DockPanel>
-                                                <Border BorderBrush="Black" BorderThickness="0 0 0 1">
-                                                    <Label HorizontalAlignment="Left" DockPanel.Dock="Left" Content="MGST 217 - Introduction to Business Analytics"/>
-                                                </Border>
-                                            </DockPanel>
-                                            <Expander IsExpanded="True">
-                                                <Expander.Header>
-                                                    <TextBlock Text="Fall 2017"/>
-                                                </Expander.Header>
-                                                <StackPanel>
-                                                    <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="[Course Description]"/>
-                                                    <Expander Header= "Lecture" IsExpanded="True">
-                                                        <StackPanel Margin="20 0 0 0">
-                                                            <RadioButton GroupName="lecture">L01 - Prof - MWF - [time]</RadioButton>
-                                                            <RadioButton GroupName="lecture">L02 - Prof - MWF - [time]</RadioButton>
-                                                        </StackPanel>
-                                                    </Expander>
-                                                    <Expander Header="Tutorial" IsExpanded="True">
-                                                        <StackPanel Margin="20 0 0 0">
-                                                            <RadioButton GroupName="tutorial">T01 - TBA - MW - [time]</RadioButton>
-                                                            <RadioButton GroupName="tutorial">T02 - TBA - MW - [time]</RadioButton>
-                                                            <RadioButton GroupName="tutorial">T03 - TBA - TR - [time]</RadioButton>
-                                                            <RadioButton GroupName="tutorial">T04 - TBA - TR - [time]</RadioButton>
-                                                        </StackPanel>
-                                                    </Expander>
-                                                    <Button Click="Add_to_Cart_Click" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="4" Content="Add to Cart"/>
-                                                </StackPanel>
-                                            </Expander>
-                                        </StackPanel>
-                                    </Border>
-
-                                <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
-                                    <StackPanel>
-                                        <DockPanel>
-                                            <Border BorderBrush="Black" BorderThickness="0 0 0 1">
-                                                <Label HorizontalAlignment="Left" DockPanel.Dock="Left" Content="MGST 217 - Introduction to Business Analytics"/>
-                                            </Border>
-                                        </DockPanel>
-                                        <Expander IsExpanded="True">
-                                            <Expander.Header>
-                                                <TextBlock Text="Winter 2018"/>
-                                            </Expander.Header>
-                                            <StackPanel>
-                                                <TextBlock TextWrapping="Wrap" Margin="3, 0" Text="[Course Description]"/>
-                                                <Expander Header= "Lecture" IsExpanded="True">
-                                                    <StackPanel Margin="20 0 0 0">
-                                                        <RadioButton GroupName="lecture">L01 - Prof - MWF - [time]</RadioButton>
-                                                        <RadioButton GroupName="lecture">L02 - Prof - MWF - [time]</RadioButton>
-                                                    </StackPanel>
-                                                </Expander>
-                                                <Expander Header="Tutorial" IsExpanded="True">
-                                                    <StackPanel Margin="20 0 0 0">
-                                                        <RadioButton GroupName="tutorial">T01 - TBA - MW - [time]</RadioButton>
-                                                        <RadioButton GroupName="tutorial">T02 - TBA - MW - [time]</RadioButton>
-                                                        <RadioButton GroupName="tutorial">T03 - TBA - TR - [time]</RadioButton>
-                                                        <RadioButton GroupName="tutorial">T04 - TBA - TR - [time]</RadioButton>
-                                                    </StackPanel>
-                                                </Expander>
-                                                <Button Click="Add_to_Cart_Click" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="4" Content="Add to Cart"/>
-                                            </StackPanel>
-                                        </Expander>
-                                    </StackPanel>
-                                </Border>
-                                -->
-                            </StackPanel>
                         </Grid>
                     </ScrollViewer>
                     <StackPanel Orientation="Vertical"
@@ -1132,7 +1077,7 @@
         <!--
         Tutorial Screen
         -->
-        <Grid Name="Tutorial_Popup" Visibility="Visible">
+        <Grid Name="Tutorial_Popup" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="164*"/>
                 <ColumnDefinition Width="247*"/>
