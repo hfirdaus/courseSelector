@@ -5,10 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CPSC481_Prototype"
         mc:Ignorable="d"
-        Title="Improved Course Registration" Height="600" Width="830" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
-
+        Title="Improved Course Registration" Height="600" Width="830" Background="#FFEEECE9">
     <Window.Resources>
-        <SolidColorBrush x:Key="color1">#C0B283</SolidColorBrush>
+        <SolidColorBrush x:Key="color1">#FFDAD1B1</SolidColorBrush>
         <SolidColorBrush x:Key="color2">#DCD0C0</SolidColorBrush>
         <SolidColorBrush x:Key="color3">#F4F4F4</SolidColorBrush>
         <SolidColorBrush x:Key="color4">#BAA898</SolidColorBrush>
@@ -18,7 +17,8 @@
         <!--Green - Reached Pre-Reqs-->
         <SolidColorBrush x:Key="color7">#BFD7EA</SolidColorBrush>
         <!--Blue - Options-->
-        <!--Green-->
+        <SolidColorBrush x:Key="color8">#FFC7AC88</SolidColorBrush>
+        <SolidColorBrush x:Key="color9">#FFEEECE9</SolidColorBrush>
     </Window.Resources>
 
     <Grid>
@@ -34,8 +34,8 @@
                     <Border BorderBrush="Black"
                         BorderThickness="0 0 0 1">
                         <!-- Border thickness order: "left top right bottom"-->
-                        <StackPanel Background="#FFDAD1B1">
-                            <StackPanel Background="#FFDAD1B1">
+                        <StackPanel Background="{StaticResource color1}">
+                            <StackPanel Background="{StaticResource color1}">
                                 <TextBlock HorizontalAlignment="Center" DockPanel.Dock="Left" Text="Degree Navigator" FontWeight="Bold" FontSize="24" TextDecorations="Underline" Margin="74,3,55.6,5"/>
                                 <Label HorizontalAlignment="Center" Content="Bachalor of Commerce | Majoring in Commerce" Margin="3,0,0,0" FontSize="18" FontWeight="Medium"/>
                             </StackPanel>
@@ -76,8 +76,8 @@
                             </StackPanel>
 
                             <Border BorderThickness="1" BorderBrush="Black" Margin="0 5 0 0"/>
-                            
-                            <StackPanel Background="#FFDAD1B1">
+
+                            <StackPanel Background="{StaticResource color1}">
                                 <StackPanel Orientation="Horizontal" Margin="15 10 0 5">
                                     <Rectangle Width="20" Height="20" Fill="{DynamicResource color6}" Stroke="Black"/>
                                     <TextBlock Text=" - Represents courses that you have met the pre-requisites for and can enroll into them." FontSize="15" FontStyle="Italic"/>
@@ -94,7 +94,7 @@
                             
                             <Border BorderThickness="1" BorderBrush="Black" Margin="0 0 0 0" Height="1"/>
 
-                            <StackPanel Background="#FFDAD1B1">
+                            <StackPanel Background="{StaticResource color1}">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                                     <Label Content="Options for requirement tabs:" FontSize="15" FontStyle="Italic"/>
 
@@ -585,11 +585,11 @@
                     <Border BorderBrush="Black" BorderThickness="0 0 0 1">
                         <DockPanel Margin="2">
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="Expand All" MouseDown="Expand_All_Course_Selector" FontSize="15" FontWeight="Medium"/>
+                                <Label Content="Expand All" MouseDown="Expand_All_Course_Selector" FontSize="15" FontWeight="Medium" Background="{StaticResource color4}"/>
                                 <Rectangle Width="1" Height="Auto" Fill="Black"/>
-                                <Label Content="Collapse All" MouseDown="Collapse_All_Course_Selector" FontSize="15" FontWeight="Medium"/>
+                                <Label Content="Collapse All" MouseDown="Collapse_All_Course_Selector" FontSize="15" FontWeight="Medium" Background="{StaticResource color4}"/>
                                 <Rectangle Width="1" Height="Auto" Fill="Black"/>
-                                <Label Content="Clear Courses" MouseDown="Clear_All_Course_Selector" FontSize="15" FontWeight="Medium"/>
+                                <Label Content="Clear Courses" MouseDown="Clear_All_Course_Selector" FontSize="15" FontWeight="Medium" Background="{StaticResource color4}"/>
                                 <Rectangle Width="1" Height="Auto" Fill="Black"/>
                             </StackPanel>
                             <DockPanel LastChildFill="True">
@@ -821,17 +821,19 @@
                                         <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
                                             <StackPanel Orientation="Vertical">
                                                 <DockPanel>
-                                                    <Border BorderBrush="Black" BorderThickness="0 0 0 1">
+                                                    <Border BorderBrush="Black" BorderThickness="0 0 0 1" Background="{StaticResource color8}">
                                                         <TextBlock Text="{Binding Title}" FontWeight="Bold" TextDecorations="Underline" Margin="5 5" FontSize="14"/>
                                                     </Border>
                                                 </DockPanel>
-                                                <Expander IsExpanded="False">
+                                                <Expander IsExpanded="False" Background="{StaticResource color9}">
                                                     <Expander.Header>
                                                         <Label Content="{Binding Semester}" FontWeight="Bold" FontSize="12"/>
                                                     </Expander.Header>
                                                     <StackPanel>
-                                                        <TextBlock Text="{Binding Description}" TextWrapping="Wrap" Margin="5 0" FontStyle="Italic" FontSize="12"/>
-                                                        <Expander IsExpanded="True">
+                                                        <Border BorderBrush="Black" BorderThickness="0 0 0 1">
+                                                            <TextBlock Text="{Binding Description}" TextWrapping="Wrap" Margin="5 0" FontStyle="Italic" FontSize="12"/>
+                                                        </Border>
+                                                        <Expander IsExpanded="True"  Margin="0 5 0 0">
                                                             <Expander.Header>
                                                                 <TextBlock Text="Lecture" FontWeight="Bold"/>
                                                             </Expander.Header>
@@ -926,7 +928,7 @@
                                                                 </ItemsControl>
                                                             </StackPanel>
                                                         </Expander>
-                                                        <Button Content="Add To Cart" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="4" Command="{Binding Add_Course}"/>
+                                                        <Button Content="Add To Cart" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="4" Command="{Binding Add_Course}" Background="{StaticResource color4}"/>
                                                     </StackPanel>
                                                 </Expander>
                                             </StackPanel>
