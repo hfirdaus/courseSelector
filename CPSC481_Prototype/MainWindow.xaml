@@ -109,7 +109,7 @@
                         </ScrollViewer>
                     </Border>
 
-                    <ScrollViewer>
+                    <ScrollViewer Background="{StaticResource color3}">
                         <StackPanel>
                             <Border BorderThickness="2" BorderBrush="Black" Margin="2,5,4,2">
                                 <StackPanel  Background="#FFDADADA">
@@ -415,7 +415,7 @@
                                     </StackPanel>
                                 </StackPanel>
                             </Expander>
-                            
+
                             <!-- Hidden English Degree -->
                             <Border BorderThickness="2" BorderBrush="Black" Background="#FFFFECDD" Margin="2,10,4,2" Name="Degree_Poli" Visibility="Collapsed">
                                 <Grid Width="{Binding ElementName=Degree_Poli, Path=ActualWidth}">
@@ -640,11 +640,11 @@
                                             <Button Content="Visualize Schedule"/>
                                         </WrapPanel>
                                     </Grid>
-                            </StackPanel>
-                    </Border>
+                                </StackPanel>
+                            </Border>
 
-                    <StackPanel Name="Cart_Stack_Panel" Height="300" Visibility="Collapsed" Background="white">
-                                <ScrollViewer Background="white" Height="{Binding ActualHeight, ElementName=Cart_Stack_Panel}">
+                            <StackPanel Name="Cart_Stack_Panel" Height="300" Visibility="Collapsed" Background="White">
+                                <ScrollViewer Background="{StaticResource color2}" Height="{Binding ActualHeight, ElementName=Cart_Stack_Panel}">
                                     <!-- This is the Cart Stack Panel content area -->
                                     <Grid Margin="2">
                                         <Grid.ColumnDefinitions>
@@ -689,7 +689,7 @@
                                 </ScrollViewer>
                             </StackPanel>
                             <StackPanel Name="Sched_Stack_Panel" Height="300" Visibility="Collapsed" Background="White">
-                                <ScrollViewer Background="white" Height="{Binding ActualHeight, ElementName=Sched_Stack_Panel}">
+                                <ScrollViewer Background="{StaticResource color2}" Height="{Binding ActualHeight, ElementName=Sched_Stack_Panel}">
                                     <!-- This is the Schedule Stack Panel content area -->
                                     <Grid Margin="2">
                                         <Grid.ColumnDefinitions>
@@ -1132,7 +1132,7 @@
         <!--
         Tutorial Screen
         -->
-        <Grid Name="Tutorial_Popup" Visibility="Hidden">
+        <Grid Name="Tutorial_Popup" Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="164*"/>
                 <ColumnDefinition Width="247*"/>
@@ -1152,14 +1152,14 @@
             </Border>
             <Border CornerRadius="5" Background="White" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="340" Width="400" Padding="5">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" TextWrapping="Wrap">
-                    This is the <Bold>Degre Navigator</Bold>.<LineBreak/><LineBreak/>
+                    This is the <Bold>Degree Navigator</Bold>.<LineBreak/><LineBreak/>
                     
                     Here, you can view the requirements of your current degree but you can also view a concentration for your current degree by clicking the <Bold>'o'</Bold> button. 
                     You can also view the requirements of another degree (major and/or minor) by clicking on the <Bold>'+'</Bold> button. <LineBreak/><LineBreak/>
  
-                    <Underline>Green requirements:</Underline> means you have completed the pre-requisite(s) and when clicked will load the course in the course selector.<LineBreak/>
-                    <Underline>Red requirements:</Underline> means that the pre-requisite(s) have not yet been fulfilled and when clicked will load the course in the course selector.<LineBreak/>
-                    <Underline>Blue requirements:</Underline> represents the general requirement(s) to fulfill and when clicked will take you to the search pop-up.
+                    <Underline Foreground="{StaticResource color6}">Green requirements</Underline>: means you have completed the pre-requisite(s) and when clicked will load the course in the course selector.<LineBreak/>
+                    <Underline Foreground="{StaticResource color5}">Red requirements</Underline>: means that the pre-requisite(s) have not yet been fulfilled and when clicked will load the course in the course selector.<LineBreak/>
+                    <Underline Foreground="{StaticResource color7}">Blue requirements:</Underline> represents the general requirement(s) to fulfill and when clicked will take you to the search pop-up.
                 </TextBlock>
             </Border>
             <Border CornerRadius="5" Background="White" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="92" Width="381" Grid.Column="1">
@@ -1184,7 +1184,7 @@
                 </TextBlock>
             </Border>
             <Polygon Points="315,535 345,545 315,555" Fill="White" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="-17,0,0,0" Height="569"/>
-            <Border CornerRadius="5" Background="White" Margin="0,0,22,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="170" Height="76">
+            <Border CornerRadius="5" Background="White" Margin="136,0,22,10" VerticalAlignment="Bottom" Height="76">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8" Width="162">
                     Click on <Bold>Show Cart</Bold> to view <LineBreak/>
                     courses that are currently in<LineBreak/>
