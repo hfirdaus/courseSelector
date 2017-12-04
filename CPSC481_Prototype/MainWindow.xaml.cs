@@ -1085,6 +1085,57 @@ namespace CPSC481_Prototype
             Conc_Degree_Title.Visibility = Visibility.Collapsed;
         }
 
+        //Quick search scripted logic
+        private void Quick_Search_Click(object sender, RoutedEventArgs e)
+        {
+            CourseSelectorCourses.ClearAllCourses();
+            String Text_Selection = Quick_Search_Textbox.Text;
+            Console.WriteLine("KEYWORD: " + Text_Selection);
+            if (Text_Selection == "ACCT")
+            {
+                ACCT217();
+                ACCT301();
+                ACCT341();
+            }
+            else if (Text_Selection == "accounting" || Text_Selection == "Accounting" || Text_Selection == "Account")
+            {
+                ACCT217();
+                ACCT301();
+                ACCT341();
+            }
+            //Business Term search
+            else if (Text_Selection == "BSEN" || Text_Selection == "Business" || Text_Selection == "business")
+            {
+                BSEN395();
+                BSEN401();
+                BSEN533();
+                BSEN569();
+            }
+            //All intro classes
+            else if(Text_Selection == "introduction" || Text_Selection == "Introduction" || Text_Selection == "Intro" || Text_Selection == "intro")
+            {
+                ACCT217();
+                ECON201();
+                ECON203();
+            }
+            else if (Text_Selection == "Microeconomics" || Text_Selection == "microeconomics" || Text_Selection == "micro" || Text_Selection == "Micro")
+            {
+                ECON201();
+                ECON301();
+            }
+            else if (Text_Selection == "Macroeconomics" || Text_Selection == "macroeconomics" || Text_Selection == "macro" || Text_Selection == "Macro")
+            {
+                ECON203();
+                ECON303();
+            }
+            else
+            {
+                //Error Message
+            }
+            
+
+        }
+
         private void Advanced_Search_Click(object sender, RoutedEventArgs e)
         {
             CourseSelectorCourses.ClearAllCourses();
@@ -1116,8 +1167,102 @@ namespace CPSC481_Prototype
             {
                 //Then Level
                 if (Level_Selection == "System.Windows.Controls.ComboBoxItem: 300")
+                {  
+                    BSEN395();
+                }
+                else if (Level_Selection == "System.Windows.Controls.ComboBoxItem: 400")
+                {
+                    BSEN401();
+                }
+                else if (Level_Selection == "System.Windows.Controls.ComboBoxItem: 500")
+                {
+                    if (Text_Selection == "Dilemmas" || Text_Selection == "Decisions")
+                    {
+                        BSEN533();
+                    }
+                    else if (Text_Selection == "Manager")
+                    {
+                        BSEN569();
+                    }
+                    else
+                    {
+                        BSEN533();
+                        BSEN569();
+                    }
+                }
+                else if (Level_Selection == "System.Windows.Controls.ComboBoxItem: -" || Level_Selection == "")
                 {
                     BSEN395();
+                    BSEN401();
+                    BSEN533();
+                    BSEN569();
+                }
+            }
+            else if (Faculty_Selection == "System.Windows.Controls.ComboBoxItem: ACCT - Accounting")
+            {
+                if (Level_Selection == "System.Windows.Controls.ComboBoxItem: 200")
+                {
+                    ACCT217();
+                }
+                else if (Level_Selection == "System.Windows.Controls.ComboBoxItem: 300") 
+                {
+                    ACCT301();
+                    ACCT341();
+                }
+                else
+                {
+                    ACCT217();
+                    ACCT301();
+                    ACCT341();
+                }
+            }
+            //Econ Classes
+            else if (Faculty_Selection == "System.Windows.Controls.ComboBoxItem: ECON - Economics")
+            {
+                if(Level_Selection == "System.Windows.Controls.ComboBoxItem: 200")
+                {
+                    ECON201();
+                    ECON203();
+                }
+                else if (Level_Selection == "System.Windows.Controls.ComboBoxItem: 300")
+                {
+                    //Separate based on all criteria, using "intermediate" keyword
+                    if (Text_Selection == "intermediate" || Text_Selection == "Intermediate")
+                    {
+                        ECON301();
+                        ECON303();
+                    }
+                    else
+                    {
+                        ECON301();
+                        ECON303();
+                        ECON355();
+                    }
+                }
+                else
+                {
+
+                }
+                
+            }
+            //No Faculty Chosen
+            else
+            {
+                if (Level_Selection == "System.Windows.Controls.ComboBoxItem: 300")
+                {
+                    
+                    ACCT301();
+                    ACCT341();
+                    BSEN395();
+                    ECON301();
+                    ECON303();
+                    ECON355();
+                }
+                else if (Level_Selection == "System.Windows.Controls.ComboBoxItem: 200")
+                {
+                    ACCT217();
+                    ECON201();
+                    ECON203();
                 }
                 else if (Level_Selection == "System.Windows.Controls.ComboBoxItem: 400")
                 {
@@ -1128,15 +1273,19 @@ namespace CPSC481_Prototype
                     BSEN533();
                     BSEN569();
                 }
+                //No entry of a Level
+                else if (Level_Selection == "System.Windows.Controls.ComboBoxItem: -" || Level_Selection == "")
+                {
+
+                }
                 else
                 {
-                    BSEN395();
-                    BSEN401();
-                    BSEN533();
-                    BSEN569();
+
                 }
+                
             }
-            Console.WriteLine(Faculty_Selection);
+
+            Console.WriteLine("FACULTY:" + Faculty_Selection);
             Console.WriteLine("KEYWORD: " + Text_Selection);
 
             Requirement_Popup.Visibility = Visibility.Hidden;
@@ -1258,6 +1407,32 @@ namespace CPSC481_Prototype
                 else year = 2018;
                 Add_Course_Click("ECON", "203", "Introduction to Macroeconomics",
                     "National income determination, the monetary and banking system, and elementary fiscal and monetary policies", semester, year, 2, 2, 2);
+            }
+        }
+
+        private void ECON301()
+        {
+
+            foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
+            {
+                int year = 0;
+                if (semester == Semester.FALL) year = 2017;
+                else year = 2018;
+                Add_Course_Click("ECON", "201", "Intermediate Microeconomics",
+                    "Intermediate focus on consumption, production, exchange: market and firm equilibrium under different competitive conditions", semester, year, 2, 2, 2);
+            }
+        }
+
+        private void ECON303()
+        {
+
+            foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
+            {
+                int year = 0;
+                if (semester == Semester.FALL) year = 2017;
+                else year = 2018;
+                Add_Course_Click("ECON", "203", "Intermediate Macroeconomics",
+                    "Intermediate focus on the National income determination, the monetary and banking system, and elementary fiscal and monetary policies", semester, year, 2, 2, 2);
             }
         }
 

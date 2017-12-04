@@ -571,10 +571,10 @@
                             </StackPanel>
                             <DockPanel LastChildFill="True">
                                 <Label DockPanel.Dock="Left" Content="Quick Search:"/>
-                                <Button DockPanel.Dock="Right" Content="Go" Margin="2"
+                                <Button Click="Quick_Search_Click" DockPanel.Dock="Right" Content="Go" Margin="2"
                                         MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
                                         MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="{StaticResource color4}"/>
-                                <TextBox Margin="4" Background="{StaticResource color3}"/>
+                                <TextBox Name="Quick_Search_Textbox" Margin="4" Background="{StaticResource color3}"/>
                             </DockPanel>
                         </DockPanel>
                     </Border>
