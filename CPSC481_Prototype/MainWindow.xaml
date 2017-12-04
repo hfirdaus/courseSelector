@@ -667,8 +667,8 @@
                                 </StackPanel>
                             </Border>
 
-                            <StackPanel Name="Cart_Stack_Panel" Height="500" Visibility="Collapsed" Background="white">
-                                <ScrollViewer Background="white" Height="{Binding ActualHeight, ElementName=Cart_Stack_Panel}">
+                            <StackPanel Name="Cart_Stack_Panel" Height="500" Visibility="Collapsed">
+                                <ScrollViewer Background="{StaticResource color3}" Height="{Binding ActualHeight, ElementName=Cart_Stack_Panel}">
                                     <!-- This is the Cart Stack Panel content area -->
                                     <Grid Margin="2">
                                         <Grid.ColumnDefinitions>
@@ -686,9 +686,9 @@
                                                     <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
                                                         <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
                                                             <StackPanel Orientation="Horizontal">
-                                                                <Label Content="{Binding Department}"/>
-                                                                <Label Content="{Binding Number}"/>
-                                                                <Label Content="{Binding Title}"/>
+                                                                <Label Content="{Binding Department}" FontWeight="Bold"/>
+                                                                <Label Content="{Binding Number}" FontWeight="Bold"/>
+                                                                <Label Content="{Binding Title}" FontWeight="Bold"/>
                                                             </StackPanel>
                                                             <Label Content="{Binding Semester}"/>
                                                             <ItemsControl ItemsSource="{Binding Sections}">
@@ -712,8 +712,8 @@
                                     </Grid>
                                 </ScrollViewer>
                             </StackPanel>
-                            <StackPanel Name="Sched_Stack_Panel" Height="300" Visibility="Collapsed" Background="White">
-                                <ScrollViewer Background="{StaticResource color2}" Height="{Binding ActualHeight, ElementName=Sched_Stack_Panel}">
+                            <StackPanel Name="Sched_Stack_Panel" Height="500" Visibility="Collapsed" >
+                                <ScrollViewer Background="{StaticResource color3}" Height="{Binding ActualHeight, ElementName=Sched_Stack_Panel}">
                                     <!-- This is the Schedule Stack Panel content area -->
                                     <Grid Margin="2">
                                         <Grid.ColumnDefinitions>
