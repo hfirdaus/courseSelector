@@ -699,7 +699,6 @@
                                                                     <DataTemplate DataType="x:Type local:Section">
                                                                         <StackPanel Orientation="Horizontal">
                                                                             <Label Content="{Binding Name}" FontSize="15"/>
-                                                                            <TextBlock FontSize="15" VerticalAlignment="Center" Text=": "/>
                                                                             <Label Content="{Binding Time}" FontSize="15"/>
                                                                         </StackPanel>
                                                                     </DataTemplate>
@@ -750,7 +749,6 @@
                                                                     <DataTemplate DataType="x:Type local:Section">
                                                                         <StackPanel Orientation="Horizontal">
                                                                             <Label Content="{Binding Name}" FontSize="15"/>
-                                                                            <TextBlock FontSize="15" VerticalAlignment="Center" Text=": "/>
                                                                             <Label Content="{Binding Time}" FontSize="15"/>
                                                                         </StackPanel>
                                                                     </DataTemplate>
