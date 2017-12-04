@@ -594,8 +594,6 @@
                             </StackPanel>
                             <DockPanel LastChildFill="True">
                                 <Label DockPanel.Dock="Left" Content="Quick Search:" FontSize="15" FontWeight="Medium"/>
-                                <Button DockPanel.Dock="Right" Content="Go" Margin="2" FontSize="15" FontWeight="Medium"
-                                <Label DockPanel.Dock="Left" Content="Quick Search:"/>
                                 <Button Click="Quick_Search_Click" DockPanel.Dock="Right" Content="Go" Margin="2"
                                         MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
                                         MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="{StaticResource color4}"/>

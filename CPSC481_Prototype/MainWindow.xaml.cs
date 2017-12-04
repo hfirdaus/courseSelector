@@ -1225,9 +1225,18 @@ namespace CPSC481_Prototype
                 ECON203();
                 ECON303();
             }
+            else if(Text_Selection == "Economics" || Text_Selection == "ECON" || Text_Selection == "econ" || Text_Selection == "economics")
+            {
+                ECON201();
+                ECON203();
+                ECON301();
+                ECON303();
+                ECON355();
+            }
             else
             {
                 //Error Message
+                MessageBox.Show("Please Enter Valid Search Criteria");
             }
             
 
@@ -1373,7 +1382,56 @@ namespace CPSC481_Prototype
                 //No entry of a Level
                 else if (Level_Selection == "System.Windows.Controls.ComboBoxItem: -" || Level_Selection == "")
                 {
-
+                    if (Text_Selection == "ACCT")
+                    {
+                        ACCT217();
+                        ACCT301();
+                        ACCT341();
+                    }
+                    else if (Text_Selection == "accounting" || Text_Selection == "Accounting" || Text_Selection == "Account")
+                    {
+                        ACCT217();
+                        ACCT301();
+                        ACCT341();
+                    }
+                    //Business Term search
+                    else if (Text_Selection == "BSEN" || Text_Selection == "Business" || Text_Selection == "business")
+                    {
+                        BSEN395();
+                        BSEN401();
+                        BSEN533();
+                        BSEN569();
+                    }
+                    //All intro classes
+                    else if (Text_Selection == "introduction" || Text_Selection == "Introduction" || Text_Selection == "Intro" || Text_Selection == "intro")
+                    {
+                        ACCT217();
+                        ECON201();
+                        ECON203();
+                    }
+                    else if (Text_Selection == "Microeconomics" || Text_Selection == "microeconomics" || Text_Selection == "micro" || Text_Selection == "Micro")
+                    {
+                        ECON201();
+                        ECON301();
+                    }
+                    else if (Text_Selection == "Macroeconomics" || Text_Selection == "macroeconomics" || Text_Selection == "macro" || Text_Selection == "Macro")
+                    {
+                        ECON203();
+                        ECON303();
+                    }
+                    else if (Text_Selection == "Economics" || Text_Selection == "ECON" || Text_Selection == "econ" || Text_Selection == "economics")
+                    {
+                        ECON201();
+                        ECON203();
+                        ECON301();
+                        ECON303();
+                        ECON355();
+                    }
+                    else
+                    {
+                        //Error Message
+                        MessageBox.Show("Please Enter Valid Search Criteria");
+                    }
                 }
                 else
                 {
