@@ -630,7 +630,7 @@
                     </Border>
                 </StackPanel>
 
-                <StackPanel Name="Cart_Sched_Stack_Panel" DockPanel.Dock="Bottom" Visibility="Visible">
+                <StackPanel Name="Cart_Sched_Stack_Panel" DockPanel.Dock="Bottom" Visibility="Collapsed">
                     <Border BorderThickness="0 1 0 1" BorderBrush="Black" >
                         <StackPanel>
                             <Border BorderBrush="Black" BorderThickness="0 0 0 1">
