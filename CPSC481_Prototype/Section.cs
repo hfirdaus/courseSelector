@@ -19,6 +19,8 @@ namespace CPSC481_Prototype
         // The time of the section (E.g. "MWF 2:00 - 4:00")
         public string Time { get; set; }
 
+        public string LectureNameTime { get { return Name + " - " + Time + " - Instructor: TBA" ; } }
+
 
         public bool? IsChecked
         {

@@ -30,6 +30,7 @@ namespace CPSC481_Prototype
             Cart_Items.ItemsSource = CartSelections.instance.visible;
             Schedule_Items.ItemsSource = ScheduleSelections.instance.visible;
             instance = this;
+            Application.Current.MainWindow.WindowState= WindowState.Maximized;
 
         }
 

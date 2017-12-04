@@ -822,7 +822,11 @@
                                             <StackPanel Orientation="Vertical">
                                                 <DockPanel>
                                                     <Border BorderBrush="Black" BorderThickness="0 0 0 1" Background="{StaticResource color8}">
-                                                        <TextBlock Text="{Binding Title}" FontWeight="Bold" TextDecorations="Underline" Margin="5 5" FontSize="14"/>
+                                                        <TextBlock FontWeight="Bold" Margin="0 5" FontSize="14">
+                                                            <Label Content="{Binding Department}"/>
+                                                            <Label Content="{Binding Number}"/>
+                                                            <Label Content="{Binding Title}"/>
+                                                        </TextBlock>
                                                     </Border>
                                                 </DockPanel>
                                                 <Expander IsExpanded="False" Background="{StaticResource color9}">
@@ -831,7 +835,7 @@
                                                     </Expander.Header>
                                                     <StackPanel>
                                                         <Border BorderBrush="Black" BorderThickness="0 0 0 1">
-                                                            <TextBlock Text="{Binding Description}" TextWrapping="Wrap" Margin="5 0" FontStyle="Italic" FontSize="12"/>
+                                                            <TextBlock Text="{Binding Description}" TextWrapping="Wrap" Margin="5 5" FontStyle="Italic" FontSize="12"/>
                                                         </Border>
                                                         <Expander IsExpanded="True"  Margin="0 5 0 0">
                                                             <Expander.Header>
@@ -841,11 +845,12 @@
                                                                 <ItemsControl ItemsSource="{Binding Lectures}">
                                                                     <ItemsControl.ItemTemplate>
                                                                         <DataTemplate DataType="x:Type local:Section">
-                                                                            <RadioButton Content="{Binding Name}"
+                                                                            <RadioButton Content="{Binding LectureNameTime}" 
 													 Command="{Binding Section_Selected}"
 													 IsEnabled="{Binding Selectable}"
 													 IsChecked="{Binding IsChecked, Mode=TwoWay}"
 													 GroupName="{Binding DataContext.ID, RelativeSource={RelativeSource AncestorType=ItemsControl}, StringFormat='LEC{0}'}">
+                                                      
                                                                             </RadioButton>
                                                                         </DataTemplate>
                                                                     </ItemsControl.ItemTemplate>
@@ -870,7 +875,7 @@
                                                                 <ItemsControl ItemsSource="{Binding Tutorials}">
                                                                     <ItemsControl.ItemTemplate>
                                                                         <DataTemplate DataType="x:Type local:Section">
-                                                                            <RadioButton Content="{Binding Name}"
+                                                                            <RadioButton Content="{Binding LectureNameTime}"
 												 Command="{Binding Section_Selected}"
 												 IsEnabled="{Binding Selectable}"
 												 IsChecked="{Binding IsChecked, Mode=TwoWay}"
@@ -908,7 +913,7 @@
                                                                 <ItemsControl ItemsSource="{Binding Labs}">
                                                                     <ItemsControl.ItemTemplate>
                                                                         <DataTemplate DataType="x:Type local:Section">
-                                                                            <RadioButton Content="{Binding Name}"
+                                                                            <RadioButton Content="{Binding LectureNameTime}"
 													 Command="{Binding Section_Selected}"
 													 IsEnabled="{Binding Selectable}"
 													 IsChecked="{Binding IsChecked, Mode=TwoWay}"
