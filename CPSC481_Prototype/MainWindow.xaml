@@ -646,29 +646,29 @@
 
                                         <WrapPanel Grid.Column="0" HorizontalAlignment="Center">
                                             <CheckBox VerticalAlignment="Center" Margin="2" Checked="Cart_Semester_Checked" Unchecked="Cart_Semester_Checked" Tag="Fall" IsChecked="True"/>
-                                            <Label Content="Fall"/>
+                                            <Label FontSize="15" Content="Fall"/>
                                         </WrapPanel>
                                         <WrapPanel Grid.Column="1" HorizontalAlignment="Center">
                                             <CheckBox VerticalAlignment="Center" Margin="2" Checked="Cart_Semester_Checked" Unchecked="Cart_Semester_Checked" Tag="Winter" IsChecked="True"/>
-                                            <Label Content="Winter"/>
+                                            <Label FontSize="15" Content="Winter"/>
                                         </WrapPanel>
                                         <WrapPanel Grid.Column="2" HorizontalAlignment="Center">
                                             <CheckBox VerticalAlignment="Center" Margin="2" Checked="Cart_Semester_Checked" Unchecked="Cart_Semester_Checked" Tag="Spring"/>
-                                            <Label Content="Spring"/>
+                                            <Label FontSize="15" Content="Spring"/>
                                         </WrapPanel>
                                         <WrapPanel Grid.Column="3" HorizontalAlignment="Center">
                                             <CheckBox VerticalAlignment="Center" Margin="2" Checked="Cart_Semester_Checked" Unchecked="Cart_Semester_Checked" Tag="Summer"/>
-                                            <Label Content="Summer"/>
+                                            <Label FontSize="15" Content="Summer"/>
                                         </WrapPanel>
                                         <WrapPanel Grid.Column="4" HorizontalAlignment="Center">
-                                            <Button Content="View Weekly Schedule" Margin="20,3,0,0" VerticalAlignment="Center" HorizontalAlignment="Stretch" Background="{StaticResource color4}" Click="View_Weekly_Click"/>
+                                            <Button FontSize="15" Content="View Weekly Schedule" Margin="20,3,0,0" VerticalAlignment="Center" HorizontalAlignment="Stretch" Background="{StaticResource color4}" Click="View_Weekly_Click"/>
                                         </WrapPanel>
                                     </Grid>
                                 </StackPanel>
                             </Border>
 
                             <StackPanel Name="Cart_Stack_Panel" Height="500" Visibility="Collapsed">
-                                <ScrollViewer Background="{StaticResource color3}" Height="{Binding ActualHeight, ElementName=Cart_Stack_Panel}">
+                                <ScrollViewer Background="{StaticResource color2}" Height="{Binding ActualHeight, ElementName=Cart_Stack_Panel}">
                                     <!-- This is the Cart Stack Panel content area -->
                                     <Grid Margin="2">
                                         <Grid.ColumnDefinitions>
@@ -684,25 +684,31 @@
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate DataType="x:Type local:CartAndScheduleEntry">
                                                     <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
-                                                        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
-                                                            <StackPanel Orientation="Horizontal">
-                                                                <Label Content="{Binding Department}" FontWeight="Bold"/>
-                                                                <Label Content="{Binding Number}" FontWeight="Bold"/>
-                                                                <Label Content="{Binding Title}" FontWeight="Bold"/>
+                                                        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Background="{StaticResource color9}">
+                                                            <StackPanel Orientation="Horizontal" Background="{StaticResource color8}">
+                                                                <Label Content="{Binding Department}" FontSize="15" FontWeight="Bold"/>
+                                                                <Label Content="{Binding Number}" FontSize="15" FontWeight="Bold"/>
+                                                                <Label Content="{Binding Title}" FontSize="15" FontWeight="Bold"/>
                                                             </StackPanel>
-                                                            <Label Content="{Binding Semester}"/>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <Label FontSize="15" Content="{Binding Semester}"/>
+                                                                <TextBlock FontSize="15" VerticalAlignment="Center" Text=" Instructor: TBA "/>
+                                                            </StackPanel>
                                                             <ItemsControl ItemsSource="{Binding Sections}">
                                                                 <ItemsControl.ItemTemplate>
                                                                     <DataTemplate DataType="x:Type local:Section">
                                                                         <StackPanel Orientation="Horizontal">
-                                                                            <Label Content="{Binding Name}"/>
-                                                                            <Label Content="{Binding Time}"/>
+                                                                            <Label Content="{Binding Name}" FontSize="15"/>
+                                                                            <TextBlock FontSize="15" VerticalAlignment="Center" Text=": "/>
+                                                                            <Label Content="{Binding Time}" FontSize="15"/>
                                                                         </StackPanel>
                                                                     </DataTemplate>
                                                                 </ItemsControl.ItemTemplate>
                                                             </ItemsControl>
-                                                            <Button Content="Enroll"  Command="{Binding Enroll}"/>
-                                                            <Button Content="Remove" Command="{Binding Remove}"/>
+                                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                                                                <Button Content="Enroll" Command="{Binding Enroll}" FontSize="15" Margin="5"/>
+                                                                <Button Content="Remove" Command="{Binding Remove}" FontSize="15"  Margin="5"/>
+                                                            </StackPanel>
                                                         </StackPanel>
                                                     </Border>
                                                 </DataTemplate>
@@ -713,7 +719,7 @@
                                 </ScrollViewer>
                             </StackPanel>
                             <StackPanel Name="Sched_Stack_Panel" Height="500" Visibility="Collapsed" >
-                                <ScrollViewer Background="{StaticResource color3}" Height="{Binding ActualHeight, ElementName=Sched_Stack_Panel}">
+                                <ScrollViewer Background="{DynamicResource color2}" Height="{Binding ActualHeight, ElementName=Sched_Stack_Panel}">
                                     <!-- This is the Schedule Stack Panel content area -->
                                     <Grid Margin="2">
                                         <Grid.ColumnDefinitions>
@@ -729,24 +735,30 @@
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate DataType="x:Type local:CartAndScheduleEntry">
                                                     <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
-                                                        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
-                                                            <StackPanel Orientation="Horizontal">
-                                                                <Label Content="{Binding Department}"/>
-                                                                <Label Content="{Binding Number}"/>
-                                                                <Label Content="{Binding Title}"/>
+                                                        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Background="{StaticResource color9}">
+                                                            <StackPanel Orientation="Horizontal" Background="{StaticResource color8}">
+                                                                <Label Content="{Binding Department}" FontSize="15" FontWeight="Bold"/>
+                                                                <Label Content="{Binding Number}" FontSize="15" FontWeight="Bold"/>
+                                                                <Label Content="{Binding Title}" FontSize="15" FontWeight="Bold"/>
                                                             </StackPanel>
-                                                            <Label Content="{Binding Semester}"/>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <Label FontSize="15" Content="{Binding Semester}"/>
+                                                                <TextBlock FontSize="15" VerticalAlignment="Center" Text=" Instructor: TBA "/>
+                                                            </StackPanel>
                                                             <ItemsControl ItemsSource="{Binding Sections}">
                                                                 <ItemsControl.ItemTemplate>
                                                                     <DataTemplate DataType="x:Type local:Section">
                                                                         <StackPanel Orientation="Horizontal">
-                                                                            <Label Content="{Binding Name}"/>
-                                                                            <Label Content="{Binding Time}"/>
+                                                                            <Label Content="{Binding Name}" FontSize="15"/>
+                                                                            <TextBlock FontSize="15" VerticalAlignment="Center" Text=": "/>
+                                                                            <Label Content="{Binding Time}" FontSize="15"/>
                                                                         </StackPanel>
                                                                     </DataTemplate>
                                                                 </ItemsControl.ItemTemplate>
                                                             </ItemsControl>
-                                                            <Button Content="Remove" Command="{Binding Remove}"/>
+                                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                                                                <Button Content="Remove" Command="{Binding Remove}" FontSize="15"  Margin="5"/>
+                                                            </StackPanel>
                                                         </StackPanel>
                                                     </Border>
                                                 </DataTemplate>
@@ -754,50 +766,6 @@
                                         </ItemsControl>
                                     </Grid>
                                 </ScrollViewer>
-                                <!--    <StackPanel> HARDCODED CART AND SCHEDULE
-                                    <Border Margin="0" BorderThickness="0 1 0 1" BorderBrush="Black" Background="{StaticResource color3}">
-                                        <StackPanel Orientation="Vertical">
-                                            <StackPanel Orientation="Horizontal">
-                                                <TextBlock Margin="3, 0" FontWeight="Bold" VerticalAlignment="Center" Text="ECON 201 - Principles of Microeconomics" TextDecorations="Underline"/>
-                                                <Button Click="Remove_From_Cart" Margin="5, 0" Content="Remove" FontWeight="Bold" Background="{StaticResource color4}"/>
-                                            </StackPanel>
-                                            <TextBlock Margin="3, 0" Text="Fall 2017"/>
-                                            <TextBlock Margin="3, 0" Text="L01 - Prof - TR - [time]"/>
-                                            <TextBlock  Margin="3, 0" Text="T03 - TBA - MW - [time]"/>
-                                        </StackPanel>
-                                    </Border>
-                                    <Border Margin="0,3" BorderThickness="0 1 0 1" BorderBrush="Black" Background="{DynamicResource color3}">
-                                        <StackPanel Orientation="Vertical">
-                                            <StackPanel Orientation="Horizontal">
-                                                <TextBlock Margin="3, 0" FontWeight="Bold" VerticalAlignment="Center" Text="MGST 217 - Introduction to Business Analytics" TextDecorations="Underline"/>
-                                                <Button Click="Remove_From_Cart" Margin="5, 0" Content="Remove" FontWeight="Bold" Background="{StaticResource color4}"/>
-                                            </StackPanel>
-                                            <TextBlock Margin="3, 0" Text="Fall 2017"/>
-                                            <TextBlock Margin="3, 0" Text="L02 - Prof - MWF - [time]"/>
-                                            <TextBlock  Margin="3, 0" Text="T01 - TBA - MW - [time]"/>
-                                        </StackPanel>
-                                    </Border>
-                                </StackPanel>
-                                <Button Click="Enroll" Margin="4" Content="Enroll into Course(s)" FontWeight="Bold" MaxWidth="150" />
-                            </StackPanel>
-
-                            <StackPanel Name="Sched_Stack_Panel" MinHeight="150" Visibility="Collapsed" Background="{StaticResource color2}">
-
-                                <StackPanel>
-                                    <Border Margin="0" BorderThickness="0 1 0 1" BorderBrush="Black" Background="{StaticResource color3}">
-                                        <StackPanel Orientation="Vertical">
-                                            <StackPanel Orientation="Horizontal">
-                                                <CheckBox Margin="3, 3"/>
-                                                <TextBlock Margin="3, 0" FontWeight="Bold" VerticalAlignment="Center" Text="SGMA 217 - Introduction to Business Skills" TextDecorations="Underline"/>
-                                            </StackPanel>
-                                            <TextBlock Margin="3, 0" Text="Fall 2017"/>
-                                            <TextBlock Margin="3, 0" Text="L01 - Prof - MWF - [time]"/>
-                                            <TextBlock  Margin="3, 0" Text="T05 - TBA - TR - [time]"/>
-                                        </StackPanel>
-                                    </Border>
-                                </StackPanel>
-                                <Button Click="DeleteCourse" Margin="4" Content="Delete Selected Course(s) from Schedule" FontWeight="Bold" MaxWidth="250" Background="{DynamicResource color4}"/>
--->
                             </StackPanel>
                         </StackPanel>
                     </Border>
@@ -928,7 +896,7 @@
                                                                 </ItemsControl>
                                                             </StackPanel>
                                                         </Expander>
-                                                        <Button Content="Add To Cart" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="4" Command="{Binding Add_Course}" Background="{StaticResource color4}"/>
+                                                        <Button Content="Add To Cart" HorizontalAlignment="Right" DockPanel.Dock="Right" FontSize="15" Margin="4" Command="{Binding Add_Course}" Background="{StaticResource color4}"/>
                                                     </StackPanel>
                                                 </Expander>
                                             </StackPanel>
@@ -975,10 +943,10 @@
                                Margin="0, 0, 20, 5">
                     </StackPanel>
                     <Canvas>
-                        <Border Name="Show_Cart_Border" BorderBrush="Black" BorderThickness="0 3 3 0" Canvas.Bottom="0" CornerRadius="0 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{StaticResource color2}">
+                        <Border Name="Show_Cart_Border" BorderBrush="Black" BorderThickness="0 3 3 0" Canvas.Bottom="0" CornerRadius="0 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{StaticResource color4}">
                             <Label Name="Show_Cart_Label" Content="Show Cart" FontWeight="Medium" FontSize="18"/>
                         </Border>
-                        <Border Name="Show_Schedule_Border" BorderBrush="Black" BorderThickness="3 3 3 0" Canvas.Bottom="0" Canvas.Left="{Binding ElementName=Show_Cart_Label, Path=ActualWidth}" CornerRadius="10 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{StaticResource color2}">
+                        <Border Name="Show_Schedule_Border" BorderBrush="Black" BorderThickness="3 3 3 0" Canvas.Bottom="0" Canvas.Left="{Binding ElementName=Show_Cart_Label, Path=ActualWidth}" CornerRadius="10 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{StaticResource color4}">
                             <Label Name="Show_Schedule_Label"  Content="Show Schedule" FontWeight="Medium" FontSize="18"/>
                         </Border>
                     </Canvas>

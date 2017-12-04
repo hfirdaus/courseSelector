@@ -27,7 +27,7 @@ namespace CPSC481_Prototype
         public void Execute(object parameter)
         {
             CartSelections.RemoveFromCart(entry);
-            Messages.AddUndoMessage("Removed " + entry.Department + " " + entry.Number + " from Cart", () => CartSelections.AddToCart(entry));
+            Messages.AddUndoMessage("Removed " + entry.Department + " " + entry.Number + " in " + entry.Semester + " from Cart", () => CartSelections.AddToCart(entry));
         }
     }
 }

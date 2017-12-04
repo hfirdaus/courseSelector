@@ -32,7 +32,7 @@ namespace CPSC481_Prototype
             {
                 CourseSelectorCourses.RemoveCourse(course);
                 CartAndScheduleEntry entry = CartSelections.AddToCart(course);
-                Messages.AddUndoMessage("Added " + course.Department + " " + course.Number + " to Cart", () => CartSelections.RemoveFromCart(entry));
+                Messages.AddUndoMessage("Added " + course.Department + " " + course.Number + " in " + entry.Semester + " to Cart", () => CartSelections.RemoveFromCart(entry));
 
             }
         }

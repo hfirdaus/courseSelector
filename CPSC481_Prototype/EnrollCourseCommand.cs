@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace CPSC481_Prototype
@@ -28,13 +29,14 @@ namespace CPSC481_Prototype
         {
                 if (!entry.Number.StartsWith("2") || entry.Number.Equals("203"))
             {
-                Messages.AddMessage("Can't add " + entry.Department + " " + entry.Number + " to Schedule as you do not have the prerequisites");
+                MessageBox.Show("You can't add " + entry.Department + " " + entry.Number + " to Schedule as you do not have the prerequisites.");
                 return;
             }
+                
                 CartSelections.RemoveFromCart(entry);
                 entry.UpdateRemoveFromSchedule();
                 ScheduleSelections.AddToSchedule(entry);
-                Messages.AddUndoMessage("Moved " + entry.Department + " " + entry.Number + " to Schedule", () => reverseEnroll(entry));        
+                Messages.AddUndoMessage("Moved " + entry.Department + " " + entry.Number + "in " + entry.Semester + " to Schedule", () => reverseEnroll(entry));        
         }
 
         public void reverseEnroll(CartAndScheduleEntry entry)
