@@ -6,8 +6,19 @@
         xmlns:local="clr-namespace:CPSC481_Prototype"
         mc:Ignorable="d"
         Title="Weekly Schedule"
-        SizeToContent="WidthAndHeight" MaxHeight="1000">
+        SizeToContent="WidthAndHeight" MaxHeight="1050" MaxWidth="1000"
+        WindowStartupLocation="Manual" Left="0" Top="0">
+    <!--Height="800" Width="750" SizeToContent="WidthAndHeight" MaxHeight="1000"-->
     <Grid>
-        <Image x:Name="Weekly01_PNG" Source="Weekly01.PNG" Stretch="Uniform"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Button Content="Refresh" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" />
+        </Grid>
+        <Grid Grid.Row="1">
+            <Image x:Name="Weekly01_PNG" Source="Weekly01.PNG" Stretch="Uniform"/>
+        </Grid>
     </Grid>
 </Window>
