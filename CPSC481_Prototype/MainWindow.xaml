@@ -91,7 +91,7 @@
                                     <TextBlock Text=" - Represents the general course requirement to be fulfilled for a degree." FontSize="15" FontStyle="Italic"/>
                                 </StackPanel>
                             </StackPanel>
-                            
+
                             <Border BorderThickness="1" BorderBrush="Black" Margin="0 0 0 0" Height="1"/>
 
                             <StackPanel Background="{StaticResource color1}">
@@ -661,7 +661,7 @@
                                             <Label Content="Summer"/>
                                         </WrapPanel>
                                         <WrapPanel Grid.Column="4" HorizontalAlignment="Center">
-                                            <Button Content="Weekly Schedule View" Margin="20,3,0,0" VerticalAlignment="Center" Background="{DynamicResource color4}" />
+                                            <Button Content="View Weekly Schedule" Margin="20,3,0,0" VerticalAlignment="Center" HorizontalAlignment="Stretch" Background="{StaticResource color4}" Click="View_Weekly_Click"/>
                                         </WrapPanel>
                                     </Grid>
                                 </StackPanel>
@@ -1134,7 +1134,7 @@
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap">
                     You can search for a course here.<LineBreak/><LineBreak/>
                     Use <Bold>Quick Search</Bold> to find courses using only keywords or <Bold>Search Courses</Bold> for more search options. <LineBreak/>
-                    Eg., Keywords: "ARKY" "211" or "Intro"                    
+                    Eg., Keywords: "ARKY" "211" or "Intro"
                 </TextBlock>
             </Border>
 
@@ -1142,7 +1142,7 @@
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap">
                     - Clicking on the <Bold>"o"</Bold> button will load a window where you can add a concentration for your current degree and view it in <Italic>Degree Navigator</Italic>.<LineBreak/>
                     - Clicking on the <Bold>"+"</Bold> button will load a window where you can add another degree and/or a minor and view it in <Italic>Degree Navigator</Italic>.<LineBreak/>
-                    - Clicking the checkbox will show all the course(s) you have completed so far in your degree and which requirement it fulfills.    
+                    - Clicking the checkbox will show all the course(s) you have completed so far in your degree and which requirement it fulfills.
                 </TextBlock>
             </Border>
 
@@ -1153,7 +1153,7 @@
                     - <Underline>View Default</Underline>: Reverts back to the default view when you initially open <Italic>Degree Navigator</Italic>.<LineBreak/>
                 </TextBlock>
             </Border>
-            <Border CornerRadius="5" Background="White" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="340" Width="400" Padding="5">
+            <Border CornerRadius="5" Background="White" Margin="0,150,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="340" Width="400" Padding="5">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" TextWrapping="Wrap">
                     This is the <Bold>Degree Navigator</Bold>.<LineBreak/><LineBreak/>
                     
@@ -1165,12 +1165,12 @@
                     <Underline Foreground="{StaticResource color7}">Blue requirements:</Underline> represents the general requirement(s) to fulfill and when clicked will take you to the search pop-up.
                 </TextBlock>
             </Border>
-            
+
             <Border CornerRadius="5" Background="White" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="100" Width="420" Grid.Column="1">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap">
                     This is the <Bold>Course Selector</Bold>.<LineBreak/><LineBreak/>
                     
-                    After a course in the <Italic>Degree Navigator</Italic> has been seleted or a search has been completed, the courses appear here.                    
+                    After a course in the <Italic>Degree Navigator</Italic> has been seleted or a search has been completed, the courses appear here.
                 </TextBlock>
             </Border>
             <Polygon Points="50,110 60,90 70,110" Fill="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="494" Grid.Column="1"/>

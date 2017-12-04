@@ -1409,6 +1409,11 @@ namespace CPSC481_Prototype
             CourseSelectorCourses.ClearAllCourses();
         }
 
+        private void View_Weekly_Click(object sender, RoutedEventArgs e)
+        {
+            WeeklyView weeklyView = new WeeklyView();
+            weeklyView.Show();
+        }
     }
 }
 

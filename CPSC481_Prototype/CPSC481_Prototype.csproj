@@ -76,6 +76,9 @@
     <Compile Include="AddCourseCommand.cs" />
     <Compile Include="LectureCommand.cs" />
     <Compile Include="Section.cs" />
+    <Compile Include="WeeklyView.xaml.cs">
+      <DependentUpon>WeeklyView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -90,6 +93,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WeeklyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainWindow_Cart_Functionality.xaml.cs" />
@@ -119,6 +126,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Weekly01.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Weekly01.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
