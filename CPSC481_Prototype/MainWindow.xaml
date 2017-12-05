@@ -646,22 +646,22 @@
 
                                         <WrapPanel Grid.Column="0" HorizontalAlignment="Center">
                                             <CheckBox VerticalAlignment="Center" Margin="2" Checked="Cart_Semester_Checked" Unchecked="Cart_Semester_Checked" Tag="Fall" IsChecked="True"/>
-                                            <Label FontSize="15" Content="Fall"/>
+                                            <Label FontSize="16" Content="Fall"/>
                                         </WrapPanel>
                                         <WrapPanel Grid.Column="1" HorizontalAlignment="Center">
                                             <CheckBox VerticalAlignment="Center" Margin="2" Checked="Cart_Semester_Checked" Unchecked="Cart_Semester_Checked" Tag="Winter" IsChecked="True"/>
-                                            <Label FontSize="15" Content="Winter"/>
+                                            <Label FontSize="16" Content="Winter"/>
                                         </WrapPanel>
                                         <WrapPanel Grid.Column="2" HorizontalAlignment="Center">
                                             <CheckBox VerticalAlignment="Center" Margin="2" Checked="Cart_Semester_Checked" Unchecked="Cart_Semester_Checked" Tag="Spring"/>
-                                            <Label FontSize="15" Content="Spring"/>
+                                            <Label FontSize="16" Content="Spring"/>
                                         </WrapPanel>
                                         <WrapPanel Grid.Column="3" HorizontalAlignment="Center">
                                             <CheckBox VerticalAlignment="Center" Margin="2" Checked="Cart_Semester_Checked" Unchecked="Cart_Semester_Checked" Tag="Summer"/>
-                                            <Label FontSize="15" Content="Summer"/>
+                                            <Label FontSize="16" Content="Summer"/>
                                         </WrapPanel>
                                         <WrapPanel Grid.Column="4" HorizontalAlignment="Center">
-                                            <Button FontSize="15" Content="View Weekly Schedule" Margin="20,3,0,0" VerticalAlignment="Center" HorizontalAlignment="Stretch" Background="{StaticResource color4}" Click="View_Weekly_Click"/>
+                                            <Button FontSize="16" Content="View Weekly Schedule" Margin="20,3,0,0" VerticalAlignment="Center" HorizontalAlignment="Stretch" Background="{StaticResource color4}" Click="View_Weekly_Click" FontWeight="Medium" Width="200"/>
                                         </WrapPanel>
                                     </Grid>
                                 </StackPanel>
@@ -788,26 +788,27 @@
                                             <StackPanel Orientation="Vertical">
                                                 <DockPanel>
                                                     <Border BorderBrush="Black" BorderThickness="0 0 0 1" Background="{StaticResource color8}">
-                                                        <TextBlock FontWeight="Bold" Margin="0 5" FontSize="14">
+                                                        <TextBlock FontWeight="Bold" Margin="0 5" FontSize="16">
                                                             <Label Content="{Binding Department}"/>
                                                             <Label Content="{Binding Number}"/>
+                                                            <Label Content="-"/>
                                                             <Label Content="{Binding Title}"/>
                                                         </TextBlock>
                                                     </Border>
                                                 </DockPanel>
                                                 <Expander IsExpanded="False" Background="{StaticResource color9}">
                                                     <Expander.Header>
-                                                        <Label Content="{Binding Semester}" FontWeight="Bold" FontSize="12"/>
+                                                        <Label Content="{Binding Semester}" FontWeight="Bold" FontSize="15"/>
                                                     </Expander.Header>
                                                     <StackPanel>
                                                         <Border BorderBrush="Black" BorderThickness="0 0 0 1">
-                                                            <TextBlock Text="{Binding Description}" TextWrapping="Wrap" Margin="5 5" FontStyle="Italic" FontSize="12"/>
+                                                            <TextBlock Text="{Binding Description}" TextWrapping="Wrap" Margin="5 5" FontStyle="Italic" FontSize="15"/>
                                                         </Border>
-                                                        <Expander IsExpanded="True"  Margin="0 5 0 0">
+                                                        <Expander IsExpanded="True"  Margin="0 5 0 5">
                                                             <Expander.Header>
                                                                 <TextBlock Text="Lecture" FontWeight="Bold"/>
                                                             </Expander.Header>
-                                                            <StackPanel Orientation="Horizontal">
+                                                            <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
                                                                 <ItemsControl ItemsSource="{Binding Lectures}">
                                                                     <ItemsControl.ItemTemplate>
                                                                         <DataTemplate DataType="x:Type local:Section">
@@ -823,7 +824,7 @@
                                                                 </ItemsControl>
                                                             </StackPanel>
                                                         </Expander>
-                                                        <Expander IsExpanded="True">
+                                                        <Expander IsExpanded="True" Margin="0 5 0 5">
                                                             <Expander.Header>
                                                                 <TextBlock Text="Tutorials" FontWeight="Bold"/>
                                                             </Expander.Header>
@@ -837,7 +838,7 @@
                                                                     </Style.Triggers>
                                                                 </Style>
                                                             </Expander.Resources>
-                                                            <StackPanel Orientation="Horizontal">
+                                                            <StackPanel Orientation="Horizontal" Margin="0 5 0 5">
                                                                 <ItemsControl ItemsSource="{Binding Tutorials}">
                                                                     <ItemsControl.ItemTemplate>
                                                                         <DataTemplate DataType="x:Type local:Section">
@@ -861,7 +862,7 @@
                                                                 </ItemsControl>
                                                             </StackPanel>
                                                         </Expander>
-                                                        <Expander IsExpanded="True">
+                                                        <Expander IsExpanded="True" Margin="0 5 0 5">
                                                             <Expander.Header>
                                                                 <TextBlock Text="Labs" FontWeight="Bold"/>
                                                             </Expander.Header>
@@ -875,7 +876,7 @@
                                                                     </Style.Triggers>
                                                                 </Style>
                                                             </Expander.Resources>
-                                                            <StackPanel Orientation="Horizontal">
+                                                            <StackPanel Orientation="Horizontal" Margin="0 5 0 5">
                                                                 <ItemsControl ItemsSource="{Binding Labs}">
                                                                     <ItemsControl.ItemTemplate>
                                                                         <DataTemplate DataType="x:Type local:Section">
@@ -899,7 +900,7 @@
                                                                 </ItemsControl>
                                                             </StackPanel>
                                                         </Expander>
-                                                        <Button Content="Add To Cart" HorizontalAlignment="Right" DockPanel.Dock="Right" FontSize="15" Margin="4" Command="{Binding Add_Course}" Background="{StaticResource color4}"/>
+                                                        <Button Content="Add To Cart" HorizontalAlignment="Right" DockPanel.Dock="Right" FontSize="16" Margin="0 0 15 8" Width="100" Command="{Binding Add_Course}" Background="{StaticResource color4}" FontWeight="Medium"/>
                                                     </StackPanel>
                                                 </Expander>
                                             </StackPanel>
