@@ -118,7 +118,7 @@
                     <Border BorderThickness="0 3 0 3" BorderBrush="Black" Name="Show_Completed_Stack_Panel" DockPanel.Dock="Bottom" Visibility="Collapsed" MinHeight="175">
                         <ScrollViewer Background="#FFC3BEA6">
                             <StackPanel>
-                                <TextBlock Text="Completed Course(s)" HorizontalAlignment="Center" FontSize="22" FontWeight="Bold" Margin="3" TextDecorations="Underline"/>
+                                <TextBlock Text="Completed Required Course(s)" HorizontalAlignment="Center" FontSize="22" FontWeight="Bold" Margin="3" TextDecorations="Underline"/>
                                 <Border BorderThickness="1" BorderBrush="Black" Margin="0,3,0,0"/>
 
                                 <Border Margin="5 10 5 0" BorderThickness="1" BorderBrush="Black" Background="White">
