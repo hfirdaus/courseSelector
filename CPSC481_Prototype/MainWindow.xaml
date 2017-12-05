@@ -1123,6 +1123,7 @@
                     Eg., Keywords: "ARKY" "211" or "Intro"
                 </TextBlock>
             </Border>
+            
             <Border CornerRadius="5" Background="White" Margin="10,39,71,828" HorizontalAlignment="Center" VerticalAlignment="Center" Height="150" Width="600" Padding="5" Grid.Column="0">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap">
                     Clicking on the <Bold>"o"</Bold> button will load a window where you can select a concentration for your current degree and view it in <Italic>Degree Navigator</Italic>.<LineBreak/>
@@ -1130,8 +1131,8 @@
                     Clicking the checkbox will show all the course(s) you have completed so far in your degree and which requirement it fulfills.
                 </TextBlock>
             </Border>
-            <Polygon Points="15,25 55,25 35,55" Fill="White" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="63" Margin="0,0,576,687"/>
-            <Border CornerRadius="5" Background="White" Margin="50,-490,-25,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="75" Width="600" Grid.Column="0">
+            
+            <Border CornerRadius="5" Background="White" Margin="50,-350,-25,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="75" Width="600" Grid.Column="0">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap">
                     <LineBreak/>
                     <Underline>Expand All</Underline>: Expands all requirement tabs presently in <Italic>Degree Navigator</Italic>.<LineBreak/>
@@ -1139,8 +1140,9 @@
                     <Underline>View Default</Underline>: Reverts back to the default view when you initially open <Italic>Degree Navigator</Italic>.<LineBreak/>
                 </TextBlock>
             </Border>
-            <Border CornerRadius="5" Background="White"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="340" Width="400" Padding="5" Grid.Column="0" Margin="0,400,0,0">
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" TextWrapping="Wrap">
+            
+            <Border CornerRadius="5" Background="White"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="340" Width="400" Padding="5" Grid.Column="0" Margin="0,200,0,0">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap">
                     This is the <Bold>Degree Navigator</Bold>.<LineBreak/><LineBreak/>
                     
                     Here, you can view the requirements of your current degree, a concentration of your degree and other degrees <LineBreak/><LineBreak/>
