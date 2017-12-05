@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CPSC481_Prototype"
         mc:Ignorable="d"
-        Title="Improved Course Registration" Height="600" Width="830" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+        Title="Improved Course Registration" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"
+        WindowState="Maximized" Height="1048" Width="1715">
     <Window.Resources>
         <SolidColorBrush x:Key="color1">#FFDAD1B1</SolidColorBrush>
         <SolidColorBrush x:Key="color2">#DCD0C0</SolidColorBrush>
@@ -816,7 +817,7 @@
 													 IsEnabled="{Binding Selectable}"
 													 IsChecked="{Binding IsChecked, Mode=TwoWay}"
 													 GroupName="{Binding DataContext.ID, RelativeSource={RelativeSource AncestorType=ItemsControl}, StringFormat='LEC{0}'}">
-                                                      
+
                                                                             </RadioButton>
                                                                         </DataTemplate>
                                                                     </ItemsControl.ItemTemplate>
@@ -1108,32 +1109,31 @@
                     Eg., Keywords: "ARKY" "211" or "Intro"
                 </TextBlock>
             </Border>
-
-            <Border CornerRadius="5" Background="White" Margin="0 -800 -100 0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="150" Width="600" Padding="5" Grid.Column="0">
+            <Border CornerRadius="5" Background="White" Margin="10,39,71,828" HorizontalAlignment="Center" VerticalAlignment="Center" Height="150" Width="600" Padding="5" Grid.Column="0">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap">
-                    - Clicking on the <Bold>"o"</Bold> button will load a window where you can add a concentration for your current degree and view it in <Italic>Degree Navigator</Italic>.<LineBreak/>
-                    - Clicking on the <Bold>"+"</Bold> button will load a window where you can add another degree and/or a minor and view it in <Italic>Degree Navigator</Italic>.<LineBreak/>
-                    - Clicking the checkbox will show all the course(s) you have completed so far in your degree and which requirement it fulfills.
+                    Clicking on the <Bold>"o"</Bold> button will load a window where you can select a concentration for your current degree and view it in <Italic>Degree Navigator</Italic>.<LineBreak/>
+                    Clicking on the <Bold>"+"</Bold> button will load a window where you can select another degree and/or a minor and view its requirements in <Italic>Degree Navigator</Italic>.<LineBreak/>
+                    Clicking the checkbox will show all the course(s) you have completed so far in your degree and which requirement it fulfills.
                 </TextBlock>
             </Border>
-
-            <Border CornerRadius="5" Background="White" Margin="0 -525 -25 0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="75" Width="600" Grid.Column="0">
+            <Polygon Points="15,25 55,25 35,55" Fill="White" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="63" Margin="0,0,576,687"/>
+            <Border CornerRadius="5" Background="White" Margin="50,-490,-25,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="75" Width="600" Grid.Column="0">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap">
-                    <LineBreak/>- <Underline>Expand All</Underline>: Expands all requirement tabs presently in <Italic>Degree Navigator</Italic>.<LineBreak/>
-                    - <Underline>Collapse All</Underline>: Collapse all requirement tabs presently in <Italic>Degree Navigator</Italic>.<LineBreak/>
-                    - <Underline>View Default</Underline>: Reverts back to the default view when you initially open <Italic>Degree Navigator</Italic>.<LineBreak/>
+                    <LineBreak/>
+                    <Underline>Expand All</Underline>: Expands all requirement tabs presently in <Italic>Degree Navigator</Italic>.<LineBreak/>
+                    <Underline>Collapse All</Underline>: Collapse all requirement tabs presently in <Italic>Degree Navigator</Italic>.<LineBreak/>
+                    <Underline>View Default</Underline>: Reverts back to the default view when you initially open <Italic>Degree Navigator</Italic>.<LineBreak/>
                 </TextBlock>
             </Border>
-            <Border CornerRadius="5" Background="White" Margin="0,150,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="340" Width="400" Padding="5">
+            <Border CornerRadius="5" Background="White"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="340" Width="400" Padding="5" Grid.Column="0" Margin="0,400,0,0">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" TextWrapping="Wrap">
                     This is the <Bold>Degree Navigator</Bold>.<LineBreak/><LineBreak/>
                     
-                    Here, you can view the requirements of your current degree but you can also view a concentration for your current degree by clicking the <Bold>'o'</Bold> button. 
-                    You can also view the requirements of another degree and/or a minor by clicking on the <Bold>'+'</Bold> button. <LineBreak/><LineBreak/>
+                    Here, you can view the requirements of your current degree, a concentration of your degree and other degrees <LineBreak/><LineBreak/>
  
-                    <Underline Foreground="{StaticResource color6}">Green requirements</Underline>: means you have completed the pre-requisite(s) and when clicked will load the course in the course selector.<LineBreak/>
-                    <Underline Foreground="{StaticResource color5}">Red requirements</Underline>: means that the pre-requisite(s) have not yet been fulfilled and when clicked will load the course in the course selector.<LineBreak/>
-                    <Underline Foreground="{StaticResource color7}">Blue requirements:</Underline> represents the general requirement(s) to fulfill and when clicked will take you to the search pop-up.
+                    <Underline Foreground="{StaticResource color6}" FontWeight="Bold">Green requirements</Underline>: means you have completed the pre-requisite(s) and when clicked will load the course in the course selector.<LineBreak/>
+                    <Underline Foreground="{StaticResource color5}" FontWeight="Bold">Red requirements</Underline>: means that the pre-requisite(s) have not yet been fulfilled and when clicked will load the course in the course selector.<LineBreak/>
+                    <Underline Foreground="{StaticResource color7}" FontWeight="Bold">Blue requirements</Underline>: represents the general requirement(s) to fulfill and when clicked will take you to the search pop-up.
                 </TextBlock>
             </Border>
 
@@ -1141,7 +1141,7 @@
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap">
                     This is the <Bold>Course Selector</Bold>.<LineBreak/><LineBreak/>
                     
-                    After a course in the <Italic>Degree Navigator</Italic> has been seleted or a search has been completed, the courses appear here.
+                    After a course in the <Italic>Degree Navigator</Italic> has been seleted or a search has been completed, the available courses appear here.
                 </TextBlock>
             </Border>
             <Polygon Points="50,110 60,90 70,110" Fill="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="494" Grid.Column="1"/>
@@ -1161,9 +1161,9 @@
                     Click on <Bold>Show Cart</Bold> to view courses that you have added from the course selector.
                 </TextBlock>
             </Border>
-            <Polygon Points="190,535 160,545 190,555" Fill="White" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="494" Height="569" Grid.Column="1"/>
-            <Border CornerRadius="5" Background="White" Margin="175,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="80" Width="200" Grid.Column="1">
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap" Margin="5,5">
+            <Polygon Points="190,535 160,545 190,555" Fill="White" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="494" Height="569" Grid.Column="1" Margin="75,0,-75,0"/>
+            <Border CornerRadius="5" Background="White" Margin="257,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="80" Width="200" Grid.Column="1">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap" Margin="10,10,8,10">
                     Click on <Bold>Show Schedule</Bold> to view courses you are currently enrolled in.
                 </TextBlock>
             </Border>
