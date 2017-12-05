@@ -96,7 +96,7 @@
 
                             <StackPanel Background="{StaticResource color1}">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                    <Label Content="Options for requirement tabs:" FontSize="15" FontStyle="Italic"/>
+                                    <Label Content="Options for Degree Navigator viewer:" FontSize="15" FontStyle="Italic" Margin="5 0 5 0"/>
 
                                     <Rectangle Width="1" Height="Auto" Fill="Black"/>
                                     <Label Content="Expand All" FontSize="15" FontWeight="Medium" MouseDown="degreeNav_ExpandAll_MouseDown" Background="#FFF5EAA4"/>
@@ -116,12 +116,12 @@
                 <DockPanel LastChildFill="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DockPanel.Dock="Top">
                     <!--Show Completed Course-->
                     <Border BorderThickness="0 3 0 3" BorderBrush="Black" Name="Show_Completed_Stack_Panel" DockPanel.Dock="Bottom" Visibility="Collapsed" MinHeight="175">
-                        <ScrollViewer Background="#FFC3BEA6">
-                            <StackPanel>
+                        <ScrollViewer>
+                            <StackPanel Background="#FFC3BEA6">
                                 <TextBlock Text="Completed Required Course(s)" HorizontalAlignment="Center" FontSize="22" FontWeight="Bold" Margin="3" TextDecorations="Underline"/>
                                 <Border BorderThickness="1" BorderBrush="Black" Margin="0,3,0,0"/>
 
-                                <Border Margin="5 10 5 0" BorderThickness="1" BorderBrush="Black" Background="White">
+                                <Border Margin="5 10 5 0" BorderThickness="1" BorderBrush="Black">
                                     <StackPanel Background="#FFC4FFEF">
                                         <TextBlock Text="ENGL 201 - Approaches to Literature" TextDecorations="Underline" FontWeight="Medium" Margin="3, 0" FontSize="14"/>
                                         <TextBlock TextWrapping="Wrap" Text="Requirement 2: Non-Commerce Courses - Junior English 3 units or 0.5 full course equivalent" Margin="3, 0" FontSize="14"/>
@@ -577,56 +577,69 @@
                     <Border BorderBrush="Black" BorderThickness="0 0 0 1">
                         <!-- Border thickness order: "left top right bottom"-->
                         <DockPanel>
-                            <TextBlock HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="10 3 " TextDecorations="Underline" Text="Course Selector" FontWeight="Bold" FontSize="24"/>
-                            <Button Click="Search_Button_Click" HorizontalAlignment="Center" DockPanel.Dock="Right" Margin="4" Content="Search Courses" FontSize="18" FontWeight="Medium" Background="{StaticResource color4}"/>
-
+                            <TextBlock HorizontalAlignment="Center" DockPanel.Dock="Left" Margin="10 3 " TextDecorations="Underline" Text="Course Selector" FontWeight="Bold" FontSize="24"/>
                         </DockPanel>
                     </Border>
-                    <Border BorderBrush="Black" BorderThickness="0 0 0 1">
-                        <DockPanel Margin="2">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="Expand All" MouseDown="Expand_All_Course_Selector" FontSize="15" FontWeight="Medium" Background="{StaticResource color4}"/>
-                                <Rectangle Width="1" Height="Auto" Fill="Black"/>
-                                <Label Content="Collapse All" MouseDown="Collapse_All_Course_Selector" FontSize="15" FontWeight="Medium" Background="{StaticResource color4}"/>
-                                <Rectangle Width="1" Height="Auto" Fill="Black"/>
-                                <Label Content="Clear Courses" MouseDown="Clear_All_Course_Selector" FontSize="15" FontWeight="Medium" Background="{StaticResource color4}"/>
-                                <Rectangle Width="1" Height="Auto" Fill="Black"/>
-                            </StackPanel>
-                            <DockPanel LastChildFill="True">
-                                <Label DockPanel.Dock="Left" Content="Quick Search:" FontSize="15" FontWeight="Medium"/>
-                                <Button Click="Quick_Search_Click" DockPanel.Dock="Right" Content="Go" Margin="2"
-                                        MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
-                                        MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="{StaticResource color4}"/>
-                                <TextBox Name="Quick_Search_Textbox" Margin="4" Background="{StaticResource color3}"/>
-                            </DockPanel>
-                        </DockPanel>
-                    </Border>
-                    <Border BorderBrush="Black" BorderThickness="0 0 0 1">
-                        <Grid Margin="2" HorizontalAlignment="Stretch">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
 
-                            <WrapPanel Grid.Column="0" HorizontalAlignment="Center">
-                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Course_Semester_Checked" Unchecked="Course_Semester_Checked" Tag="Fall" IsChecked="True"/>
-                                <Label Content="Fall"/>
-                            </WrapPanel>
-                            <WrapPanel Grid.Column="1" HorizontalAlignment="Center">
-                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Course_Semester_Checked" Unchecked="Course_Semester_Checked" Tag="Winter" IsChecked="True"/>
-                                <Label Content="Winter"/>
-                            </WrapPanel>
-                            <WrapPanel Grid.Column="2" HorizontalAlignment="Center">
-                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Course_Semester_Checked" Unchecked="Course_Semester_Checked" Tag="Spring"/>
-                                <Label Content="Spring"/>
-                            </WrapPanel>
-                            <WrapPanel Grid.Column="3" HorizontalAlignment="Center">
-                                <CheckBox VerticalAlignment="Center" Margin="2" Checked="Course_Semester_Checked" Unchecked="Course_Semester_Checked" Tag="Summer"/>
-                                <Label Content="Summer"/>
-                            </WrapPanel>
-                        </Grid>
+                    <Border BorderBrush="Black" BorderThickness="0 2 0 1">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Label Content="Search for a course: " FontSize="16" FontStyle="Italic" Margin="10 0 0 0"/>
+
+                            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" BorderThickness="0.75" BorderBrush="Black" Margin="0 0 0 0"/>
+
+                            <Label Content="Quick Course Search:" FontSize="16" FontWeight="Medium" Margin="15 0 0 0"/>
+                            <TextBox Name="Quick_Search_Textbox" Margin="5" Background="{StaticResource color3}" Width="400" HorizontalAlignment="Right" FontSize="15"/>
+                            <Button Click="Quick_Search_Click" DockPanel.Dock="Right" Content="Go" Margin="5 3 5 3" FontSize="16" FontWeight="Medium" Width="40" Background="{StaticResource color4}"/>
+
+                            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" BorderThickness="0.75" BorderBrush="Black" Margin="15 0 45 0"/>
+                            
+                            <Button Click="Search_Button_Click" HorizontalAlignment="Center" Content="Advance Course Search" FontSize="16" FontWeight="Medium" Background="{StaticResource color4}" Width="250" Margin="1 1 1 1"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border BorderBrush="Black" BorderThickness="0 0 0 3">
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Options for course selector viewer: " FontSize="16" FontStyle="Italic"/>
+                            <Rectangle Width="1" Height="Auto" Fill="Black" Margin="5 0 0 0"/>
+
+                            <Label Content="Expand All" MouseDown="Expand_All_Course_Selector" FontSize="16" FontWeight="Medium" Background="{StaticResource color4}"/>
+                            <Rectangle Width="1" Height="Auto" Fill="Black"/>
+                            <Label Content="Collapse All" MouseDown="Collapse_All_Course_Selector" FontSize="16" FontWeight="Medium" Background="{StaticResource color4}"/>
+                            <Rectangle Width="1" Height="Auto" Fill="Black"/>
+                            <Label Content="Clear Courses" MouseDown="Clear_All_Course_Selector" FontSize="16" FontWeight="Medium" Background="{StaticResource color4}"/>
+                            <Rectangle Width="1" Height="Auto" Fill="Black"/>
+                            <Border BorderBrush="Black" BorderThickness="0 0 0 1"/>
+                            
+                            <CheckBox VerticalAlignment="Center" Checked="Course_Semester_Checked" Unchecked="Course_Semester_Checked" Tag="Fall" IsChecked="True" Margin="65 0 0 0">
+                                <CheckBox.LayoutTransform>
+                                    <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+                                </CheckBox.LayoutTransform>
+                            </CheckBox>
+                            <Label Content="Fall" FontSize="15"/>
+
+                            <CheckBox VerticalAlignment="Center" Checked="Course_Semester_Checked" Unchecked="Course_Semester_Checked" Tag="Winter" IsChecked="True" Margin="60 0 0 0">
+                                <CheckBox.LayoutTransform>
+                                    <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+                                </CheckBox.LayoutTransform>
+                            </CheckBox>
+                            <Label Content="Winter" FontSize="15"/>
+
+                            <CheckBox VerticalAlignment="Center" Margin="60 0 0 0" Checked="Course_Semester_Checked" Unchecked="Course_Semester_Checked" Tag="Spring">
+                                <CheckBox.LayoutTransform>
+                                    <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+                                </CheckBox.LayoutTransform>
+                            </CheckBox>
+                            <Label Content="Spring" FontSize="15"/>
+
+                            <CheckBox VerticalAlignment="Center" Margin="60 0 0 0" Checked="Course_Semester_Checked" Unchecked="Course_Semester_Checked" Tag="Summer">
+                                <CheckBox.LayoutTransform>
+                                    <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+                                </CheckBox.LayoutTransform>
+                            </CheckBox>
+                            <Label Content="Summer" FontSize="15"/>
+
+                        </StackPanel>
                     </Border>
                 </StackPanel>
 

@@ -1727,6 +1727,8 @@ namespace CPSC481_Prototype
                 ContentPresenter child = (ContentPresenter)Course_Selector_Items.ItemContainerGenerator.ContainerFromIndex(i);
                 ChangeExpander(child, true);
             }
+
+            Messages.AddMessage("Course tabs in the Course Selector viewer have all been expanded");
         }
 
         private void Collapse_All_Course_Selector(object sender, RoutedEventArgs e)
@@ -1736,6 +1738,8 @@ namespace CPSC481_Prototype
                 ContentPresenter child = (ContentPresenter)Course_Selector_Items.ItemContainerGenerator.ContainerFromIndex(i);
                 ChangeExpander(child, false);
             }
+            Messages.AddMessage("Course tabs in the Course Selector viewer have all been collapsed");
+
         }
 
         private void ChangeExpander(DependencyObject item, bool isExpanded)
@@ -1749,13 +1753,13 @@ namespace CPSC481_Prototype
                 else
                     ChangeExpander(child, isExpanded);
 
-
             }
         }
 
         private void Clear_All_Course_Selector(object sender, RoutedEventArgs e)
         {
             CourseSelectorCourses.ClearAllCourses();
+            Messages.AddMessage("Courses in the Course Selector viewer have been all cleared");
         }
 
         private void View_Weekly_Click(object sender, RoutedEventArgs e)
