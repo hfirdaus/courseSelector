@@ -11,11 +11,11 @@
     <!--Height="800" Width="750" SizeToContent="WidthAndHeight" MaxHeight="1000"-->
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <Button Content="Refresh" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" />
+            <Button Content="Refresh Schedule" HorizontalAlignment="Center" FontSize="20" FontWeight="Medium" Width="200" Height="35"/>
         </Grid>
         <Grid Grid.Row="1">
             <Image x:Name="Weekly01_PNG" Source="Weekly01.PNG" Stretch="Uniform"/>
