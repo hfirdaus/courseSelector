@@ -1166,7 +1166,7 @@
                     After a course in the <Italic>Degree Navigator</Italic> has been seleted or a search has been completed, the available courses appear here.
                 </TextBlock>
             </Border>
-            <Polygon Points="50,110 60,90 70,110" Fill="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="494" Grid.Column="1" Margin="0,15,0,0"/>
+            <Polygon Points="50,110 60,90 70,110" Fill="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="494" Grid.Column="1" Margin="205,13,0,0"/>
             <Border CornerRadius="5" Background="White" Margin="30,120,248,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="220" Width="350" Grid.Column="1">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap">
                     These are the viewing options for the <Bold>Course Selector</Bold>.<LineBreak/><LineBreak/>
