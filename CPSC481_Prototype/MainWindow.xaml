@@ -800,14 +800,17 @@
                                     <DataTemplate DataType="x:Type local:Course">
                                         <Border BorderBrush="Black" BorderThickness="1" Margin="0 5 0 5">
                                             <StackPanel Orientation="Vertical">
-                                                <DockPanel>
-                                                    <Border BorderBrush="Black" BorderThickness="0 0 0 1" Background="{StaticResource color8}">
+                                                <DockPanel Background="{StaticResource color8}">
+                                                    <Border BorderBrush="Black" BorderThickness="0 0 0 1" >
                                                         <TextBlock FontWeight="Bold" Margin="0 5" FontSize="16">
                                                             <Label Content="{Binding Department}"/>
                                                             <Label Content="{Binding Number}"/>
                                                             <Label Content="-"/>
                                                             <Label Content="{Binding Title}"/>
                                                         </TextBlock>
+                                                    </Border>
+                                                    <Border BorderBrush="Black" BorderThickness="0 0 0 1">
+                                                        <Button Content="  X  " VerticalAlignment="Center" HorizontalAlignment="Right" Command="{Binding Remove_Course}" DockPanel.Dock="Right" Margin="0 0 15 8" Background="{StaticResource color4}" FontWeight="Medium"/>
                                                     </Border>
                                                 </DockPanel>
                                                 <Expander IsExpanded="False" Background="{StaticResource color9}">
