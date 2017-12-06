@@ -1310,7 +1310,7 @@ namespace CPSC481_Prototype
                 ACCT301();
                 ACCT341();
             }
-            else if (Text_Selection == "accounting" || Text_Selection == "Accounting" || Text_Selection == "Account")
+            else if (Text_Selection == "accounting" || Text_Selection == "Accounting" || Text_Selection == "Account" || Text_Selection == "account")
             {
                 ACCT217();
                 ACCT301();
@@ -1566,7 +1566,7 @@ namespace CPSC481_Prototype
 
         private void ACCT217()
         {
-
+            Messages.AddMessage("Added ACCT 217 to Course Selection viewer");
             foreach (Semester semester in Semester.FALL_WINTER)
             {
                 int year = 0;
@@ -1579,7 +1579,7 @@ namespace CPSC481_Prototype
 
         private void ACCT301()
         {
-
+            Messages.AddMessage("Added ACCT 301 to Course Selection viewer");
             foreach (Semester semester in Semester.FALL_WINTER)
             {
                 int year = 0;
@@ -1592,7 +1592,7 @@ namespace CPSC481_Prototype
 
         private void ACCT341()
         {
-
+            Messages.AddMessage("Added ACCT 341 to Course Selection viewer");
             foreach (Semester semester in Semester.FALL_WINTER)
             {
                 int year = 0;
@@ -1605,7 +1605,7 @@ namespace CPSC481_Prototype
 
         private void BSEN395()
         {
-
+            Messages.AddMessage("Added BSEN 395 to Course Selection viewer");
             foreach (Semester semester in Semester.FALL_WINTER)
             {
                 int year = 0;
@@ -1618,7 +1618,7 @@ namespace CPSC481_Prototype
 
         private void BSEN401()
         {
-            
+            Messages.AddMessage("Added BSEN 401 to Course Selection viewer");
             foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
             {
                 int year = 0;
@@ -1631,7 +1631,7 @@ namespace CPSC481_Prototype
 
         private void BSEN533()
         {
-
+            Messages.AddMessage("Added BSEN 533 to Course Selection viewer");
             foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
             {
                 int year = 0;
@@ -1644,7 +1644,7 @@ namespace CPSC481_Prototype
 
         private void BSEN569()
         {
-
+            Messages.AddMessage("Added BSEN 569 to Course Selection viewer");
             foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
             {
                 int year = 0;
@@ -1657,7 +1657,7 @@ namespace CPSC481_Prototype
 
         private void ECON201()
         {
-
+            Messages.AddMessage("Added ECON 201 to Course Selection viewer");
             foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
             {
                 int year = 0;
@@ -1670,7 +1670,7 @@ namespace CPSC481_Prototype
 
         private void ECON203()
         {
-
+            Messages.AddMessage("Added ECON 203 to Course Selection viewer");
             foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
             {
                 int year = 0;
@@ -1683,7 +1683,7 @@ namespace CPSC481_Prototype
 
         private void ECON301()
         {
-
+            Messages.AddMessage("Added ECON 301 to Course Selection viewer");
             foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
             {
                 int year = 0;
@@ -1696,7 +1696,7 @@ namespace CPSC481_Prototype
 
         private void ECON303()
         {
-
+            Messages.AddMessage("Added ECON 303 to Course Selection viewer");
             foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
             {
                 int year = 0;
@@ -1709,7 +1709,7 @@ namespace CPSC481_Prototype
 
         private void ECON355()
         {
-
+            Messages.AddMessage("Added ECON 355 to Course Selection viewer");
             foreach (Semester semester in Semester.ALL_SEMESTERS.Take(3))
             {
                 int year = 0;
