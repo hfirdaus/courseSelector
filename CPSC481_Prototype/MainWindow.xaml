@@ -703,6 +703,7 @@
                                                                 <Label Content="{Binding Department}" FontSize="15" FontWeight="Bold"/>
                                                                 <Label Content="{Binding Number}" FontSize="15" FontWeight="Bold"/>
                                                                 <Label Content="{Binding Title}" FontSize="15" FontWeight="Bold"/>
+                                                                <Button Content="  X  " FontWeight="Medium" Command="{Binding Remove}" HorizontalAlignment="Left" FontSize="15" Margin="700 0 0 0" Background="{StaticResource color4}"/>
                                                             </StackPanel>
                                                             <StackPanel Orientation="Horizontal">
                                                                 <Label FontSize="15" Content="{Binding Semester}"/>
@@ -719,8 +720,7 @@
                                                                 </ItemsControl.ItemTemplate>
                                                             </ItemsControl>
                                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                                                                <Button Content="Enroll" Command="{Binding Enroll}" FontSize="15" Margin="5"/>
-                                                                <Button Content="Remove" Command="{Binding Remove}" FontSize="15"  Margin="5"/>
+                                                                <Button Content="Enroll" FontWeight="Medium" Command="{Binding Enroll}" FontSize="15" Margin="5" Background="{StaticResource color4}"/>
                                                             </StackPanel>
                                                         </StackPanel>
                                                     </Border>
@@ -732,7 +732,7 @@
                                 </ScrollViewer>
                             </StackPanel>
                             <StackPanel Name="Sched_Stack_Panel" Height="500" Visibility="Collapsed" >
-                                <ScrollViewer Background="{DynamicResource color2}" Height="{Binding ActualHeight, ElementName=Sched_Stack_Panel}">
+                                <ScrollViewer Background="#FFB9976D" Height="{Binding ActualHeight, ElementName=Sched_Stack_Panel}">
                                     <!-- This is the Schedule Stack Panel content area -->
                                     <Grid Margin="2">
                                         <Grid.ColumnDefinitions>
@@ -769,7 +769,7 @@
                                                                 </ItemsControl.ItemTemplate>
                                                             </ItemsControl>
                                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                                                                <Button Content="Remove" Command="{Binding Remove}" FontSize="15"  Margin="5"/>
+                                                                <Button Content="Unenroll" FontWeight="Medium" Command="{Binding Remove}" FontSize="15"  Margin="5" Background="{StaticResource color4}"/>
                                                             </StackPanel>
                                                         </StackPanel>
                                                     </Border>
@@ -964,7 +964,7 @@
                         <Border Name="Show_Cart_Border" BorderBrush="Black" BorderThickness="0 3 3 0" Canvas.Bottom="0" CornerRadius="0 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{StaticResource color4}">
                             <Label Name="Show_Cart_Label" Content="Show Cart" FontWeight="Medium" FontSize="18"/>
                         </Border>
-                        <Border Name="Show_Schedule_Border" BorderBrush="Black" BorderThickness="3 3 3 0" Canvas.Bottom="0" Canvas.Left="{Binding ElementName=Show_Cart_Label, Path=ActualWidth}" CornerRadius="10 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="{StaticResource color4}">
+                        <Border Name="Show_Schedule_Border" BorderBrush="Black" BorderThickness="3 3 3 0" Canvas.Bottom="0" Canvas.Left="{Binding ElementName=Show_Cart_Label, Path=ActualWidth}" CornerRadius="10 10 0 0" MouseDown="Cart_Schedule_MouseDown" Background="#FFB9976D">
                             <Label Name="Show_Schedule_Label"  Content="Show Schedule" FontWeight="Medium" FontSize="18"/>
                         </Border>
                     </Canvas>
