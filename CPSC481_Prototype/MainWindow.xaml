@@ -593,13 +593,13 @@
                             <Button Click="Quick_Search_Click" DockPanel.Dock="Right" Content="Go" Margin="5 3 5 3" FontSize="16" FontWeight="Medium" Width="40" Background="{StaticResource color4}"/>
 
                             <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" BorderThickness="0.75" BorderBrush="Black" Margin="15 0 45 0"/>
-                            
+
                             <Button Click="Search_Button_Click" HorizontalAlignment="Center" Content="Advance Course Search" FontSize="16" FontWeight="Medium" Background="{StaticResource color4}" Width="250" Margin="1 1 1 1"/>
                         </StackPanel>
                     </Border>
 
                     <Border BorderBrush="Black" BorderThickness="0 0 0 3">
-                        
+
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Options for course selector viewer: " FontSize="16" FontStyle="Italic"/>
                             <Rectangle Width="1" Height="Auto" Fill="Black" Margin="5 0 0 0"/>
@@ -611,7 +611,7 @@
                             <Label Content="Clear Courses" MouseDown="Clear_All_Course_Selector" FontSize="16" FontWeight="Medium" Background="{StaticResource color4}"/>
                             <Rectangle Width="1" Height="Auto" Fill="Black"/>
                             <Border BorderBrush="Black" BorderThickness="0 0 0 1"/>
-                            
+
                             <CheckBox VerticalAlignment="Center" Checked="Course_Semester_Checked" Unchecked="Course_Semester_Checked" Tag="Fall" IsChecked="True" Margin="65 0 0 0">
                                 <CheckBox.LayoutTransform>
                                     <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
@@ -1114,16 +1114,16 @@
                 <ColumnDefinition Width="247*"/>
             </Grid.ColumnDefinitions>
             <Border Background="Black" Opacity="0.3" MouseDown="Tutorial_Popup_MouseDown" Grid.ColumnSpan="2"/>
-            <Polygon Points="760,70 770,25 780,70" Fill="White" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="-1,0,43,0" Grid.ColumnSpan="2"/>
-            <Polygon Points="585,70 595,55 605,70" Fill="White" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="-1,0,218,0" Grid.ColumnSpan="2"/>
-            <Border CornerRadius="5" Background="White" Margin="0,70,23,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="150" Width="250" Grid.Column="1">
+            <Polygon Points="585,70 595,55 605,70" Fill="White" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,19,143,0" Grid.Column="1"/>
+            <Polygon Points="585,70 595,55 605,70" Fill="White" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,19,346,0" Grid.Column="1"/>
+            <Border CornerRadius="5" Background="White" Margin="0,89,125,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="150" Width="250" Grid.Column="1">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap">
                     You can search for a course here.<LineBreak/><LineBreak/>
                     Use <Bold>Quick Search</Bold> to find courses using only keywords or <Bold>Search Courses</Bold> for more search options. <LineBreak/>
                     Eg., Keywords: "ARKY" "211" or "Intro"
                 </TextBlock>
             </Border>
-            
+
             <Border CornerRadius="5" Background="White" Margin="10,39,71,828" HorizontalAlignment="Center" VerticalAlignment="Center" Height="150" Width="600" Padding="5" Grid.Column="0">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap">
                     Clicking on the <Bold>"o"</Bold> button will load a window where you can select a concentration for your current degree and view it in <Italic>Degree Navigator</Italic>.<LineBreak/>
@@ -1131,8 +1131,8 @@
                     Clicking the checkbox will show all the course(s) you have completed so far in your degree and which requirement it fulfills.
                 </TextBlock>
             </Border>
-            
-            <Border CornerRadius="5" Background="White" Margin="50,-350,-25,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="75" Width="600" Grid.Column="0">
+            <Polygon Points="50,110 60,90 70,110" Fill="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="471" Margin="210,250,0,0" Grid.Column="0"/>
+            <Border CornerRadius="5" Background="White" Margin="59,300,0,657" HorizontalAlignment="Left" VerticalAlignment="Center" Height="76" Width="600" Grid.Column="0">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap">
                     <LineBreak/>
                     <Underline>Expand All</Underline>: Expands all requirement tabs presently in <Italic>Degree Navigator</Italic>.<LineBreak/>
@@ -1140,7 +1140,7 @@
                     <Underline>View Default</Underline>: Reverts back to the default view when you initially open <Italic>Degree Navigator</Italic>.<LineBreak/>
                 </TextBlock>
             </Border>
-            
+
             <Border CornerRadius="5" Background="White"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="340" Width="400" Padding="5" Grid.Column="0" Margin="0,200,0,0">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap">
                     This is the <Bold>Degree Navigator</Bold>.<LineBreak/><LineBreak/>
@@ -1160,8 +1160,8 @@
                     After a course in the <Italic>Degree Navigator</Italic> has been seleted or a search has been completed, the available courses appear here.
                 </TextBlock>
             </Border>
-            <Polygon Points="50,110 60,90 70,110" Fill="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="494" Grid.Column="1"/>
-            <Border CornerRadius="5" Background="White" Margin="30,110,248,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="220" Width="350" Grid.Column="1">
+            <Polygon Points="50,110 60,90 70,110" Fill="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="494" Grid.Column="1" Margin="0,15,0,0"/>
+            <Border CornerRadius="5" Background="White" Margin="30,120,248,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="220" Width="350" Grid.Column="1">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap">
                     These are the viewing options for the <Bold>Course Selector</Bold>.<LineBreak/><LineBreak/>
                     <Underline>Expand All</Underline>: Expands all results<LineBreak/>
