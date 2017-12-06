@@ -35,6 +35,10 @@ namespace CPSC481_Prototype
                 Messages.AddUndoMessage("Added " + course.Department + " " + course.Number + " in " + entry.Semester + " to Cart", () => CartSelections.RemoveFromCart(entry));
 
             }
+            else
+            {
+                MessageBox.Show("Please ensure all sections (lecture/tutorial/lab) are selected for the course you wish to add");
+            }
         }
     }
 }
