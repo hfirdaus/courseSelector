@@ -772,7 +772,7 @@
                                                                 </ItemsControl.ItemTemplate>
                                                             </ItemsControl>
                                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                                                                <Button Content="Unenroll" FontWeight="Medium" Command="{Binding Remove}" FontSize="15"  Margin="5" Background="{StaticResource color4}"/>
+                                                                <Button Content="Drop Course" FontWeight="Medium" Command="{Binding Remove}" FontSize="15"  Margin="5" Background="{StaticResource color4}"/>
                                                             </StackPanel>
                                                         </StackPanel>
                                                     </Border>
