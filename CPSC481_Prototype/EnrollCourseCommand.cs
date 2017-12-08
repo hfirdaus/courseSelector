@@ -36,7 +36,7 @@ namespace CPSC481_Prototype
                 CartSelections.RemoveFromCart(entry);
                 entry.UpdateRemoveFromSchedule();
                 ScheduleSelections.AddToSchedule(entry);
-                Messages.AddUndoMessage("Moved " + entry.Department + " " + entry.Number + "in " + entry.Semester + " to Schedule", () => reverseEnroll(entry));        
+                Messages.AddUndoMessage("Moved " + entry.Department + " " + entry.Number + " in " + entry.Semester + " to Schedule", () => reverseEnroll(entry));        
         }
 
         public void reverseEnroll(CartAndScheduleEntry entry)
